@@ -3,1598 +3,1526 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080611">
-<title>PANDA PLAY</title>
+<meta name="theme-color" content="#080812">
+<title>WEBCRAFT — Sayt Sifariş Mərkəzi</title>
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
 }
 
 :root{
-  --bg:#070611;
-  --panel:#111021;
-  --panel2:#18152a;
-  --gold:#ffd54a;
-  --purple:#8b5cf6;
-  --pink:#ec4899;
-  --cyan:#22d3ee;
-  --green:#34d399;
-  --text:#fff;
-  --muted:#9894aa;
+ --bg:#070710;
+ --card:#11111d;
+ --card2:#171727;
+ --text:#fff;
+ --muted:#9797aa;
+ --purple:#8b5cf6;
+ --pink:#ec4899;
+ --cyan:#22d3ee;
+ --green:#34d399;
+ --gold:#ffd34e;
+}
+
+html{
+ scroll-behavior:smooth;
 }
 
 body{
-  min-height:100vh;
-  color:var(--text);
-  font-family:Inter,Arial,sans-serif;
-  background:
-    radial-gradient(circle at 20% 0%,#28104c 0,transparent 32%),
-    radial-gradient(circle at 100% 20%,#102d45 0,transparent 28%),
-    var(--bg);
-  overflow-x:hidden;
+ font-family:Arial,Helvetica,sans-serif;
+ background:
+ radial-gradient(circle at 10% 0%,#30115d 0,transparent 28%),
+ radial-gradient(circle at 90% 10%,#073b4b 0,transparent 25%),
+ linear-gradient(145deg,#06060d,#100817);
+ color:var(--text);
+ min-height:100vh;
 }
 
-button{
-  font-family:inherit;
-}
-
-.app{
-  width:100%;
-  max-width:720px;
-  margin:auto;
-  padding-bottom:90px;
+.container{
+ width:94%;
+ max-width:850px;
+ margin:auto;
+ padding-bottom:80px;
 }
 
 /* HEADER */
 
 .header{
-  padding:18px 16px 12px;
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(7,6,17,.82);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,.06);
+ padding:22px 0 15px;
 }
 
 .top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
 }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.logo{
+ display:flex;
+ align-items:center;
+ gap:11px;
 }
 
-.panda{
-  width:45px;
-  height:45px;
-  border-radius:15px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:28px;
-  background:linear-gradient(135deg,#fff,#bbb);
-  box-shadow:0 0 25px rgba(255,255,255,.12);
+.logoIcon{
+ width:50px;
+ height:50px;
+ border-radius:16px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:27px;
+ background:
+ linear-gradient(135deg,#8b5cf6,#ec4899);
+ box-shadow:
+ 0 0 30px rgba(139,92,246,.35);
 }
 
-.brand h1{
-  font-size:21px;
-  letter-spacing:.5px;
+.logo h1{
+ font-size:23px;
+ letter-spacing:.5px;
 }
 
-.brand small{
-  display:block;
-  color:var(--muted);
-  margin-top:2px;
+.logo small{
+ display:block;
+ color:var(--muted);
+ margin-top:3px;
 }
 
-.profile{
-  width:43px;
-  height:43px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#8b5cf6,#ec4899);
-  font-size:21px;
+.status{
+ padding:8px 11px;
+ border-radius:12px;
+ background:rgba(52,211,153,.1);
+ border:1px solid rgba(52,211,153,.2);
+ color:#70ffc1;
+ font-size:11px;
 }
 
-/* BALANCE */
-
-.balanceBox{
-  margin-top:15px;
-  padding:16px;
-  border-radius:20px;
-  background:
-    linear-gradient(135deg,rgba(139,92,246,.28),rgba(236,72,153,.12)),
-    rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.09);
-  box-shadow:0 15px 50px rgba(0,0,0,.2);
-}
-
-.balanceTop{
-  display:flex;
-  justify-content:space-between;
-  color:var(--muted);
-  font-size:13px;
-}
-
-.balance{
-  font-size:30px;
-  font-weight:900;
-  margin-top:5px;
-}
-
-.level{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:10px;
-}
-
-.levelBar{
-  height:6px;
-  flex:1;
-  background:#29253b;
-  border-radius:10px;
-  overflow:hidden;
-}
-
-.levelFill{
-  height:100%;
-  width:68%;
-  background:linear-gradient(90deg,#8b5cf6,#ec4899);
-  border-radius:10px;
-}
-
-/* CONTENT */
-
-.content{
-  padding:18px 14px;
-}
+/* HERO */
 
 .hero{
-  padding:22px;
-  border-radius:25px;
-  min-height:175px;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 85% 20%,rgba(34,211,238,.25),transparent 25%),
-    radial-gradient(circle at 20% 100%,rgba(236,72,153,.3),transparent 30%),
-    linear-gradient(135deg,#1a1230,#0d0b18);
-  border:1px solid rgba(255,255,255,.08);
+ position:relative;
+ overflow:hidden;
+ margin-top:12px;
+ padding:28px 23px;
+ border-radius:28px;
+ background:
+ radial-gradient(circle at 90% 10%,rgba(34,211,238,.25),transparent 28%),
+ radial-gradient(circle at 0% 100%,rgba(236,72,153,.2),transparent 35%),
+ linear-gradient(135deg,#1b1230,#0d0d18);
+ border:1px solid rgba(255,255,255,.09);
+ box-shadow:0 25px 70px rgba(0,0,0,.3);
 }
 
-.hero:after{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  right:-50px;
-  bottom:-70px;
-  border-radius:50%;
-  background:rgba(139,92,246,.25);
-  filter:blur(20px);
+.heroGlow{
+ position:absolute;
+ width:220px;
+ height:220px;
+ right:-80px;
+ bottom:-100px;
+ border-radius:50%;
+ background:#8b5cf6;
+ filter:blur(80px);
+ opacity:.35;
 }
 
 .hero h2{
-  position:relative;
-  z-index:2;
-  font-size:28px;
-  max-width:300px;
+ position:relative;
+ z-index:2;
+ font-size:32px;
+ line-height:1.1;
+ max-width:620px;
+}
+
+.gradient{
+ background:linear-gradient(90deg,#c4a7ff,#ff91c7,#63e9ff);
+ -webkit-background-clip:text;
+ color:transparent;
 }
 
 .hero p{
-  position:relative;
-  z-index:2;
-  margin-top:9px;
-  color:#b8b3c8;
-  max-width:330px;
-  line-height:1.45;
+ position:relative;
+ z-index:2;
+ color:#b2afc0;
+ margin-top:12px;
+ line-height:1.5;
+ max-width:580px;
 }
 
-.heroPanda{
-  position:absolute;
-  right:15px;
-  bottom:8px;
-  font-size:92px;
-  filter:drop-shadow(0 0 20px rgba(255,255,255,.2));
-  z-index:2;
+.heroStats{
+ display:flex;
+ gap:9px;
+ flex-wrap:wrap;
+ margin-top:18px;
+ position:relative;
+ z-index:2;
 }
 
-/* TITLES */
-
-.title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:24px 2px 12px;
+.heroStat{
+ padding:9px 12px;
+ border-radius:11px;
+ background:rgba(255,255,255,.06);
+ border:1px solid rgba(255,255,255,.07);
+ font-size:12px;
 }
 
-.title h3{
-  font-size:19px;
+/* PROGRESS */
+
+.progress{
+ margin:17px 0;
+ padding:15px;
+ border-radius:18px;
+ background:rgba(255,255,255,.04);
+ border:1px solid rgba(255,255,255,.07);
 }
 
-.title span{
-  color:var(--muted);
-  font-size:12px;
+.progressTop{
+ display:flex;
+ justify-content:space-between;
+ font-size:12px;
+ color:#aaa7b9;
+ margin-bottom:9px;
 }
 
-/* GAMES */
-
-.games{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+.progressBar{
+ height:7px;
+ border-radius:20px;
+ background:#292638;
+ overflow:hidden;
 }
 
-.game{
-  position:relative;
-  min-height:160px;
-  padding:15px;
-  border-radius:22px;
-  overflow:hidden;
-  cursor:pointer;
-  background:linear-gradient(145deg,#19152a,#0f0d19);
-  border:1px solid rgba(255,255,255,.08);
-  transition:.25s;
+.progressFill{
+ width:0%;
+ height:100%;
+ border-radius:20px;
+ background:linear-gradient(90deg,#8b5cf6,#ec4899,#22d3ee);
+ transition:.3s;
 }
 
-.game:active{
-  transform:scale(.97);
+/* SECTION */
+
+.section{
+ margin-top:18px;
+ padding:20px;
+ border-radius:23px;
+ background:
+ linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+ border:1px solid rgba(255,255,255,.08);
 }
 
-.game:hover{
-  transform:translateY(-3px);
-  border-color:rgba(139,92,246,.45);
+.sectionTitle{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:16px;
 }
 
-.gameIcon{
-  font-size:58px;
-  margin:5px 0 12px;
-  filter:drop-shadow(0 0 14px rgba(255,255,255,.2));
+.sectionTitle h3{
+ font-size:19px;
 }
 
-.game h4{
-  font-size:17px;
+.sectionTitle span{
+ color:var(--muted);
+ font-size:11px;
 }
 
-.game p{
-  margin-top:5px;
-  color:var(--muted);
-  font-size:12px;
+/* OPTIONS */
+
+.options{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:10px;
 }
 
-.badge{
-  position:absolute;
-  top:11px;
-  right:11px;
-  padding:5px 8px;
-  border-radius:8px;
-  font-size:9px;
-  font-weight:bold;
-  background:#ec4899;
+.option{
+ position:relative;
 }
 
-.cyan{
-  background:linear-gradient(135deg,#092b38,#101523);
+.option input{
+ display:none;
 }
 
-.purple{
-  background:linear-gradient(135deg,#24143c,#110e1c);
+.option label{
+ min-height:110px;
+ display:block;
+ padding:15px;
+ border-radius:17px;
+ cursor:pointer;
+ background:#0d0d17;
+ border:1px solid rgba(255,255,255,.08);
+ transition:.2s;
 }
 
-.green{
-  background:linear-gradient(135deg,#092d28,#0d1517);
+.option label:hover{
+ transform:translateY(-2px);
+ border-color:rgba(139,92,246,.45);
 }
 
-.orange{
-  background:linear-gradient(135deg,#36200d,#15100d);
+.option input:checked+label{
+ background:
+ linear-gradient(145deg,rgba(139,92,246,.28),rgba(236,72,153,.1));
+ border-color:#8b5cf6;
+ box-shadow:
+ 0 0 25px rgba(139,92,246,.15);
 }
 
-/* BONUS */
-
-.bonusGrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+.icon{
+ font-size:31px;
+ margin-bottom:8px;
 }
 
-.bonusCard{
-  padding:16px;
-  border-radius:18px;
-  background:linear-gradient(145deg,#19152a,#0e0c18);
-  border:1px solid rgba(255,255,255,.07);
+.name{
+ font-weight:bold;
+ font-size:14px;
 }
 
-.bonusIcon{
-  font-size:30px;
+.desc{
+ display:block;
+ margin-top:5px;
+ color:#9291a2;
+ font-size:11px;
+ line-height:1.3;
 }
 
-.bonusCard strong{
-  display:block;
-  margin-top:8px;
+.price{
+ display:block;
+ margin-top:8px;
+ color:#ffd75a;
+ font-size:12px;
+ font-weight:bold;
 }
 
-.bonusCard small{
-  color:var(--muted);
+/* SELECT */
+
+select,
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea{
+ width:100%;
+ background:#0b0b14;
+ color:white;
+ border:1px solid rgba(255,255,255,.1);
+ border-radius:14px;
+ padding:14px;
+ outline:none;
+ font-size:14px;
+ margin-bottom:13px;
 }
 
-/* GAME SCREEN */
-
-.screen{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:100;
-  background:
-    radial-gradient(circle at 50% 0%,#241348,transparent 35%),
-    #06050d;
-  overflow:auto;
+textarea{
+ height:105px;
+ resize:none;
 }
 
-.screen.active{
-  display:block;
+label.normal{
+ display:block;
+ color:#c8c5d1;
+ font-size:13px;
+ margin-bottom:7px;
 }
 
-.gameHeader{
-  height:65px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 15px;
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:rgba(6,5,13,.82);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(255,255,255,.07);
+/* CHECKBOX */
+
+.checkGrid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:9px;
 }
 
-.close{
-  width:40px;
-  height:40px;
-  border:0;
-  border-radius:12px;
-  color:white;
-  background:#191628;
-  font-size:20px;
+.check{
+ display:flex;
+ align-items:center;
+ gap:9px;
+ padding:12px;
+ border-radius:13px;
+ background:#0d0d17;
+ border:1px solid rgba(255,255,255,.06);
+ cursor:pointer;
+ font-size:12px;
+ color:#ddd;
 }
 
-.gameBalance{
-  color:var(--gold);
-  font-weight:bold;
+.check input{
+ accent-color:#8b5cf6;
+ width:17px;
+ height:17px;
 }
 
-.gameArea{
-  width:94%;
-  max-width:620px;
-  margin:20px auto;
+/* COLORS */
+
+.colors{
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap;
 }
 
-/* SLOT */
-
-.slotMachine{
-  padding:20px;
-  border-radius:28px;
-  background:
-    linear-gradient(145deg,#21122e,#0e0b16);
-  border:1px solid #493067;
-  box-shadow:0 20px 70px rgba(0,0,0,.45);
+.color{
+ width:42px;
+ height:42px;
+ border-radius:50%;
+ border:3px solid transparent;
+ cursor:pointer;
 }
 
-.slotLights{
-  height:7px;
-  border-radius:10px;
-  background:linear-gradient(90deg,#ec4899,#ffd54a,#22d3ee,#8b5cf6);
-  box-shadow:0 0 18px #8b5cf6;
-  margin-bottom:20px;
+.color input{
+ display:none;
 }
 
-.reels{
-  display:flex;
-  gap:9px;
-  justify-content:center;
-  padding:18px;
-  border-radius:20px;
-  background:#08070d;
+.color:has(input:checked){
+ border-color:#fff;
+ box-shadow:0 0 18px rgba(255,255,255,.4);
 }
 
-.reel{
-  width:31%;
-  aspect-ratio:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:16px;
-  background:linear-gradient(145deg,#fff,#d9d9df);
-  font-size:52px;
-  box-shadow:inset 0 -10px 20px rgba(0,0,0,.15);
+.cPurple{background:#8b5cf6}
+.cBlue{background:#2563eb}
+.cCyan{background:#06b6d4}
+.cGreen{background:#10b981}
+.cRed{background:#ef4444}
+.cOrange{background:#f97316}
+.cPink{background:#ec4899}
+.cGold{background:#eab308}
+.cBlack{background:#111}
+
+/* SUMMARY */
+
+.summary{
+ position:sticky;
+ bottom:12px;
+ z-index:30;
+ margin-top:20px;
+ padding:20px;
+ border-radius:24px;
+ background:
+ linear-gradient(145deg,rgba(31,22,50,.97),rgba(13,12,22,.97));
+ border:1px solid rgba(139,92,246,.35);
+ box-shadow:0 20px 60px rgba(0,0,0,.45);
+ backdrop-filter:blur(20px);
 }
 
-.spinButton{
-  width:100%;
-  margin-top:18px;
-  padding:16px;
-  border:0;
-  border-radius:16px;
-  color:#120c00;
-  font-size:18px;
-  font-weight:900;
-  background:linear-gradient(90deg,#ffd54a,#ff9d00);
-  box-shadow:0 0 30px rgba(255,180,0,.25);
+.summaryTitle{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:13px;
+}
+
+.summaryTitle h3{
+ font-size:18px;
+}
+
+.live{
+ color:#70ffc1;
+ font-size:10px;
+}
+
+.summaryRow{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ padding:8px 0;
+ border-bottom:1px solid rgba(255,255,255,.06);
+ color:#aaa7b7;
+ font-size:12px;
+}
+
+.summaryRow strong{
+ color:#fff;
+ text-align:right;
+}
+
+.total{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-top:15px;
+}
+
+.total small{
+ color:#aaa7b7;
+}
+
+.totalPrice{
+ font-size:28px;
+ color:#ffd54a;
+ font-weight:900;
+}
+
+.buttons{
+ display:grid;
+ grid-template-columns:1fr 1.5fr;
+ gap:9px;
+ margin-top:15px;
+}
+
+button{
+ border:0;
+ border-radius:14px;
+ padding:15px;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+.preview{
+ background:#252238;
+ color:white;
+}
+
+.send{
+ color:white;
+ background:linear-gradient(90deg,#8b5cf6,#ec4899);
+ box-shadow:0 0 25px rgba(139,92,246,.25);
 }
 
 .result{
-  text-align:center;
-  min-height:35px;
-  padding-top:15px;
-  font-weight:bold;
+ display:none;
+ margin-top:12px;
+ padding:13px;
+ border-radius:13px;
+ background:#08251c;
+ color:#7dffc4;
+ border:1px solid #176d50;
+ font-size:12px;
+ line-height:1.6;
 }
 
-/* CANVAS */
+/* FOOTER */
 
-.canvasBox{
-  padding:10px;
-  border-radius:22px;
-  background:#090813;
-  border:1px solid rgba(255,255,255,.1);
+.footer{
+ text-align:center;
+ color:#676577;
+ font-size:11px;
+ margin-top:25px;
+ line-height:1.6;
 }
 
-canvas{
-  width:100%;
-  display:block;
-  border-radius:16px;
-  touch-action:none;
-}
+@media(max-width:500px){
 
-.controls{
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  margin-top:15px;
-}
+ .options{
+  grid-template-columns:1fr 1fr;
+ }
 
-.control{
-  width:60px;
-  height:50px;
-  border:0;
-  border-radius:14px;
-  background:#1b1730;
-  color:white;
-  font-size:22px;
-}
+ .hero h2{
+  font-size:27px;
+ }
 
-/* TARGET */
+ .checkGrid{
+  grid-template-columns:1fr;
+ }
 
-.targetBox{
-  min-height:450px;
+ .summary{
   position:relative;
-  overflow:hidden;
-  border-radius:24px;
-  background:
-    radial-gradient(circle,#161431,#07060d 70%);
-  border:1px solid rgba(255,255,255,.08);
+  bottom:auto;
+ }
+
 }
 
-.target{
-  position:absolute;
-  width:65px;
-  height:65px;
-  border-radius:50%;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  background:radial-gradient(circle,#fff 0 10%,#22d3ee 12% 35%,#8b5cf6 38% 65%,#ec4899 68%);
-  box-shadow:0 0 30px #8b5cf6;
-  cursor:pointer;
-}
+@media(max-width:370px){
 
-/* PROFILE */
+ .options{
+  grid-template-columns:1fr;
+ }
 
-.profilePanel{
-  padding:18px;
-  border-radius:22px;
-  background:#12101f;
-  border:1px solid rgba(255,255,255,.07);
-}
-
-.profileAvatar{
-  width:75px;
-  height:75px;
-  margin:auto;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:42px;
-  background:linear-gradient(135deg,#fff,#aaa);
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-top:18px;
-}
-
-.stat{
-  text-align:center;
-  padding:12px 5px;
-  border-radius:14px;
-  background:#0b0912;
-}
-
-.stat b{
-  display:block;
-  font-size:18px;
-}
-
-.stat small{
-  color:var(--muted);
-}
-
-/* BOTTOM */
-
-.bottom{
-  position:fixed;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:720px;
-  height:70px;
-  z-index:50;
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  background:rgba(9,8,17,.92);
-  backdrop-filter:blur(18px);
-  border-top:1px solid rgba(255,255,255,.07);
-}
-
-.nav{
-  border:0;
-  background:none;
-  color:#777286;
-  font-size:11px;
-  text-align:center;
-}
-
-.nav div{
-  font-size:22px;
-  margin-bottom:3px;
-}
-
-.nav.active{
-  color:white;
-}
-
-@media(max-width:390px){
-  .games{
-    grid-template-columns:1fr;
-  }
-
-  .heroPanda{
-    font-size:70px;
-  }
-
-  .reel{
-    font-size:40px;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="container">
 
 <header class="header">
 
-  <div class="top">
+<div class="top">
 
-    <div class="brand">
-      <div class="panda">🐼</div>
+<div class="logo">
 
-      <div>
-        <h1>PANDA PLAY</h1>
-        <small>Game Center</small>
-      </div>
-    </div>
+<div class="logoIcon">🚀</div>
 
-    <div class="profile" onclick="showProfile()">👤</div>
+<div>
+<h1>WEBCRAFT</h1>
+<small>Sayt Sifariş Mərkəzi</small>
+</div>
 
-  </div>
+</div>
 
-  <div class="balanceBox">
+<div class="status">
+● ONLINE
+</div>
 
-    <div class="balanceTop">
-      <span>Virtual balans</span>
-      <span>LEVEL 12</span>
-    </div>
-
-    <div class="balance">
-      🪙 <span id="balance">2500</span>
-    </div>
-
-    <div class="level">
-      <small>XP</small>
-      <div class="levelBar">
-        <div class="levelFill"></div>
-      </div>
-      <small>68%</small>
-    </div>
-
-  </div>
+</div>
 
 </header>
 
-<main class="content">
 
-  <section class="hero">
+<section class="hero">
 
-    <h2>Yeni oyunlar. Yeni rekordlar.</h2>
+<div class="heroGlow"></div>
 
-    <p>
-      Sürətli oyunlara qoşul, xal topla və
-      öz rekordunu yenilə.
-    </p>
+<h2>
+Xəyalındakı saytı
+<span class="gradient">özün seç.</span>
+</h2>
 
-    <div class="heroPanda">🐼</div>
+<p>
+Saytının görünüşünü və funksiyalarını addım-addım seç.
+Sifarişini göndər, biz layihəni hazırlayaq.
+</p>
 
-  </section>
+<div class="heroStats">
 
-  <div class="title">
-    <h3>🔥 Populyar oyunlar</h3>
-    <span>Hamısına bax</span>
-  </div>
+<div class="heroStat">⚡ Sürətli sifariş</div>
+<div class="heroStat">📱 Mobil uyğun</div>
+<div class="heroStat">🎨 Fərdi dizayn</div>
+<div class="heroStat">💬 WhatsApp əlaqə</div>
 
-  <div class="games">
+</div>
 
-    <div class="game purple" onclick="openGame('slotScreen')">
-      <span class="badge">HOT</span>
-      <div class="gameIcon">🎰</div>
-      <h4>Neon Fruits</h4>
-      <p>Arcade slot</p>
-    </div>
+</section>
 
-    <div class="game cyan" onclick="openGame('spaceScreen')">
-      <span class="badge">NEW</span>
-      <div class="gameIcon">🚀</div>
-      <h4>Space Run</h4>
-      <p>Reflex arcade</p>
-    </div>
 
-    <div class="game green" onclick="openGame('snakeScreen')">
-      <div class="gameIcon">🐍</div>
-      <h4>Snake Arena</h4>
-      <p>Classic arcade</p>
-    </div>
+<div class="progress">
 
-    <div class="game orange" onclick="openGame('targetScreen')">
-      <div class="gameIcon">🎯</div>
-      <h4>Neon Target</h4>
-      <p>Reflex challenge</p>
-    </div>
+<div class="progressTop">
 
-  </div>
+<span>Sifarişin hazırlanması</span>
 
-  <div class="title">
-    <h3>🎁 Gündəlik mükafatlar</h3>
-    <span>24H</span>
-  </div>
+<span id="progressText">0%</span>
 
-  <div class="bonusGrid">
+</div>
 
-    <div class="bonusCard">
-      <div class="bonusIcon">🎁</div>
-      <strong>Gündəlik hədiyyə</strong>
-      <small>+100 virtual xal</small>
-    </div>
-
-    <div class="bonusCard">
-      <div class="bonusIcon">🔥</div>
-      <strong>7 günlük seriya</strong>
-      <small>+500 virtual xal</small>
-    </div>
-
-  </div>
-
-  <div class="title">
-    <h3>🏆 Rekordlar</h3>
-  </div>
-
-  <div class="profilePanel">
-
-    <div class="stats">
-
-      <div class="stat">
-        <b id="bestScore">0</b>
-        <small>Ən yüksək xal</small>
-      </div>
-
-      <div class="stat">
-        <b id="gamesPlayed">0</b>
-        <small>Oyun</small>
-      </div>
-
-      <div class="stat">
-        <b>12</b>
-        <small>Səviyyə</small>
-      </div>
-
-    </div>
-
-  </div>
-
-</main>
-
-<nav class="bottom">
-
-  <button class="nav active">
-    <div>🏠</div>
-    Ana səhifə
-  </button>
-
-  <button class="nav" onclick="scrollGames()">
-    <div>🎮</div>
-    Oyunlar
-  </button>
-
-  <button class="nav" onclick="showProfile()">
-    <div>👤</div>
-    Profil
-  </button>
-
-</nav>
+<div class="progressBar">
+<div class="progressFill" id="progressFill"></div>
+</div>
 
 </div>
 
 
-<!-- SLOT -->
+<!-- CUSTOMER -->
 
-<div id="slotScreen" class="screen">
+<section class="section">
 
-  <div class="gameHeader">
+<div class="sectionTitle">
 
-    <button class="close" onclick="closeGame('slotScreen')">‹</button>
+<h3>👤 Sizin məlumatlarınız</h3>
 
-    <b>🎰 Neon Fruits</b>
-
-    <div class="gameBalance">
-      🪙 <span class="gbalance">2500</span>
-    </div>
-
-  </div>
-
-  <div class="gameArea">
-
-    <div class="slotMachine">
-
-      <div class="slotLights"></div>
-
-      <div class="reels">
-
-        <div class="reel" id="s1">🍒</div>
-        <div class="reel" id="s2">🍋</div>
-        <div class="reel" id="s3">🍊</div>
-
-      </div>
-
-      <div class="result" id="slotResult"></div>
-
-      <button class="spinButton" onclick="spinSlot()">
-        SPIN • 10 XAL
-      </button>
-
-    </div>
-
-  </div>
+<span>01</span>
 
 </div>
 
+<label class="normal">Ad Soyad</label>
 
-<!-- SPACE -->
+<input
+id="customerName"
+type="text"
+placeholder="Adınızı və soyadınızı yazın"
+>
 
-<div id="spaceScreen" class="screen">
+<label class="normal">Telefon / WhatsApp</label>
 
-  <div class="gameHeader">
+<input
+id="customerPhone"
+type="tel"
+placeholder="050 000 00 00"
+>
 
-    <button class="close" onclick="closeGame('spaceScreen')">‹</button>
+<label class="normal">E-mail</label>
 
-    <b>🚀 Space Run</b>
+<input
+id="customerEmail"
+type="email"
+placeholder="example@gmail.com"
+>
 
-    <div class="gameBalance">
-      SCORE <span id="spaceScore">0</span>
-    </div>
+<label class="normal">Şirkət / Brend adı</label>
 
-  </div>
+<input
+id="brandName"
+type="text"
+placeholder="Məsələn: Super GB"
+>
 
-  <div class="gameArea">
+</section>
 
-    <div class="canvasBox">
-      <canvas id="spaceCanvas" width="600" height="650"></canvas>
-    </div>
 
-    <div class="controls">
+<!-- SITE TYPE -->
 
-      <button class="control"
-        ontouchstart="moveShip(-1)"
-        onclick="moveShip(-1)">←</button>
+<section class="section">
 
-      <button class="control"
-        onclick="startSpace()">▶</button>
+<div class="sectionTitle">
+<h3>🌐 Hansı sayt lazımdır?</h3>
+<span>02</span>
+</div>
 
-      <button class="control"
-        ontouchstart="moveShip(1)"
-        onclick="moveShip(1)">→</button>
+<div class="options">
 
-    </div>
-
-    <div class="result" id="spaceResult">
-      Maneələrdən yayın!
-    </div>
-
-  </div>
-
+<div class="option">
+<input
+type="radio"
+name="site"
+id="business"
+value="Biznes saytı"
+data-price="80"
+checked
+>
+<label for="business">
+<div class="icon">🏢</div>
+<div class="name">Biznes saytı</div>
+<span class="desc">Şirkət və xidmət təqdimatı</span>
+<span class="price">80 AZN-dən</span>
+</label>
 </div>
 
 
-<!-- SNAKE -->
-
-<div id="snakeScreen" class="screen">
-
-  <div class="gameHeader">
-
-    <button class="close" onclick="closeGame('snakeScreen')">‹</button>
-
-    <b>🐍 Snake Arena</b>
-
-    <div class="gameBalance">
-      SCORE <span id="snakeScore">0</span>
-    </div>
-
-  </div>
-
-  <div class="gameArea">
-
-    <div class="canvasBox">
-      <canvas id="snakeCanvas" width="500" height="500"></canvas>
-    </div>
-
-    <div class="controls">
-
-      <button class="control" onclick="snakeDir(0,-1)">↑</button>
-
-      <button class="control" onclick="snakeDir(-1,0)">←</button>
-
-      <button class="control" onclick="startSnake()">▶</button>
-
-      <button class="control" onclick="snakeDir(1,0)">→</button>
-
-      <button class="control" onclick="snakeDir(0,1)">↓</button>
-
-    </div>
-
-    <div class="result" id="snakeResult">
-      Yemləri topla!
-    </div>
-
-  </div>
-
+<div class="option">
+<input
+type="radio"
+name="site"
+id="shop"
+value="Online mağaza"
+data-price="180"
+>
+<label for="shop">
+<div class="icon">🛒</div>
+<div class="name">Online mağaza</div>
+<span class="desc">Məhsul, səbət və sifariş</span>
+<span class="price">180 AZN-dən</span>
+</label>
 </div>
 
 
-<!-- TARGET -->
+<div class="option">
+<input
+type="radio"
+name="site"
+id="landing"
+value="Landing Page"
+data-price="60"
+>
+<label for="landing">
+<div class="icon">🚀</div>
+<div class="name">Landing Page</div>
+<span class="desc">Reklam və satış səhifəsi</span>
+<span class="price">60 AZN-dən</span>
+</label>
+</div>
 
-<div id="targetScreen" class="screen">
 
-  <div class="gameHeader">
+<div class="option">
+<input
+type="radio"
+name="site"
+id="portfolio"
+value="Portfolio"
+data-price="70"
+>
+<label for="portfolio">
+<div class="icon">🎨</div>
+<div class="name">Portfolio</div>
+<span class="desc">Şəxsi və iş nümunələri</span>
+<span class="price">70 AZN-dən</span>
+</label>
+</div>
 
-    <button class="close" onclick="closeGame('targetScreen')">‹</button>
 
-    <b>🎯 Neon Target</b>
+<div class="option">
+<input
+type="radio"
+name="site"
+id="restaurant"
+value="Restoran saytı"
+data-price="100"
+>
+<label for="restaurant">
+<div class="icon">🍽️</div>
+<div class="name">Restoran</div>
+<span class="desc">Menyu və rezervasiya</span>
+<span class="price">100 AZN-dən</span>
+</label>
+</div>
 
-    <div class="gameBalance">
-      SCORE <span id="targetScore">0</span>
-    </div>
 
-  </div>
+<div class="option">
+<input
+type="radio"
+name="site"
+id="booking"
+value="Rezervasiya saytı"
+data-price="140"
+>
+<label for="booking">
+<div class="icon">📅</div>
+<div class="name">Rezervasiya</div>
+<span class="desc">Görüş və vaxt seçimi</span>
+<span class="price">140 AZN-dən</span>
+</label>
+</div>
 
-  <div class="gameArea">
 
-    <div class="targetBox" id="targetBox">
+<div class="option">
+<input
+type="radio"
+name="site"
+id="game"
+value="Oyun saytı"
+data-price="220"
+>
+<label for="game">
+<div class="icon">🎮</div>
+<div class="name">Oyun saytı</div>
+<span class="desc">Müasir oyun interfeysi</span>
+<span class="price">220 AZN-dən</span>
+</label>
+</div>
 
-      <div class="target"
-        id="target"
-        onclick="hitTarget()">✦</div>
 
-    </div>
+<div class="option">
+<input
+type="radio"
+name="site"
+id="news"
+value="Xəbər saytı"
+data-price="160"
+>
+<label for="news">
+<div class="icon">📰</div>
+<div class="name">Xəbər saytı</div>
+<span class="desc">Kateqoriya və məqalələr</span>
+<span class="price">160 AZN-dən</span>
+</label>
+</div>
 
-    <button class="spinButton"
-      style="margin-top:15px"
-      onclick="startTarget()">
-      BAŞLA
-    </button>
+</div>
 
-    <div class="result" id="targetResult">
-      20 saniyədə mümkün qədər çox hədəf vur.
-    </div>
+</section>
 
-  </div>
+
+<!-- DESIGN -->
+
+<section class="section">
+
+<div class="sectionTitle">
+<h3>🎨 Dizayn üslubu</h3>
+<span>03</span>
+</div>
+
+<select id="design">
+
+<option value="Modern" data-price="0">
+Modern
+</option>
+
+<option value="Premium" data-price="30">
+Premium (+30 AZN)
+</option>
+
+<option value="Luxury" data-price="50">
+Luxury (+50 AZN)
+</option>
+
+<option value="Minimal" data-price="0">
+Minimal
+</option>
+
+<option value="Gaming / Neon" data-price="40">
+Gaming / Neon (+40 AZN)
+</option>
+
+<option value="Glassmorphism" data-price="35">
+Glassmorphism (+35 AZN)
+</option>
+
+<option value="3D Premium" data-price="80">
+3D Premium (+80 AZN)
+</option>
+
+</select>
+
+</section>
+
+
+<!-- COLOR -->
+
+<section class="section">
+
+<div class="sectionTitle">
+<h3>🌈 Əsas rəng</h3>
+<span>04</span>
+</div>
+
+<div class="colors">
+
+<label class="color cPurple">
+<input type="radio" name="color" value="Bənövşəyi" checked>
+</label>
+
+<label class="color cBlue">
+<input type="radio" name="color" value="Mavi">
+</label>
+
+<label class="color cCyan">
+<input type="radio" name="color" value="Cyan">
+</label>
+
+<label class="color cGreen">
+<input type="radio" name="color" value="Yaşıl">
+</label>
+
+<label class="color cRed">
+<input type="radio" name="color" value="Qırmızı">
+</label>
+
+<label class="color cOrange">
+<input type="radio" name="color" value="Narıncı">
+</label>
+
+<label class="color cPink">
+<input type="radio" name="color" value="Çəhrayı">
+</label>
+
+<label class="color cGold">
+<input type="radio" name="color" value="Qızılı">
+</label>
+
+<label class="color cBlack">
+<input type="radio" name="color" value="Qara">
+</label>
+
+</div>
+
+</section>
+
+
+<!-- PAGES -->
+
+<section class="section">
+
+<div class="sectionTitle">
+<h3>📄 Səhifə sayı</h3>
+<span>05</span>
+</div>
+
+<select id="pages">
+
+<option value="1" data-price="0">
+1 səhifə
+</option>
+
+<option value="3" data-price="20">
+3 səhifə (+20 AZN)
+</option>
+
+<option value="5" data-price="40">
+5 səhifə (+40 AZN)
+</option>
+
+<option value="7" data-price="60">
+7 səhifə (+60 AZN)
+</option>
+
+<option value="10" data-price="90">
+10 səhifə (+90 AZN)
+</option>
+
+<option value="15" data-price="130">
+15 səhifə (+130 AZN)
+</option>
+
+</select>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="section">
+
+<div class="sectionTitle">
+<h3>⚙️ Funksiyalar</h3>
+<span>06</span>
+</div>
+
+<div class="checkGrid">
+
+<label class="check">
+<input type="checkbox" value="WhatsApp" data-price="10">
+💬 WhatsApp
+</label>
+
+<label class="check">
+<input type="checkbox" value="Telegram" data-price="10">
+✈️ Telegram
+</label>
+
+<label class="check">
+<input type="checkbox" value="Instagram" data-price="5">
+📸 Instagram
+</label>
+
+<label class="check">
+<input type="checkbox" value="TikTok" data-price="5">
+🎵 TikTok
+</label>
+
+<label class="check">
+<input type="checkbox" value="Admin panel" data-price="60">
+🔐 Admin panel
+</label>
+
+<label class="check">
+<input type="checkbox" value="Login sistemi" data-price="40">
+👤 Giriş sistemi
+</label>
+
+<label class="check">
+<input type="checkbox" value="Məhsul sistemi" data-price="50">
+📦 Məhsul sistemi
+</label>
+
+<label class="check">
+<input type="checkbox" value="Səbət" data-price="40">
+🛒 Səbət
+</label>
+
+<label class="check">
+<input type="checkbox" value="Sifariş forması" data-price="20">
+📝 Sifariş forması
+</label>
+
+<label class="check">
+<input type="checkbox" value="Rezervasiya" data-price="40">
+📅 Rezervasiya
+</label>
+
+<label class="check">
+<input type="checkbox" value="Ödəniş interfeysi" data-price="50">
+💳 Ödəniş interfeysi
+</label>
+
+<label class="check">
+<input type="checkbox" value="Google xəritə" data-price="10">
+📍 Google xəritə
+</label>
+
+<label class="check">
+<input type="checkbox" value="SEO" data-price="30">
+🔎 SEO
+</label>
+
+<label class="check">
+<input type="checkbox" value="Çoxdilli sayt" data-price="40">
+🌍 Çoxdilli
+</label>
+
+<label class="check">
+<input type="checkbox" value="Animasiya" data-price="35">
+✨ Animasiya
+</label>
+
+<label class="check">
+<input type="checkbox" value="Dark Mode" data-price="20">
+🌙 Dark Mode
+</label>
+
+<label class="check">
+<input type="checkbox" value="Bildiriş sistemi" data-price="35">
+🔔 Bildiriş
+</label>
+
+<label class="check">
+<input type="checkbox" value="Axtarış sistemi" data-price="25">
+🔍 Axtarış
+</label>
+
+<label class="check">
+<input type="checkbox" value="Filtr sistemi" data-price="30">
+🎛️ Filtr
+</label>
+
+<label class="check">
+<input type="checkbox" value="Mobil tətbiq görünüşü" data-price="50">
+📱 App görünüşü
+</label>
+
+</div>
+
+</section>
+
+
+<!-- HOSTING -->
+
+<section class="section">
+
+<div class="sectionTitle">
+<h3>☁️ Texniki xidmətlər</h3>
+<span>07</span>
+</div>
+
+<div class="checkGrid">
+
+<label class="check">
+<input type="checkbox" value="Domen" data-price="25">
+🌐 Domen
+</label>
+
+<label class="check">
+<input type="checkbox" value="Hosting" data-price="40">
+☁️ Hosting
+</label>
+
+<label class="check">
+<input type="checkbox" value="SSL" data-price="0">
+🔒 SSL
+</label>
+
+<label class="check">
+<input type="checkbox" value="Google Analytics" data-price="15">
+📊 Analytics
+</label>
+
+<label class="check">
+<input type="checkbox" value="Sayt sürətləndirmə" data-price="25">
+⚡ Sürətləndirmə
+</label>
+
+<label class="check">
+<input type="checkbox" value="Backup sistemi" data-price="25">
+💾 Backup
+</label>
+
+</div>
+
+</section>
+
+
+<!-- BUDGET -->
+
+<section class="section">
+
+<div class="sectionTitle">
+<h3>💰 Büdcə</h3>
+<span>08</span>
+</div>
+
+<select id="budget">
+
+<option>50 - 100 AZN</option>
+<option>100 - 200 AZN</option>
+<option>200 - 350 AZN</option>
+<option>350 - 500 AZN</option>
+<option>500 - 1000 AZN</option>
+<option>1000+ AZN</option>
+
+</select>
+
+</section>
+
+
+<!-- DETAILS -->
+
+<section class="section">
+
+<div class="sectionTitle">
+<h3>📝 Layihə haqqında</h3>
+<span>09</span>
+</div>
+
+<label class="normal">
+Saytınız haqqında əlavə məlumat
+</label>
+
+<textarea
+id="details"
+placeholder="Məsələn: Saytın rəngi qara-qızılı olsun, məhsullar bölməsi olsun, WhatsApp düyməsi əlavə edilsin..."
+></textarea>
+
+<label class="normal">
+Referans sayt
+</label>
+
+<input
+id="reference"
+type="text"
+placeholder="Bəyəndiyiniz saytın linki və ya adı"
+>
+
+</section>
+
+
+<!-- SUMMARY -->
+
+<section class="summary">
+
+<div class="summaryTitle">
+
+<h3>📋 Sifariş xülasəsi</h3>
+
+<span class="live">● CANLI HESABLAMA</span>
+
+</div>
+
+<div class="summaryRow">
+<span>Sayt</span>
+<strong id="sumSite">Biznes saytı</strong>
+</div>
+
+<div class="summaryRow">
+<span>Dizayn</span>
+<strong id="sumDesign">Modern</strong>
+</div>
+
+<div class="summaryRow">
+<span>Rəng</span>
+<strong id="sumColor">Bənövşəyi</strong>
+</div>
+
+<div class="summaryRow">
+<span>Səhifələr</span>
+<strong id="sumPages">1</strong>
+</div>
+
+<div class="summaryRow">
+<span>Funksiyalar</span>
+<strong id="sumFeatures">0</strong>
+</div>
+
+<div class="total">
+
+<small>Təxmini layihə qiyməti</small>
+
+<div class="totalPrice">
+<span id="total">80</span> AZN
+</div>
+
+</div>
+
+<div class="buttons">
+
+<button
+class="preview"
+onclick="previewOrder()"
+>
+👁️ Yoxla
+</button>
+
+<button
+class="send"
+onclick="sendWhatsApp()"
+>
+📲 SİFARİŞİ GÖNDƏR
+</button>
+
+</div>
+
+<div
+id="result"
+class="result"
+></div>
+
+</section>
+
+
+<div class="footer">
+
+WEBCRAFT • Sayt Sifariş Mərkəzi<br>
+Layihənizi seçimlərinizə uyğun hazırlayırıq.
+
+</div>
 
 </div>
 
 
 <script>
 
-/* =========================
-   CORE
-========================= */
+const allInputs=
+document.querySelectorAll(
+"input,select,textarea"
+);
 
-let balance =
-  Number(localStorage.getItem("pandaBalance")) || 2500;
+allInputs.forEach(el=>{
 
-let bestScore =
-  Number(localStorage.getItem("pandaBest")) || 0;
+ el.addEventListener("change",calculate);
 
-let gamesPlayed =
-  Number(localStorage.getItem("pandaGames")) || 0;
-
-function save(){
-
-  localStorage.setItem("pandaBalance",balance);
-  localStorage.setItem("pandaBest",bestScore);
-  localStorage.setItem("pandaGames",gamesPlayed);
-
-}
-
-function updateUI(){
-
-  document.getElementById("balance").innerText =
-    balance;
-
-  document.querySelectorAll(".gbalance")
-    .forEach(e=>e.innerText=balance);
-
-  document.getElementById("bestScore").innerText =
-    bestScore;
-
-  document.getElementById("gamesPlayed").innerText =
-    gamesPlayed;
-
-  save();
-
-}
-
-function addScore(points){
-
-  balance += points;
-
-  if(points > bestScore)
-    bestScore = points;
-
-  updateUI();
-
-}
-
-function openGame(id){
-
-  document.getElementById(id)
-    .classList.add("active");
-
-}
-
-function closeGame(id){
-
-  document.getElementById(id)
-    .classList.remove("active");
-
-  if(id==="spaceScreen")
-    stopSpace();
-
-  if(id==="snakeScreen")
-    stopSnake();
-
-  if(id==="targetScreen")
-    stopTarget();
-
-}
-
-function scrollGames(){
-
-  document.querySelector(".games")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-}
-
-
-/* =========================
-   SLOT
-========================= */
-
-const fruits=[
-  "🍒","🍋","🍊",
-  "🍉","🍇","🍓",
-  "🥝","💎"
-];
-
-function spinSlot(){
-
-  if(balance < 10){
-
-    document.getElementById("slotResult")
-      .innerText="Kifayət qədər xal yoxdur.";
-
-    return;
-  }
-
-  balance -= 10;
-
-  gamesPlayed++;
-
-  let count=0;
-
-  let timer=setInterval(()=>{
-
-    document.getElementById("s1").innerText =
-      fruits[Math.floor(Math.random()*fruits.length)];
-
-    document.getElementById("s2").innerText =
-      fruits[Math.floor(Math.random()*fruits.length)];
-
-    document.getElementById("s3").innerText =
-      fruits[Math.floor(Math.random()*fruits.length)];
-
-    count++;
-
-    if(count>=12){
-
-      clearInterval(timer);
-
-      let a=document.getElementById("s1").innerText;
-      let b=document.getElementById("s2").innerText;
-      let c=document.getElementById("s3").innerText;
-
-      let result=
-        document.getElementById("slotResult");
-
-      if(a===b && b===c){
-
-        balance+=100;
-
-        result.innerText=
-          "🎉 JACKPOT • +100 XAL";
-
-      }else if(a===b || b===c || a===c){
-
-        balance+=30;
-
-        result.innerText=
-          "✨ KOMBO • +30 XAL";
-
-      }else{
-
-        result.innerText=
-          "Yenidən cəhd et.";
-
-      }
-
-      updateUI();
-
-    }
-
-  },70);
-
-}
-
-
-/* =========================
-   SPACE RUN
-========================= */
-
-const sc=
-  document.getElementById("spaceCanvas");
-
-const sx=sc.getContext("2d");
-
-let shipX=300;
-let obstacles=[];
-let spaceScore=0;
-let spaceRunning=false;
-let spaceFrame;
-
-function drawSpace(){
-
-  sx.clearRect(0,0,600,650);
-
-  /* background */
-
-  sx.fillStyle="#070817";
-  sx.fillRect(0,0,600,650);
-
-  for(let i=0;i<50;i++){
-
-    sx.fillStyle="rgba(255,255,255,.5)";
-
-    sx.fillRect(
-      (i*97)%600,
-      (i*53+spaceScore*2)%650,
-      2,2
-    );
-
-  }
-
-  /* ship */
-
-  sx.save();
-
-  sx.translate(shipX,570);
-
-  sx.fillStyle="#22d3ee";
-
-  sx.beginPath();
-
-  sx.moveTo(0,-35);
-  sx.lineTo(-25,25);
-  sx.lineTo(0,15);
-  sx.lineTo(25,25);
-  sx.closePath();
-
-  sx.fill();
-
-  sx.fillStyle="#ec4899";
-
-  sx.fillRect(-6,18,12,18);
-
-  sx.restore();
-
-  /* obstacles */
-
-  obstacles.forEach(o=>{
-
-    sx.fillStyle="#ec4899";
-
-    sx.beginPath();
-
-    sx.arc(o.x,o.y,o.r,0,Math.PI*2);
-
-    sx.fill();
-
-    sx.shadowBlur=20;
-    sx.shadowColor="#ec4899";
-
-  });
-
-  sx.shadowBlur=0;
-
-}
-
-function startSpace(){
-
-  if(spaceRunning) return;
-
-  spaceRunning=true;
-  spaceScore=0;
-  obstacles=[];
-
-  document.getElementById("spaceResult")
-    .innerText="Uçuş başladı!";
-
-  spaceLoop();
-
-}
-
-function spaceLoop(){
-
-  if(!spaceRunning) return;
-
-  spaceFrame=requestAnimationFrame(spaceLoop);
-
-  if(Math.random()<.035){
-
-    obstacles.push({
-      x:30+Math.random()*540,
-      y:-30,
-      r:14+Math.random()*10
-    });
-
-  }
-
-  obstacles.forEach(o=>{
-    o.y+=4+spaceScore/250;
-  });
-
-  obstacles=obstacles.filter(o=>o.y<690);
-
-  for(let o of obstacles){
-
-    let dx=o.x-shipX;
-    let dy=o.y-570;
-
-    if(Math.sqrt(dx*dx+dy*dy)<32){
-
-      stopSpace();
-
-      document.getElementById("spaceResult")
-        .innerText=
-        "💥 Oyun bitdi • Xal: "+spaceScore;
-
-      if(spaceScore>bestScore)
-        bestScore=spaceScore;
-
-      updateUI();
-
-      return;
-    }
-
-  }
-
-  spaceScore++;
-
-  document.getElementById("spaceScore")
-    .innerText=spaceScore;
-
-  drawSpace();
-
-}
-
-function moveShip(dir){
-
-  if(!spaceRunning)
-    startSpace();
-
-  shipX+=dir*45;
-
-  if(shipX<35) shipX=35;
-  if(shipX>565) shipX=565;
-
-}
-
-function stopSpace(){
-
-  spaceRunning=false;
-
-  cancelAnimationFrame(spaceFrame);
-
-}
-
-
-/* =========================
-   SNAKE
-========================= */
-
-const sn=
-  document.getElementById("snakeCanvas");
-
-const sctx=sn.getContext("2d");
-
-const grid=20;
-
-let snake=[];
-let food={x:10,y:10};
-
-let dx=1;
-let dy=0;
-
-let snakeTimer=null;
-let snakeScore=0;
-
-function resetSnake(){
-
-  snake=[
-    {x:10,y:10},
-    {x:9,y:10},
-    {x:8,y:10}
-  ];
-
-  dx=1;
-  dy=0;
-
-  snakeScore=0;
-
-  food={
-    x:Math.floor(Math.random()*25),
-    y:Math.floor(Math.random()*25)
-  };
-
-  document.getElementById("snakeScore")
-    .innerText=0;
-
-  drawSnake();
-
-}
-
-function startSnake(){
-
-  if(snakeTimer) return;
-
-  resetSnake();
-
-  snakeTimer=setInterval(stepSnake,120);
-
-}
-
-function stopSnake(){
-
-  clearInterval(snakeTimer);
-  snakeTimer=null;
-
-}
-
-function snakeDir(x,y){
-
-  if(x===-dx && y===-dy) return;
-
-  dx=x;
-  dy=y;
-
-}
-
-function stepSnake(){
-
-  let head={
-    x:snake[0].x+dx,
-    y:snake[0].y+dy
-  };
-
-  if(
-    head.x<0 ||
-    head.x>=25 ||
-    head.y<0 ||
-    head.y>=25 ||
-    snake.some(p=>p.x===head.x && p.y===head.y)
-  ){
-
-    stopSnake();
-
-    document.getElementById("snakeResult")
-      .innerText=
-      "💥 Oyun bitdi • Xal: "+snakeScore;
-
-    if(snakeScore>bestScore)
-      bestScore=snakeScore;
-
-    updateUI();
-
-    return;
-
-  }
-
-  snake.unshift(head);
-
-  if(head.x===food.x && head.y===food.y){
-
-    snakeScore+=10;
-
-    food={
-      x:Math.floor(Math.random()*25),
-      y:Math.floor(Math.random()*25)
-    };
-
-  }else{
-
-    snake.pop();
-
-  }
-
-  document.getElementById("snakeScore")
-    .innerText=snakeScore;
-
-  drawSnake();
-
-}
-
-function drawSnake(){
-
-  sctx.fillStyle="#070817";
-  sctx.fillRect(0,0,500,500);
-
-  /* grid */
-
-  sctx.strokeStyle="rgba(255,255,255,.035)";
-
-  for(let i=0;i<=500;i+=20){
-
-    sctx.beginPath();
-    sctx.moveTo(i,0);
-    sctx.lineTo(i,500);
-    sctx.stroke();
-
-    sctx.beginPath();
-    sctx.moveTo(0,i);
-    sctx.lineTo(500,i);
-    sctx.stroke();
-
-  }
-
-  /* food */
-
-  sctx.fillStyle="#ec4899";
-
-  sctx.beginPath();
-
-  sctx.arc(
-    food.x*20+10,
-    food.y*20+10,
-    7,0,Math.PI*2
-  );
-
-  sctx.fill();
-
-  /* snake */
-
-  snake.forEach((p,i)=>{
-
-    sctx.fillStyle=
-      i===0 ? "#22d3ee" : "#8b5cf6";
-
-    sctx.fillRect(
-      p.x*20+2,
-      p.y*20+2,
-      16,
-      16
-    );
-
-  });
-
-}
-
-
-/* =========================
-   TARGET
-========================= */
-
-let targetRunning=false;
-let targetScore=0;
-let targetTime=20;
-let targetTimer=null;
-
-function startTarget(){
-
-  if(targetRunning) return;
-
-  targetRunning=true;
-  targetScore=0;
-  targetTime=20;
-
-  document.getElementById("targetScore")
-    .innerText=0;
-
-  document.getElementById("targetResult")
-    .innerText=
-    "Vaxt: 20 saniyə";
-
-  showTarget();
-
-  targetTimer=setInterval(()=>{
-
-    targetTime--;
-
-    document.getElementById("targetResult")
-      .innerText=
-      "Vaxt: "+targetTime+" saniyə";
-
-    if(targetTime<=0){
-
-      stopTarget();
-
-      document.getElementById("targetResult")
-        .innerText=
-        "🏆 Nəticə: "+targetScore+" xal";
-
-      if(targetScore>bestScore)
-        bestScore=targetScore;
-
-      updateUI();
-
-    }
-
-  },1000);
-
-}
-
-function showTarget(){
-
-  let box=
-    document.getElementById("targetBox");
-
-  let target=
-    document.getElementById("target");
-
-  let maxX=box.clientWidth-75;
-  let maxY=box.clientHeight-75;
-
-  target.style.left=
-    (10+Math.random()*maxX)+"px";
-
-  target.style.top=
-    (10+Math.random()*maxY)+"px";
-
-  target.style.display="flex";
-
-}
-
-function hitTarget(){
-
-  if(!targetRunning) return;
-
-  targetScore+=10;
-
-  document.getElementById("targetScore")
-    .innerText=targetScore;
-
-  showTarget();
-
-}
-
-function stopTarget(){
-
-  targetRunning=false;
-
-  clearInterval(targetTimer);
-  targetTimer=null;
-
-  document.getElementById("target")
-    .style.display="none";
-
-}
-
-
-/* =========================
-   PROFILE
-========================= */
-
-function showProfile(){
-
-  alert(
-    "🐼 PANDA PLAY\n\n"+
-    "Səviyyə: 12\n"+
-    "Virtual balans: "+balance+" xal\n"+
-    "Ən yüksək xal: "+bestScore+"\n"+
-    "Oynanılan oyun: "+gamesPlayed
-  );
-
-}
-
-
-/* =========================
-   KEYBOARD
-========================= */
-
-document.addEventListener("keydown",e=>{
-
-  if(e.key==="ArrowLeft")
-    moveShip(-1);
-
-  if(e.key==="ArrowRight")
-    moveShip(1);
-
-  if(e.key==="ArrowUp")
-    snakeDir(0,-1);
-
-  if(e.key==="ArrowDown")
-    snakeDir(0,1);
+ el.addEventListener("input",calculate);
 
 });
 
 
-/* INIT */
+function site(){
 
-updateUI();
-resetSnake();
+ return document.querySelector(
+ 'input[name="site"]:checked'
+ );
+
+}
+
+
+function selectedFeatures(){
+
+ let arr=[];
+
+ document.querySelectorAll(
+ '.check input:checked'
+ ).forEach(x=>{
+
+  arr.push({
+   name:x.value,
+   price:Number(x.dataset.price)
+  });
+
+ });
+
+ return arr;
+
+}
+
+
+function calculate(){
+
+ let total=
+ Number(site().dataset.price);
+
+
+ /* DESIGN */
+
+ let design=
+ document.getElementById("design");
+
+ total+=Number(
+ design.options[design.selectedIndex]
+ .dataset.price
+ );
+
+
+ /* PAGES */
+
+ let pages=
+ document.getElementById("pages");
+
+ total+=Number(
+ pages.options[pages.selectedIndex]
+ .dataset.price
+ );
+
+
+ /* FEATURES */
+
+ let features=
+ selectedFeatures();
+
+ features.forEach(x=>{
+  total+=x.price;
+ });
+
+
+ /* SUMMARY */
+
+ document.getElementById("sumSite")
+ .innerText=site().value;
+
+ document.getElementById("sumDesign")
+ .innerText=design.value;
+
+ let color=
+ document.querySelector(
+ 'input[name="color"]:checked'
+ );
+
+ document.getElementById("sumColor")
+ .innerText=color.value;
+
+ document.getElementById("sumPages")
+ .innerText=
+ pages.value+" səhifə";
+
+ document.getElementById("sumFeatures")
+ .innerText=
+ features.length+" funksiya";
+
+ document.getElementById("total")
+ .innerText=total;
+
+
+ /* PROGRESS */
+
+ let progress=0;
+
+ if(document.getElementById("customerName").value)
+  progress+=10;
+
+ if(document.getElementById("customerPhone").value)
+  progress+=10;
+
+ if(document.getElementById("brandName").value)
+  progress+=10;
+
+ progress+=15;
+
+ progress+=15;
+
+ progress+=
+ Math.min(features.length*2,20);
+
+ if(document.getElementById("details").value)
+  progress+=10;
+
+ if(progress>100)
+  progress=100;
+
+ document.getElementById("progressFill")
+ .style.width=progress+"%";
+
+ document.getElementById("progressText")
+ .innerText=progress+"%";
+
+}
+
+
+function createOrder(){
+
+ let features=
+ selectedFeatures();
+
+ let color=
+ document.querySelector(
+ 'input[name="color"]:checked'
+ ).value;
+
+ let total=
+ document.getElementById("total")
+ .innerText;
+
+ return `
+
+🌐 SAYT SİFARİŞİ
+
+👤 Müştəri:
+${document.getElementById("customerName").value}
+
+📱 Telefon:
+${document.getElementById("customerPhone").value}
+
+📧 E-mail:
+${document.getElementById("customerEmail").value}
+
+🏢 Brend:
+${document.getElementById("brandName").value}
+
+━━━━━━━━━━━━━━
+
+🌐 Sayt:
+${site().value}
+
+🎨 Dizayn:
+${document.getElementById("design").value}
+
+🌈 Rəng:
+${color}
+
+📄 Səhifə:
+${document.getElementById("pages").value}
+
+⚙️ Funksiyalar:
+${features.map(x=>"• "+x.name).join("\n")}
+
+💰 Büdcə:
+${document.getElementById("budget").value}
+
+💵 Təxmini qiymət:
+${total} AZN
+
+━━━━━━━━━━━━━━
+
+📝 Əlavə məlumat:
+${document.getElementById("details").value}
+
+🔗 Referans:
+${document.getElementById("reference").value}
+
+━━━━━━━━━━━━━━
+
+WEBCRAFT SAYT SİFARİŞİ
+`;
+
+}
+
+
+function previewOrder(){
+
+ calculate();
+
+ let result=
+ document.getElementById("result");
+
+ result.style.display="block";
+
+ result.innerHTML=
+ "✅ Sifariş məlumatları hazırdır.<br><br>"+
+ "Seçdiyiniz xidmətlərə uyğun təxmini qiymət: "+
+ "<b>"+
+ document.getElementById("total").innerText+
+ " AZN</b>";
+
+}
+
+
+function sendWhatsApp(){
+
+ let name=
+ document.getElementById("customerName")
+ .value.trim();
+
+ let phone=
+ document.getElementById("customerPhone")
+ .value.trim();
+
+
+ if(!name || !phone){
+
+  alert(
+   "Zəhmət olmasa adınızı və telefon nömrənizi yazın."
+  );
+
+  return;
+
+ }
+
+
+ calculate();
+
+
+ let message=
+ createOrder();
+
+
+ /*
+  BURADA ÖZ WHATSAPP NÖMRƏNİ YAZ.
+
+  Format:
+  994XXXXXXXXX
+
+  Məsələn:
+  994501234567
+ */
+
+ let myWhatsApp=
+ "994500000000";
+
+
+ let url=
+ "https://wa.me/"+
+ myWhatsApp+
+ "?text="+
+ encodeURIComponent(message);
+
+
+ window.open(url,"_blank");
+
+}
+
+
+calculate();
 
 </script>
 
