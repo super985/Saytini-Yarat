@@ -12,6 +12,10 @@
   padding:0;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
   color:#fff;
@@ -65,6 +69,7 @@ button{
   background:linear-gradient(135deg,#ffd12f,#f59e0b);
   color:#111;
   font-weight:900;
+  box-shadow:0 5px 20px rgba(255,209,47,.12);
 }
 
 .hero{
@@ -72,18 +77,29 @@ button{
   padding:60px 18px 55px;
   background:
     radial-gradient(circle at center,
-      rgba(255,209,47,.12),
-      transparent 35%);
+    rgba(255,209,47,.12),
+    transparent 35%);
 }
 
 .panda{
   font-size:76px;
   filter:drop-shadow(0 0 20px rgba(255,209,47,.2));
+  animation:floatPanda 3s ease-in-out infinite;
+}
+
+@keyframes floatPanda{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-8px);
+  }
 }
 
 .hero h1{
   margin-top:8px;
   font-size:clamp(35px,8vw,62px);
+  font-weight:900;
 }
 
 .hero h1 span{
@@ -140,6 +156,10 @@ button{
 
 .orders{
   margin-top:20px;
+}
+
+.orders h3{
+  margin-bottom:10px;
 }
 
 .order{
@@ -212,12 +232,25 @@ button{
   border:1px solid #2d3145;
   border-radius:21px;
   padding:22px;
-  transition:.2s;
+  transition:.25s;
+  overflow:hidden;
+}
+
+.package:after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  right:-70px;
+  bottom:-70px;
+  border-radius:50%;
+  background:rgba(255,209,47,.05);
 }
 
 .package:hover{
   transform:translateY(-5px);
   border-color:#ffd12f;
+  box-shadow:0 15px 35px rgba(0,0,0,.25);
 }
 
 .package.popular{
@@ -260,6 +293,8 @@ button{
 }
 
 .buyBtn{
+  position:relative;
+  z-index:2;
   width:100%;
   padding:14px;
   margin-top:18px;
@@ -267,6 +302,11 @@ button{
   background:linear-gradient(135deg,#ffd12f,#f59e0b);
   color:#111;
   font-weight:900;
+  transition:.2s;
+}
+
+.buyBtn:hover{
+  transform:translateY(-2px);
 }
 
 .modal{
@@ -274,7 +314,7 @@ button{
   position:fixed;
   inset:0;
   z-index:3000;
-  background:rgba(0,0,0,.8);
+  background:rgba(0,0,0,.82);
   padding:15px;
   overflow:auto;
   align-items:center;
@@ -294,6 +334,7 @@ button{
   border-radius:21px;
   padding:25px;
   position:relative;
+  box-shadow:0 25px 80px rgba(0,0,0,.55);
 }
 
 .close{
@@ -350,11 +391,15 @@ button{
   outline:none;
 }
 
+.group input:focus{
+  border-color:#ffd12f;
+}
+
 .submit{
   width:100%;
   padding:14px;
   border-radius:11px;
-  background:#ffd12f;
+  background:linear-gradient(135deg,#ffd12f,#f59e0b);
   color:#111;
   font-weight:900;
 }
@@ -364,136 +409,312 @@ button{
   padding:15px;
   border-radius:12px;
   margin:18px 0;
+  border:1px solid #282c3e;
 }
+
+
+/* =========================
+   ÖDƏNİŞ
+========================= */
 
 .payment{
   position:relative;
   overflow:hidden;
-  background:
-    radial-gradient(circle at 85% 15%,
-      rgba(255,255,255,.20),
-      transparent 25%),
-    linear-gradient(135deg,#292b3d,#11131e 70%);
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:22px;
   padding:22px;
-  margin:20px 0;
+  border-radius:24px;
+
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(255,209,47,.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #25283a,
+      #10121c
+    );
+
+  border:1px solid rgba(255,255,255,.12);
+
   box-shadow:
-    0 20px 50px rgba(0,0,0,.35),
-    inset 0 1px rgba(255,255,255,.08);
+    0 20px 60px rgba(0,0,0,.35);
 }
 
-.payment:before{
-  content:"";
-  position:absolute;
-  width:180px;
-  height:180px;
-  border-radius:50%;
-  background:rgba(255,209,47,.08);
-  right:-70px;
-  bottom:-100px;
-}
-
-.paymentTitle{
-  position:relative;
-  z-index:2;
+.paymentHeader{
   display:flex;
   justify-content:space-between;
   align-items:center;
   margin-bottom:18px;
+}
+
+.paymentSmall{
+  color:#ffd12f;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.paymentTitle{
+  margin-top:4px;
+  font-size:24px;
   font-weight:900;
 }
 
-.paymentTitle span{
-  color:#ffd12f;
+.secure{
+  padding:8px 10px;
+  border-radius:10px;
+  background:rgba(52,211,153,.10);
+  border:1px solid rgba(52,211,153,.18);
+  color:#65e6a2;
+  font-size:11px;
+  font-weight:900;
 }
 
 .bank-card{
-  position:relative;
-  z-index:2;
-  min-height:190px;
+  min-height:195px;
   padding:22px;
-  border-radius:20px;
+  border-radius:21px;
+
   background:
-    linear-gradient(135deg,
-      #383b4d,
-      #171925 55%,
-      #25283a);
-  border:1px solid rgba(255,255,255,.14);
-  box-shadow:0 15px 35px rgba(0,0,0,.35);
+    linear-gradient(
+      135deg,
+      #42465a,
+      #171a28 55%,
+      #292d40
+    );
+
+  border:1px solid rgba(255,255,255,.16);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.4);
+
+  position:relative;
   overflow:hidden;
 }
 
-.bank-card:after{
+.bank-card:before{
   content:"";
   position:absolute;
-  width:180px;
-  height:180px;
-  border:1px solid rgba(255,209,47,.18);
+  width:230px;
+  height:230px;
+  right:-100px;
+  top:-130px;
   border-radius:50%;
-  right:-80px;
-  top:-80px;
+  border:1px solid rgba(255,209,47,.2);
 }
 
-.card-brand{
+.cardTop{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  color:#fff;
-  font-weight:900;
+  font-size:18px;
 }
 
-.card-chip{
+.chip{
   width:48px;
-  height:34px;
+  height:35px;
+  margin-top:27px;
   border-radius:7px;
-  margin-top:30px;
-  background:linear-gradient(135deg,#ffd12f,#b88b00);
-  box-shadow:0 3px 10px rgba(0,0,0,.3);
+  background:
+    linear-gradient(
+      135deg,
+      #ffe681,
+      #b98900
+    );
 }
 
-.card-number{
+.cardNumber{
   margin-top:20px;
-  font-size:20px;
+  font-size:19px;
   letter-spacing:2px;
   font-weight:900;
 }
 
-.card-bottom{
+.cardBottom{
   display:flex;
   justify-content:space-between;
-  margin-top:17px;
-  font-size:10px;
-  color:#c5c9d4;
+  margin-top:18px;
+  color:#c4c8d3;
+  font-size:9px;
 }
 
 .copyCard{
-  position:relative;
-  z-index:3;
   width:100%;
-  margin-top:12px;
-  padding:13px;
-  border-radius:12px;
-  background:#ffd12f;
+  margin-top:13px;
+  padding:14px;
+  border-radius:13px;
+  background:
+    linear-gradient(
+      135deg,
+      #ffd12f,
+      #f59e0b
+    );
   color:#111;
   font-weight:900;
+  box-shadow:0 8px 25px rgba(255,209,47,.12);
+}
+
+.paymentInfo{
+  display:flex;
+  gap:12px;
+  margin-top:15px;
+  padding:14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.infoIcon{
+  width:30px;
+  height:30px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#163b28;
+  color:#5ee39a;
+}
+
+.paymentInfo strong{
+  font-size:13px;
+}
+
+.paymentInfo p{
+  color:#858da3;
+  font-size:11px;
+  line-height:1.5;
+  margin-top:4px;
+}
+
+
+/* =========================
+   QƏBZ
+========================= */
+
+.receiptBox{
+  margin-top:18px;
+  padding:20px;
+  border-radius:22px;
+  background:
+    linear-gradient(
+      145deg,
+      #171a29,
+      #0d0f17
+    );
+  border:1px solid #2d3145;
+}
+
+.receiptHeader{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:16px;
+}
+
+.receiptIcon{
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:13px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,209,47,.18),
+      rgba(255,209,47,.05)
+    );
+  font-size:22px;
+}
+
+.receiptHeader h3{
+  font-size:18px;
+}
+
+.receiptHeader p{
+  color:#7e869a;
+  font-size:12px;
+  margin-top:4px;
+}
+
+.uploadArea{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  min-height:190px;
+  padding:25px;
+
+  border-radius:17px;
+
+  border:1px dashed #454a60;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,209,47,.05),
+      transparent 60%
+    );
+
+  text-align:center;
+  cursor:pointer;
   transition:.2s;
 }
 
-.copyCard:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 25px rgba(255,209,47,.18);
+.uploadArea:hover{
+  border-color:#ffd12f;
+  background:rgba(255,209,47,.06);
 }
 
-.paymentNotice{
-  margin-top:13px;
-  padding:12px;
-  border-radius:11px;
-  background:rgba(255,209,47,.06);
-  border:1px solid rgba(255,209,47,.12);
-  color:#aeb5c7;
+.uploadIcon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.uploadArea strong{
+  font-size:14px;
+}
+
+.uploadArea span{
+  margin-top:6px;
+  color:#747c91;
+  font-size:11px;
+}
+
+.selectFile{
+  margin-top:15px;
+  padding:10px 18px;
+  border-radius:10px;
+  background:#292d40;
+  color:#fff;
   font-size:12px;
-  line-height:1.6;
+  font-weight:900;
+}
+
+.receiptPreview{
+  display:none;
+  margin-top:14px;
+  padding:10px;
+  border-radius:14px;
+  background:#090b11;
+  border:1px solid #292d40;
+}
+
+.receiptPreview img{
+  display:block;
+  width:100%;
+  max-height:230px;
+  object-fit:contain;
+  border-radius:10px;
+}
+
+.receiptName{
+  margin-top:8px;
+  color:#aeb5c7;
+  font-size:11px;
+  text-align:center;
 }
 
 footer{
@@ -517,6 +738,7 @@ footer{
   transition:.3s;
   max-width:90%;
   text-align:center;
+  font-weight:700;
 }
 
 .toast.show{
@@ -525,12 +747,15 @@ footer{
 }
 
 @media(max-width:850px){
+
   .packages{
     grid-template-columns:repeat(2,1fr);
   }
+
 }
 
 @media(max-width:600px){
+
   .packages{
     grid-template-columns:1fr;
   }
@@ -543,14 +768,22 @@ footer{
     font-size:60px;
   }
 
-  .card-number{
+  .cardNumber{
     font-size:17px;
   }
+
+  .paymentHeader{
+    align-items:flex-start;
+    gap:10px;
+  }
+
 }
 </style>
 </head>
 
+
 <body>
+
 
 <header class="header">
 
@@ -572,7 +805,9 @@ onclick="openAuth()">
 
 <section class="hero">
 
-<div class="panda">🐼</div>
+<div class="panda">
+🐼
+</div>
 
 <h1>
 PANDA <span>KOD SATIŞI</span>
@@ -617,9 +852,12 @@ onclick="logout()">
 
 <div class="orders">
 
-<h3>📦 Sifarişlərim</h3>
+<h3>
+📦 Sifarişlərim
+</h3>
 
-<div id="ordersList"></div>
+<div id="ordersList">
+</div>
 
 </div>
 
@@ -631,216 +869,20 @@ onclick="logout()">
 <div class="title">
 
 <h2>
-🎟️ Kod paketləri
+🎟️ Kod paketini seç
 </h2>
 
 <p>
-5 AZN-dən 1000 AZN-ə qədər seçim
+5 AZN-dən 1000 AZN-ə qədər
 </p>
 
 </div>
 
 
-<div class="packages">
-
-
-<div class="package">
-
-<div class="packageIcon">🎟️</div>
-
-<h3>Mini Kod</h3>
-
-<div class="price">
-5 AZN
+<div class="packages"
+id="packages">
 </div>
 
-<div class="features">
-✓ 1 kod<br>
-✓ Rəqəmsal təqdimat<br>
-✓ Sifariş izləmə
-</div>
-
-<button class="buyBtn"
-onclick="buyPackage('Mini Kod',5)">
-Sifariş et
-</button>
-
-</div>
-
-
-<div class="package">
-
-<div class="packageIcon">⚡</div>
-
-<h3>Start Kod</h3>
-
-<div class="price">
-10 AZN
-</div>
-
-<div class="features">
-✓ 1 kod<br>
-✓ Sürətli yoxlama<br>
-✓ Rəqəmsal təqdimat
-</div>
-
-<button class="buyBtn"
-onclick="buyPackage('Start Kod',10)">
-Sifariş et
-</button>
-
-</div>
-
-
-<div class="package popular">
-
-<div class="badge">
-POPULYAR
-</div>
-
-<div class="packageIcon">🔥</div>
-
-<h3>Standart Kod</h3>
-
-<div class="price">
-25 AZN
-</div>
-
-<div class="features">
-✓ 1 kod<br>
-✓ Prioritet yoxlama<br>
-✓ Sifariş izləmə
-</div>
-
-<button class="buyBtn"
-onclick="buyPackage('Standart Kod',25)">
-Sifariş et
-</button>
-
-</div>
-
-
-<div class="package">
-
-<div class="packageIcon">💎</div>
-
-<h3>Premium Kod</h3>
-
-<div class="price">
-50 AZN
-</div>
-
-<div class="features">
-✓ Premium kod<br>
-✓ Sürətli təsdiq<br>
-✓ Rəqəmsal təqdimat
-</div>
-
-<button class="buyBtn"
-onclick="buyPackage('Premium Kod',50)">
-Sifariş et
-</button>
-
-</div>
-
-
-<div class="package">
-
-<div class="packageIcon">👑</div>
-
-<h3>VIP Kod</h3>
-
-<div class="price">
-100 AZN
-</div>
-
-<div class="features">
-✓ VIP kod<br>
-✓ Prioritet xidmət<br>
-✓ Sifariş izləmə
-</div>
-
-<button class="buyBtn"
-onclick="buyPackage('VIP Kod',100)">
-Sifariş et
-</button>
-
-</div>
-
-
-<div class="package">
-
-<div class="packageIcon">🚀</div>
-
-<h3>Pro Kod</h3>
-
-<div class="price">
-250 AZN
-</div>
-
-<div class="features">
-✓ Pro paket<br>
-✓ Prioritet yoxlama<br>
-✓ Rəqəmsal təqdimat
-</div>
-
-<button class="buyBtn"
-onclick="buyPackage('Pro Kod',250)">
-Sifariş et
-</button>
-
-</div>
-
-
-<div class="package">
-
-<div class="packageIcon">💰</div>
-
-<h3>Business Kod</h3>
-
-<div class="price">
-500 AZN
-</div>
-
-<div class="features">
-✓ Business paket<br>
-✓ Sürətli xidmət<br>
-✓ Prioritet dəstək
-</div>
-
-<button class="buyBtn"
-onclick="buyPackage('Business Kod',500)">
-Sifariş et
-</button>
-
-</div>
-
-
-<div class="package">
-
-<div class="packageIcon">🏆</div>
-
-<h3>Premium Plus</h3>
-
-<div class="price">
-1000 AZN
-</div>
-
-<div class="features">
-✓ Premium Plus<br>
-✓ Prioritet xidmət<br>
-✓ Sifariş izləmə
-</div>
-
-<button class="buyBtn"
-onclick="buyPackage('Premium Plus',1000)">
-Sifariş et
-</button>
-
-</div>
-
-
-</div>
 
 </main>
 
@@ -856,7 +898,7 @@ Sifariş et
 </footer>
 
 
-<!-- QEYDİYYAT / GİRİŞ -->
+<!-- GİRİŞ / QEYDİYYAT -->
 
 <div id="authModal"
 class="modal">
@@ -868,7 +910,9 @@ onclick="closeModal('authModal')">
 ×
 </button>
 
-<h2>👤 Hesab</h2>
+<h2>
+👤 Hesab
+</h2>
 
 
 <div class="tabs">
@@ -930,7 +974,7 @@ Daxil ol
 </div>
 
 
-<!-- SİFARİŞ VƏ ÖDƏNİŞ -->
+<!-- SİFARİŞ -->
 
 <div id="orderModal"
 class="modal">
@@ -952,28 +996,38 @@ class="selected">
 </div>
 
 
+<!-- ÖDƏNİŞ -->
+
 <div class="payment">
 
+<div class="paymentHeader">
+
+<div>
+
+<div class="paymentSmall">
+PANDA PAY
+</div>
+
 <div class="paymentTitle">
+💳 Ödəniş
+</div>
 
-<span>
-💳 Təhlükəsiz ödəniş
-</span>
+</div>
 
-<span>
-🔒
-</span>
+<div class="secure">
+🔒 Təhlükəsiz
+</div>
 
 </div>
 
 
 <div class="bank-card">
 
-<div class="card-brand">
+<div class="cardTop">
 
-<span>
-PANDA PAY
-</span>
+<strong>
+PANDA
+</strong>
 
 <span>
 💳
@@ -982,24 +1036,24 @@ PANDA PAY
 </div>
 
 
-<div class="card-chip">
+<div class="chip">
 </div>
 
 
 <div id="cardNumber"
-class="card-number">
+class="cardNumber">
 0000 0000 0000 0000
 </div>
 
 
-<div class="card-bottom">
+<div class="cardBottom">
 
 <span>
 KART NÖMRƏSİ
 </span>
 
 <span>
-PAYMENT
+PAY
 </span>
 
 </div>
@@ -1009,23 +1063,99 @@ PAYMENT
 
 <button class="copyCard"
 onclick="copyCard()">
+
 📋 Kart nömrəsini kopyala
+
 </button>
 
 
-<div class="paymentNotice">
+<div class="paymentInfo">
 
-🔐 Ödənişi etdikdən sonra qəbzin
-şəklini aşağıdakı bölmədən əlavə edin.
-Sifarişiniz yoxlanıldıqdan sonra
-hesabınızda status yenilənəcək.
+<div class="infoIcon">
+✓
+</div>
+
+<div>
+
+<strong>
+Ödəniş etdiniz?
+</strong>
+
+<p>
+Aşağıdakı qəbz bölməsindən
+ödəniş qəbzini əlavə edin.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- QƏBZ -->
+
+<div class="receiptBox">
+
+<div class="receiptHeader">
+
+<div class="receiptIcon">
+🧾
+</div>
+
+<div>
+
+<h3>
+Ödəniş qəbzi
+</h3>
+
+<p>
+Qəbzin şəklini əlavə edin
+</p>
 
 </div>
 
 </div>
 
 
-<div class="group">
+<label class="uploadArea"
+for="receipt">
+
+<div class="uploadIcon">
+📤
+</div>
+
+<strong>
+Qəbzi buraya əlavə edin
+</strong>
+
+<span>
+JPG, PNG və ya WEBP
+</span>
+
+<div class="selectFile">
+Şəkil seç
+</div>
+
+<input
+id="receipt"
+type="file"
+accept="image/png,image/jpeg,image/webp"
+hidden
+onchange="showReceipt(this)">
+
+</label>
+
+
+<div id="receiptPreview"
+class="receiptPreview">
+</div>
+
+</div>
+
+
+<div class="group"
+style="margin-top:18px;">
 
 <label>
 Ödəniş edən şəxsin adı
@@ -1039,23 +1169,11 @@ placeholder="Ad Soyad">
 </div>
 
 
-<div class="group">
-
-<label>
-🧾 Ödəniş qəbzi
-</label>
-
-<input
-id="receipt"
-type="file"
-accept="image/*">
-
-</div>
-
-
 <button class="submit"
 onclick="submitOrder()">
+
 ✅ Sifarişi göndər
+
 </button>
 
 </div>
@@ -1070,14 +1188,14 @@ class="toast">
 
 <script>
 
-/* =========================================
+
+/* ========================================
    PANDA KOD SATIŞI
-   DEMO / LOCAL STORAGE SİSTEMİ
-========================================= */
+======================================== */
 
 
 /*
-  ÖZ KART NÖMRƏNİ BURADA YAZ
+  BURADA ÖZ KART NÖMRƏNİ YAZ
 */
 
 const PAYMENT_CARD =
@@ -1089,758 +1207,1032 @@ let authMode="login";
 let selectedPackage=null;
 
 
-/* =========================================
+/* ========================================
+   PAKETLƏRİ AVTOMATİK YARAT
+   5 → 10 → 15 → ... → 1000
+======================================== */
+
+const packagesBox =
+document.getElementById("packages");
+
+
+for(
+  let amount=5;
+  amount<=1000;
+  amount+=5
+){
+
+  const card=
+  document.createElement("div");
+
+  card.className =
+    "package" +
+    (amount===50 ? " popular" : "");
+
+
+  let icon="🎟️";
+
+  if(amount>=500){
+    icon="👑";
+  }
+  else if(amount>=100){
+    icon="💎";
+  }
+  else if(amount>=50){
+    icon="🔥";
+  }
+  else if(amount>=25){
+    icon="⚡";
+  }
+
+
+  card.innerHTML=`
+
+    ${
+      amount===50
+      ?
+      '<div class="badge">POPULYAR</div>'
+      :
+      ''
+    }
+
+    <div class="packageIcon">
+      ${icon}
+    </div>
+
+    <h3>
+      ${amount} AZN Kod
+    </h3>
+
+    <div class="price">
+      ${amount} AZN
+    </div>
+
+    <div class="features">
+      ✓ Kod sifarişi<br>
+      ✓ Ödəniş yoxlanışı<br>
+      ✓ Sifariş izləmə
+    </div>
+
+    <button
+      class="buyBtn"
+      onclick="buyPackage('${amount} AZN Kod',${amount})">
+
+      Sifariş et
+
+    </button>
+
+  `;
+
+
+  packagesBox.appendChild(card);
+
+}
+
+
+/* ========================================
    LOCAL STORAGE
-========================================= */
+======================================== */
 
 function getUsers(){
 
-return JSON.parse(
-localStorage.getItem("panda_users") || "[]"
-);
+  return JSON.parse(
+    localStorage.getItem(
+      "panda_users"
+    ) || "[]"
+  );
 
 }
 
 
 function saveUsers(users){
 
-localStorage.setItem(
-"panda_users",
-JSON.stringify(users)
-);
+  localStorage.setItem(
+    "panda_users",
+    JSON.stringify(users)
+  );
 
 }
 
 
 function getOrders(){
 
-return JSON.parse(
-localStorage.getItem("panda_orders") || "[]"
-);
+  return JSON.parse(
+    localStorage.getItem(
+      "panda_orders"
+    ) || "[]"
+  );
 
 }
 
 
 function saveOrders(orders){
 
-localStorage.setItem(
-"panda_orders",
-JSON.stringify(orders)
-);
+  localStorage.setItem(
+    "panda_orders",
+    JSON.stringify(orders)
+  );
 
 }
 
 
 function getCurrentUser(){
 
-return localStorage.getItem(
-"panda_current_user"
-);
+  return localStorage.getItem(
+    "panda_current_user"
+  );
 
 }
 
 
-/* =========================================
-   BAŞLANĞIC
-========================================= */
+/* ========================================
+   START
+======================================== */
 
-document.getElementById(
-"cardNumber"
-).textContent=PAYMENT_CARD;
+document
+.getElementById("cardNumber")
+.textContent=PAYMENT_CARD;
 
 updateUI();
 
 
-/* =========================================
-   QEYDİYYAT / GİRİŞ
-========================================= */
+/* ========================================
+   AUTH
+======================================== */
 
 window.openAuth=function(){
 
-document
-.getElementById("authModal")
-.classList.add("show");
+  document
+  .getElementById("authModal")
+  .classList.add("show");
 
 };
 
 
 window.setAuthMode=function(mode){
 
-authMode=mode;
+  authMode=mode;
 
 
-document
-.getElementById("loginTab")
-.classList.toggle(
-"active",
-mode==="login"
-);
+  document
+  .getElementById("loginTab")
+  .classList.toggle(
+    "active",
+    mode==="login"
+  );
 
 
-document
-.getElementById("registerTab")
-.classList.toggle(
-"active",
-mode==="register"
-);
+  document
+  .getElementById("registerTab")
+  .classList.toggle(
+    "active",
+    mode==="register"
+  );
 
 
-document
-.getElementById("authText")
-.textContent=
-mode==="login"
-?
-"Daxil ol"
-:
-"Qeydiyyatdan keç";
+  document
+  .getElementById("authText")
+  .textContent =
+    mode==="login"
+    ?
+    "Daxil ol"
+    :
+    "Qeydiyyatdan keç";
 
 };
 
 
 window.submitAuth=function(){
 
-const email=
-document
-.getElementById("email")
-.value
-.trim()
-.toLowerCase();
+  const email=
+    document
+    .getElementById("email")
+    .value
+    .trim()
+    .toLowerCase();
 
 
-const password=
-document
-.getElementById("password")
-.value;
+  const password=
+    document
+    .getElementById("password")
+    .value;
 
 
-if(!email){
+  if(!email){
 
-toast("E-mail yazın.");
+    toast(
+      "E-mail yazın."
+    );
 
-return;
-
-}
-
-
-if(!email.includes("@")){
-
-toast("Düzgün e-mail daxil edin.");
-
-return;
-
-}
+    return;
+  }
 
 
-if(password.length<6){
+  if(!email.includes("@")){
 
-toast(
-"Şifrə minimum 6 simvol olmalıdır."
-);
+    toast(
+      "Düzgün e-mail daxil edin."
+    );
 
-return;
-
-}
-
-
-const users=getUsers();
+    return;
+  }
 
 
-if(authMode==="register"){
+  if(password.length<6){
 
-const exists=
-users.find(
-u=>u.email===email
-);
+    toast(
+      "Şifrə minimum 6 simvol olmalıdır."
+    );
 
-
-if(exists){
-
-toast(
-"Bu e-mail artıq qeydiyyatdan keçib."
-);
-
-return;
-
-}
+    return;
+  }
 
 
-users.push({
-
-id:Date.now().toString(),
-
-email:email,
-
-password:password,
-
-createdAt:
-new Date().toISOString()
-
-});
+  const users=getUsers();
 
 
-saveUsers(users);
+  if(authMode==="register"){
+
+    const exists=
+      users.find(
+        u=>u.email===email
+      );
 
 
-localStorage.setItem(
-"panda_current_user",
-email
-);
+    if(exists){
+
+      toast(
+        "Bu e-mail artıq qeydiyyatdan keçib."
+      );
+
+      return;
+    }
 
 
-closeModal("authModal");
+    users.push({
 
-updateUI();
+      id:
+        Date.now().toString(),
 
-toast(
-"✅ Qeydiyyat uğurla tamamlandı!"
-);
+      email:email,
 
+      password:password,
 
-}else{
+      createdAt:
+        new Date().toISOString()
 
-const user=
-users.find(
-u=>
-u.email===email &&
-u.password===password
-);
+    });
 
 
-if(!user){
-
-toast(
-"E-mail və ya şifrə yanlışdır."
-);
-
-return;
-
-}
+    saveUsers(users);
 
 
-localStorage.setItem(
-"panda_current_user",
-email
-);
+    localStorage.setItem(
+      "panda_current_user",
+      email
+    );
 
 
-closeModal("authModal");
+    closeModal(
+      "authModal"
+    );
 
-updateUI();
 
-toast(
-"✅ Uğurla daxil oldunuz!"
-);
+    updateUI();
 
-}
+
+    toast(
+      "✅ Qeydiyyat uğurla tamamlandı!"
+    );
+
+
+  }else{
+
+
+    const user=
+      users.find(
+        u=>
+          u.email===email &&
+          u.password===password
+      );
+
+
+    if(!user){
+
+      toast(
+        "E-mail və ya şifrə yanlışdır."
+      );
+
+      return;
+    }
+
+
+    localStorage.setItem(
+      "panda_current_user",
+      email
+    );
+
+
+    closeModal(
+      "authModal"
+    );
+
+
+    updateUI();
+
+
+    toast(
+      "✅ Uğurla daxil oldunuz!"
+    );
+
+  }
 
 };
 
 
-/* =========================================
+/* ========================================
    ÇIXIŞ
-========================================= */
+======================================== */
 
 window.logout=function(){
 
-localStorage.removeItem(
-"panda_current_user"
-);
+  localStorage.removeItem(
+    "panda_current_user"
+  );
 
-updateUI();
 
-toast(
-"Hesabdan çıxış edildi."
-);
+  updateUI();
+
+
+  toast(
+    "Hesabdan çıxış edildi."
+  );
 
 };
 
 
-/* =========================================
+/* ========================================
    UI
-========================================= */
+======================================== */
 
 function updateUI(){
 
-const email=
-getCurrentUser();
+  const email=
+    getCurrentUser();
 
 
-const dashboard=
-document.getElementById(
-"dashboard"
-);
+  const dashboard=
+    document.getElementById(
+      "dashboard"
+    );
 
 
-if(email){
+  if(email){
 
-dashboard.classList.add("show");
-
-
-document.getElementById(
-"userEmail"
-).textContent=email;
+    dashboard.classList.add(
+      "show"
+    );
 
 
-loadOrders();
+    document
+    .getElementById(
+      "userEmail"
+    )
+    .textContent=email;
 
-}else{
 
-dashboard.classList.remove("show");
+    loadOrders();
+
+
+  }else{
+
+    dashboard.classList.remove(
+      "show"
+    );
+
+  }
 
 }
 
-}
 
-
-/* =========================================
+/* ========================================
    PAKET SEÇ
-========================================= */
+======================================== */
 
 window.buyPackage=function(
-name,
-price
+  name,
+  price
 ){
 
-const user=
-getCurrentUser();
+  const user=
+    getCurrentUser();
 
 
-if(!user){
+  if(!user){
 
-toast(
-"Sifariş üçün əvvəlcə qeydiyyatdan keçin."
-);
-
-openAuth();
-
-return;
-
-}
+    toast(
+      "Sifariş üçün əvvəlcə qeydiyyatdan keçin."
+    );
 
 
-selectedPackage={
-name:name,
-price:price
+    openAuth();
+
+
+    return;
+  }
+
+
+  selectedPackage={
+    name:name,
+    price:price
+  };
+
+
+  document
+  .getElementById(
+    "selectedPackage"
+  )
+  .innerHTML=`
+
+    <strong>
+      ${escapeHTML(name)}
+    </strong>
+
+    <div style="
+      color:#ffd12f;
+      font-size:28px;
+      font-weight:900;
+      margin-top:7px;
+    ">
+
+      ${price} AZN
+
+    </div>
+
+  `;
+
+
+  document
+  .getElementById(
+    "orderModal"
+  )
+  .classList.add(
+    "show"
+  );
+
 };
 
 
-document
-.getElementById("selectedPackage")
-.innerHTML=`
-
-<strong>
-${escapeHTML(name)}
-</strong>
-
-<div style="
-color:#ffd12f;
-font-size:28px;
-font-weight:900;
-margin-top:7px;
-">
-${price} AZN
-</div>
-
-`;
-
-
-document
-.getElementById("orderModal")
-.classList.add("show");
-
-};
-
-
-/* =========================================
-   KARTI KOPYALA
-========================================= */
+/* ========================================
+   KART KOPYALA
+======================================== */
 
 window.copyCard=function(){
 
-const number=
-PAYMENT_CARD.replace(/\s/g,"");
+  const number=
+    PAYMENT_CARD.replace(
+      /\s/g,
+      ""
+    );
 
 
-if(navigator.clipboard){
+  if(
+    navigator.clipboard
+  ){
 
-navigator.clipboard
-.writeText(number)
-.then(
-()=>{
-toast(
-"📋 Kart nömrəsi kopyalandı."
-);
-}
-);
+    navigator.clipboard
+    .writeText(number)
+    .then(
+      ()=>{
+        toast(
+          "📋 Kart nömrəsi kopyalandı."
+        );
+      }
+    );
 
-}else{
 
-toast(
-"Kart: "+PAYMENT_CARD
-);
+  }else{
 
-}
+    toast(
+      "Kart: "+PAYMENT_CARD
+    );
+
+  }
 
 };
 
 
-/* =========================================
-   SİFARİŞ YARAT
-========================================= */
+/* ========================================
+   QƏBZ ÖNİZLƏMƏ
+======================================== */
+
+window.showReceipt=function(input){
+
+  const preview=
+    document.getElementById(
+      "receiptPreview"
+    );
+
+
+  if(
+    !input.files ||
+    !input.files[0]
+  ){
+
+    preview.style.display="none";
+
+    preview.innerHTML="";
+
+    return;
+  }
+
+
+  const file=
+    input.files[0];
+
+
+  if(
+    !file.type.startsWith(
+      "image/"
+    )
+  ){
+
+    toast(
+      "Yalnız şəkil faylı seçin."
+    );
+
+    input.value="";
+
+    return;
+  }
+
+
+  if(
+    file.size >
+    8 * 1024 * 1024
+  ){
+
+    toast(
+      "Qəbz şəkli 8 MB-dan böyük olmamalıdır."
+    );
+
+    input.value="";
+
+    return;
+  }
+
+
+  const reader=
+    new FileReader();
+
+
+  reader.onload=function(e){
+
+    preview.style.display="block";
+
+
+    preview.innerHTML=`
+
+      <img
+        src="${e.target.result}"
+        alt="Qəbz önizləməsi">
+
+      <div class="receiptName">
+
+        ✓ ${escapeHTML(file.name)}
+
+      </div>
+
+    `;
+
+  };
+
+
+  reader.readAsDataURL(file);
+
+};
+
+
+/* ========================================
+   SİFARİŞ
+======================================== */
 
 window.submitOrder=function(){
 
-const user=
-getCurrentUser();
+  const user=
+    getCurrentUser();
 
 
-if(!user){
+  if(!user){
 
-toast(
-"Hesabınıza daxil olun."
-);
+    toast(
+      "Hesabınıza daxil olun."
+    );
 
-return;
-
-}
-
-
-if(!selectedPackage){
-
-toast(
-"Paket seçilməyib."
-);
-
-return;
-
-}
+    return;
+  }
 
 
-const payer=
-document
-.getElementById("payer")
-.value
-.trim();
+  if(!selectedPackage){
+
+    toast(
+      "Paket seçilməyib."
+    );
+
+    return;
+  }
 
 
-const receipt=
-document
-.getElementById("receipt")
-.files[0];
+  const payer=
+    document
+    .getElementById(
+      "payer"
+    )
+    .value
+    .trim();
 
 
-if(!payer){
-
-toast(
-"Ad Soyad yazın."
-);
-
-return;
-
-}
+  const receipt=
+    document
+    .getElementById(
+      "receipt"
+    )
+    .files[0];
 
 
-if(!receipt){
+  if(!payer){
 
-toast(
-"Ödəniş qəbzini seçin."
-);
+    toast(
+      "Ödəniş edən şəxsin adını yazın."
+    );
 
-return;
-
-}
-
-
-if(!receipt.type.startsWith("image/")){
-
-toast(
-"Yalnız şəkil qəbzi seçin."
-);
-
-return;
-
-}
+    return;
+  }
 
 
-/*
-  Bu demo versiyada real fayl serverə
-  göndərilmir. Yalnız qəbzin adı saxlanılır.
-*/
+  if(!receipt){
 
-const orders=getOrders();
+    toast(
+      "Ödəniş qəbzini əlavə edin."
+    );
 
-
-orders.unshift({
-
-id:
-"PND-"+Date.now(),
-
-email:user,
-
-packageName:
-selectedPackage.name,
-
-amount:
-selectedPackage.price,
-
-payer:payer,
-
-receiptName:
-receipt.name,
-
-status:
-"pending",
-
-code:"",
-
-date:
-new Date().toLocaleString(
-"az-AZ"
-)
-
-});
+    return;
+  }
 
 
-saveOrders(orders);
+  if(
+    !receipt.type.startsWith(
+      "image/"
+    )
+  ){
+
+    toast(
+      "Yalnız şəkil qəbzi əlavə edin."
+    );
+
+    return;
+  }
 
 
-document
-.getElementById("payer")
-.value="";
+  const orders=
+    getOrders();
 
 
-document
-.getElementById("receipt")
-.value="";
+  orders.unshift({
+
+    id:
+      "PND-"+Date.now(),
+
+    email:user,
+
+    packageName:
+      selectedPackage.name,
+
+    amount:
+      selectedPackage.price,
+
+    payer:payer,
+
+    receiptName:
+      receipt.name,
+
+    status:
+      "pending",
+
+    code:"",
+
+    date:
+      new Date()
+      .toLocaleString(
+        "az-AZ"
+      )
+
+  });
 
 
-closeModal("orderModal");
+  saveOrders(orders);
 
 
-selectedPackage=null;
+  document
+  .getElementById(
+    "payer"
+  )
+  .value="";
 
-loadOrders();
+
+  document
+  .getElementById(
+    "receipt"
+  )
+  .value="";
 
 
-toast(
-"✅ Sifariş göndərildi. Ödəniş yoxlanılır."
-);
+  document
+  .getElementById(
+    "receiptPreview"
+  )
+  .style.display="none";
+
+
+  document
+  .getElementById(
+    "receiptPreview"
+  )
+  .innerHTML="";
+
+
+  closeModal(
+    "orderModal"
+  );
+
+
+  selectedPackage=null;
+
+
+  loadOrders();
+
+
+  toast(
+    "✅ Sifariş göndərildi. Ödəniş yoxlanılır."
+  );
 
 };
 
 
-/* =========================================
+/* ========================================
    SİFARİŞLƏR
-========================================= */
+======================================== */
 
 function loadOrders(){
 
-const email=
-getCurrentUser();
+  const email=
+    getCurrentUser();
 
 
-const box=
-document.getElementById(
-"ordersList"
-);
+  const box=
+    document.getElementById(
+      "ordersList"
+    );
 
 
-if(!email){
+  if(!email){
 
-box.innerHTML="";
+    box.innerHTML="";
 
-return;
+    return;
+  }
+
+
+  const orders=
+    getOrders()
+    .filter(
+      o=>o.email===email
+    );
+
+
+  if(!orders.length){
+
+    box.innerHTML=`
+
+      <div style="
+        color:#858da3;
+        margin-top:10px;
+      ">
+
+        Hələ sifarişiniz yoxdur.
+
+      </div>
+
+    `;
+
+    return;
+  }
+
+
+  let html="";
+
+
+  orders.forEach(
+    order=>{
+
+      const approved=
+        order.status==="approved";
+
+
+      html+=`
+
+        <div class="order">
+
+          <strong>
+            ${escapeHTML(
+              order.packageName
+            )}
+          </strong>
+
+
+          <div style="
+            color:#ffd12f;
+            font-weight:900;
+            margin-top:5px;
+          ">
+
+            ${order.amount} AZN
+
+          </div>
+
+
+          <div class="orderMeta">
+
+            Sifariş №:
+            ${escapeHTML(order.id)}
+
+            <br>
+
+            Tarix:
+            ${escapeHTML(order.date)}
+
+            <br>
+
+            Qəbz:
+            ${escapeHTML(
+              order.receiptName
+            )}
+
+          </div>
+
+
+          <span class="status ${
+            approved
+            ?
+            "approved"
+            :
+            "pending"
+          }">
+
+            ${
+              approved
+              ?
+              "✓ Təsdiqləndi"
+              :
+              "⏳ Yoxlanılır"
+            }
+
+          </span>
+
+
+          ${
+            approved &&
+            order.code
+            ?
+
+            `
+
+            <div class="codeBox">
+
+              🎟️
+              ${escapeHTML(
+                order.code
+              )}
+
+            </div>
+
+            `
+
+            :
+
+            ""
+          }
+
+
+        </div>
+
+      `;
+
+    }
+  );
+
+
+  box.innerHTML=html;
 
 }
 
 
-const orders=
-getOrders()
-.filter(
-o=>o.email===email
-);
-
-
-if(!orders.length){
-
-box.innerHTML=`
-
-<div style="
-color:#858da3;
-margin-top:10px;
-">
-
-Hələ sifarişiniz yoxdur.
-
-</div>
-
-`;
-
-return;
-
-}
-
-
-let html="";
-
-
-orders.forEach(order=>{
-
-const approved=
-order.status==="approved";
-
-
-html+=`
-
-<div class="order">
-
-<strong>
-${escapeHTML(order.packageName)}
-</strong>
-
-<div style="
-color:#ffd12f;
-font-weight:900;
-margin-top:5px;
-">
-
-${order.amount} AZN
-
-</div>
-
-<div class="orderMeta">
-
-Sifariş №:
-${escapeHTML(order.id)}
-
-<br>
-
-Tarix:
-${escapeHTML(order.date)}
-
-<br>
-
-Qəbz:
-${escapeHTML(order.receiptName)}
-
-</div>
-
-
-<span class="status ${
-approved
-?
-"approved"
-:
-"pending"
-}">
-
-${
-approved
-?
-"✓ Təsdiqləndi"
-:
-"⏳ Yoxlanılır"
-}
-
-</span>
-
-
-${
-approved && order.code
-?
-`
-
-<div class="codeBox">
-
-🎟️ ${escapeHTML(order.code)}
-
-</div>
-
-`
-:
-""
-
-}
-
-</div>
-
-`;
-
-});
-
-
-box.innerHTML=html;
-
-}
-
-
-/* =========================================
+/* ========================================
    MODAL
-========================================= */
+======================================== */
 
 window.closeModal=function(id){
 
-document
-.getElementById(id)
-.classList.remove("show");
+  document
+  .getElementById(id)
+  .classList.remove(
+    "show"
+  );
 
 };
 
 
 window.addEventListener(
-"click",
-function(e){
+  "click",
+  function(e){
 
-if(
-e.target.classList.contains("modal")
-){
+    if(
+      e.target.classList.contains(
+        "modal"
+      )
+    ){
 
-e.target.classList.remove("show");
+      e.target.classList.remove(
+        "show"
+      );
 
-}
+    }
 
-});
+  }
+);
 
 
-/* =========================================
+/* ========================================
    TOAST
-========================================= */
+======================================== */
 
 function toast(message){
 
-const box=
-document.getElementById(
-"toast"
-);
+  const box=
+    document.getElementById(
+      "toast"
+    );
 
 
-box.textContent=message;
-
-box.classList.add("show");
+  box.textContent=message;
 
 
-setTimeout(
-()=>{
-box.classList.remove("show");
-},
-2800
-);
+  box.classList.add(
+    "show"
+  );
+
+
+  setTimeout(
+    ()=>{
+      box.classList.remove(
+        "show"
+      );
+    },
+    2800
+  );
 
 }
 
 
-/* =========================================
+/* ========================================
    HTML TƏHLÜKƏSİZLİYİ
-========================================= */
+======================================== */
 
 function escapeHTML(value){
 
-return String(value ?? "")
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+  return String(
+    value ?? ""
+  )
+  .replaceAll(
+    "&",
+    "&amp;"
+  )
+  .replaceAll(
+    "<",
+    "&lt;"
+  )
+  .replaceAll(
+    ">",
+    "&gt;"
+  )
+  .replaceAll(
+    '"',
+    "&quot;"
+  )
+  .replaceAll(
+    "'",
+    "&#039;"
+  );
 
 }
 
