@@ -3,34 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elan.az — Elan Saytı</title>
+
+<title>ELAN.AZ — Al, Sat, Elan Yerləşdir</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
-:root{
-  --bg:#f5f7fb;
-  --card:#fff;
-  --text:#172033;
-  --muted:#7b8496;
-  --primary:#6c4cff;
-  --primary2:#8b5cf6;
-  --border:#e8eaf0;
-  --danger:#ff4d67;
-  --shadow:0 12px 35px rgba(25,30,55,.08);
-}
-
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  background:#f5f6fa;
+  color:#171a2b;
 }
 
-button,input,select,textarea{
+button,
+input,
+select,
+textarea{
   font:inherit;
 }
 
@@ -40,17 +33,17 @@ button{
 }
 
 .header{
-  background:#fff;
-  border-bottom:1px solid var(--border);
   position:sticky;
   top:0;
   z-index:1000;
+  background:white;
+  border-bottom:1px solid #e8e9ef;
 }
 
 .nav{
   max-width:1200px;
   margin:auto;
-  padding:15px 20px;
+  padding:14px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -59,55 +52,54 @@ button{
 
 .logo{
   font-size:25px;
-  font-weight:900;
-  color:var(--primary);
-  white-space:nowrap;
+  font-weight:950;
+  color:#6546f5;
 }
 
 .logo span{
-  color:#111827;
+  color:#171a2b;
 }
 
-.nav-right{
+.nav-actions{
   display:flex;
+  gap:8px;
   align-items:center;
-  gap:10px;
 }
 
-.nav-btn{
-  background:#f1efff;
-  color:var(--primary);
-  padding:11px 16px;
-  border-radius:12px;
-  font-weight:700;
-}
-
-.add-btn{
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  color:white;
-  padding:12px 18px;
-  border-radius:12px;
+.btn{
+  padding:11px 15px;
+  border-radius:11px;
   font-weight:800;
-  box-shadow:0 7px 20px rgba(108,76,255,.25);
+}
+
+.btn-light{
+  background:#f0edff;
+  color:#6546f5;
+}
+
+.btn-primary{
+  color:white;
+  background:linear-gradient(135deg,#6346f5,#8b5cf6);
+  box-shadow:0 8px 20px rgba(99,70,245,.25);
 }
 
 .hero{
+  padding:55px 18px 70px;
+  color:white;
   background:
-    radial-gradient(circle at 15% 30%,rgba(139,92,246,.35),transparent 30%),
-    radial-gradient(circle at 85% 20%,rgba(59,130,246,.28),transparent 28%),
-    linear-gradient(135deg,#17152d,#302060 55%,#151827);
-  color:#fff;
-  padding:55px 20px 70px;
+  radial-gradient(circle at 10% 20%,rgba(139,92,246,.45),transparent 30%),
+  radial-gradient(circle at 90% 10%,rgba(59,130,246,.3),transparent 30%),
+  linear-gradient(135deg,#141525,#32205e,#151728);
 }
 
 .hero-inner{
-  max-width:1100px;
+  max-width:1050px;
   margin:auto;
   text-align:center;
 }
 
 .hero h1{
-  font-size:clamp(32px,6vw,58px);
+  font-size:clamp(35px,6vw,62px);
   line-height:1.05;
   margin-bottom:15px;
 }
@@ -117,60 +109,54 @@ button{
 }
 
 .hero p{
-  color:#ddd9ed;
-  font-size:17px;
+  color:#dcd9eb;
   margin-bottom:30px;
+  font-size:17px;
 }
 
-.search-box{
-  max-width:900px;
-  margin:auto;
-  background:#fff;
-  padding:10px;
+.search{
+  background:white;
+  padding:9px;
   border-radius:18px;
   display:grid;
-  grid-template-columns:1fr 190px 120px;
+  grid-template-columns:1fr 190px 110px;
   gap:8px;
   box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
-.search-box input,
-.search-box select{
+.search input,
+.search select{
   border:0;
   outline:0;
-  padding:15px;
-  color:#222;
-  background:#f7f7fa;
-  border-radius:12px;
+  background:#f5f6fa;
+  padding:14px;
+  border-radius:11px;
 }
 
-.search-btn{
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
+.search button{
+  border-radius:11px;
   color:white;
-  border-radius:12px;
-  font-weight:800;
+  background:#6546f5;
+  font-weight:900;
 }
 
 .container{
   max-width:1200px;
   margin:auto;
-  padding:30px 20px;
+  padding:30px 18px;
 }
 
-.section-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
+.title{
   margin-bottom:18px;
 }
 
-.section-title h2{
+.title h2{
   font-size:24px;
 }
 
-.section-title p{
-  color:var(--muted);
+.title p{
+  color:#81889a;
+  margin-top:5px;
   font-size:14px;
 }
 
@@ -182,233 +168,198 @@ button{
 }
 
 .category{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:18px 10px;
+  background:white;
+  border:1px solid #e7e8ee;
+  border-radius:17px;
+  padding:18px 8px;
   text-align:center;
   transition:.2s;
-  box-shadow:0 4px 15px rgba(20,20,40,.03);
 }
 
 .category:hover{
   transform:translateY(-3px);
-  border-color:#cfc7ff;
 }
 
-.category .icon{
+.category-icon{
   width:48px;
   height:48px;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin:0 auto 8px;
+  margin:auto;
+  margin-bottom:8px;
   border-radius:14px;
   background:#f0edff;
   font-size:24px;
 }
 
 .category b{
-  font-size:14px;
+  font-size:13px;
 }
 
-.vip-section{
-  margin-bottom:38px;
+.filters{
+  background:white;
+  border:1px solid #e7e8ee;
+  padding:14px;
+  border-radius:15px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:20px;
 }
 
-.listing-grid{
+.filters input,
+.filters select{
+  border:1px solid #e1e3e9;
+  border-radius:10px;
+  padding:11px;
+  outline:0;
+  min-width:150px;
+}
+
+.grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  gap:17px;
 }
 
 .card{
-  background:var(--card);
+  background:white;
+  border:1px solid #e7e8ee;
   border-radius:18px;
   overflow:hidden;
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
-  transition:.2s;
-  position:relative;
+  box-shadow:0 8px 25px rgba(20,25,50,.06);
 }
 
-.card:hover{
-  transform:translateY(-4px);
-}
-
-.card-img{
+.card-image{
   height:190px;
-  background:#eee;
   position:relative;
-  overflow:hidden;
+  background:#eee;
 }
 
-.card-img img{
+.card-image img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-.badge{
+.vip{
   position:absolute;
-  left:10px;
   top:10px;
-  background:#ffb703;
-  color:#231600;
+  left:10px;
+  background:#ffc400;
+  color:#241c00;
   padding:6px 9px;
   border-radius:8px;
   font-size:11px;
   font-weight:900;
 }
 
-.heart{
+.favorite{
   position:absolute;
-  right:10px;
   top:10px;
+  right:10px;
   width:35px;
   height:35px;
   border-radius:50%;
-  background:rgba(255,255,255,.95);
+  background:white;
   font-size:18px;
 }
 
 .card-body{
-  padding:15px;
+  padding:14px;
 }
 
 .card-title{
-  font-size:17px;
-  font-weight:800;
+  font-size:16px;
+  font-weight:900;
   margin-bottom:8px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 
 .price{
+  color:#6546f5;
   font-size:20px;
-  font-weight:900;
-  color:var(--primary);
-  margin-bottom:8px;
+  font-weight:950;
+  margin-bottom:7px;
 }
 
 .location{
-  color:var(--muted);
+  color:#81889a;
   font-size:13px;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
-.card-footer{
+.card-bottom{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  color:#9aa1b1;
+  color:#9ca3b2;
   font-size:12px;
 }
 
-.normal-section{
-  margin-top:10px;
-}
-
-.filters{
-  background:#fff;
-  border:1px solid var(--border);
-  padding:15px;
-  border-radius:16px;
-  margin-bottom:20px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.filters select,
-.filters input{
-  padding:11px 12px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  outline:none;
-  background:#fff;
-  min-width:150px;
-}
-
-.reset-btn{
-  padding:11px 15px;
+.details{
+  width:100%;
+  margin-top:12px;
+  padding:11px;
   border-radius:10px;
   background:#f0edff;
-  color:var(--primary);
-  font-weight:700;
+  color:#6546f5;
+  font-weight:900;
 }
 
 .empty{
   display:none;
-  background:#fff;
-  border:1px dashed #ccd0da;
-  border-radius:16px;
-  padding:40px 20px;
+  background:white;
+  padding:45px 20px;
+  border-radius:18px;
   text-align:center;
-  color:var(--muted);
+  color:#81889a;
 }
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(10,12,25,.65);
-  z-index:2000;
-  padding:20px;
+  background:rgba(10,12,25,.7);
+  z-index:3000;
+  padding:15px;
   overflow:auto;
 }
 
-.modal.active{
+.modal.show{
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
 .modal-box{
-  background:#fff;
   width:min(650px,100%);
+  max-height:95vh;
+  overflow:auto;
+  background:white;
   border-radius:22px;
   padding:25px;
   position:relative;
-  max-height:95vh;
-  overflow:auto;
 }
 
 .close{
   position:absolute;
-  right:18px;
-  top:16px;
+  right:15px;
+  top:15px;
   width:38px;
   height:38px;
   border-radius:50%;
-  background:#f1f2f6;
-  font-size:20px;
-}
-
-.modal h2{
-  margin-bottom:20px;
-  padding-right:45px;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
+  background:#f0f1f5;
+  font-size:22px;
 }
 
 .form-group{
   margin-bottom:14px;
 }
 
-.form-group.full{
-  grid-column:1/-1;
-}
-
 .form-group label{
   display:block;
+  font-weight:800;
   font-size:13px;
-  font-weight:700;
   margin-bottom:7px;
 }
 
@@ -416,9 +367,9 @@ button{
 .form-group select,
 .form-group textarea{
   width:100%;
-  border:1px solid var(--border);
-  border-radius:11px;
   padding:13px;
+  border:1px solid #e1e3e9;
+  border-radius:11px;
   outline:none;
   background:#fafbfc;
 }
@@ -432,42 +383,89 @@ button{
   width:100%;
   padding:14px;
   border-radius:12px;
-  background:linear-gradient(135deg,var(--primary),var(--primary2));
-  color:#fff;
+  color:white;
   font-weight:900;
-  margin-top:5px;
+  background:linear-gradient(135deg,#6346f5,#8b5cf6);
 }
 
-.details-img{
+.auth-tabs{
+  display:flex;
+  gap:7px;
+  margin-bottom:18px;
+}
+
+.auth-tab{
+  flex:1;
+  padding:12px;
+  border-radius:10px;
+  background:#f1f2f6;
+  font-weight:800;
+}
+
+.auth-tab.active{
+  background:#6546f5;
+  color:white;
+}
+
+.user-panel{
+  display:none;
+  background:white;
+  border:1px solid #e6e7ed;
+  border-radius:17px;
+  padding:17px;
+  margin-bottom:25px;
+}
+
+.user-panel.show{
+  display:block;
+}
+
+.user-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+.my-listings{
+  margin-top:15px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.my-item{
+  padding:13px;
+  border:1px solid #e6e7ed;
+  border-radius:12px;
+}
+
+.delete{
+  margin-top:10px;
+  width:100%;
+  padding:9px;
+  border-radius:9px;
+  color:#e11d48;
+  background:#fff0f3;
+  font-weight:800;
+}
+
+.detail-image{
   width:100%;
   height:300px;
   object-fit:cover;
   border-radius:15px;
-  margin-bottom:18px;
+  margin-bottom:15px;
 }
 
-.details-price{
-  color:var(--primary);
+.detail-price{
+  color:#6546f5;
   font-size:28px;
-  font-weight:900;
+  font-weight:950;
   margin:10px 0;
 }
 
-.details-meta{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:15px 0;
-}
-
-.meta{
-  background:#f4f5f8;
-  padding:9px 12px;
-  border-radius:9px;
-  font-size:13px;
-}
-
-.contact-buttons{
+.contact{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:10px;
@@ -476,45 +474,50 @@ button{
 
 .call{
   background:#16a34a;
-  color:#fff;
+  color:white;
   padding:14px;
   border-radius:11px;
-  font-weight:800;
+  font-weight:900;
 }
 
 .message{
   background:#f0edff;
-  color:var(--primary);
+  color:#6546f5;
   padding:14px;
   border-radius:11px;
-  font-weight:800;
+  font-weight:900;
 }
 
 .toast{
   position:fixed;
   bottom:25px;
   left:50%;
-  transform:translateX(-50%) translateY(100px);
-  background:#171a25;
-  color:#fff;
+  transform:translate(-50%,100px);
+  background:#171927;
+  color:white;
   padding:14px 20px;
   border-radius:12px;
-  z-index:5000;
   opacity:0;
   transition:.3s;
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
+  z-index:5000;
 }
 
 .toast.show{
-  transform:translateX(-50%) translateY(0);
+  transform:translate(-50%,0);
   opacity:1;
 }
 
-.footer{
+.loading{
+  text-align:center;
+  padding:30px;
+  color:#81889a;
+}
+
+footer{
   margin-top:40px;
-  background:#151827;
+  padding:35px 18px;
+  background:#151726;
   color:#aaa;
-  padding:35px 20px;
 }
 
 .footer-inner{
@@ -523,77 +526,77 @@ button{
   display:flex;
   justify-content:space-between;
   gap:20px;
-  flex-wrap:wrap;
-}
-
-.footer strong{
-  color:#fff;
-}
-
-.mobile-add{
-  display:none;
 }
 
 @media(max-width:900px){
-  .listing-grid{
+
+  .grid{
     grid-template-columns:repeat(3,1fr);
   }
 
   .categories{
     grid-template-columns:repeat(3,1fr);
   }
+
 }
 
 @media(max-width:650px){
+
   .nav{
-    padding:12px 14px;
+    padding:11px 13px;
   }
 
   .logo{
     font-size:21px;
   }
 
-  .nav-btn{
+  .btn-light{
     display:none;
   }
 
-  .add-btn{
-    padding:10px 12px;
+  .btn{
+    padding:10px;
     font-size:13px;
   }
 
   .hero{
-    padding:38px 15px 45px;
+    padding:40px 14px 50px;
   }
 
-  .hero p{
-    font-size:14px;
-  }
-
-  .search-box{
+  .search{
     grid-template-columns:1fr;
-    padding:8px;
   }
 
-  .search-btn{
-    padding:13px;
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
   }
 
-  .container{
-    padding:25px 14px;
+  .category{
+    padding:13px 5px;
   }
 
-  .listing-grid{
+  .category-icon{
+    width:40px;
+    height:40px;
+    font-size:20px;
+  }
+
+  .category b{
+    font-size:11px;
+  }
+
+  .grid{
     grid-template-columns:repeat(2,1fr);
-    gap:11px;
+    gap:10px;
   }
 
-  .card-img{
+  .card-image{
     height:145px;
   }
 
   .card-body{
-    padding:11px;
+    padding:10px;
   }
 
   .card-title{
@@ -604,878 +607,1560 @@ button{
     font-size:17px;
   }
 
-  .categories{
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-  }
-
-  .category{
-    padding:12px 5px;
-  }
-
-  .category .icon{
-    width:40px;
-    height:40px;
-    font-size:20px;
-  }
-
-  .category b{
-    font-size:11px;
-  }
-
-  .form-grid{
+  .my-listings{
     grid-template-columns:1fr;
   }
 
-  .form-group.full{
-    grid-column:auto;
-  }
-
-  .contact-buttons{
+  .contact{
     grid-template-columns:1fr;
   }
 
-  .details-img{
+  .detail-image{
     height:220px;
   }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header class="header">
-  <div class="nav">
-    <div class="logo">ELAN<span>.AZ</span></div>
 
-    <div class="nav-right">
-      <button class="nav-btn" onclick="showToast('Giriş bölməsi tezliklə əlavə olunacaq')">
-        👤 Giriş
-      </button>
+<div class="nav">
 
-      <button class="add-btn" onclick="openModal('addModal')">
-        ＋ Elan yerləşdir
-      </button>
-    </div>
-  </div>
+<div class="logo">
+ELAN<span>.AZ</span>
+</div>
+
+<div class="nav-actions">
+
+<button
+class="btn btn-light"
+onclick="openAuth()">
+👤 Giriş
+</button>
+
+<button
+class="btn btn-primary"
+onclick="requireLogin()">
+＋ Elan yerləşdir
+</button>
+
+</div>
+
+</div>
+
 </header>
 
+
 <section class="hero">
-  <div class="hero-inner">
 
-    <h1>İstədiyini <span>tap.</span><br>Elanını <span>yerləşdir.</span></h1>
+<div class="hero-inner">
 
-    <p>Minlərlə elan arasında axtar, müqayisə et və rahatlıqla əlaqə saxla.</p>
+<h1>
+İstədiyini <span>tap.</span><br>
+Elanını <span>yerləşdir.</span>
+</h1>
 
-    <div class="search-box">
-      <input
-        id="searchInput"
-        type="text"
-        placeholder="Məsələn: iPhone 15, avtomobil, ev..."
-        oninput="filterListings()"
-      >
+<p>
+Al, sat və minlərlə elan arasında axtar.
+</p>
 
-      <select id="searchCategory" onchange="filterListings()">
-        <option value="">Bütün kateqoriyalar</option>
-        <option value="Telefon">Telefon</option>
-        <option value="Avtomobil">Avtomobil</option>
-        <option value="Ev">Ev</option>
-        <option value="Elektronika">Elektronika</option>
-        <option value="Geyim">Geyim</option>
-        <option value="Xidmət">Xidmət</option>
-      </select>
+<div class="search">
 
-      <button class="search-btn" onclick="filterListings()">🔎 Axtar</button>
-    </div>
+<input
+id="search"
+placeholder="Məsələn: iPhone, maşın, ev..."
+oninput="loadListings()">
 
-  </div>
+<select
+id="categoryFilter"
+onchange="loadListings()">
+
+<option value="">Bütün kateqoriyalar</option>
+<option>Telefon</option>
+<option>Avtomobil</option>
+<option>Ev</option>
+<option>Elektronika</option>
+<option>Geyim</option>
+<option>Xidmət</option>
+
+</select>
+
+<button onclick="loadListings()">
+🔎 Axtar
+</button>
+
+</div>
+
+</div>
+
 </section>
+
 
 <main class="container">
 
-  <section>
-    <div class="section-title">
-      <div>
-        <h2>Kateqoriyalar</h2>
-        <p>Elanlara kateqoriyaya görə bax</p>
-      </div>
-    </div>
 
-    <div class="categories">
+<div id="userPanel" class="user-panel">
 
-      <div class="category" onclick="chooseCategory('Telefon')">
-        <div class="icon">📱</div>
-        <b>Telefon</b>
-      </div>
+<div class="user-row">
 
-      <div class="category" onclick="chooseCategory('Avtomobil')">
-        <div class="icon">🚗</div>
-        <b>Avtomobil</b>
-      </div>
+<div>
+<strong id="userEmail"></strong>
+<div style="color:#81889a;font-size:13px;margin-top:4px;">
+Hesabınız aktivdir
+</div>
+</div>
 
-      <div class="category" onclick="chooseCategory('Ev')">
-        <div class="icon">🏠</div>
-        <b>Ev</b>
-      </div>
+<button
+class="btn btn-light"
+onclick="logout()">
+Çıxış
+</button>
 
-      <div class="category" onclick="chooseCategory('Elektronika')">
-        <div class="icon">💻</div>
-        <b>Elektronika</b>
-      </div>
+</div>
 
-      <div class="category" onclick="chooseCategory('Geyim')">
-        <div class="icon">👕</div>
-        <b>Geyim</b>
-      </div>
+<div style="margin-top:15px;">
 
-      <div class="category" onclick="chooseCategory('Xidmət')">
-        <div class="icon">🛠️</div>
-        <b>Xidmət</b>
-      </div>
+<button
+class="btn btn-primary"
+onclick="openAdd()">
+＋ Yeni elan
+</button>
 
-    </div>
-  </section>
+</div>
+
+<div id="myListings"
+class="my-listings"></div>
+
+</div>
 
 
-  <section class="vip-section">
+<div class="title">
 
-    <div class="section-title">
-      <div>
-        <h2>🔥 VIP elanlar</h2>
-        <p>Daha çox görünən premium elanlar</p>
-      </div>
-    </div>
+<h2>Kateqoriyalar</h2>
 
-    <div class="listing-grid" id="vipGrid"></div>
+<p>Elanlara kateqoriyaya görə bax</p>
 
-  </section>
+</div>
 
 
-  <section class="normal-section">
+<div class="categories">
 
-    <div class="section-title">
-      <div>
-        <h2>🆕 Son elanlar</h2>
-        <p id="resultCount">Elanlar göstərilir</p>
-      </div>
-    </div>
+<div class="category" onclick="selectCategory('Telefon')">
+<div class="category-icon">📱</div>
+<b>Telefon</b>
+</div>
 
-    <div class="filters">
+<div class="category" onclick="selectCategory('Avtomobil')">
+<div class="category-icon">🚗</div>
+<b>Avtomobil</b>
+</div>
 
-      <select id="filterCategory" onchange="filterListings()">
-        <option value="">Kateqoriya</option>
-        <option value="Telefon">Telefon</option>
-        <option value="Avtomobil">Avtomobil</option>
-        <option value="Ev">Ev</option>
-        <option value="Elektronika">Elektronika</option>
-        <option value="Geyim">Geyim</option>
-        <option value="Xidmət">Xidmət</option>
-      </select>
+<div class="category" onclick="selectCategory('Ev')">
+<div class="category-icon">🏠</div>
+<b>Ev</b>
+</div>
 
-      <input
-        id="minPrice"
-        type="number"
-        placeholder="Min qiymət"
-        oninput="filterListings()"
-      >
+<div class="category" onclick="selectCategory('Elektronika')">
+<div class="category-icon">💻</div>
+<b>Elektronika</b>
+</div>
 
-      <input
-        id="maxPrice"
-        type="number"
-        placeholder="Max qiymət"
-        oninput="filterListings()"
-      >
+<div class="category" onclick="selectCategory('Geyim')">
+<div class="category-icon">👕</div>
+<b>Geyim</b>
+</div>
 
-      <select id="sortPrice" onchange="filterListings()">
-        <option value="">Sıralama</option>
-        <option value="low">Əvvəl ucuz</option>
-        <option value="high">Əvvəl baha</option>
-      </select>
+<div class="category" onclick="selectCategory('Xidmət')">
+<div class="category-icon">🛠️</div>
+<b>Xidmət</b>
+</div>
 
-      <button class="reset-btn" onclick="resetFilters()">↻ Sıfırla</button>
+</div>
 
-    </div>
 
-    <div class="listing-grid" id="listingGrid"></div>
+<div class="title">
 
-    <div class="empty" id="empty">
-      <div style="font-size:40px;margin-bottom:10px;">🔍</div>
-      <h3>Elan tapılmadı</h3>
-      <p>Axtarış və filtr seçimlərini dəyişərək yenidən cəhd edin.</p>
-    </div>
+<h2>🔥 Bütün elanlar</h2>
 
-  </section>
+<p id="count">Elanlar yüklənir...</p>
+
+</div>
+
+
+<div id="loading" class="loading">
+⏳ Elanlar yüklənir...
+</div>
+
+<div
+id="listingGrid"
+class="grid">
+</div>
+
+<div
+id="empty"
+class="empty">
+
+<div style="font-size:42px;">
+🔍
+</div>
+
+<h3 style="margin:10px 0;">
+Elan tapılmadı
+</h3>
+
+<p>
+Axtarış kriteriyalarını dəyişib yenidən yoxlayın.
+</p>
+
+</div>
 
 </main>
 
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <strong style="font-size:20px;">ELAN.AZ</strong>
-      <p style="margin-top:8px;">Al, sat və rahat elan yerləşdir.</p>
-    </div>
+<footer>
 
-    <div>
-      <p>© 2026 ELAN.AZ</p>
-      <p style="margin-top:5px;">Bütün hüquqlar qorunur.</p>
-    </div>
-  </div>
+<div class="footer-inner">
+
+<div>
+<strong style="color:white;font-size:21px;">
+ELAN.AZ
+</strong>
+
+<p style="margin-top:7px;">
+Al • Sat • Elan yerləşdir
+</p>
+
+</div>
+
+<div>
+© 2026 ELAN.AZ
+</div>
+
+</div>
+
 </footer>
 
 
-<!-- ELAN YERLƏŞDİRMƏ MODALI -->
+<!-- AUTH -->
 
-<div class="modal" id="addModal">
+<div id="authModal" class="modal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button class="close" onclick="closeModal('addModal')">×</button>
+<button
+class="close"
+onclick="closeModal('authModal')">
+×
+</button>
 
-    <h2>➕ Yeni elan yerləşdir</h2>
+<h2 style="margin-bottom:18px;">
+👤 Hesab
+</h2>
 
-    <form id="addForm">
+<div class="auth-tabs">
 
-      <div class="form-grid">
+<button
+id="loginTab"
+class="auth-tab active"
+onclick="authMode('login')">
+Giriş
+</button>
 
-        <div class="form-group">
-          <label>Elanın adı</label>
-          <input id="newTitle" required placeholder="Məsələn: iPhone 15 Pro">
-        </div>
+<button
+id="registerTab"
+class="auth-tab"
+onclick="authMode('register')">
+Qeydiyyat
+</button>
 
-        <div class="form-group">
-          <label>Qiymət (AZN)</label>
-          <input id="newPrice" type="number" min="0" required placeholder="1200">
-        </div>
-
-        <div class="form-group">
-          <label>Kateqoriya</label>
-          <select id="newCategory" required>
-            <option value="">Seçin</option>
-            <option value="Telefon">Telefon</option>
-            <option value="Avtomobil">Avtomobil</option>
-            <option value="Ev">Ev</option>
-            <option value="Elektronika">Elektronika</option>
-            <option value="Geyim">Geyim</option>
-            <option value="Xidmət">Xidmət</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Şəhər / Rayon</label>
-          <input id="newLocation" required placeholder="Bakı, Sumqayıt və s.">
-        </div>
-
-        <div class="form-group full">
-          <label>Şəkil URL-i</label>
-          <input id="newImage" placeholder="https://...">
-          <small style="color:#888;">
-            Şəkil linki əlavə edə bilərsiniz. Boş saxlasanız standart şəkil istifadə olunacaq.
-          </small>
-        </div>
-
-        <div class="form-group full">
-          <label>Telefon nömrəsi</label>
-          <input id="newPhone" required placeholder="050 000 00 00">
-        </div>
-
-        <div class="form-group full">
-          <label>Elan haqqında</label>
-          <textarea id="newDescription" required placeholder="Elan haqqında məlumat yazın..."></textarea>
-        </div>
-
-      </div>
-
-      <button class="publish" type="submit">
-        🚀 Elanı yerləşdir
-      </button>
-
-    </form>
-
-  </div>
 </div>
 
 
-<!-- ELAN DETALLARI -->
+<div class="form-group">
 
-<div class="modal" id="detailsModal">
+<label>E-mail</label>
 
-  <div class="modal-box">
+<input
+id="authEmail"
+type="email"
+placeholder="email@example.com">
 
-    <button class="close" onclick="closeModal('detailsModal')">×</button>
-
-    <div id="detailsContent"></div>
-
-  </div>
 </div>
 
 
-<div class="toast" id="toast"></div>
+<div class="form-group">
+
+<label>Şifrə</label>
+
+<input
+id="authPassword"
+type="password"
+placeholder="Minimum 6 simvol">
+
+</div>
 
 
-<script>
+<button
+class="publish"
+onclick="submitAuth()">
 
-const defaultImage =
-"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80";
+<span id="authButtonText">
+Daxil ol
+</span>
 
+</button>
 
-let listings = [
+</div>
 
-  {
-    id:1,
-    title:"iPhone 15 Pro 256GB",
-    price:1850,
-    category:"Telefon",
-    location:"Bakı",
-    date:"Bu gün",
-    image:"https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=80",
-    vip:true,
-    phone:"050 555 55 55",
-    description:"Təmiz və səliqəli iPhone 15 Pro. 256GB yaddaş. Telefon problemsiz işləyir."
-  },
-
-  {
-    id:2,
-    title:"Toyota Camry 2021",
-    price:38500,
-    category:"Avtomobil",
-    location:"Bakı",
-    date:"Bu gün",
-    image:"https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=900&q=80",
-    vip:true,
-    phone:"050 222 22 22",
-    description:"Toyota Camry 2021. Avtomobil ideal vəziyyətdədir."
-  },
-
-  {
-    id:3,
-    title:"3 otaqlı mənzil",
-    price:145000,
-    category:"Ev",
-    location:"Sumqayıt",
-    date:"Bu gün",
-    image:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
-    vip:true,
-    phone:"050 333 33 33",
-    description:"Müasir təmirli 3 otaqlı mənzil. Ətraflı məlumat üçün əlaqə saxlayın."
-  },
-
-  {
-    id:4,
-    title:"MacBook Air M2",
-    price:2100,
-    category:"Elektronika",
-    location:"Bakı",
-    date:"1 saat əvvəl",
-    image:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80",
-    vip:true,
-    phone:"050 444 44 44",
-    description:"MacBook Air M2, çox yaxşı vəziyyətdədir."
-  },
-
-  {
-    id:5,
-    title:"Samsung Galaxy S24",
-    price:1450,
-    category:"Telefon",
-    location:"Bakı",
-    date:"2 saat əvvəl",
-    image:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80",
-    vip:false,
-    phone:"051 111 11 11",
-    description:"Samsung Galaxy S24. Səliqəli istifadə olunub."
-  },
-
-  {
-    id:6,
-    title:"Mercedes-Benz C-Class",
-    price:42000,
-    category:"Avtomobil",
-    location:"Gəncə",
-    date:"3 saat əvvəl",
-    image:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=80",
-    vip:false,
-    phone:"051 222 22 22",
-    description:"Mercedes-Benz C-Class. Avtomobil yaxşı vəziyyətdədir."
-  },
-
-  {
-    id:7,
-    title:"Gaming komputer",
-    price:2600,
-    category:"Elektronika",
-    location:"Bakı",
-    date:"4 saat əvvəl",
-    image:"https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80",
-    vip:false,
-    phone:"051 333 33 33",
-    description:"Güclü gaming komputer. Oyun və iş üçün uyğundur."
-  },
-
-  {
-    id:8,
-    title:"Yeni tikili mənzil",
-    price:98000,
-    category:"Ev",
-    location:"Xırdalan",
-    date:"5 saat əvvəl",
-    image:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80",
-    vip:false,
-    phone:"051 444 44 44",
-    description:"Yeni tikili binada mənzil satılır."
-  }
-
-];
+</div>
 
 
-function money(value){
+<!-- ADD LISTING -->
 
-  return Number(value).toLocaleString("az-AZ") + " AZN";
+<div id="addModal" class="modal">
 
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal('addModal')">
+×
+</button>
+
+<h2 style="margin-bottom:20px;">
+➕ Yeni elan yerləşdir
+</h2>
+
+
+<div class="form-group">
+
+<label>Elanın adı</label>
+
+<input
+id="title"
+placeholder="Məsələn: iPhone 15 Pro">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Kateqoriya</label>
+
+<select id="category">
+
+<option value="">Kateqoriya seçin</option>
+<option>Telefon</option>
+<option>Avtomobil</option>
+<option>Ev</option>
+<option>Elektronika</option>
+<option>Geyim</option>
+<option>Xidmət</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Qiymət — AZN</label>
+
+<input
+id="price"
+type="number"
+min="0"
+placeholder="1500">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Şəhər / Rayon</label>
+
+<input
+id="location"
+placeholder="Bakı">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Əlaqə nömrəsi</label>
+
+<input
+id="phone"
+placeholder="050 000 00 00">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Şəkil</label>
+
+<input
+id="image"
+type="file"
+accept="image/*">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Elan haqqında</label>
+
+<textarea
+id="description"
+placeholder="Elan haqqında məlumat..."></textarea>
+
+</div>
+
+
+<button
+id="publishBtn"
+class="publish"
+onclick="publishListing()">
+
+🚀 Elanı yerləşdir
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- DETAILS -->
+
+<div id="detailsModal" class="modal">
+
+<div class="modal-box">
+
+<button
+class="close"
+onclick="closeModal('detailsModal')">
+×
+</button>
+
+<div id="details"></div>
+
+</div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
 }
+from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
-
-function createCard(item){
-
-  return `
-
-    <div class="card">
-
-      <div class="card-img">
-
-        <img
-          src="${item.image || defaultImage}"
-          onerror="this.src='${defaultImage}'"
-          alt="${item.title}"
-        >
-
-        ${item.vip ? `<div class="badge">⭐ VIP</div>` : ""}
-
-        <button
-          class="heart"
-          onclick="favorite(event,${item.id})"
-        >♡</button>
-
-      </div>
-
-      <div class="card-body">
-
-        <div class="card-title">${escapeHTML(item.title)}</div>
-
-        <div class="price">${money(item.price)}</div>
-
-        <div class="location">
-          📍 ${escapeHTML(item.location)}
-        </div>
-
-        <div class="card-footer">
-          <span>${escapeHTML(item.category)}</span>
-          <span>${escapeHTML(item.date || "İndi")}</span>
-        </div>
-
-        <button
-          onclick="openDetails(${item.id})"
-          style="
-            width:100%;
-            margin-top:12px;
-            padding:11px;
-            border-radius:10px;
-            background:#f0edff;
-            color:#6045dc;
-            font-weight:800;
-          "
-        >
-          Elana bax →
-        </button>
-
-      </div>
-
-    </div>
-
-  `;
-
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  where,
+  deleteDoc,
+  doc,
+  serverTimestamp
 }
+from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
-
-function render(){
-
-  const vipGrid = document.getElementById("vipGrid");
-
-  const normalGrid = document.getElementById("listingGrid");
-
-  const vips = listings.filter(x => x.vip);
-
-  vipGrid.innerHTML = vips.map(createCard).join("");
-
-  filterListings();
-
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
 }
+from "https://www.gstatic.com/firebasejs/12.16.0/firebase-storage.js";
 
 
-function filterListings(){
+/* =====================================================
+   BURANI ÖZ FIREBASE MƏLUMATLARINLA DƏYİŞ
+===================================================== */
 
-  const search =
-    document.getElementById("searchInput").value.toLowerCase().trim();
+const firebaseConfig = {
 
-  const searchCategory =
-    document.getElementById("searchCategory").value;
+  apiKey:"BURAYA_API_KEY",
 
-  const filterCategory =
-    document.getElementById("filterCategory").value;
+  authDomain:"BURAYA_AUTH_DOMAIN",
 
-  const min =
-    parseFloat(document.getElementById("minPrice").value) || 0;
+  projectId:"BURAYA_PROJECT_ID",
 
-  const maxValue =
-    parseFloat(document.getElementById("maxPrice").value);
+  storageBucket:"BURAYA_STORAGE_BUCKET",
 
-  const sort =
-    document.getElementById("sortPrice").value;
+  messagingSenderId:"BURAYA_MESSAGING_SENDER_ID",
 
+  appId:"BURAYA_APP_ID"
 
-  let result = listings.filter(item => {
-
-    const text =
-      (
-        item.title +
-        " " +
-        item.category +
-        " " +
-        item.location
-      ).toLowerCase();
-
-    const matchesSearch =
-      !search || text.includes(search);
-
-    const matchesSearchCategory =
-      !searchCategory ||
-      item.category === searchCategory;
-
-    const matchesFilterCategory =
-      !filterCategory ||
-      item.category === filterCategory;
-
-    const matchesMin =
-      item.price >= min;
-
-    const matchesMax =
-      !maxValue ||
-      item.price <= maxValue;
-
-    return (
-      matchesSearch &&
-      matchesSearchCategory &&
-      matchesFilterCategory &&
-      matchesMin &&
-      matchesMax
-    );
-
-  });
+};
 
 
-  if(sort === "low"){
-    result.sort((a,b) => a.price - b.price);
-  }
+/* =====================================================
+   FIREBASE
+===================================================== */
 
-  if(sort === "high"){
-    result.sort((a,b) => b.price - a.price);
-  }
+const app = initializeApp(firebaseConfig);
 
+const auth = getAuth(app);
 
-  const grid =
-    document.getElementById("listingGrid");
+const db = getFirestore(app);
 
-  const empty =
-    document.getElementById("empty");
-
-  const count =
-    document.getElementById("resultCount");
+const storage = getStorage(app);
 
 
-  grid.innerHTML =
-    result.map(createCard).join("");
+let currentUser = null;
 
-  count.textContent =
-    result.length + " elan göstərilir";
+let authType = "login";
 
-  empty.style.display =
-    result.length ? "none" : "block";
-
-}
+let allListings = [];
 
 
-function chooseCategory(category){
+/* =====================================================
+   AUTH STATE
+===================================================== */
 
-  document.getElementById("searchCategory").value = category;
+onAuthStateChanged(auth,(user)=>{
 
-  document.getElementById("filterCategory").value = category;
+  currentUser = user;
 
-  filterListings();
+  const panel =
+    document.getElementById("userPanel");
 
-  window.scrollTo({
-    top:document.querySelector(".normal-section").offsetTop - 80,
-    behavior:"smooth"
-  });
+  if(user){
 
-}
+    panel.classList.add("show");
 
+    document.getElementById("userEmail")
+      .textContent = user.email;
 
-function resetFilters(){
-
-  document.getElementById("searchInput").value = "";
-
-  document.getElementById("searchCategory").value = "";
-
-  document.getElementById("filterCategory").value = "";
-
-  document.getElementById("minPrice").value = "";
-
-  document.getElementById("maxPrice").value = "";
-
-  document.getElementById("sortPrice").value = "";
-
-  filterListings();
-
-}
-
-
-function favorite(event,id){
-
-  event.stopPropagation();
-
-  const btn = event.currentTarget;
-
-  if(btn.textContent === "♡"){
-
-    btn.textContent = "♥";
-
-    showToast("❤️ Elan yadda saxlanıldı");
+    loadMyListings();
 
   }else{
 
-    btn.textContent = "♡";
+    panel.classList.remove("show");
 
-    showToast("Elan yadda saxlananlardan silindi");
+    document.getElementById("myListings")
+      .innerHTML = "";
 
   }
 
-}
+  loadListings();
+
+});
 
 
-function openModal(id){
+/* =====================================================
+   AUTH MODAL
+===================================================== */
 
-  document.getElementById(id).classList.add("active");
+window.openAuth = function(){
 
-}
+  document
+    .getElementById("authModal")
+    .classList.add("show");
 
-
-function closeModal(id){
-
-  document.getElementById(id).classList.remove("active");
-
-}
-
-
-function openDetails(id){
-
-  const item =
-    listings.find(x => x.id === id);
-
-  if(!item) return;
+};
 
 
-  document.getElementById("detailsContent").innerHTML = `
+window.authMode = function(mode){
 
-    <img
-      class="details-img"
-      src="${item.image || defaultImage}"
-      onerror="this.src='${defaultImage}'"
-    >
+  authType = mode;
 
-    <h2>${escapeHTML(item.title)}</h2>
+  document
+    .getElementById("loginTab")
+    .classList.toggle("active",mode==="login");
 
-    <div class="details-price">
-      ${money(item.price)}
-    </div>
+  document
+    .getElementById("registerTab")
+    .classList.toggle("active",mode==="register");
 
-    <div class="details-meta">
+  document
+    .getElementById("authButtonText")
+    .textContent =
+      mode==="login"
+      ? "Daxil ol"
+      : "Qeydiyyatdan keç";
 
-      <div class="meta">📍 ${escapeHTML(item.location)}</div>
-
-      <div class="meta">🏷️ ${escapeHTML(item.category)}</div>
-
-      <div class="meta">🕒 ${escapeHTML(item.date || "İndi")}</div>
-
-    </div>
-
-    <h3 style="margin-bottom:8px;">
-      Elan haqqında
-    </h3>
-
-    <p style="color:#626b7d;line-height:1.6;">
-      ${escapeHTML(item.description || "Məlumat yoxdur.")}
-    </p>
-
-    <div class="contact-buttons">
-
-      <button
-        class="call"
-        onclick="callNumber('${escapeHTML(item.phone || "")}')"
-      >
-        📞 Zəng et
-      </button>
-
-      <button
-        class="message"
-        onclick="showToast('Mesaj funksiyası tezliklə aktiv olacaq')"
-      >
-        💬 Mesaj yaz
-      </button>
-
-    </div>
-
-  `;
+};
 
 
-  openModal("detailsModal");
+window.submitAuth = async function(){
 
-}
+  const email =
+    document.getElementById("authEmail")
+      .value.trim();
 
+  const password =
+    document.getElementById("authPassword")
+      .value;
 
-function callNumber(phone){
+  if(!email || !password){
 
-  if(!phone){
-
-    showToast("Telefon nömrəsi yoxdur");
+    toast("E-mail və şifrəni yazın.");
 
     return;
 
   }
 
-  window.location.href =
-    "tel:" + phone.replace(/\s/g,"");
+  try{
+
+    if(authType==="register"){
+
+      await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      toast("✅ Qeydiyyat tamamlandı.");
+
+    }else{
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      toast("✅ Giriş edildi.");
+
+    }
+
+    closeModal("authModal");
+
+  }catch(error){
+
+    console.error(error);
+
+    let message =
+      "Xəta baş verdi.";
+
+    if(error.code==="auth/email-already-in-use")
+      message="Bu e-mail artıq istifadə olunur.";
+
+    if(error.code==="auth/invalid-email")
+      message="E-mail düzgün deyil.";
+
+    if(error.code==="auth/weak-password")
+      message="Şifrə ən azı 6 simvol olmalıdır.";
+
+    if(error.code==="auth/invalid-credential")
+      message="E-mail və ya şifrə səhvdir.";
+
+    toast(message);
+
+  }
+
+};
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+window.logout = async function(){
+
+  await signOut(auth);
+
+  toast("Hesabdan çıxış edildi.");
+
+};
+
+
+/* =====================================================
+   ADD MODAL
+===================================================== */
+
+window.requireLogin = function(){
+
+  if(!currentUser){
+
+    toast("Elan yerləşdirmək üçün əvvəlcə giriş edin.");
+
+    openAuth();
+
+    return;
+
+  }
+
+  openAdd();
+
+};
+
+
+window.openAdd = function(){
+
+  if(!currentUser){
+
+    openAuth();
+
+    return;
+
+  }
+
+  document
+    .getElementById("addModal")
+    .classList.add("show");
+
+};
+
+
+/* =====================================================
+   PUBLISH LISTING
+===================================================== */
+
+window.publishListing = async function(){
+
+  if(!currentUser){
+
+    toast("Əvvəlcə hesabınıza daxil olun.");
+
+    return;
+
+  }
+
+
+  const title =
+    document.getElementById("title")
+      .value.trim();
+
+  const category =
+    document.getElementById("category")
+      .value;
+
+  const price =
+    Number(
+      document.getElementById("price")
+        .value
+    );
+
+  const location =
+    document.getElementById("location")
+      .value.trim();
+
+  const phone =
+    document.getElementById("phone")
+      .value.trim();
+
+  const description =
+    document.getElementById("description")
+      .value.trim();
+
+  const imageFile =
+    document.getElementById("image")
+      .files[0];
+
+
+  if(
+    !title ||
+    !category ||
+    !price ||
+    !location ||
+    !phone ||
+    !description
+  ){
+
+    toast("Bütün sahələri doldurun.");
+
+    return;
+
+  }
+
+
+  const button =
+    document.getElementById("publishBtn");
+
+  button.disabled = true;
+
+  button.textContent =
+    "⏳ Yüklənir...";
+
+
+  try{
+
+    let imageUrl = "";
+
+
+    /* FOTO YÜKLƏ */
+
+    if(imageFile){
+
+      if(imageFile.size > 5 * 1024 * 1024){
+
+        toast("Şəkil maksimum 5 MB ola bilər.");
+
+        button.disabled=false;
+
+        button.textContent=
+          "🚀 Elanı yerləşdir";
+
+        return;
+
+      }
+
+
+      const fileName =
+        Date.now() +
+        "_" +
+        imageFile.name.replace(/\s/g,"_");
+
+
+      const imageRef =
+        ref(
+          storage,
+          "listings/" +
+          currentUser.uid +
+          "/" +
+          fileName
+        );
+
+
+      await uploadBytes(
+        imageRef,
+        imageFile
+      );
+
+
+      imageUrl =
+        await getDownloadURL(imageRef);
+
+    }
+
+
+    /* FIRESTORE */
+
+    await addDoc(
+      collection(db,"listings"),
+      {
+
+        title:title,
+
+        category:category,
+
+        price:price,
+
+        location:location,
+
+        phone:phone,
+
+        description:description,
+
+        image:imageUrl,
+
+        userId:currentUser.uid,
+
+        userEmail:currentUser.email,
+
+        vip:false,
+
+        status:"approved",
+
+        createdAt:serverTimestamp()
+
+      }
+    );
+
+
+    document
+      .getElementById("title")
+      .value="";
+
+    document
+      .getElementById("category")
+      .value="";
+
+    document
+      .getElementById("price")
+      .value="";
+
+    document
+      .getElementById("location")
+      .value="";
+
+    document
+      .getElementById("phone")
+      .value="";
+
+    document
+      .getElementById("description")
+      .value="";
+
+    document
+      .getElementById("image")
+      .value="";
+
+
+    closeModal("addModal");
+
+    toast("🎉 Elanınız uğurla yerləşdirildi!");
+
+    loadListings();
+
+    loadMyListings();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    toast(
+      "Elan yerləşdirilə bilmədi. Firebase ayarlarını yoxlayın."
+    );
+
+  }
+
+
+  button.disabled=false;
+
+  button.textContent=
+    "🚀 Elanı yerləşdir";
+
+};
+
+
+/* =====================================================
+   LOAD LISTINGS
+===================================================== */
+
+window.loadListings = async function(){
+
+  const grid =
+    document.getElementById("listingGrid");
+
+  const loading =
+    document.getElementById("loading");
+
+  const empty =
+    document.getElementById("empty");
+
+
+  loading.style.display="block";
+
+  grid.innerHTML="";
+
+  empty.style.display="none";
+
+
+  try{
+
+    const q =
+      query(
+        collection(db,"listings"),
+        orderBy("createdAt","desc")
+      );
+
+
+    const snapshot =
+      await getDocs(q);
+
+
+    allListings=[];
+
+
+    snapshot.forEach((docSnap)=>{
+
+      const data =
+        docSnap.data();
+
+      if(data.status==="approved"){
+
+        allListings.push({
+
+          id:docSnap.id,
+
+          ...data
+
+        });
+
+      }
+
+    });
+
+
+    renderListings();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    grid.innerHTML="";
+
+    toast(
+      "Elanlar yüklənmədi. Firestore Rules-u yoxlayın."
+    );
+
+  }
+
+
+  loading.style.display="none";
+
+};
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function renderListings(){
+
+  const grid =
+    document.getElementById("listingGrid");
+
+  const search =
+    document.getElementById("search")
+      .value
+      .toLowerCase()
+      .trim();
+
+  const category =
+    document.getElementById("categoryFilter")
+      .value;
+
+
+  const result =
+    allListings.filter(item=>{
+
+      const text =
+        (
+          item.title +
+          " " +
+          item.location +
+          " " +
+          item.category
+        ).toLowerCase();
+
+
+      const searchMatch =
+        !search ||
+        text.includes(search);
+
+
+      const categoryMatch =
+        !category ||
+        item.category===category;
+
+
+      return searchMatch && categoryMatch;
+
+    });
+
+
+  document.getElementById("count")
+    .textContent =
+      result.length +
+      " elan";
+
+
+  if(!result.length){
+
+    grid.innerHTML="";
+
+    document
+      .getElementById("empty")
+      .style.display="block";
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("empty")
+    .style.display="none";
+
+
+  grid.innerHTML =
+    result.map(createCard).join("");
 
 }
 
 
-document.getElementById("addForm")
-.addEventListener("submit",function(e){
+/* =====================================================
+   CARD
+===================================================== */
 
-  e.preventDefault();
-
-
-  const title =
-    document.getElementById("newTitle").value.trim();
-
-  const price =
-    Number(document.getElementById("newPrice").value);
-
-  const category =
-    document.getElementById("newCategory").value;
-
-  const location =
-    document.getElementById("newLocation").value.trim();
+function createCard(item){
 
   const image =
-    document.getElementById("newImage").value.trim();
-
-  const phone =
-    document.getElementById("newPhone").value.trim();
-
-  const description =
-    document.getElementById("newDescription").value.trim();
+    item.image ||
+    "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=900&q=80";
 
 
-  const newListing = {
+  return `
 
-    id:Date.now(),
+  <div class="card">
 
-    title:title,
+    <div class="card-image">
 
-    price:price,
+      <img
+        src="${safe(image)}"
+        onerror="this.style.display='none'"
+      >
 
-    category:category,
+      ${
+        item.vip
+        ?
+        `<div class="vip">⭐ VIP</div>`
+        :
+        ""
+      }
 
-    location:location,
+      <button
+        class="favorite"
+        onclick="favorite('${item.id}')">
+        ♡
+      </button>
 
-    date:"İndi",
+    </div>
 
-    image:image || defaultImage,
+    <div class="card-body">
 
-    vip:false,
+      <div class="card-title">
+        ${safe(item.title)}
+      </div>
 
-    phone:phone,
+      <div class="price">
+        ${Number(item.price).toLocaleString("az-AZ")} AZN
+      </div>
 
-    description:description
+      <div class="location">
+        📍 ${safe(item.location)}
+      </div>
 
-  };
+      <div class="card-bottom">
+
+        <span>
+          ${safe(item.category)}
+        </span>
+
+        <span>
+          ELAN
+        </span>
+
+      </div>
+
+      <button
+        class="details"
+        onclick="openDetails('${item.id}')">
+
+        Elana bax →
+
+      </button>
+
+    </div>
+
+  </div>
+
+  `;
+
+}
 
 
-  listings.unshift(newListing);
+/* =====================================================
+   DETAILS
+===================================================== */
+
+window.openDetails = function(id){
+
+  const item =
+    allListings.find(x=>x.id===id);
+
+  if(!item) return;
 
 
-  closeModal("addModal");
+  const image =
+    item.image ||
+    "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=900&q=80";
 
-  document.getElementById("addForm").reset();
 
-  render();
+  document.getElementById("details")
+    .innerHTML=`
 
-  showToast("🚀 Elan uğurla yerləşdirildi!");
+    <img
+      class="detail-image"
+      src="${safe(image)}">
 
+    <h2>
+      ${safe(item.title)}
+    </h2>
+
+    <div class="detail-price">
+      ${Number(item.price).toLocaleString("az-AZ")} AZN
+    </div>
+
+    <div style="
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin:12px 0;
+    ">
+
+      <span class="btn btn-light">
+        📍 ${safe(item.location)}
+      </span>
+
+      <span class="btn btn-light">
+        🏷️ ${safe(item.category)}
+      </span>
+
+    </div>
+
+    <h3 style="margin:18px 0 8px;">
+      Elan haqqında
+    </h3>
+
+    <p style="
+      color:#687083;
+      line-height:1.7;
+    ">
+      ${safe(item.description)}
+    </p>
+
+    <div class="contact">
+
+      <button
+        class="call"
+        onclick="call('${safe(item.phone)}')">
+
+        📞 Zəng et
+
+      </button>
+
+      <button
+        class="message"
+        onclick="whatsapp('${safe(item.phone)}')">
+
+        💬 WhatsApp
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  document
+    .getElementById("detailsModal")
+    .classList.add("show");
+
+};
+
+
+/* =====================================================
+   MY LISTINGS
+===================================================== */
+
+async function loadMyListings(){
+
+  if(!currentUser) return;
+
+
+  const box =
+    document.getElementById("myListings");
+
+
+  box.innerHTML=
+    "<div>⏳ Elanlarınız yüklənir...</div>";
+
+
+  try{
+
+    const q =
+      query(
+        collection(db,"listings"),
+        where(
+          "userId",
+          "==",
+          currentUser.uid
+        )
+      );
+
+
+    const snapshot =
+      await getDocs(q);
+
+
+    if(snapshot.empty){
+
+      box.innerHTML=
+        "<div style='color:#81889a'>Hələ elanınız yoxdur.</div>";
+
+      return;
+
+    }
+
+
+    let html="";
+
+
+    snapshot.forEach(ds=>{
+
+      const item=ds.data();
+
+
+      html+=`
+
+      <div class="my-item">
+
+        <strong>
+          ${safe(item.title)}
+        </strong>
+
+        <div style="
+          color:#6546f5;
+          font-weight:900;
+          margin-top:5px;
+        ">
+
+          ${Number(item.price).toLocaleString("az-AZ")}
+          AZN
+
+        </div>
+
+        <div style="
+          color:#81889a;
+          font-size:12px;
+          margin-top:5px;
+        ">
+
+          ${safe(item.location)}
+
+        </div>
+
+        <button
+          class="delete"
+          onclick="deleteListing('${ds.id}')">
+
+          🗑️ Elanı sil
+
+        </button>
+
+      </div>
+
+      `;
+
+    });
+
+
+    box.innerHTML=html;
+
+
+  }catch(error){
+
+    console.error(error);
+
+    box.innerHTML=
+      "<div>Elanlar yüklənmədi.</div>";
+
+  }
+
+}
+
+
+/* =====================================================
+   DELETE
+===================================================== */
+
+window.deleteListing = async function(id){
+
+  if(!currentUser) return;
+
+
+  const ok =
+    confirm(
+      "Bu elanı silmək istəyirsiniz?"
+    );
+
+
+  if(!ok) return;
+
+
+  try{
+
+    await deleteDoc(
+      doc(db,"listings",id)
+    );
+
+
+    toast("🗑️ Elan silindi.");
+
+    loadListings();
+
+    loadMyListings();
+
+
+  }catch(error){
+
+    console.error(error);
+
+    toast("Elan silinə bilmədi.");
+
+  }
+
+};
+
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+window.selectCategory=function(category){
+
+  document
+    .getElementById("categoryFilter")
+    .value=category;
+
+  loadListings();
 
   window.scrollTo({
 
-    top:document.querySelector(".normal-section").offsetTop - 70,
+    top:document
+      .getElementById("listingGrid")
+      .offsetTop-100,
 
     behavior:"smooth"
 
   });
 
-});
+};
 
 
-function showToast(message){
+/* =====================================================
+   FAVORITE
+===================================================== */
 
-  const toast =
-    document.getElementById("toast");
+window.favorite=function(id){
 
-  toast.textContent = message;
+  if(!currentUser){
 
-  toast.classList.add("show");
+    toast(
+      "Favoriyə əlavə etmək üçün giriş edin."
+    );
 
-  setTimeout(() => {
+    openAuth();
 
-    toast.classList.remove("show");
+    return;
 
-  },2500);
+  }
 
-}
+  toast("❤️ Elan seçilmişlərə əlavə edildi.");
 
-
-function escapeHTML(text){
-
-  return String(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
-
-}
+};
 
 
-window.addEventListener("click",function(e){
+/* =====================================================
+   CONTACT
+===================================================== */
+
+window.call=function(phone){
+
+  window.location.href=
+    "tel:"+phone.replace(/\s/g,"");
+
+};
+
+
+window.whatsapp=function(phone){
+
+  const clean =
+    phone.replace(/\D/g,"");
+
+  window.open(
+    "https://wa.me/994"+clean.replace(/^0/,""),
+    "_blank"
+  );
+
+};
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+window.closeModal=function(id){
+
+  document
+    .getElementById(id)
+    .classList.remove("show");
+
+};
+
+
+window.addEventListener("click",(e)=>{
 
   if(e.target.classList.contains("modal")){
 
-    e.target.classList.remove("active");
+    e.target.classList.remove("show");
 
   }
 
 });
 
 
-render();
+/* =====================================================
+   TOAST
+===================================================== */
+
+window.toast=function(message){
+
+  const box =
+    document.getElementById("toast");
+
+  box.textContent=message;
+
+  box.classList.add("show");
+
+  setTimeout(()=>{
+
+    box.classList.remove("show");
+
+  },2800);
+
+};
+
+
+/* =====================================================
+   SECURITY — HTML ESCAPE
+===================================================== */
+
+function safe(value){
+
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
 
 </script>
 
