@@ -3,526 +3,604 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080812">
-<title>WEBCRAFT — Sayt Sifariş Mərkəzi</title>
+<meta name="theme-color" content="#070710">
+
+<title>WEBCRAFT | Sayt Sifarişi</title>
 
 <style>
 *{
- box-sizing:border-box;
- margin:0;
- padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 :root{
- --bg:#070710;
- --card:#11111d;
- --card2:#171727;
- --text:#fff;
- --muted:#9797aa;
- --purple:#8b5cf6;
- --pink:#ec4899;
- --cyan:#22d3ee;
- --green:#34d399;
- --gold:#ffd34e;
-}
-
-html{
- scroll-behavior:smooth;
+--bg:#06060d;
+--card:#10101b;
+--card2:#161625;
+--purple:#8b5cf6;
+--pink:#ec4899;
+--cyan:#22d3ee;
+--green:#25d366;
+--gold:#ffd54a;
+--text:#fff;
+--muted:#9493a7;
 }
 
 body{
- font-family:Arial,Helvetica,sans-serif;
- background:
- radial-gradient(circle at 10% 0%,#30115d 0,transparent 28%),
- radial-gradient(circle at 90% 10%,#073b4b 0,transparent 25%),
- linear-gradient(145deg,#06060d,#100817);
- color:var(--text);
- min-height:100vh;
+font-family:Arial,Helvetica,sans-serif;
+background:
+radial-gradient(circle at 10% 0%,#32125e 0,transparent 30%),
+radial-gradient(circle at 100% 15%,#063c4c 0,transparent 25%),
+linear-gradient(145deg,#05050b,#110817);
+color:var(--text);
+min-height:100vh;
 }
 
 .container{
- width:94%;
- max-width:850px;
- margin:auto;
- padding-bottom:80px;
+width:94%;
+max-width:850px;
+margin:auto;
+padding-bottom:60px;
 }
 
 /* HEADER */
 
 .header{
- padding:22px 0 15px;
+padding:20px 0;
 }
 
 .top{
- display:flex;
- justify-content:space-between;
- align-items:center;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .logo{
- display:flex;
- align-items:center;
- gap:11px;
+display:flex;
+align-items:center;
+gap:11px;
 }
 
 .logoIcon{
- width:50px;
- height:50px;
- border-radius:16px;
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:27px;
- background:
- linear-gradient(135deg,#8b5cf6,#ec4899);
- box-shadow:
- 0 0 30px rgba(139,92,246,.35);
+width:50px;
+height:50px;
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:27px;
+background:linear-gradient(135deg,#8b5cf6,#ec4899);
+box-shadow:0 0 30px rgba(139,92,246,.4);
 }
 
 .logo h1{
- font-size:23px;
- letter-spacing:.5px;
+font-size:23px;
 }
 
 .logo small{
- display:block;
- color:var(--muted);
- margin-top:3px;
+display:block;
+color:var(--muted);
+margin-top:3px;
 }
 
-.status{
- padding:8px 11px;
- border-radius:12px;
- background:rgba(52,211,153,.1);
- border:1px solid rgba(52,211,153,.2);
- color:#70ffc1;
- font-size:11px;
+.online{
+font-size:10px;
+padding:8px 11px;
+border-radius:12px;
+color:#70ffc1;
+background:rgba(37,211,102,.08);
+border:1px solid rgba(37,211,102,.2);
 }
 
 /* HERO */
 
 .hero{
- position:relative;
- overflow:hidden;
- margin-top:12px;
- padding:28px 23px;
- border-radius:28px;
- background:
- radial-gradient(circle at 90% 10%,rgba(34,211,238,.25),transparent 28%),
- radial-gradient(circle at 0% 100%,rgba(236,72,153,.2),transparent 35%),
- linear-gradient(135deg,#1b1230,#0d0d18);
- border:1px solid rgba(255,255,255,.09);
- box-shadow:0 25px 70px rgba(0,0,0,.3);
-}
-
-.heroGlow{
- position:absolute;
- width:220px;
- height:220px;
- right:-80px;
- bottom:-100px;
- border-radius:50%;
- background:#8b5cf6;
- filter:blur(80px);
- opacity:.35;
+position:relative;
+overflow:hidden;
+padding:28px 23px;
+border-radius:28px;
+background:
+radial-gradient(circle at 90% 0%,rgba(34,211,238,.22),transparent 30%),
+radial-gradient(circle at 0% 100%,rgba(236,72,153,.22),transparent 35%),
+linear-gradient(135deg,#1b1230,#0d0d18);
+border:1px solid rgba(255,255,255,.09);
+box-shadow:0 25px 70px rgba(0,0,0,.35);
 }
 
 .hero h2{
- position:relative;
- z-index:2;
- font-size:32px;
- line-height:1.1;
- max-width:620px;
+font-size:32px;
+line-height:1.1;
+max-width:600px;
 }
 
 .gradient{
- background:linear-gradient(90deg,#c4a7ff,#ff91c7,#63e9ff);
- -webkit-background-clip:text;
- color:transparent;
+background:linear-gradient(90deg,#bfa4ff,#ff8fc6,#5deaff);
+-webkit-background-clip:text;
+color:transparent;
 }
 
 .hero p{
- position:relative;
- z-index:2;
- color:#b2afc0;
- margin-top:12px;
- line-height:1.5;
- max-width:580px;
+margin-top:12px;
+color:#aaa8ba;
+line-height:1.5;
+max-width:600px;
 }
 
-.heroStats{
- display:flex;
- gap:9px;
- flex-wrap:wrap;
- margin-top:18px;
- position:relative;
- z-index:2;
+.stats{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:18px;
 }
 
-.heroStat{
- padding:9px 12px;
- border-radius:11px;
- background:rgba(255,255,255,.06);
- border:1px solid rgba(255,255,255,.07);
- font-size:12px;
+.stat{
+padding:9px 12px;
+border-radius:11px;
+font-size:11px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.07);
 }
 
 /* PROGRESS */
 
 .progress{
- margin:17px 0;
- padding:15px;
- border-radius:18px;
- background:rgba(255,255,255,.04);
- border:1px solid rgba(255,255,255,.07);
+margin:16px 0;
+padding:15px;
+border-radius:18px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.07);
 }
 
 .progressTop{
- display:flex;
- justify-content:space-between;
- font-size:12px;
- color:#aaa7b9;
- margin-bottom:9px;
+display:flex;
+justify-content:space-between;
+font-size:12px;
+color:#aaa7b7;
+margin-bottom:9px;
 }
 
 .progressBar{
- height:7px;
- border-radius:20px;
- background:#292638;
- overflow:hidden;
+height:7px;
+border-radius:10px;
+overflow:hidden;
+background:#292638;
 }
 
 .progressFill{
- width:0%;
- height:100%;
- border-radius:20px;
- background:linear-gradient(90deg,#8b5cf6,#ec4899,#22d3ee);
- transition:.3s;
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#8b5cf6,#ec4899,#22d3ee);
+transition:.3s;
 }
 
 /* SECTION */
 
 .section{
- margin-top:18px;
- padding:20px;
- border-radius:23px;
- background:
- linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
- border:1px solid rgba(255,255,255,.08);
+margin-top:15px;
+padding:20px;
+border-radius:22px;
+background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+border:1px solid rgba(255,255,255,.08);
 }
 
 .sectionTitle{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin-bottom:16px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
 }
 
 .sectionTitle h3{
- font-size:19px;
+font-size:19px;
 }
 
-.sectionTitle span{
- color:var(--muted);
- font-size:11px;
+.number{
+color:#777489;
+font-size:11px;
+}
+
+/* INPUT */
+
+.normal{
+display:block;
+font-size:13px;
+color:#c9c6d2;
+margin-bottom:7px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea,
+select{
+width:100%;
+padding:14px;
+border-radius:13px;
+background:#090910;
+border:1px solid rgba(255,255,255,.1);
+color:#fff;
+outline:none;
+font-size:14px;
+margin-bottom:13px;
+}
+
+textarea{
+height:100px;
+resize:none;
 }
 
 /* OPTIONS */
 
 .options{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:10px;
-}
-
-.option{
- position:relative;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
 }
 
 .option input{
- display:none;
+display:none;
 }
 
 .option label{
- min-height:110px;
- display:block;
- padding:15px;
- border-radius:17px;
- cursor:pointer;
- background:#0d0d17;
- border:1px solid rgba(255,255,255,.08);
- transition:.2s;
+display:block;
+min-height:112px;
+padding:15px;
+border-radius:17px;
+cursor:pointer;
+background:#0c0c15;
+border:1px solid rgba(255,255,255,.08);
+transition:.2s;
 }
 
 .option label:hover{
- transform:translateY(-2px);
- border-color:rgba(139,92,246,.45);
+transform:translateY(-2px);
+border-color:#7652d0;
 }
 
 .option input:checked+label{
- background:
- linear-gradient(145deg,rgba(139,92,246,.28),rgba(236,72,153,.1));
- border-color:#8b5cf6;
- box-shadow:
- 0 0 25px rgba(139,92,246,.15);
+background:linear-gradient(145deg,rgba(139,92,246,.3),rgba(236,72,153,.1));
+border-color:#8b5cf6;
+box-shadow:0 0 25px rgba(139,92,246,.15);
 }
 
 .icon{
- font-size:31px;
- margin-bottom:8px;
+font-size:30px;
+margin-bottom:8px;
 }
 
 .name{
- font-weight:bold;
- font-size:14px;
+font-size:14px;
+font-weight:bold;
 }
 
 .desc{
- display:block;
- margin-top:5px;
- color:#9291a2;
- font-size:11px;
- line-height:1.3;
+display:block;
+margin-top:5px;
+font-size:11px;
+color:#8e8c9d;
 }
 
 .price{
- display:block;
- margin-top:8px;
- color:#ffd75a;
- font-size:12px;
- font-weight:bold;
+display:block;
+margin-top:8px;
+font-size:12px;
+font-weight:bold;
+color:var(--gold);
 }
 
-/* SELECT */
-
-select,
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-textarea{
- width:100%;
- background:#0b0b14;
- color:white;
- border:1px solid rgba(255,255,255,.1);
- border-radius:14px;
- padding:14px;
- outline:none;
- font-size:14px;
- margin-bottom:13px;
-}
-
-textarea{
- height:105px;
- resize:none;
-}
-
-label.normal{
- display:block;
- color:#c8c5d1;
- font-size:13px;
- margin-bottom:7px;
-}
-
-/* CHECKBOX */
+/* CHECKS */
 
 .checkGrid{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:9px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:9px;
 }
 
 .check{
- display:flex;
- align-items:center;
- gap:9px;
- padding:12px;
- border-radius:13px;
- background:#0d0d17;
- border:1px solid rgba(255,255,255,.06);
- cursor:pointer;
- font-size:12px;
- color:#ddd;
+display:flex;
+align-items:center;
+gap:8px;
+padding:12px;
+border-radius:13px;
+background:#0c0c15;
+border:1px solid rgba(255,255,255,.06);
+font-size:12px;
+color:#ddd;
 }
 
 .check input{
- accent-color:#8b5cf6;
- width:17px;
- height:17px;
+width:17px;
+height:17px;
+accent-color:#8b5cf6;
 }
 
-/* COLORS */
+/* COLOR */
 
 .colors{
- display:flex;
- gap:10px;
- flex-wrap:wrap;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
 }
 
 .color{
- width:42px;
- height:42px;
- border-radius:50%;
- border:3px solid transparent;
- cursor:pointer;
+width:43px;
+height:43px;
+border-radius:50%;
+border:3px solid transparent;
+cursor:pointer;
 }
 
 .color input{
- display:none;
+display:none;
 }
 
 .color:has(input:checked){
- border-color:#fff;
- box-shadow:0 0 18px rgba(255,255,255,.4);
+border-color:white;
+box-shadow:0 0 18px rgba(255,255,255,.4);
 }
 
-.cPurple{background:#8b5cf6}
-.cBlue{background:#2563eb}
-.cCyan{background:#06b6d4}
-.cGreen{background:#10b981}
-.cRed{background:#ef4444}
-.cOrange{background:#f97316}
-.cPink{background:#ec4899}
-.cGold{background:#eab308}
-.cBlack{background:#111}
+.purple{background:#8b5cf6}
+.blue{background:#2563eb}
+.cyan{background:#06b6d4}
+.green{background:#10b981}
+.red{background:#ef4444}
+.orange{background:#f97316}
+.pink{background:#ec4899}
+.gold{background:#eab308}
+.black{background:#111}
 
 /* SUMMARY */
 
 .summary{
- position:sticky;
- bottom:12px;
- z-index:30;
- margin-top:20px;
- padding:20px;
- border-radius:24px;
- background:
- linear-gradient(145deg,rgba(31,22,50,.97),rgba(13,12,22,.97));
- border:1px solid rgba(139,92,246,.35);
- box-shadow:0 20px 60px rgba(0,0,0,.45);
- backdrop-filter:blur(20px);
+margin-top:18px;
+padding:20px;
+border-radius:24px;
+background:linear-gradient(145deg,#1b1430,#0d0c16);
+border:1px solid rgba(139,92,246,.35);
+box-shadow:0 20px 60px rgba(0,0,0,.4);
 }
 
-.summaryTitle{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin-bottom:13px;
-}
-
-.summaryTitle h3{
- font-size:18px;
+.summaryHead{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:13px;
 }
 
 .live{
- color:#70ffc1;
- font-size:10px;
+font-size:9px;
+color:#6effbd;
 }
 
-.summaryRow{
- display:flex;
- justify-content:space-between;
- gap:15px;
- padding:8px 0;
- border-bottom:1px solid rgba(255,255,255,.06);
- color:#aaa7b7;
- font-size:12px;
+.row{
+display:flex;
+justify-content:space-between;
+gap:15px;
+padding:9px 0;
+border-bottom:1px solid rgba(255,255,255,.06);
+font-size:12px;
+color:#a6a3b3;
 }
 
-.summaryRow strong{
- color:#fff;
- text-align:right;
+.row strong{
+color:white;
+text-align:right;
 }
 
 .total{
- display:flex;
- justify-content:space-between;
- align-items:center;
- margin-top:15px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-top:15px;
 }
 
 .total small{
- color:#aaa7b7;
+color:#aaa7b5;
 }
 
-.totalPrice{
- font-size:28px;
- color:#ffd54a;
- font-weight:900;
+.total strong{
+font-size:29px;
+color:var(--gold);
 }
 
-.buttons{
- display:grid;
- grid-template-columns:1fr 1.5fr;
- gap:9px;
- margin-top:15px;
+/* PAYMENT */
+
+.payment{
+margin-top:18px;
+padding:20px;
+border-radius:25px;
+background:
+radial-gradient(circle at 90% 10%,rgba(139,92,246,.25),transparent 30%),
+linear-gradient(145deg,#171328,#0b0a12);
+border:1px solid rgba(255,255,255,.12);
 }
 
-button{
- border:0;
- border-radius:14px;
- padding:15px;
- font-weight:bold;
- cursor:pointer;
+.paymentHeader{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:16px;
 }
 
-.preview{
- background:#252238;
- color:white;
+.paymentIcon{
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:14px;
+background:linear-gradient(135deg,#8b5cf6,#ec4899);
+font-size:23px;
 }
 
-.send{
- color:white;
- background:linear-gradient(90deg,#8b5cf6,#ec4899);
- box-shadow:0 0 25px rgba(139,92,246,.25);
+.paymentHeader h3{
+font-size:19px;
+}
+
+.paymentHeader small{
+display:block;
+color:#8f8b9f;
+margin-top:3px;
+}
+
+.amount{
+padding:17px;
+border-radius:16px;
+background:#090810;
+border:1px solid rgba(255,255,255,.08);
+text-align:center;
+margin-bottom:13px;
+}
+
+.amount span{
+display:block;
+font-size:11px;
+color:#9995a8;
+margin-bottom:5px;
+}
+
+.amount strong{
+font-size:29px;
+color:var(--gold);
+}
+
+.cardBox{
+padding:17px;
+border-radius:18px;
+background:
+linear-gradient(135deg,#292047,#141022);
+border:1px solid rgba(255,255,255,.1);
+}
+
+.cardLabel{
+font-size:11px;
+color:#aaa7b8;
+}
+
+.cardNumber{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:8px;
+margin-top:10px;
+padding:13px;
+border-radius:12px;
+background:rgba(0,0,0,.35);
+font-size:15px;
+font-weight:bold;
+letter-spacing:1.5px;
+}
+
+.copyBtn{
+width:auto;
+padding:9px 12px;
+background:#8b5cf6;
+color:white;
+font-size:11px;
+}
+
+.paymentButtons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:9px;
+margin-top:12px;
+}
+
+.paidBtn{
+background:linear-gradient(90deg,#8b5cf6,#ec4899);
+color:white;
+}
+
+.upload{
+position:relative;
+overflow:hidden;
+background:#242038;
+color:white;
+}
+
+.upload input{
+position:absolute;
+inset:0;
+opacity:0;
+cursor:pointer;
+}
+
+.fileName{
+margin-top:10px;
+font-size:11px;
+color:#75ffc0;
+text-align:center;
+}
+
+/* FINAL */
+
+.finalBtn{
+width:100%;
+margin-top:12px;
+padding:17px;
+border:0;
+border-radius:15px;
+background:linear-gradient(90deg,#25d366,#1ebe5d);
+color:white;
+font-size:16px;
+font-weight:bold;
+box-shadow:0 0 25px rgba(37,211,102,.18);
+}
+
+.notice{
+margin-top:10px;
+font-size:10px;
+line-height:1.5;
+color:#777487;
+text-align:center;
 }
 
 .result{
- display:none;
- margin-top:12px;
- padding:13px;
- border-radius:13px;
- background:#08251c;
- color:#7dffc4;
- border:1px solid #176d50;
- font-size:12px;
- line-height:1.6;
+display:none;
+margin-top:12px;
+padding:13px;
+border-radius:13px;
+background:#08251c;
+border:1px solid #176d50;
+color:#7effc4;
+font-size:12px;
+line-height:1.5;
 }
 
-/* FOOTER */
-
 .footer{
- text-align:center;
- color:#676577;
- font-size:11px;
- margin-top:25px;
- line-height:1.6;
+text-align:center;
+color:#626071;
+font-size:11px;
+line-height:1.6;
+margin-top:25px;
 }
 
 @media(max-width:500px){
 
- .options{
-  grid-template-columns:1fr 1fr;
- }
+.options{
+grid-template-columns:1fr 1fr;
+}
 
- .hero h2{
-  font-size:27px;
- }
+.checkGrid{
+grid-template-columns:1fr;
+}
 
- .checkGrid{
-  grid-template-columns:1fr;
- }
+.hero h2{
+font-size:27px;
+}
 
- .summary{
-  position:relative;
-  bottom:auto;
- }
+.paymentButtons{
+grid-template-columns:1fr;
+}
 
 }
 
 @media(max-width:370px){
 
- .options{
-  grid-template-columns:1fr;
- }
+.options{
+grid-template-columns:1fr;
+}
 
 }
 </style>
@@ -547,9 +625,7 @@ button{
 
 </div>
 
-<div class="status">
-● ONLINE
-</div>
+<div class="online">● ONLINE</div>
 
 </div>
 
@@ -558,25 +634,21 @@ button{
 
 <section class="hero">
 
-<div class="heroGlow"></div>
-
 <h2>
-Xəyalındakı saytı
-<span class="gradient">özün seç.</span>
+Saytını
+<span class="gradient">özün dizayn et.</span>
 </h2>
 
 <p>
-Saytının görünüşünü və funksiyalarını addım-addım seç.
-Sifarişini göndər, biz layihəni hazırlayaq.
+Hazır paket seç və ya bütün detalları özün müəyyən et.
+Sifarişini göndər, layihən üçün əlaqə saxlayaq.
 </p>
 
-<div class="heroStats">
-
-<div class="heroStat">⚡ Sürətli sifariş</div>
-<div class="heroStat">📱 Mobil uyğun</div>
-<div class="heroStat">🎨 Fərdi dizayn</div>
-<div class="heroStat">💬 WhatsApp əlaqə</div>
-
+<div class="stats">
+<div class="stat">⚡ Sürətli sifariş</div>
+<div class="stat">🎨 Fərdi dizayn</div>
+<div class="stat">📱 Mobil uyğun</div>
+<div class="stat">💬 Birbaşa əlaqə</div>
 </div>
 
 </section>
@@ -585,11 +657,8 @@ Sifarişini göndər, biz layihəni hazırlayaq.
 <div class="progress">
 
 <div class="progressTop">
-
-<span>Sifarişin hazırlanması</span>
-
+<span>Sifariş tamamlanması</span>
 <span id="progressText">0%</span>
-
 </div>
 
 <div class="progressBar">
@@ -599,73 +668,44 @@ Sifarişini göndər, biz layihəni hazırlayaq.
 </div>
 
 
-<!-- CUSTOMER -->
+<!-- MÜŞTƏRİ -->
 
 <section class="section">
 
 <div class="sectionTitle">
-
-<h3>👤 Sizin məlumatlarınız</h3>
-
-<span>01</span>
-
+<h3>👤 Müştəri məlumatları</h3>
+<span class="number">01</span>
 </div>
 
 <label class="normal">Ad Soyad</label>
-
-<input
-id="customerName"
-type="text"
-placeholder="Adınızı və soyadınızı yazın"
->
+<input id="customerName" type="text" placeholder="Adınızı yazın">
 
 <label class="normal">Telefon / WhatsApp</label>
-
-<input
-id="customerPhone"
-type="tel"
-placeholder="050 000 00 00"
->
+<input id="customerPhone" type="tel" placeholder="050 000 00 00">
 
 <label class="normal">E-mail</label>
+<input id="customerEmail" type="email" placeholder="example@gmail.com">
 
-<input
-id="customerEmail"
-type="email"
-placeholder="example@gmail.com"
->
-
-<label class="normal">Şirkət / Brend adı</label>
-
-<input
-id="brandName"
-type="text"
-placeholder="Məsələn: Super GB"
->
+<label class="normal">Brend / Şirkət adı</label>
+<input id="brandName" type="text" placeholder="Məsələn: Super GB">
 
 </section>
 
 
-<!-- SITE TYPE -->
+<!-- SAYT NÖVÜ -->
 
 <section class="section">
 
 <div class="sectionTitle">
-<h3>🌐 Hansı sayt lazımdır?</h3>
-<span>02</span>
+<h3>🌐 Sayt növünü seçin</h3>
+<span class="number">02</span>
 </div>
 
 <div class="options">
 
 <div class="option">
-<input
-type="radio"
-name="site"
-id="business"
-value="Biznes saytı"
-data-price="80"
-checked
->
+<input type="radio" name="site" id="business"
+value="Biznes saytı" data-price="80" checked>
 <label for="business">
 <div class="icon">🏢</div>
 <div class="name">Biznes saytı</div>
@@ -674,32 +714,20 @@ checked
 </label>
 </div>
 
-
 <div class="option">
-<input
-type="radio"
-name="site"
-id="shop"
-value="Online mağaza"
-data-price="180"
->
+<input type="radio" name="site" id="shop"
+value="Online mağaza" data-price="180">
 <label for="shop">
 <div class="icon">🛒</div>
 <div class="name">Online mağaza</div>
-<span class="desc">Məhsul, səbət və sifariş</span>
+<span class="desc">Məhsul və sifariş sistemi</span>
 <span class="price">180 AZN-dən</span>
 </label>
 </div>
 
-
 <div class="option">
-<input
-type="radio"
-name="site"
-id="landing"
-value="Landing Page"
-data-price="60"
->
+<input type="radio" name="site" id="landing"
+value="Landing Page" data-price="60">
 <label for="landing">
 <div class="icon">🚀</div>
 <div class="name">Landing Page</div>
@@ -708,15 +736,9 @@ data-price="60"
 </label>
 </div>
 
-
 <div class="option">
-<input
-type="radio"
-name="site"
-id="portfolio"
-value="Portfolio"
-data-price="70"
->
+<input type="radio" name="site" id="portfolio"
+value="Portfolio" data-price="70">
 <label for="portfolio">
 <div class="icon">🎨</div>
 <div class="name">Portfolio</div>
@@ -725,15 +747,9 @@ data-price="70"
 </label>
 </div>
 
-
 <div class="option">
-<input
-type="radio"
-name="site"
-id="restaurant"
-value="Restoran saytı"
-data-price="100"
->
+<input type="radio" name="site" id="restaurant"
+value="Restoran saytı" data-price="100">
 <label for="restaurant">
 <div class="icon">🍽️</div>
 <div class="name">Restoran</div>
@@ -742,32 +758,20 @@ data-price="100"
 </label>
 </div>
 
-
 <div class="option">
-<input
-type="radio"
-name="site"
-id="booking"
-value="Rezervasiya saytı"
-data-price="140"
->
+<input type="radio" name="site" id="booking"
+value="Rezervasiya saytı" data-price="140">
 <label for="booking">
 <div class="icon">📅</div>
 <div class="name">Rezervasiya</div>
-<span class="desc">Görüş və vaxt seçimi</span>
+<span class="desc">Vaxt və görüş sistemi</span>
 <span class="price">140 AZN-dən</span>
 </label>
 </div>
 
-
 <div class="option">
-<input
-type="radio"
-name="site"
-id="game"
-value="Oyun saytı"
-data-price="220"
->
+<input type="radio" name="site" id="game"
+value="Oyun saytı" data-price="220">
 <label for="game">
 <div class="icon">🎮</div>
 <div class="name">Oyun saytı</div>
@@ -776,19 +780,13 @@ data-price="220"
 </label>
 </div>
 
-
 <div class="option">
-<input
-type="radio"
-name="site"
-id="news"
-value="Xəbər saytı"
-data-price="160"
->
+<input type="radio" name="site" id="news"
+value="Xəbər saytı" data-price="160">
 <label for="news">
 <div class="icon">📰</div>
 <div class="name">Xəbər saytı</div>
-<span class="desc">Kateqoriya və məqalələr</span>
+<span class="desc">Məqalə və kateqoriyalar</span>
 <span class="price">160 AZN-dən</span>
 </label>
 </div>
@@ -798,94 +796,74 @@ data-price="160"
 </section>
 
 
-<!-- DESIGN -->
+<!-- DİZAYN -->
 
 <section class="section">
 
 <div class="sectionTitle">
-<h3>🎨 Dizayn üslubu</h3>
-<span>03</span>
+<h3>🎨 Dizayn</h3>
+<span class="number">03</span>
 </div>
 
 <select id="design">
 
-<option value="Modern" data-price="0">
-Modern
-</option>
-
-<option value="Premium" data-price="30">
-Premium (+30 AZN)
-</option>
-
-<option value="Luxury" data-price="50">
-Luxury (+50 AZN)
-</option>
-
-<option value="Minimal" data-price="0">
-Minimal
-</option>
-
-<option value="Gaming / Neon" data-price="40">
-Gaming / Neon (+40 AZN)
-</option>
-
-<option value="Glassmorphism" data-price="35">
-Glassmorphism (+35 AZN)
-</option>
-
-<option value="3D Premium" data-price="80">
-3D Premium (+80 AZN)
-</option>
+<option value="Modern" data-price="0">Modern</option>
+<option value="Premium" data-price="30">Premium +30 AZN</option>
+<option value="Luxury" data-price="50">Luxury +50 AZN</option>
+<option value="Minimal" data-price="0">Minimal</option>
+<option value="Gaming / Neon" data-price="40">Gaming / Neon +40 AZN</option>
+<option value="Glassmorphism" data-price="35">Glassmorphism +35 AZN</option>
+<option value="3D Premium" data-price="80">3D Premium +80 AZN</option>
 
 </select>
 
 </section>
 
 
-<!-- COLOR -->
+<!-- RƏNG -->
 
 <section class="section">
 
 <div class="sectionTitle">
 <h3>🌈 Əsas rəng</h3>
-<span>04</span>
+<span class="number">04</span>
 </div>
 
 <div class="colors">
 
-<label class="color cPurple">
+<label class="color purple">
 <input type="radio" name="color" value="Bənövşəyi" checked>
 </label>
 
-<label class="color cBlue">
+<label class="color blue">
 <input type="radio" name="color" value="Mavi">
 </label>
 
-<label class="color cCyan">
+<label class="color cyan">
 <input type="radio" name="color" value="Cyan">
 </label>
 
-<label class="color cGreen">
+<label class="color green">
 <input type="radio" name="color" value="Yaşıl">
 </label>
 
-<label class="color cRed">
+<label class="color red">
 <input type="radio" name="color" value="Qırmızı">
 </label>
 
-<label class="color cOrange">
+<label class="color orange">
 <input type="radio" name="color" value="Narıncı">
 </label>
 
-<label class="color cPink">
+<label class="color pink">
 <input type="radio" name="color" value="Çəhrayı">
 </label>
 
-<label class="color cGold">
+<label class="color gold">
 <input type="radio" name="color" value="Qızılı">
 </label>
 
-<label class="color cBlack">
+<label class="color black">
 <input type="radio" name="color" value="Qara">
 </label>
 
@@ -894,215 +872,120 @@ Glassmorphism (+35 AZN)
 </section>
 
 
-<!-- PAGES -->
+<!-- SƏHİFƏ -->
 
 <section class="section">
 
 <div class="sectionTitle">
 <h3>📄 Səhifə sayı</h3>
-<span>05</span>
+<span class="number">05</span>
 </div>
 
 <select id="pages">
 
-<option value="1" data-price="0">
-1 səhifə
-</option>
-
-<option value="3" data-price="20">
-3 səhifə (+20 AZN)
-</option>
-
-<option value="5" data-price="40">
-5 səhifə (+40 AZN)
-</option>
-
-<option value="7" data-price="60">
-7 səhifə (+60 AZN)
-</option>
-
-<option value="10" data-price="90">
-10 səhifə (+90 AZN)
-</option>
-
-<option value="15" data-price="130">
-15 səhifə (+130 AZN)
-</option>
+<option value="1" data-price="0">1 səhifə</option>
+<option value="3" data-price="20">3 səhifə +20 AZN</option>
+<option value="5" data-price="40">5 səhifə +40 AZN</option>
+<option value="7" data-price="60">7 səhifə +60 AZN</option>
+<option value="10" data-price="90">10 səhifə +90 AZN</option>
+<option value="15" data-price="130">15 səhifə +130 AZN</option>
 
 </select>
 
 </section>
 
 
-<!-- FEATURES -->
+<!-- FUNKSİYALAR -->
 
 <section class="section">
 
 <div class="sectionTitle">
 <h3>⚙️ Funksiyalar</h3>
-<span>06</span>
+<span class="number">06</span>
 </div>
 
 <div class="checkGrid">
 
-<label class="check">
-<input type="checkbox" value="WhatsApp" data-price="10">
-💬 WhatsApp
-</label>
+<label class="check"><input type="checkbox" value="WhatsApp" data-price="10">💬 WhatsApp</label>
 
-<label class="check">
-<input type="checkbox" value="Telegram" data-price="10">
-✈️ Telegram
-</label>
+<label class="check"><input type="checkbox" value="Telegram" data-price="10">✈️ Telegram</label>
 
-<label class="check">
-<input type="checkbox" value="Instagram" data-price="5">
-📸 Instagram
-</label>
+<label class="check"><input type="checkbox" value="Instagram" data-price="5">📸 Instagram</label>
 
-<label class="check">
-<input type="checkbox" value="TikTok" data-price="5">
-🎵 TikTok
-</label>
+<label class="check"><input type="checkbox" value="TikTok" data-price="5">🎵 TikTok</label>
 
-<label class="check">
-<input type="checkbox" value="Admin panel" data-price="60">
-🔐 Admin panel
-</label>
+<label class="check"><input type="checkbox" value="Admin panel" data-price="60">🔐 Admin panel</label>
 
-<label class="check">
-<input type="checkbox" value="Login sistemi" data-price="40">
-👤 Giriş sistemi
-</label>
+<label class="check"><input type="checkbox" value="Giriş sistemi" data-price="40">👤 Giriş sistemi</label>
 
-<label class="check">
-<input type="checkbox" value="Məhsul sistemi" data-price="50">
-📦 Məhsul sistemi
-</label>
+<label class="check"><input type="checkbox" value="Məhsul sistemi" data-price="50">📦 Məhsul sistemi</label>
 
-<label class="check">
-<input type="checkbox" value="Səbət" data-price="40">
-🛒 Səbət
-</label>
+<label class="check"><input type="checkbox" value="Səbət" data-price="40">🛒 Səbət</label>
 
-<label class="check">
-<input type="checkbox" value="Sifariş forması" data-price="20">
-📝 Sifariş forması
-</label>
+<label class="check"><input type="checkbox" value="Sifariş forması" data-price="20">📝 Sifariş forması</label>
 
-<label class="check">
-<input type="checkbox" value="Rezervasiya" data-price="40">
-📅 Rezervasiya
-</label>
+<label class="check"><input type="checkbox" value="Rezervasiya" data-price="40">📅 Rezervasiya</label>
 
-<label class="check">
-<input type="checkbox" value="Ödəniş interfeysi" data-price="50">
-💳 Ödəniş interfeysi
-</label>
+<label class="check"><input type="checkbox" value="Ödəniş interfeysi" data-price="50">💳 Ödəniş interfeysi</label>
 
-<label class="check">
-<input type="checkbox" value="Google xəritə" data-price="10">
-📍 Google xəritə
-</label>
+<label class="check"><input type="checkbox" value="Google xəritə" data-price="10">📍 Google xəritə</label>
 
-<label class="check">
-<input type="checkbox" value="SEO" data-price="30">
-🔎 SEO
-</label>
+<label class="check"><input type="checkbox" value="SEO" data-price="30">🔎 SEO</label>
 
-<label class="check">
-<input type="checkbox" value="Çoxdilli sayt" data-price="40">
-🌍 Çoxdilli
-</label>
+<label class="check"><input type="checkbox" value="Çoxdilli" data-price="40">🌍 Çoxdilli</label>
 
-<label class="check">
-<input type="checkbox" value="Animasiya" data-price="35">
-✨ Animasiya
-</label>
+<label class="check"><input type="checkbox" value="Animasiya" data-price="35">✨ Animasiya</label>
 
-<label class="check">
-<input type="checkbox" value="Dark Mode" data-price="20">
-🌙 Dark Mode
-</label>
+<label class="check"><input type="checkbox" value="Dark Mode" data-price="20">🌙 Dark Mode</label>
 
-<label class="check">
-<input type="checkbox" value="Bildiriş sistemi" data-price="35">
-🔔 Bildiriş
-</label>
+<label class="check"><input type="checkbox" value="Bildiriş" data-price="35">🔔 Bildiriş</label>
 
-<label class="check">
-<input type="checkbox" value="Axtarış sistemi" data-price="25">
-🔍 Axtarış
-</label>
+<label class="check"><input type="checkbox" value="Axtarış" data-price="25">🔍 Axtarış</label>
 
-<label class="check">
-<input type="checkbox" value="Filtr sistemi" data-price="30">
-🎛️ Filtr
-</label>
+<label class="check"><input type="checkbox" value="Filtr" data-price="30">🎛️ Filtr</label>
 
-<label class="check">
-<input type="checkbox" value="Mobil tətbiq görünüşü" data-price="50">
-📱 App görünüşü
-</label>
+<label class="check"><input type="checkbox" value="Mobil App görünüşü" data-price="50">📱 App görünüşü</label>
 
 </div>
 
 </section>
 
 
-<!-- HOSTING -->
+<!-- TEXNİKİ -->
 
 <section class="section">
 
 <div class="sectionTitle">
 <h3>☁️ Texniki xidmətlər</h3>
-<span>07</span>
+<span class="number">07</span>
 </div>
 
 <div class="checkGrid">
 
-<label class="check">
-<input type="checkbox" value="Domen" data-price="25">
-🌐 Domen
-</label>
+<label class="check"><input type="checkbox" value="Domen" data-price="25">🌐 Domen</label>
 
-<label class="check">
-<input type="checkbox" value="Hosting" data-price="40">
-☁️ Hosting
-</label>
+<label class="check"><input type="checkbox" value="Hosting" data-price="40">☁️ Hosting</label>
 
-<label class="check">
-<input type="checkbox" value="SSL" data-price="0">
-🔒 SSL
-</label>
+<label class="check"><input type="checkbox" value="SSL" data-price="0">🔒 SSL</label>
 
-<label class="check">
-<input type="checkbox" value="Google Analytics" data-price="15">
-📊 Analytics
-</label>
+<label class="check"><input type="checkbox" value="Google Analytics" data-price="15">📊 Analytics</label>
 
-<label class="check">
-<input type="checkbox" value="Sayt sürətləndirmə" data-price="25">
-⚡ Sürətləndirmə
-</label>
+<label class="check"><input type="checkbox" value="Sürətləndirmə" data-price="25">⚡ Sürətləndirmə</label>
 
-<label class="check">
-<input type="checkbox" value="Backup sistemi" data-price="25">
-💾 Backup
-</label>
+<label class="check"><input type="checkbox" value="Backup" data-price="25">💾 Backup</label>
 
 </div>
 
 </section>
 
 
-<!-- BUDGET -->
+<!-- BÜDCƏ -->
 
 <section class="section">
 
 <div class="sectionTitle">
 <h3>💰 Büdcə</h3>
-<span>08</span>
+<span class="number">08</span>
 </div>
 
 <select id="budget">
@@ -1119,115 +1002,187 @@ Glassmorphism (+35 AZN)
 </section>
 
 
-<!-- DETAILS -->
+<!-- ƏLAVƏ -->
 
 <section class="section">
 
 <div class="sectionTitle">
-<h3>📝 Layihə haqqında</h3>
-<span>09</span>
+<h3>📝 Əlavə məlumat</h3>
+<span class="number">09</span>
 </div>
-
-<label class="normal">
-Saytınız haqqında əlavə məlumat
-</label>
 
 <textarea
 id="details"
-placeholder="Məsələn: Saytın rəngi qara-qızılı olsun, məhsullar bölməsi olsun, WhatsApp düyməsi əlavə edilsin..."
+placeholder="Saytınızın necə görünməsini istəyirsiniz? Bəyəndiyiniz saytlar, rənglər, xüsusi funksiyalar və s."
 ></textarea>
-
-<label class="normal">
-Referans sayt
-</label>
 
 <input
 id="reference"
 type="text"
-placeholder="Bəyəndiyiniz saytın linki və ya adı"
+placeholder="Bəyəndiyiniz saytın linki (istəyə görə)"
 >
 
 </section>
 
 
-<!-- SUMMARY -->
+<!-- XÜLASƏ -->
 
 <section class="summary">
 
-<div class="summaryTitle">
+<div class="summaryHead">
 
 <h3>📋 Sifariş xülasəsi</h3>
 
-<span class="live">● CANLI HESABLAMA</span>
+<span class="live">● CANLI HESABLANIR</span>
 
 </div>
 
-<div class="summaryRow">
+<div class="row">
 <span>Sayt</span>
 <strong id="sumSite">Biznes saytı</strong>
 </div>
 
-<div class="summaryRow">
+<div class="row">
 <span>Dizayn</span>
 <strong id="sumDesign">Modern</strong>
 </div>
 
-<div class="summaryRow">
+<div class="row">
 <span>Rəng</span>
 <strong id="sumColor">Bənövşəyi</strong>
 </div>
 
-<div class="summaryRow">
-<span>Səhifələr</span>
+<div class="row">
+<span>Səhifə</span>
 <strong id="sumPages">1</strong>
 </div>
 
-<div class="summaryRow">
+<div class="row">
 <span>Funksiyalar</span>
 <strong id="sumFeatures">0</strong>
 </div>
 
 <div class="total">
 
-<small>Təxmini layihə qiyməti</small>
+<small>Təxmini qiymət</small>
 
-<div class="totalPrice">
+<strong>
 <span id="total">80</span> AZN
-</div>
+</strong>
 
 </div>
-
-<div class="buttons">
-
-<button
-class="preview"
-onclick="previewOrder()"
->
-👁️ Yoxla
-</button>
-
-<button
-class="send"
-onclick="sendWhatsApp()"
->
-📲 SİFARİŞİ GÖNDƏR
-</button>
-
-</div>
-
-<div
-id="result"
-class="result"
-></div>
 
 </section>
 
 
+<!-- ÖDƏNİŞ -->
+
+<section class="payment">
+
+<div class="paymentHeader">
+
+<div class="paymentIcon">💳</div>
+
+<div>
+<h3>Ödəniş bölməsi</h3>
+<small>Sifariş üçün ödəniş məlumatı</small>
+</div>
+
+</div>
+
+
+<div class="amount">
+
+<span>Sifariş məbləği</span>
+
+<strong>
+<span id="paymentAmount">80</span> AZN
+</strong>
+
+</div>
+
+
+<div class="cardBox">
+
+<div class="cardLabel">
+Ödəniş üçün kart
+</div>
+
+<div class="cardNumber">
+
+<span id="cardNumber">
+XXXX XXXX XXXX XXXX
+</span>
+
+<button
+class="copyBtn"
+onclick="copyCard()"
+>
+KOPYALA
+</button>
+
+</div>
+
+</div>
+
+
+<div class="paymentButtons">
+
+<button
+class="paidBtn"
+onclick="paid()"
+>
+✓ Ödənişi etdim
+</button>
+
+<label class="upload">
+
+📎 Qəbzi yüklə
+
+<input
+type="file"
+id="receipt"
+accept="image/*,.pdf"
+onchange="receiptSelected()"
+>
+
+</label>
+
+</div>
+
+<div
+id="fileName"
+class="fileName"
+></div>
+
+
+<div
+id="paidMessage"
+class="result"
+>
+</div>
+
+</section>
+
+
+<!-- WHATSAPP -->
+
+<button
+class="finalBtn"
+onclick="sendOrder()"
+>
+📲 SİFARİŞİ WHATSAPP İLƏ GÖNDƏR
+</button>
+
+<div class="notice">
+Ödəniş kartı məlumatını öz kartınızla dəyişin.
+Real kart ödənişlərinin avtomatik təsdiqi üçün ayrıca ödəniş provayderi inteqrasiyası lazımdır.
+</div>
+
+
 <div class="footer">
-
 WEBCRAFT • Sayt Sifariş Mərkəzi<br>
-Layihənizi seçimlərinizə uyğun hazırlayırıq.
-
+Müasir saytlar • Fərdi dizayn • Mobil uyğunluq
 </div>
 
 </div>
@@ -1235,167 +1190,233 @@ Layihənizi seçimlərinizə uyğun hazırlayırıq.
 
 <script>
 
-const allInputs=
-document.querySelectorAll(
+/* =========================
+   ELEMENTS
+========================= */
+
+const fields=document.querySelectorAll(
 "input,select,textarea"
 );
 
-allInputs.forEach(el=>{
-
- el.addEventListener("change",calculate);
-
- el.addEventListener("input",calculate);
-
+fields.forEach(el=>{
+el.addEventListener("change",calculate);
+el.addEventListener("input",calculate);
 });
 
 
-function site(){
+/* =========================
+   SITE
+========================= */
 
- return document.querySelector(
- 'input[name="site"]:checked'
- );
+function getSite(){
+
+return document.querySelector(
+'input[name="site"]:checked'
+);
+
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+function getFeatures(){
+
+let list=[];
+
+document.querySelectorAll(
+'.check input:checked'
+).forEach(item=>{
+
+list.push({
+name:item.value,
+price:Number(item.dataset.price)
+});
+
+});
+
+return list;
 
 }
 
 
-function selectedFeatures(){
-
- let arr=[];
-
- document.querySelectorAll(
- '.check input:checked'
- ).forEach(x=>{
-
-  arr.push({
-   name:x.value,
-   price:Number(x.dataset.price)
-  });
-
- });
-
- return arr;
-
-}
-
+/* =========================
+   PRICE
+========================= */
 
 function calculate(){
 
- let total=
- Number(site().dataset.price);
+let total=
+Number(getSite().dataset.price);
 
 
- /* DESIGN */
+/* DESIGN */
 
- let design=
- document.getElementById("design");
+let design=
+document.getElementById("design");
 
- total+=Number(
- design.options[design.selectedIndex]
- .dataset.price
- );
-
-
- /* PAGES */
-
- let pages=
- document.getElementById("pages");
-
- total+=Number(
- pages.options[pages.selectedIndex]
- .dataset.price
- );
+total+=Number(
+design.options[
+design.selectedIndex
+].dataset.price
+);
 
 
- /* FEATURES */
+/* PAGES */
 
- let features=
- selectedFeatures();
+let pages=
+document.getElementById("pages");
 
- features.forEach(x=>{
-  total+=x.price;
- });
-
-
- /* SUMMARY */
-
- document.getElementById("sumSite")
- .innerText=site().value;
-
- document.getElementById("sumDesign")
- .innerText=design.value;
-
- let color=
- document.querySelector(
- 'input[name="color"]:checked'
- );
-
- document.getElementById("sumColor")
- .innerText=color.value;
-
- document.getElementById("sumPages")
- .innerText=
- pages.value+" səhifə";
-
- document.getElementById("sumFeatures")
- .innerText=
- features.length+" funksiya";
-
- document.getElementById("total")
- .innerText=total;
+total+=Number(
+pages.options[
+pages.selectedIndex
+].dataset.price
+);
 
 
- /* PROGRESS */
+/* FEATURES */
 
- let progress=0;
+let features=getFeatures();
 
- if(document.getElementById("customerName").value)
-  progress+=10;
+features.forEach(item=>{
+total+=item.price;
+});
 
- if(document.getElementById("customerPhone").value)
-  progress+=10;
 
- if(document.getElementById("brandName").value)
-  progress+=10;
+/* SUMMARY */
 
- progress+=15;
+document.getElementById("sumSite")
+.innerText=getSite().value;
 
- progress+=15;
+document.getElementById("sumDesign")
+.innerText=design.value;
 
- progress+=
- Math.min(features.length*2,20);
+document.getElementById("sumPages")
+.innerText=pages.value+" səhifə";
 
- if(document.getElementById("details").value)
-  progress+=10;
+document.getElementById("sumFeatures")
+.innerText=features.length+" funksiya";
 
- if(progress>100)
-  progress=100;
 
- document.getElementById("progressFill")
- .style.width=progress+"%";
+let color=document.querySelector(
+'input[name="color"]:checked'
+);
 
- document.getElementById("progressText")
- .innerText=progress+"%";
+document.getElementById("sumColor")
+.innerText=color.value;
+
+document.getElementById("total")
+.innerText=total;
+
+document.getElementById("paymentAmount")
+.innerText=total;
+
+
+/* PROGRESS */
+
+let progress=0;
+
+if(document.getElementById("customerName").value)
+progress+=15;
+
+if(document.getElementById("customerPhone").value)
+progress+=15;
+
+if(document.getElementById("brandName").value)
+progress+=10;
+
+progress+=15;
+
+progress+=15;
+
+progress+=Math.min(features.length*2,20);
+
+if(document.getElementById("details").value)
+progress+=10;
+
+if(progress>100)
+progress=100;
+
+document.getElementById("progressFill")
+.style.width=progress+"%";
+
+document.getElementById("progressText")
+.innerText=progress+"%";
 
 }
 
 
-function createOrder(){
+/* =========================
+   CARD COPY
+========================= */
 
- let features=
- selectedFeatures();
+function copyCard(){
 
- let color=
- document.querySelector(
- 'input[name="color"]:checked'
- ).value;
+let card=
+document.getElementById("cardNumber")
+.innerText.trim();
 
- let total=
- document.getElementById("total")
- .innerText;
+navigator.clipboard.writeText(card);
 
- return `
+alert("✓ Kart nömrəsi kopyalandı");
 
-🌐 SAYT SİFARİŞİ
+}
+
+
+/* =========================
+   PAYMENT
+========================= */
+
+function paid(){
+
+let box=
+document.getElementById("paidMessage");
+
+box.style.display="block";
+
+box.innerHTML=
+"✓ Ödəniş etdiyinizi qeyd etdik.<br>"+
+"Qəbzi də yükləyərək sifarişi göndərin.";
+
+}
+
+
+/* =========================
+   RECEIPT
+========================= */
+
+function receiptSelected(){
+
+let file=
+document.getElementById("receipt")
+.files[0];
+
+if(!file) return;
+
+document.getElementById("fileName")
+.innerText=
+"✓ Seçilmiş fayl: "+file.name;
+
+}
+
+
+/* =========================
+   ORDER MESSAGE
+========================= */
+
+function createMessage(){
+
+let features=getFeatures();
+
+let color=
+document.querySelector(
+'input[name="color"]:checked'
+).value;
+
+return `
+
+🌐 WEBCRAFT — SAYT SİFARİŞİ
 
 👤 Müştəri:
 ${document.getElementById("customerName").value}
@@ -1412,7 +1433,7 @@ ${document.getElementById("brandName").value}
 ━━━━━━━━━━━━━━
 
 🌐 Sayt:
-${site().value}
+${getSite().value}
 
 🎨 Dizayn:
 ${document.getElementById("design").value}
@@ -1424,13 +1445,15 @@ ${color}
 ${document.getElementById("pages").value}
 
 ⚙️ Funksiyalar:
-${features.map(x=>"• "+x.name).join("\n")}
+${features.length
+?features.map(x=>"• "+x.name).join("\n")
+:"Yoxdur"}
 
 💰 Büdcə:
 ${document.getElementById("budget").value}
 
 💵 Təxmini qiymət:
-${total} AZN
+${document.getElementById("total").innerText} AZN
 
 ━━━━━━━━━━━━━━
 
@@ -1442,85 +1465,68 @@ ${document.getElementById("reference").value}
 
 ━━━━━━━━━━━━━━
 
-WEBCRAFT SAYT SİFARİŞİ
+WEBCRAFT
+Sayt Sifariş Mərkəzi
 `;
 
 }
 
 
-function previewOrder(){
+/* =========================
+   SEND
+========================= */
 
- calculate();
+function sendOrder(){
 
- let result=
- document.getElementById("result");
+let name=
+document.getElementById("customerName")
+.value.trim();
 
- result.style.display="block";
+let phone=
+document.getElementById("customerPhone")
+.value.trim();
 
- result.innerHTML=
- "✅ Sifariş məlumatları hazırdır.<br><br>"+
- "Seçdiyiniz xidmətlərə uyğun təxmini qiymət: "+
- "<b>"+
- document.getElementById("total").innerText+
- " AZN</b>";
+
+if(!name || !phone){
+
+alert(
+"Əvvəlcə adınızı və telefon nömrənizi yazın."
+);
+
+return;
 
 }
 
 
-function sendWhatsApp(){
+calculate();
 
- let name=
- document.getElementById("customerName")
- .value.trim();
-
- let phone=
- document.getElementById("customerPhone")
- .value.trim();
+let message=createMessage();
 
 
- if(!name || !phone){
-
-  alert(
-   "Zəhmət olmasa adınızı və telefon nömrənizi yazın."
-  );
-
-  return;
-
- }
-
-
- calculate();
-
-
- let message=
- createOrder();
-
-
- /*
-  BURADA ÖZ WHATSAPP NÖMRƏNİ YAZ.
-
-  Format:
-  994XXXXXXXXX
+/*
+  BURAYA SƏNİN WHATSAPP NÖMRÜNÜ YAZ.
 
   Məsələn:
   994501234567
- */
+*/
 
- let myWhatsApp=
- "994500000000";
-
-
- let url=
- "https://wa.me/"+
- myWhatsApp+
- "?text="+
- encodeURIComponent(message);
+let whatsappNumber=
+"994500000000";
 
 
- window.open(url,"_blank");
+let url=
+"https://wa.me/"+
+whatsappNumber+
+"?text="+
+encodeURIComponent(message);
+
+
+window.open(url,"_blank");
 
 }
 
+
+/* START */
 
 calculate();
 
