@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panda Kazino</title>
+<meta name="theme-color" content="#080611">
+<title>PANDA PLAY</title>
 
 <style>
 *{
@@ -12,54 +13,222 @@
   padding:0;
 }
 
-body{
-  font-family:Arial,sans-serif;
-  background:
-    radial-gradient(circle at top,#35106b 0%,#130522 40%,#07030d 100%);
-  color:#fff;
-  min-height:100vh;
+:root{
+  --bg:#070611;
+  --panel:#111021;
+  --panel2:#18152a;
+  --gold:#ffd54a;
+  --purple:#8b5cf6;
+  --pink:#ec4899;
+  --cyan:#22d3ee;
+  --green:#34d399;
+  --text:#fff;
+  --muted:#9894aa;
 }
+
+body{
+  min-height:100vh;
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%,#28104c 0,transparent 32%),
+    radial-gradient(circle at 100% 20%,#102d45 0,transparent 28%),
+    var(--bg);
+  overflow-x:hidden;
+}
+
+button{
+  font-family:inherit;
+}
+
+.app{
+  width:100%;
+  max-width:720px;
+  margin:auto;
+  padding-bottom:90px;
+}
+
+/* HEADER */
 
 .header{
-  padding:22px 15px;
-  text-align:center;
-  background:rgba(0,0,0,.35);
-  border-bottom:1px solid rgba(255,255,255,.12);
+  padding:18px 16px 12px;
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(7,6,17,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
 
-.logo{
-  font-size:34px;
-  font-weight:900;
-  color:#ffd43b;
-  text-shadow:0 0 15px #ff9d00;
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
-.subtitle{
-  margin-top:5px;
-  color:#ddd;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.panda{
+  width:45px;
+  height:45px;
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  background:linear-gradient(135deg,#fff,#bbb);
+  box-shadow:0 0 25px rgba(255,255,255,.12);
+}
+
+.brand h1{
+  font-size:21px;
+  letter-spacing:.5px;
+}
+
+.brand small{
+  display:block;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+.profile{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#8b5cf6,#ec4899);
+  font-size:21px;
+}
+
+/* BALANCE */
+
+.balanceBox{
+  margin-top:15px;
+  padding:16px;
+  border-radius:20px;
+  background:
+    linear-gradient(135deg,rgba(139,92,246,.28),rgba(236,72,153,.12)),
+    rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:0 15px 50px rgba(0,0,0,.2);
+}
+
+.balanceTop{
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:13px;
 }
 
 .balance{
-  margin:15px auto;
-  max-width:420px;
-  background:linear-gradient(135deg,#ffb300,#ff6f00);
-  padding:15px;
-  border-radius:16px;
-  font-size:21px;
-  font-weight:bold;
-  box-shadow:0 0 25px rgba(255,170,0,.35);
+  font-size:30px;
+  font-weight:900;
+  margin-top:5px;
 }
 
-.container{
-  width:94%;
-  max-width:650px;
-  margin:20px auto 50px;
+.level{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
 }
 
-.section-title{
-  margin:25px 0 12px;
-  font-size:22px;
+.levelBar{
+  height:6px;
+  flex:1;
+  background:#29253b;
+  border-radius:10px;
+  overflow:hidden;
 }
+
+.levelFill{
+  height:100%;
+  width:68%;
+  background:linear-gradient(90deg,#8b5cf6,#ec4899);
+  border-radius:10px;
+}
+
+/* CONTENT */
+
+.content{
+  padding:18px 14px;
+}
+
+.hero{
+  padding:22px;
+  border-radius:25px;
+  min-height:175px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(34,211,238,.25),transparent 25%),
+    radial-gradient(circle at 20% 100%,rgba(236,72,153,.3),transparent 30%),
+    linear-gradient(135deg,#1a1230,#0d0b18);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  right:-50px;
+  bottom:-70px;
+  border-radius:50%;
+  background:rgba(139,92,246,.25);
+  filter:blur(20px);
+}
+
+.hero h2{
+  position:relative;
+  z-index:2;
+  font-size:28px;
+  max-width:300px;
+}
+
+.hero p{
+  position:relative;
+  z-index:2;
+  margin-top:9px;
+  color:#b8b3c8;
+  max-width:330px;
+  line-height:1.45;
+}
+
+.heroPanda{
+  position:absolute;
+  right:15px;
+  bottom:8px;
+  font-size:92px;
+  filter:drop-shadow(0 0 20px rgba(255,255,255,.2));
+  z-index:2;
+}
+
+/* TITLES */
+
+.title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:24px 2px 12px;
+}
+
+.title h3{
+  font-size:19px;
+}
+
+.title span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* GAMES */
 
 .games{
   display:grid;
@@ -68,484 +237,1364 @@ body{
 }
 
 .game{
-  border:1px solid rgba(255,255,255,.15);
-  background:linear-gradient(145deg,#241039,#11081c);
-  border-radius:18px;
-  padding:20px 10px;
-  text-align:center;
+  position:relative;
+  min-height:160px;
+  padding:15px;
+  border-radius:22px;
+  overflow:hidden;
   cursor:pointer;
-  transition:.2s;
+  background:linear-gradient(145deg,#19152a,#0f0d19);
+  border:1px solid rgba(255,255,255,.08);
+  transition:.25s;
+}
+
+.game:active{
+  transform:scale(.97);
 }
 
 .game:hover{
   transform:translateY(-3px);
-  box-shadow:0 0 20px rgba(190,70,255,.35);
+  border-color:rgba(139,92,246,.45);
 }
 
-.game-icon{
-  font-size:45px;
-  margin-bottom:8px;
+.gameIcon{
+  font-size:58px;
+  margin:5px 0 12px;
+  filter:drop-shadow(0 0 14px rgba(255,255,255,.2));
 }
 
-.game-name{
+.game h4{
   font-size:17px;
+}
+
+.game p{
+  margin-top:5px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.badge{
+  position:absolute;
+  top:11px;
+  right:11px;
+  padding:5px 8px;
+  border-radius:8px;
+  font-size:9px;
   font-weight:bold;
+  background:#ec4899;
 }
 
-.panel{
+.cyan{
+  background:linear-gradient(135deg,#092b38,#101523);
+}
+
+.purple{
+  background:linear-gradient(135deg,#24143c,#110e1c);
+}
+
+.green{
+  background:linear-gradient(135deg,#092d28,#0d1517);
+}
+
+.orange{
+  background:linear-gradient(135deg,#36200d,#15100d);
+}
+
+/* BONUS */
+
+.bonusGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.bonusCard{
+  padding:16px;
+  border-radius:18px;
+  background:linear-gradient(145deg,#19152a,#0e0c18);
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.bonusIcon{
+  font-size:30px;
+}
+
+.bonusCard strong{
+  display:block;
+  margin-top:8px;
+}
+
+.bonusCard small{
+  color:var(--muted);
+}
+
+/* GAME SCREEN */
+
+.screen{
   display:none;
-  margin-top:20px;
-  background:rgba(10,5,18,.85);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:20px;
-  padding:20px;
-  text-align:center;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:
+    radial-gradient(circle at 50% 0%,#241348,transparent 35%),
+    #06050d;
+  overflow:auto;
 }
 
-.panel.active{
+.screen.active{
   display:block;
 }
 
-.back{
-  background:#3b2450;
-  border:0;
-  color:white;
-  padding:9px 15px;
-  border-radius:10px;
-  margin-bottom:15px;
+.gameHeader{
+  height:65px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 15px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(6,5,13,.82);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.07);
 }
 
-.slot{
+.close{
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:12px;
+  color:white;
+  background:#191628;
+  font-size:20px;
+}
+
+.gameBalance{
+  color:var(--gold);
+  font-weight:bold;
+}
+
+.gameArea{
+  width:94%;
+  max-width:620px;
+  margin:20px auto;
+}
+
+/* SLOT */
+
+.slotMachine{
+  padding:20px;
+  border-radius:28px;
+  background:
+    linear-gradient(145deg,#21122e,#0e0b16);
+  border:1px solid #493067;
+  box-shadow:0 20px 70px rgba(0,0,0,.45);
+}
+
+.slotLights{
+  height:7px;
+  border-radius:10px;
+  background:linear-gradient(90deg,#ec4899,#ffd54a,#22d3ee,#8b5cf6);
+  box-shadow:0 0 18px #8b5cf6;
+  margin-bottom:20px;
+}
+
+.reels{
   display:flex;
+  gap:9px;
   justify-content:center;
-  gap:8px;
-  margin:20px 0;
+  padding:18px;
+  border-radius:20px;
+  background:#08070d;
 }
 
 .reel{
-  width:80px;
-  height:80px;
+  width:31%;
+  aspect-ratio:1;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#fff;
-  color:#111;
-  border-radius:15px;
-  font-size:42px;
-  box-shadow:0 0 15px rgba(255,255,255,.25);
+  border-radius:16px;
+  background:linear-gradient(145deg,#fff,#d9d9df);
+  font-size:52px;
+  box-shadow:inset 0 -10px 20px rgba(0,0,0,.15);
 }
 
-button{
+.spinButton{
+  width:100%;
+  margin-top:18px;
+  padding:16px;
   border:0;
-  cursor:pointer;
-}
-
-.play{
-  padding:13px 25px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#ffcc33,#ff7800);
-  color:#1b0b00;
-  font-size:17px;
-  font-weight:bold;
+  border-radius:16px;
+  color:#120c00;
+  font-size:18px;
+  font-weight:900;
+  background:linear-gradient(90deg,#ffd54a,#ff9d00);
+  box-shadow:0 0 30px rgba(255,180,0,.25);
 }
 
 .result{
-  min-height:28px;
-  margin:15px 0;
-  font-size:18px;
+  text-align:center;
+  min-height:35px;
+  padding-top:15px;
   font-weight:bold;
 }
 
-.dice{
-  font-size:90px;
-  margin:15px;
+/* CANVAS */
+
+.canvasBox{
+  padding:10px;
+  border-radius:22px;
+  background:#090813;
+  border:1px solid rgba(255,255,255,.1);
 }
 
-.cards{
+canvas{
+  width:100%;
+  display:block;
+  border-radius:16px;
+  touch-action:none;
+}
+
+.controls{
   display:flex;
+  gap:10px;
   justify-content:center;
-  gap:12px;
-  margin:20px 0;
+  margin-top:15px;
 }
 
-.card{
-  width:85px;
-  height:115px;
-  background:white;
-  color:#111;
-  border-radius:12px;
+.control{
+  width:60px;
+  height:50px;
+  border:0;
+  border-radius:14px;
+  background:#1b1730;
+  color:white;
+  font-size:22px;
+}
+
+/* TARGET */
+
+.targetBox{
+  min-height:450px;
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  background:
+    radial-gradient(circle,#161431,#07060d 70%);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.target{
+  position:absolute;
+  width:65px;
+  height:65px;
+  border-radius:50%;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  background:radial-gradient(circle,#fff 0 10%,#22d3ee 12% 35%,#8b5cf6 38% 65%,#ec4899 68%);
+  box-shadow:0 0 30px #8b5cf6;
+  cursor:pointer;
+}
+
+/* PROFILE */
+
+.profilePanel{
+  padding:18px;
+  border-radius:22px;
+  background:#12101f;
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.profileAvatar{
+  width:75px;
+  height:75px;
+  margin:auto;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:38px;
+  font-size:42px;
+  background:linear-gradient(135deg,#fff,#aaa);
 }
 
-.bonus{
-  background:linear-gradient(135deg,#47127a,#1a0730);
-  border:1px solid #8c3cff;
-  padding:18px;
-  border-radius:18px;
-  margin-top:12px;
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:18px;
 }
 
-.bonus strong{
-  color:#ffd43b;
-}
-
-.payment{
-  background:linear-gradient(145deg,#1e0b30,#0d0615);
-  padding:20px;
-  border-radius:18px;
-  margin-top:20px;
-  border:1px solid rgba(255,255,255,.12);
-}
-
-.card-number{
-  margin:12px 0;
-  padding:15px;
-  background:#08040c;
-  border-radius:12px;
-  letter-spacing:2px;
-  font-weight:bold;
-}
-
-.copy{
-  background:#6b35d9;
-  color:white;
-  padding:11px 18px;
-  border-radius:10px;
-}
-
-.notice{
-  margin-top:20px;
-  padding:12px;
-  color:#aaa;
-  font-size:12px;
+.stat{
   text-align:center;
+  padding:12px 5px;
+  border-radius:14px;
+  background:#0b0912;
+}
+
+.stat b{
+  display:block;
+  font-size:18px;
+}
+
+.stat small{
+  color:var(--muted);
+}
+
+/* BOTTOM */
+
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:720px;
+  height:70px;
+  z-index:50;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  background:rgba(9,8,17,.92);
+  backdrop-filter:blur(18px);
+  border-top:1px solid rgba(255,255,255,.07);
+}
+
+.nav{
+  border:0;
+  background:none;
+  color:#777286;
+  font-size:11px;
+  text-align:center;
+}
+
+.nav div{
+  font-size:22px;
+  margin-bottom:3px;
+}
+
+.nav.active{
+  color:white;
+}
+
+@media(max-width:390px){
+  .games{
+    grid-template-columns:1fr;
+  }
+
+  .heroPanda{
+    font-size:70px;
+  }
+
+  .reel{
+    font-size:40px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
-  <div class="logo">🐼 PANDA KAZİNO</div>
-  <div class="subtitle">Oyun və əyləncə platforması</div>
+<div class="app">
 
-  <div class="balance">
-    💰 Balans: <span id="balance">1000</span> xal
+<header class="header">
+
+  <div class="top">
+
+    <div class="brand">
+      <div class="panda">🐼</div>
+
+      <div>
+        <h1>PANDA PLAY</h1>
+        <small>Game Center</small>
+      </div>
+    </div>
+
+    <div class="profile" onclick="showProfile()">👤</div>
+
   </div>
+
+  <div class="balanceBox">
+
+    <div class="balanceTop">
+      <span>Virtual balans</span>
+      <span>LEVEL 12</span>
+    </div>
+
+    <div class="balance">
+      🪙 <span id="balance">2500</span>
+    </div>
+
+    <div class="level">
+      <small>XP</small>
+      <div class="levelBar">
+        <div class="levelFill"></div>
+      </div>
+      <small>68%</small>
+    </div>
+
+  </div>
+
 </header>
 
-<div class="container">
+<main class="content">
 
-  <h2 class="section-title">🎮 Oyunlar</h2>
+  <section class="hero">
+
+    <h2>Yeni oyunlar. Yeni rekordlar.</h2>
+
+    <p>
+      Sürətli oyunlara qoşul, xal topla və
+      öz rekordunu yenilə.
+    </p>
+
+    <div class="heroPanda">🐼</div>
+
+  </section>
+
+  <div class="title">
+    <h3>🔥 Populyar oyunlar</h3>
+    <span>Hamısına bax</span>
+  </div>
 
   <div class="games">
 
-    <div class="game" onclick="openGame('slot')">
-      <div class="game-icon">🎰</div>
-      <div class="game-name">Meyvə Slot</div>
+    <div class="game purple" onclick="openGame('slotScreen')">
+      <span class="badge">HOT</span>
+      <div class="gameIcon">🎰</div>
+      <h4>Neon Fruits</h4>
+      <p>Arcade slot</p>
     </div>
 
-    <div class="game" onclick="openGame('dice')">
-      <div class="game-icon">🎲</div>
-      <div class="game-name">Zar Oyunu</div>
+    <div class="game cyan" onclick="openGame('spaceScreen')">
+      <span class="badge">NEW</span>
+      <div class="gameIcon">🚀</div>
+      <h4>Space Run</h4>
+      <p>Reflex arcade</p>
     </div>
 
-    <div class="game" onclick="openGame('cards')">
-      <div class="game-icon">🃏</div>
-      <div class="game-name">Kart Oyunu</div>
+    <div class="game green" onclick="openGame('snakeScreen')">
+      <div class="gameIcon">🐍</div>
+      <h4>Snake Arena</h4>
+      <p>Classic arcade</p>
     </div>
 
-    <div class="game" onclick="openGame('bonus')">
-      <div class="game-icon">🎁</div>
-      <div class="game-name">Bonuslar</div>
-    </div>
-
-  </div>
-
-  <!-- SLOT -->
-
-  <div id="slot" class="panel">
-
-    <button class="back" onclick="closeGames()">← Geri</button>
-
-    <h2>🎰 Meyvə Slot</h2>
-
-    <div class="slot">
-      <div class="reel" id="r1">🍒</div>
-      <div class="reel" id="r2">🍋</div>
-      <div class="reel" id="r3">🍊</div>
-    </div>
-
-    <div class="result" id="slotResult"></div>
-
-    <button class="play" onclick="spin()">
-      OYNA
-    </button>
-
-  </div>
-
-  <!-- DICE -->
-
-  <div id="dice" class="panel">
-
-    <button class="back" onclick="closeGames()">← Geri</button>
-
-    <h2>🎲 Zar Oyunu</h2>
-
-    <div class="dice" id="diceNumber">🎲</div>
-
-    <div class="result" id="diceResult"></div>
-
-    <button class="play" onclick="rollDice()">
-      ZARI AT
-    </button>
-
-  </div>
-
-  <!-- CARDS -->
-
-  <div id="cards" class="panel">
-
-    <button class="back" onclick="closeGames()">← Geri</button>
-
-    <h2>🃏 Kart Oyunu</h2>
-
-    <div class="cards">
-      <div class="card" id="playerCard">?</div>
-      <div class="card" id="houseCard">?</div>
-    </div>
-
-    <div class="result" id="cardResult"></div>
-
-    <button class="play" onclick="drawCards()">
-      KART ÇƏK
-    </button>
-
-  </div>
-
-  <!-- BONUS -->
-
-  <div id="bonus" class="panel">
-
-    <button class="back" onclick="closeGames()">← Geri</button>
-
-    <h2>🎁 Bonuslar</h2>
-
-    <div class="bonus">
-      🎁 <strong>Giriş bonusu</strong><br><br>
-      Hesabınıza 100 xal əlavə edildi.
-    </div>
-
-    <div class="bonus">
-      ⭐ <strong>Gündəlik bonus</strong><br><br>
-      Növbəti bonus üçün gözləmə müddəti: 24 saat
+    <div class="game orange" onclick="openGame('targetScreen')">
+      <div class="gameIcon">🎯</div>
+      <h4>Neon Target</h4>
+      <p>Reflex challenge</p>
     </div>
 
   </div>
 
-  <!-- PAYMENT INTERFACE -->
+  <div class="title">
+    <h3>🎁 Gündəlik mükafatlar</h3>
+    <span>24H</span>
+  </div>
 
-  <h2 class="section-title">💳 Ödəniş məlumatı</h2>
+  <div class="bonusGrid">
 
-  <div class="payment">
-
-    <p>Kart məlumatı</p>
-
-    <div class="card-number" id="cardNumber">
-      XXXX XXXX XXXX XXXX
+    <div class="bonusCard">
+      <div class="bonusIcon">🎁</div>
+      <strong>Gündəlik hədiyyə</strong>
+      <small>+100 virtual xal</small>
     </div>
 
-    <button class="copy" onclick="copyCard()">
-      📋 Kartı kopyala
-    </button>
-
-    <p id="copyMessage" style="margin-top:10px;color:#72ff9b;"></p>
+    <div class="bonusCard">
+      <div class="bonusIcon">🔥</div>
+      <strong>7 günlük seriya</strong>
+      <small>+500 virtual xal</small>
+    </div>
 
   </div>
 
-  <div class="notice">
-    Bu səhifə əyləncə məqsədli oyun interfeysidir.
-    Real pul çıxarışı və real pul mükafatı təqdim edilmir.
+  <div class="title">
+    <h3>🏆 Rekordlar</h3>
+  </div>
+
+  <div class="profilePanel">
+
+    <div class="stats">
+
+      <div class="stat">
+        <b id="bestScore">0</b>
+        <small>Ən yüksək xal</small>
+      </div>
+
+      <div class="stat">
+        <b id="gamesPlayed">0</b>
+        <small>Oyun</small>
+      </div>
+
+      <div class="stat">
+        <b>12</b>
+        <small>Səviyyə</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<nav class="bottom">
+
+  <button class="nav active">
+    <div>🏠</div>
+    Ana səhifə
+  </button>
+
+  <button class="nav" onclick="scrollGames()">
+    <div>🎮</div>
+    Oyunlar
+  </button>
+
+  <button class="nav" onclick="showProfile()">
+    <div>👤</div>
+    Profil
+  </button>
+
+</nav>
+
+</div>
+
+
+<!-- SLOT -->
+
+<div id="slotScreen" class="screen">
+
+  <div class="gameHeader">
+
+    <button class="close" onclick="closeGame('slotScreen')">‹</button>
+
+    <b>🎰 Neon Fruits</b>
+
+    <div class="gameBalance">
+      🪙 <span class="gbalance">2500</span>
+    </div>
+
+  </div>
+
+  <div class="gameArea">
+
+    <div class="slotMachine">
+
+      <div class="slotLights"></div>
+
+      <div class="reels">
+
+        <div class="reel" id="s1">🍒</div>
+        <div class="reel" id="s2">🍋</div>
+        <div class="reel" id="s3">🍊</div>
+
+      </div>
+
+      <div class="result" id="slotResult"></div>
+
+      <button class="spinButton" onclick="spinSlot()">
+        SPIN • 10 XAL
+      </button>
+
+    </div>
+
   </div>
 
 </div>
 
+
+<!-- SPACE -->
+
+<div id="spaceScreen" class="screen">
+
+  <div class="gameHeader">
+
+    <button class="close" onclick="closeGame('spaceScreen')">‹</button>
+
+    <b>🚀 Space Run</b>
+
+    <div class="gameBalance">
+      SCORE <span id="spaceScore">0</span>
+    </div>
+
+  </div>
+
+  <div class="gameArea">
+
+    <div class="canvasBox">
+      <canvas id="spaceCanvas" width="600" height="650"></canvas>
+    </div>
+
+    <div class="controls">
+
+      <button class="control"
+        ontouchstart="moveShip(-1)"
+        onclick="moveShip(-1)">←</button>
+
+      <button class="control"
+        onclick="startSpace()">▶</button>
+
+      <button class="control"
+        ontouchstart="moveShip(1)"
+        onclick="moveShip(1)">→</button>
+
+    </div>
+
+    <div class="result" id="spaceResult">
+      Maneələrdən yayın!
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- SNAKE -->
+
+<div id="snakeScreen" class="screen">
+
+  <div class="gameHeader">
+
+    <button class="close" onclick="closeGame('snakeScreen')">‹</button>
+
+    <b>🐍 Snake Arena</b>
+
+    <div class="gameBalance">
+      SCORE <span id="snakeScore">0</span>
+    </div>
+
+  </div>
+
+  <div class="gameArea">
+
+    <div class="canvasBox">
+      <canvas id="snakeCanvas" width="500" height="500"></canvas>
+    </div>
+
+    <div class="controls">
+
+      <button class="control" onclick="snakeDir(0,-1)">↑</button>
+
+      <button class="control" onclick="snakeDir(-1,0)">←</button>
+
+      <button class="control" onclick="startSnake()">▶</button>
+
+      <button class="control" onclick="snakeDir(1,0)">→</button>
+
+      <button class="control" onclick="snakeDir(0,1)">↓</button>
+
+    </div>
+
+    <div class="result" id="snakeResult">
+      Yemləri topla!
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- TARGET -->
+
+<div id="targetScreen" class="screen">
+
+  <div class="gameHeader">
+
+    <button class="close" onclick="closeGame('targetScreen')">‹</button>
+
+    <b>🎯 Neon Target</b>
+
+    <div class="gameBalance">
+      SCORE <span id="targetScore">0</span>
+    </div>
+
+  </div>
+
+  <div class="gameArea">
+
+    <div class="targetBox" id="targetBox">
+
+      <div class="target"
+        id="target"
+        onclick="hitTarget()">✦</div>
+
+    </div>
+
+    <button class="spinButton"
+      style="margin-top:15px"
+      onclick="startTarget()">
+      BAŞLA
+    </button>
+
+    <div class="result" id="targetResult">
+      20 saniyədə mümkün qədər çox hədəf vur.
+    </div>
+
+  </div>
+
+</div>
+
+
 <script>
 
-let balance = 1000;
+/* =========================
+   CORE
+========================= */
 
-const fruits = [
-  "🍒",
-  "🍋",
-  "🍊",
-  "🍉",
-  "🍇",
-  "🍓",
-  "🥝"
-];
+let balance =
+  Number(localStorage.getItem("pandaBalance")) || 2500;
 
-function updateBalance(){
-  document.getElementById("balance").innerText = balance;
+let bestScore =
+  Number(localStorage.getItem("pandaBest")) || 0;
+
+let gamesPlayed =
+  Number(localStorage.getItem("pandaGames")) || 0;
+
+function save(){
+
+  localStorage.setItem("pandaBalance",balance);
+  localStorage.setItem("pandaBest",bestScore);
+  localStorage.setItem("pandaGames",gamesPlayed);
+
+}
+
+function updateUI(){
+
+  document.getElementById("balance").innerText =
+    balance;
+
+  document.querySelectorAll(".gbalance")
+    .forEach(e=>e.innerText=balance);
+
+  document.getElementById("bestScore").innerText =
+    bestScore;
+
+  document.getElementById("gamesPlayed").innerText =
+    gamesPlayed;
+
+  save();
+
+}
+
+function addScore(points){
+
+  balance += points;
+
+  if(points > bestScore)
+    bestScore = points;
+
+  updateUI();
+
 }
 
 function openGame(id){
 
-  document.querySelectorAll(".panel")
-    .forEach(p => p.classList.remove("active"));
-
   document.getElementById(id)
     .classList.add("active");
 
-  window.scrollTo({
-    top:document.getElementById(id).offsetTop - 20,
-    behavior:"smooth"
+}
+
+function closeGame(id){
+
+  document.getElementById(id)
+    .classList.remove("active");
+
+  if(id==="spaceScreen")
+    stopSpace();
+
+  if(id==="snakeScreen")
+    stopSnake();
+
+  if(id==="targetScreen")
+    stopTarget();
+
+}
+
+function scrollGames(){
+
+  document.querySelector(".games")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   SLOT
+========================= */
+
+const fruits=[
+  "🍒","🍋","🍊",
+  "🍉","🍇","🍓",
+  "🥝","💎"
+];
+
+function spinSlot(){
+
+  if(balance < 10){
+
+    document.getElementById("slotResult")
+      .innerText="Kifayət qədər xal yoxdur.";
+
+    return;
+  }
+
+  balance -= 10;
+
+  gamesPlayed++;
+
+  let count=0;
+
+  let timer=setInterval(()=>{
+
+    document.getElementById("s1").innerText =
+      fruits[Math.floor(Math.random()*fruits.length)];
+
+    document.getElementById("s2").innerText =
+      fruits[Math.floor(Math.random()*fruits.length)];
+
+    document.getElementById("s3").innerText =
+      fruits[Math.floor(Math.random()*fruits.length)];
+
+    count++;
+
+    if(count>=12){
+
+      clearInterval(timer);
+
+      let a=document.getElementById("s1").innerText;
+      let b=document.getElementById("s2").innerText;
+      let c=document.getElementById("s3").innerText;
+
+      let result=
+        document.getElementById("slotResult");
+
+      if(a===b && b===c){
+
+        balance+=100;
+
+        result.innerText=
+          "🎉 JACKPOT • +100 XAL";
+
+      }else if(a===b || b===c || a===c){
+
+        balance+=30;
+
+        result.innerText=
+          "✨ KOMBO • +30 XAL";
+
+      }else{
+
+        result.innerText=
+          "Yenidən cəhd et.";
+
+      }
+
+      updateUI();
+
+    }
+
+  },70);
+
+}
+
+
+/* =========================
+   SPACE RUN
+========================= */
+
+const sc=
+  document.getElementById("spaceCanvas");
+
+const sx=sc.getContext("2d");
+
+let shipX=300;
+let obstacles=[];
+let spaceScore=0;
+let spaceRunning=false;
+let spaceFrame;
+
+function drawSpace(){
+
+  sx.clearRect(0,0,600,650);
+
+  /* background */
+
+  sx.fillStyle="#070817";
+  sx.fillRect(0,0,600,650);
+
+  for(let i=0;i<50;i++){
+
+    sx.fillStyle="rgba(255,255,255,.5)";
+
+    sx.fillRect(
+      (i*97)%600,
+      (i*53+spaceScore*2)%650,
+      2,2
+    );
+
+  }
+
+  /* ship */
+
+  sx.save();
+
+  sx.translate(shipX,570);
+
+  sx.fillStyle="#22d3ee";
+
+  sx.beginPath();
+
+  sx.moveTo(0,-35);
+  sx.lineTo(-25,25);
+  sx.lineTo(0,15);
+  sx.lineTo(25,25);
+  sx.closePath();
+
+  sx.fill();
+
+  sx.fillStyle="#ec4899";
+
+  sx.fillRect(-6,18,12,18);
+
+  sx.restore();
+
+  /* obstacles */
+
+  obstacles.forEach(o=>{
+
+    sx.fillStyle="#ec4899";
+
+    sx.beginPath();
+
+    sx.arc(o.x,o.y,o.r,0,Math.PI*2);
+
+    sx.fill();
+
+    sx.shadowBlur=20;
+    sx.shadowColor="#ec4899";
+
   });
-}
 
-function closeGames(){
-
-  document.querySelectorAll(".panel")
-    .forEach(p => p.classList.remove("active"));
+  sx.shadowBlur=0;
 
 }
 
-function spin(){
+function startSpace(){
 
-  if(balance < 10){
-    document.getElementById("slotResult").innerText =
-      "Kifayət qədər xal yoxdur.";
-    return;
-  }
+  if(spaceRunning) return;
 
-  balance -= 10;
-  updateBalance();
+  spaceRunning=true;
+  spaceScore=0;
+  obstacles=[];
 
-  let a = fruits[Math.floor(Math.random()*fruits.length)];
-  let b = fruits[Math.floor(Math.random()*fruits.length)];
-  let c = fruits[Math.floor(Math.random()*fruits.length)];
+  document.getElementById("spaceResult")
+    .innerText="Uçuş başladı!";
 
-  document.getElementById("r1").innerText = a;
-  document.getElementById("r2").innerText = b;
-  document.getElementById("r3").innerText = c;
+  spaceLoop();
 
-  if(a === b && b === c){
-
-    balance += 100;
-
-    document.getElementById("slotResult").innerText =
-      "🎉 Uğurlu kombinasiya! +100 xal";
-
-  }else if(a === b || b === c || a === c){
-
-    balance += 30;
-
-    document.getElementById("slotResult").innerText =
-      "⭐ İki eyni simvol! +30 xal";
-
-  }else{
-
-    document.getElementById("slotResult").innerText =
-      "Yenidən cəhd edə bilərsən.";
-
-  }
-
-  updateBalance();
 }
 
-function rollDice(){
+function spaceLoop(){
 
-  if(balance < 10){
-    document.getElementById("diceResult").innerText =
-      "Kifayət qədər xal yoxdur.";
-    return;
+  if(!spaceRunning) return;
+
+  spaceFrame=requestAnimationFrame(spaceLoop);
+
+  if(Math.random()<.035){
+
+    obstacles.push({
+      x:30+Math.random()*540,
+      y:-30,
+      r:14+Math.random()*10
+    });
+
   }
 
-  balance -= 10;
+  obstacles.forEach(o=>{
+    o.y+=4+spaceScore/250;
+  });
 
-  let number = Math.floor(Math.random()*6)+1;
+  obstacles=obstacles.filter(o=>o.y<690);
 
-  const diceFaces = [
-    "⚀","⚁","⚂","⚃","⚄","⚅"
+  for(let o of obstacles){
+
+    let dx=o.x-shipX;
+    let dy=o.y-570;
+
+    if(Math.sqrt(dx*dx+dy*dy)<32){
+
+      stopSpace();
+
+      document.getElementById("spaceResult")
+        .innerText=
+        "💥 Oyun bitdi • Xal: "+spaceScore;
+
+      if(spaceScore>bestScore)
+        bestScore=spaceScore;
+
+      updateUI();
+
+      return;
+    }
+
+  }
+
+  spaceScore++;
+
+  document.getElementById("spaceScore")
+    .innerText=spaceScore;
+
+  drawSpace();
+
+}
+
+function moveShip(dir){
+
+  if(!spaceRunning)
+    startSpace();
+
+  shipX+=dir*45;
+
+  if(shipX<35) shipX=35;
+  if(shipX>565) shipX=565;
+
+}
+
+function stopSpace(){
+
+  spaceRunning=false;
+
+  cancelAnimationFrame(spaceFrame);
+
+}
+
+
+/* =========================
+   SNAKE
+========================= */
+
+const sn=
+  document.getElementById("snakeCanvas");
+
+const sctx=sn.getContext("2d");
+
+const grid=20;
+
+let snake=[];
+let food={x:10,y:10};
+
+let dx=1;
+let dy=0;
+
+let snakeTimer=null;
+let snakeScore=0;
+
+function resetSnake(){
+
+  snake=[
+    {x:10,y:10},
+    {x:9,y:10},
+    {x:8,y:10}
   ];
 
-  document.getElementById("diceNumber").innerText =
-    diceFaces[number-1];
+  dx=1;
+  dy=0;
 
-  if(number >= 4){
+  snakeScore=0;
 
-    balance += 20;
+  food={
+    x:Math.floor(Math.random()*25),
+    y:Math.floor(Math.random()*25)
+  };
 
-    document.getElementById("diceResult").innerText =
-      "🎉 Uğurlu nəticə! +20 xal";
+  document.getElementById("snakeScore")
+    .innerText=0;
 
-  }else{
+  drawSnake();
 
-    document.getElementById("diceResult").innerText =
-      "Bu dəfə alınmadı.";
-
-  }
-
-  updateBalance();
 }
 
-function drawCards(){
+function startSnake(){
 
-  if(balance < 10){
-    document.getElementById("cardResult").innerText =
-      "Kifayət qədər xal yoxdur.";
+  if(snakeTimer) return;
+
+  resetSnake();
+
+  snakeTimer=setInterval(stepSnake,120);
+
+}
+
+function stopSnake(){
+
+  clearInterval(snakeTimer);
+  snakeTimer=null;
+
+}
+
+function snakeDir(x,y){
+
+  if(x===-dx && y===-dy) return;
+
+  dx=x;
+  dy=y;
+
+}
+
+function stepSnake(){
+
+  let head={
+    x:snake[0].x+dx,
+    y:snake[0].y+dy
+  };
+
+  if(
+    head.x<0 ||
+    head.x>=25 ||
+    head.y<0 ||
+    head.y>=25 ||
+    snake.some(p=>p.x===head.x && p.y===head.y)
+  ){
+
+    stopSnake();
+
+    document.getElementById("snakeResult")
+      .innerText=
+      "💥 Oyun bitdi • Xal: "+snakeScore;
+
+    if(snakeScore>bestScore)
+      bestScore=snakeScore;
+
+    updateUI();
+
     return;
+
   }
 
-  balance -= 10;
+  snake.unshift(head);
 
-  const symbols = [
-    "A","K","Q","J","10","9","8","7"
-  ];
+  if(head.x===food.x && head.y===food.y){
 
-  let p =
-    symbols[Math.floor(Math.random()*symbols.length)];
+    snakeScore+=10;
 
-  let h =
-    symbols[Math.floor(Math.random()*symbols.length)];
-
-  document.getElementById("playerCard").innerText = p;
-  document.getElementById("houseCard").innerText = h;
-
-  let pv = symbols.indexOf(p);
-  let hv = symbols.indexOf(h);
-
-  if(pv < hv){
-
-    balance += 30;
-
-    document.getElementById("cardResult").innerText =
-      "🏆 Sən qazandın! +30 xal";
+    food={
+      x:Math.floor(Math.random()*25),
+      y:Math.floor(Math.random()*25)
+    };
 
   }else{
 
-    document.getElementById("cardResult").innerText =
-      "Bu dəfə ev üstün gəldi.";
+    snake.pop();
 
   }
 
-  updateBalance();
+  document.getElementById("snakeScore")
+    .innerText=snakeScore;
+
+  drawSnake();
+
 }
 
-function copyCard(){
+function drawSnake(){
 
-  const card =
-    document.getElementById("cardNumber").innerText.trim();
+  sctx.fillStyle="#070817";
+  sctx.fillRect(0,0,500,500);
 
-  navigator.clipboard.writeText(card);
+  /* grid */
 
-  document.getElementById("copyMessage").innerText =
-    "✓ Kart məlumatı kopyalandı";
+  sctx.strokeStyle="rgba(255,255,255,.035)";
+
+  for(let i=0;i<=500;i+=20){
+
+    sctx.beginPath();
+    sctx.moveTo(i,0);
+    sctx.lineTo(i,500);
+    sctx.stroke();
+
+    sctx.beginPath();
+    sctx.moveTo(0,i);
+    sctx.lineTo(500,i);
+    sctx.stroke();
+
+  }
+
+  /* food */
+
+  sctx.fillStyle="#ec4899";
+
+  sctx.beginPath();
+
+  sctx.arc(
+    food.x*20+10,
+    food.y*20+10,
+    7,0,Math.PI*2
+  );
+
+  sctx.fill();
+
+  /* snake */
+
+  snake.forEach((p,i)=>{
+
+    sctx.fillStyle=
+      i===0 ? "#22d3ee" : "#8b5cf6";
+
+    sctx.fillRect(
+      p.x*20+2,
+      p.y*20+2,
+      16,
+      16
+    );
+
+  });
+
 }
 
-updateBalance();
+
+/* =========================
+   TARGET
+========================= */
+
+let targetRunning=false;
+let targetScore=0;
+let targetTime=20;
+let targetTimer=null;
+
+function startTarget(){
+
+  if(targetRunning) return;
+
+  targetRunning=true;
+  targetScore=0;
+  targetTime=20;
+
+  document.getElementById("targetScore")
+    .innerText=0;
+
+  document.getElementById("targetResult")
+    .innerText=
+    "Vaxt: 20 saniyə";
+
+  showTarget();
+
+  targetTimer=setInterval(()=>{
+
+    targetTime--;
+
+    document.getElementById("targetResult")
+      .innerText=
+      "Vaxt: "+targetTime+" saniyə";
+
+    if(targetTime<=0){
+
+      stopTarget();
+
+      document.getElementById("targetResult")
+        .innerText=
+        "🏆 Nəticə: "+targetScore+" xal";
+
+      if(targetScore>bestScore)
+        bestScore=targetScore;
+
+      updateUI();
+
+    }
+
+  },1000);
+
+}
+
+function showTarget(){
+
+  let box=
+    document.getElementById("targetBox");
+
+  let target=
+    document.getElementById("target");
+
+  let maxX=box.clientWidth-75;
+  let maxY=box.clientHeight-75;
+
+  target.style.left=
+    (10+Math.random()*maxX)+"px";
+
+  target.style.top=
+    (10+Math.random()*maxY)+"px";
+
+  target.style.display="flex";
+
+}
+
+function hitTarget(){
+
+  if(!targetRunning) return;
+
+  targetScore+=10;
+
+  document.getElementById("targetScore")
+    .innerText=targetScore;
+
+  showTarget();
+
+}
+
+function stopTarget(){
+
+  targetRunning=false;
+
+  clearInterval(targetTimer);
+  targetTimer=null;
+
+  document.getElementById("target")
+    .style.display="none";
+
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+function showProfile(){
+
+  alert(
+    "🐼 PANDA PLAY\n\n"+
+    "Səviyyə: 12\n"+
+    "Virtual balans: "+balance+" xal\n"+
+    "Ən yüksək xal: "+bestScore+"\n"+
+    "Oynanılan oyun: "+gamesPlayed
+  );
+
+}
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener("keydown",e=>{
+
+  if(e.key==="ArrowLeft")
+    moveShip(-1);
+
+  if(e.key==="ArrowRight")
+    moveShip(1);
+
+  if(e.key==="ArrowUp")
+    snakeDir(0,-1);
+
+  if(e.key==="ArrowDown")
+    snakeDir(0,1);
+
+});
+
+
+/* INIT */
+
+updateUI();
+resetSnake();
 
 </script>
 
