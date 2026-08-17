@@ -3,1675 +3,551 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Panda Kazino</title>
 
 <style>
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#050505;
-    color:#fff;
-    min-height:100vh;
-    padding-bottom:95px;
+  font-family:Arial,sans-serif;
+  background:
+    radial-gradient(circle at top,#35106b 0%,#130522 40%,#07030d 100%);
+  color:#fff;
+  min-height:100vh;
 }
 
-/* HEADER */
-
 .header{
-    height:82px;
-    background:#0d0d0d;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 15px;
-    position:sticky;
-    top:0;
-    z-index:50;
-    border-bottom:1px solid #222;
+  padding:22px 15px;
+  text-align:center;
+  background:rgba(0,0,0,.35);
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:9px;
+  font-size:34px;
+  font-weight:900;
+  color:#ffd43b;
+  text-shadow:0 0 15px #ff9d00;
 }
 
-.panda{
-    width:47px;
-    height:47px;
-    border-radius:15px;
-
-    background:
-    linear-gradient(145deg,#ff3218,#a90000);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:27px;
-
-    box-shadow:
-    0 0 22px #ff241555;
-}
-
-.logo h1{
-    font-size:20px;
-    font-weight:900;
-    font-style:italic;
-}
-
-.logo span{
-    color:#ff3218;
+.subtitle{
+  margin-top:5px;
+  color:#ddd;
 }
 
 .balance{
-    background:#191919;
-    border:1px solid #292929;
-    border-radius:30px;
-    padding:6px 7px 6px 12px;
-
-    display:flex;
-    align-items:center;
-    gap:9px;
+  margin:15px auto;
+  max-width:420px;
+  background:linear-gradient(135deg,#ffb300,#ff6f00);
+  padding:15px;
+  border-radius:16px;
+  font-size:21px;
+  font-weight:bold;
+  box-shadow:0 0 25px rgba(255,170,0,.35);
 }
 
-.balance small{
-    display:block;
-    color:#888;
-    font-size:9px;
+.container{
+  width:94%;
+  max-width:650px;
+  margin:20px auto 50px;
 }
 
-.balance strong{
-    font-size:13px;
+.section-title{
+  margin:25px 0 12px;
+  font-size:22px;
 }
-
-.plus{
-    width:34px;
-    height:34px;
-    border-radius:50%;
-
-    background:#ff3218;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:24px;
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-    margin:14px;
-    height:215px;
-
-    border-radius:23px;
-    overflow:hidden;
-    position:relative;
-
-    background:
-    radial-gradient(
-        circle at 20% 30%,
-        #ff3a173d,
-        transparent 30%
-    ),
-    radial-gradient(
-        circle at 80% 70%,
-        #ff00002c,
-        transparent 35%
-    ),
-    linear-gradient(
-        135deg,
-        #350000,
-        #090909 55%,
-        #280000
-    );
-
-    border:1px solid #461515;
-}
-
-.hero:before{
-    content:"🐼";
-
-    position:absolute;
-    right:12px;
-    bottom:-22px;
-
-    font-size:155px;
-
-    opacity:.14;
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    padding:30px 21px;
-}
-
-.hero-label{
-    color:#ff3a20;
-    font-weight:bold;
-    font-size:12px;
-    letter-spacing:1px;
-}
-
-.hero h2{
-    font-size:31px;
-    line-height:1.05;
-    margin:12px 0;
-}
-
-.hero p{
-    color:#aaa;
-    font-size:13px;
-    max-width:280px;
-    line-height:1.5;
-}
-
-.demo-btn{
-    margin-top:17px;
-
-    padding:12px 18px;
-
-    border-radius:12px;
-
-    background:#ff3218;
-    color:#fff;
-
-    font-weight:bold;
-
-    border:0;
-
-    cursor:pointer;
-}
-
-/* SECTION */
-
-.section{
-    padding:15px;
-}
-
-.section-head{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin:20px 0;
-}
-
-.section-icon{
-    width:45px;
-    height:45px;
-
-    border-radius:14px;
-
-    background:#26100c;
-
-    border:1px solid #4d1811;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:22px;
-}
-
-.section-head h2{
-    font-size:21px;
-}
-
-.online{
-    color:#777;
-    font-size:11px;
-    margin-top:4px;
-}
-
-.online b{
-    color:#13c96b;
-}
-
-/* GAMES */
 
 .games{
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    padding-bottom:8px;
-}
-
-.games::-webkit-scrollbar{
-    display:none;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
 }
 
 .game{
-    min-width:190px;
-
-    background:#111;
-
-    border:1px solid #252525;
-
-    border-radius:20px;
-
-    padding:10px;
+  border:1px solid rgba(255,255,255,.15);
+  background:linear-gradient(145deg,#241039,#11081c);
+  border-radius:18px;
+  padding:20px 10px;
+  text-align:center;
+  cursor:pointer;
+  transition:.2s;
 }
 
-.game-image{
-    height:145px;
-
-    border-radius:15px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-
-    overflow:hidden;
+.game:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 20px rgba(190,70,255,.35);
 }
 
-.game:nth-child(1)
-.game-image{
-    background:
-    linear-gradient(
-        145deg,
-        #1e0710,
-        #870f17
-    );
+.game-icon{
+  font-size:45px;
+  margin-bottom:8px;
 }
 
-.game:nth-child(2)
-.game-image{
-    background:
-    linear-gradient(
-        145deg,
-        #071b25,
-        #123d58
-    );
+.game-name{
+  font-size:17px;
+  font-weight:bold;
 }
 
-.game:nth-child(3)
-.game-image{
-    background:
-    linear-gradient(
-        145deg,
-        #17100b,
-        #754211
-    );
+.panel{
+  display:none;
+  margin-top:20px;
+  background:rgba(10,5,18,.85);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;
+  padding:20px;
+  text-align:center;
 }
 
-.game:nth-child(4)
-.game-image{
-    background:
-    linear-gradient(
-        145deg,
-        #16091e,
-        #5b1680
-    );
+.panel.active{
+  display:block;
 }
 
-.game-emoji{
-    font-size:68px;
-
-    filter:
-    drop-shadow(
-        0 8px 15px #000
-    );
+.back{
+  background:#3b2450;
+  border:0;
+  color:white;
+  padding:9px 15px;
+  border-radius:10px;
+  margin-bottom:15px;
 }
 
-.win{
-    position:absolute;
-
-    right:7px;
-    top:7px;
-
-    background:#ff3218;
-
-    padding:6px 9px;
-
-    border-radius:8px;
-
-    font-size:10px;
-
-    font-weight:bold;
+.slot{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin:20px 0;
 }
 
-.game h3{
-    font-size:15px;
-
-    margin:10px 4px 4px;
+.reel{
+  width:80px;
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  color:#111;
+  border-radius:15px;
+  font-size:42px;
+  box-shadow:0 0 15px rgba(255,255,255,.25);
 }
 
-.game p{
-    color:#777;
-
-    font-size:11px;
-
-    margin:0 4px 10px;
+button{
+  border:0;
+  cursor:pointer;
 }
 
 .play{
-    width:100%;
-
-    padding:10px;
-
-    border:0;
-
-    border-radius:10px;
-
-    background:#21100e;
-
-    color:#ff432e;
-
-    font-weight:bold;
-
-    cursor:pointer;
+  padding:13px 25px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#ffcc33,#ff7800);
+  color:#1b0b00;
+  font-size:17px;
+  font-weight:bold;
 }
 
-/* PAYMENT */
-
-.payment-section{
-    margin:25px 15px;
-
-    padding:22px;
-
-    background:
-    linear-gradient(
-        145deg,
-        #151515,
-        #090909
-    );
-
-    border:1px solid #3b1712;
-
-    border-radius:24px;
+.result{
+  min-height:28px;
+  margin:15px 0;
+  font-size:18px;
+  font-weight:bold;
 }
 
-.payment-title{
-    display:flex;
-    align-items:center;
-    gap:14px;
-
-    margin-bottom:20px;
+.dice{
+  font-size:90px;
+  margin:15px;
 }
 
-.payment-title-icon{
-    width:48px;
-    height:48px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:14px;
-
-    background:#27100d;
-
-    font-size:23px;
+.cards{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:20px 0;
 }
 
-.payment-title h2{
-    font-size:21px;
+.card{
+  width:85px;
+  height:115px;
+  background:white;
+  color:#111;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
 }
 
-.payment-title p{
-    color:#888;
-
-    font-size:12px;
-
-    margin-top:4px;
+.bonus{
+  background:linear-gradient(135deg,#47127a,#1a0730);
+  border:1px solid #8c3cff;
+  padding:18px;
+  border-radius:18px;
+  margin-top:12px;
 }
 
-.payment-tabs{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:8px;
-
-    background:#101010;
-
-    padding:5px;
-
-    border-radius:15px;
+.bonus strong{
+  color:#ffd43b;
 }
 
-.payment-tabs button{
-    border:0;
-
-    padding:13px 7px;
-
-    border-radius:11px;
-
-    background:transparent;
-
-    color:#999;
-
-    font-weight:bold;
-
-    cursor:pointer;
+.payment{
+  background:linear-gradient(145deg,#1e0b30,#0d0615);
+  padding:20px;
+  border-radius:18px;
+  margin-top:20px;
+  border:1px solid rgba(255,255,255,.12);
 }
 
-.payment-tabs button.active{
-    background:#ff3218;
-    color:#fff;
+.card-number{
+  margin:12px 0;
+  padding:15px;
+  background:#08040c;
+  border-radius:12px;
+  letter-spacing:2px;
+  font-weight:bold;
 }
 
-.demo-card{
-    margin-top:20px;
-
-    padding:22px;
-
-    min-height:180px;
-
-    border-radius:20px;
-
-    background:
-    radial-gradient(
-        circle at 90% 20%,
-        #ff321822,
-        transparent 35%
-    ),
-    linear-gradient(
-        145deg,
-        #181818,
-        #090909
-    );
-
-    border:1px solid #35201d;
+.copy{
+  background:#6b35d9;
+  color:white;
+  padding:11px 18px;
+  border-radius:10px;
 }
 
-.bank-label{
-    color:#888;
-
-    font-size:10px;
-
-    letter-spacing:2px;
+.notice{
+  margin-top:20px;
+  padding:12px;
+  color:#aaa;
+  font-size:12px;
+  text-align:center;
 }
-
-.demo-card h3{
-    margin-top:15px;
-
-    font-size:20px;
-}
-
-.demo-number{
-    margin-top:25px;
-
-    font-size:19px;
-
-    letter-spacing:3px;
-
-    color:#ddd;
-}
-
-.demo-card p{
-    margin-top:15px;
-
-    color:#777;
-
-    font-size:10px;
-
-    line-height:1.5;
-}
-
-.amount-label{
-    display:block;
-
-    margin:22px 0 10px;
-
-    color:#aaa;
-}
-
-.amounts{
-    display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:8px;
-}
-
-.amounts button{
-    padding:13px 5px;
-
-    border-radius:12px;
-
-    border:1px solid #292929;
-
-    background:#171717;
-
-    color:#fff;
-
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-.amounts button:active{
-    background:#ff3218;
-}
-
-.confirm-payment{
-    width:100%;
-
-    margin-top:15px;
-
-    padding:15px;
-
-    border:0;
-
-    border-radius:13px;
-
-    background:#ff3218;
-
-    color:#fff;
-
-    font-weight:900;
-
-    font-size:15px;
-
-    cursor:pointer;
-}
-
-/* PROFILE */
-
-.profile{
-    margin:20px 15px;
-
-    background:
-    linear-gradient(
-        145deg,
-        #171717,
-        #0d0d0d
-    );
-
-    border:1px solid #292929;
-
-    border-radius:25px;
-
-    padding:25px;
-
-    text-align:center;
-}
-
-.avatar{
-    width:76px;
-    height:76px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:#171717;
-
-    border:2px solid #ff3218;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:42px;
-}
-
-.profile h2{
-    margin:12px 0 5px;
-}
-
-.player-id{
-    display:inline-block;
-
-    background:#222;
-
-    color:#aaa;
-
-    padding:8px 14px;
-
-    border-radius:20px;
-
-    font-size:11px;
-}
-
-.stats{
-    display:grid;
-
-    grid-template-columns:
-    1fr 1fr;
-
-    gap:12px;
-
-    margin-top:20px;
-}
-
-.stat{
-    background:#1b1b1b;
-
-    padding:17px;
-
-    border-radius:17px;
-}
-
-.stat small{
-    color:#888;
-}
-
-.stat strong{
-    display:block;
-
-    margin-top:7px;
-
-    font-size:19px;
-}
-
-.red{
-    color:#ff3218;
-}
-
-/* MENU */
-
-.menu-title{
-    color:#777;
-
-    font-weight:bold;
-
-    margin:25px 0 12px;
-}
-
-.menu-item{
-    background:#111;
-
-    border:1px solid #242424;
-
-    border-radius:18px;
-
-    padding:19px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    margin-bottom:10px;
-
-    cursor:pointer;
-}
-
-.menu-left{
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-}
-
-.menu-icon{
-    width:43px;
-    height:43px;
-
-    border-radius:50%;
-
-    background:#191919;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:20px;
-}
-
-.menu-item span{
-    color:#888;
-
-    font-size:23px;
-}
-
-/* BOTTOM NAV */
-
-.bottom-nav{
-    position:fixed;
-
-    bottom:10px;
-
-    left:10px;
-    right:10px;
-
-    height:74px;
-
-    background:#151515ee;
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid #303030;
-
-    border-radius:22px;
-
-    z-index:100;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(5,1fr);
-
-    align-items:center;
-}
-
-.nav-item{
-    text-align:center;
-
-    color:#777;
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-.nav-icon{
-    font-size:21px;
-
-    margin-bottom:3px;
-}
-
-.nav-item.active{
-    color:#fff;
-}
-
-.nav-item.active .nav-icon{
-    color:#ff3218;
-}
-
-.center-menu{
-    width:58px;
-    height:58px;
-
-    background:#ff3218;
-
-    border:5px solid #090909;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:24px;
-
-    margin:-28px auto 0;
-
-    box-shadow:
-    0 0 25px #ff321855;
-
-    cursor:pointer;
-}
-
-/* TOAST */
-
-.toast{
-    position:fixed;
-
-    top:95px;
-    left:50%;
-
-    transform:
-    translateX(-50%)
-    translateY(-20px);
-
-    background:#191919;
-
-    border:1px solid #ff3218;
-
-    padding:13px 20px;
-
-    border-radius:12px;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.3s;
-
-    z-index:200;
-
-    white-space:nowrap;
-
-    font-size:13px;
-}
-
-.toast.show{
-    opacity:1;
-
-    transform:
-    translateX(-50%)
-    translateY(0);
-}
-
-/* DESKTOP */
-
-@media(min-width:700px){
-
-    .hero,
-    .section,
-    .profile,
-    .payment-section{
-        max-width:900px;
-
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    .games{
-        display:grid;
-
-        grid-template-columns:
-        repeat(4,1fr);
-
-        overflow:visible;
-    }
-
-    .game{
-        min-width:0;
-    }
-
-}
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- TOAST -->
-
-<div class="toast" id="toast">
-    Demo əməliyyat
-</div>
-
-
-<!-- HEADER -->
-
 <header class="header">
+  <div class="logo">🐼 PANDA KAZİNO</div>
+  <div class="subtitle">Oyun və əyləncə platforması</div>
 
-    <div class="logo">
-
-        <div class="panda">
-            🐼
-        </div>
-
-        <h1>
-            PANDA
-            <span>KAZİNO</span>
-        </h1>
-
-    </div>
-
-
-    <div class="balance">
-
-        <div>
-
-            <small>
-                Virtual balans
-            </small>
-
-            <strong id="balance">
-                1000 xal
-            </strong>
-
-        </div>
-
-        <div
-            class="plus"
-            onclick="addPoints()"
-        >
-            +
-        </div>
-
-    </div>
-
+  <div class="balance">
+    💰 Balans: <span id="balance">1000</span> xal
+  </div>
 </header>
 
+<div class="container">
 
-<!-- HERO -->
+  <h2 class="section-title">🎮 Oyunlar</h2>
 
-<section class="hero">
+  <div class="games">
 
-    <div class="hero-content">
-
-        <div class="hero-label">
-            🐼 PANDA KAZİNO
-        </div>
-
-        <h2>
-            ƏYLƏNCƏNİN<br>
-            YENİ ÜNVANI
-        </h2>
-
-        <p>
-            Demo oyunları kəşf et və
-            virtual xallarla əylən.
-        </p>
-
-        <button
-            class="demo-btn"
-            onclick="scrollGames()"
-        >
-            🎮 OYUNLARA BAX
-        </button>
-
+    <div class="game" onclick="openGame('slot')">
+      <div class="game-icon">🎰</div>
+      <div class="game-name">Meyvə Slot</div>
     </div>
 
-</section>
-
-
-<!-- GAMES -->
-
-<section
-    class="section"
-    id="games"
->
-
-    <div class="section-head">
-
-        <div class="section-icon">
-            🏆
-        </div>
-
-        <div>
-
-            <h2>
-                Günün oyunları
-            </h2>
-
-            <div class="online">
-                <b>●</b>
-                Demo oyunlar aktivdir
-            </div>
-
-        </div>
-
+    <div class="game" onclick="openGame('dice')">
+      <div class="game-icon">🎲</div>
+      <div class="game-name">Zar Oyunu</div>
     </div>
 
-
-    <div class="games">
-
-
-        <!-- GAME 1 -->
-
-        <div class="game">
-
-            <div class="game-image">
-
-                <div class="game-emoji">
-                    💎
-                </div>
-
-                <div class="win">
-                    PLAY
-                </div>
-
-            </div>
-
-            <h3>
-                Diamond Panda
-            </h3>
-
-            <p>
-                Virtual xal oyunu
-            </p>
-
-            <button
-                class="play"
-                onclick="playGame('Diamond Panda')"
-            >
-                OYNA
-            </button>
-
-        </div>
-
-
-        <!-- GAME 2 -->
-
-        <div class="game">
-
-            <div class="game-image">
-
-                <div class="game-emoji">
-                    🏴‍☠️
-                </div>
-
-                <div class="win">
-                    PLAY
-                </div>
-
-            </div>
-
-            <h3>
-                Panda Pirate
-            </h3>
-
-            <p>
-                Virtual xal oyunu
-            </p>
-
-            <button
-                class="play"
-                onclick="playGame('Panda Pirate')"
-            >
-                OYNA
-            </button>
-
-        </div>
-
-
-        <!-- GAME 3 -->
-
-        <div class="game">
-
-            <div class="game-image">
-
-                <div class="game-emoji">
-                    💰
-                </div>
-
-                <div class="win">
-                    PLAY
-                </div>
-
-            </div>
-
-            <h3>
-                Golden Panda
-            </h3>
-
-            <p>
-                Virtual xal oyunu
-            </p>
-
-            <button
-                class="play"
-                onclick="playGame('Golden Panda')"
-            >
-                OYNA
-            </button>
-
-        </div>
-
-
-        <!-- GAME 4 -->
-
-        <div class="game">
-
-            <div class="game-image">
-
-                <div class="game-emoji">
-                    🎮
-                </div>
-
-                <div class="win">
-                    PLAY
-                </div>
-
-            </div>
-
-            <h3>
-                Panda Game
-            </h3>
-
-            <p>
-                Virtual xal oyunu
-            </p>
-
-            <button
-                class="play"
-                onclick="playGame('Panda Game')"
-            >
-                OYNA
-            </button>
-
-        </div>
-
-
+    <div class="game" onclick="openGame('cards')">
+      <div class="game-icon">🃏</div>
+      <div class="game-name">Kart Oyunu</div>
     </div>
 
-</section>
-
-
-<!-- PAYMENT -->
-
-<section class="payment-section">
-
-    <div class="payment-title">
-
-        <div class="payment-title-icon">
-            💳
-        </div>
-
-        <div>
-
-            <h2>
-                Virtual balans
-            </h2>
-
-            <p>
-                Demo balans üçün xal əlavə et
-            </p>
-
-        </div>
-
+    <div class="game" onclick="openGame('bonus')">
+      <div class="game-icon">🎁</div>
+      <div class="game-name">Bonuslar</div>
     </div>
 
+  </div>
 
-    <div class="payment-tabs">
+  <!-- SLOT -->
 
-        <button class="active">
-            💳 Demo əlavə et
-        </button>
+  <div id="slot" class="panel">
 
-        <button
-            onclick="
-            showToast(
-                'Bu bölmə yalnız demo məqsədlidir'
-            )
-            "
-        >
-            🧾 Tarixçə
-        </button>
+    <button class="back" onclick="closeGames()">← Geri</button>
 
+    <h2>🎰 Meyvə Slot</h2>
+
+    <div class="slot">
+      <div class="reel" id="r1">🍒</div>
+      <div class="reel" id="r2">🍋</div>
+      <div class="reel" id="r3">🍊</div>
     </div>
 
+    <div class="result" id="slotResult"></div>
 
-    <div class="demo-card">
-
-        <div class="bank-label">
-            DEMO ÖDƏNİŞ
-        </div>
-
-        <h3>
-            Panda Kazino
-        </h3>
-
-        <div class="demo-number">
-            0000 0000 0000 0000
-        </div>
-
-        <p>
-            Bu kart nömrəsi yalnız nümayiş
-            üçündür. Real ödəniş qəbul edilmir.
-        </p>
-
-    </div>
-
-
-    <label class="amount-label">
-        Virtual xal seç
-    </label>
-
-
-    <div class="amounts">
-
-        <button
-            onclick="demoDeposit(100)"
-        >
-            +100 xal
-        </button>
-
-        <button
-            onclick="demoDeposit(500)"
-        >
-            +500 xal
-        </button>
-
-        <button
-            onclick="demoDeposit(1000)"
-        >
-            +1000 xal
-        </button>
-
-    </div>
-
-
-    <button
-        class="confirm-payment"
-        onclick="
-        showToast(
-            '✅ Demo balans bölməsi hazırdır'
-        )
-        "
-    >
-        DEMO BALANSI ARTIR
+    <button class="play" onclick="spin()">
+      OYNA
     </button>
 
-</section>
+  </div>
 
+  <!-- DICE -->
 
-<!-- PROFILE -->
+  <div id="dice" class="panel">
 
-<section class="profile">
+    <button class="back" onclick="closeGames()">← Geri</button>
 
-    <div class="avatar">
-        🐼
+    <h2>🎲 Zar Oyunu</h2>
+
+    <div class="dice" id="diceNumber">🎲</div>
+
+    <div class="result" id="diceResult"></div>
+
+    <button class="play" onclick="rollDice()">
+      ZARI AT
+    </button>
+
+  </div>
+
+  <!-- CARDS -->
+
+  <div id="cards" class="panel">
+
+    <button class="back" onclick="closeGames()">← Geri</button>
+
+    <h2>🃏 Kart Oyunu</h2>
+
+    <div class="cards">
+      <div class="card" id="playerCard">?</div>
+      <div class="card" id="houseCard">?</div>
     </div>
 
-    <h2>
-        Oyunçu
-    </h2>
+    <div class="result" id="cardResult"></div>
 
-    <div class="player-id">
-        Demo istifadəçi
+    <button class="play" onclick="drawCards()">
+      KART ÇƏK
+    </button>
+
+  </div>
+
+  <!-- BONUS -->
+
+  <div id="bonus" class="panel">
+
+    <button class="back" onclick="closeGames()">← Geri</button>
+
+    <h2>🎁 Bonuslar</h2>
+
+    <div class="bonus">
+      🎁 <strong>Giriş bonusu</strong><br><br>
+      Hesabınıza 100 xal əlavə edildi.
     </div>
 
-
-    <div class="stats">
-
-        <div class="stat">
-
-            <small>
-                Virtual balans
-            </small>
-
-            <strong id="profileBalance">
-                1000 xal
-            </strong>
-
-        </div>
-
-
-        <div class="stat">
-
-            <small>
-                Bonus
-            </small>
-
-            <strong class="red">
-                500 xal
-            </strong>
-
-        </div>
-
+    <div class="bonus">
+      ⭐ <strong>Gündəlik bonus</strong><br><br>
+      Növbəti bonus üçün gözləmə müddəti: 24 saat
     </div>
 
-</section>
+  </div>
 
+  <!-- PAYMENT INTERFACE -->
 
-<!-- MENU -->
+  <h2 class="section-title">💳 Ödəniş məlumatı</h2>
 
-<section class="section">
+  <div class="payment">
 
-    <div class="menu-title">
-        MENYU
+    <p>Kart məlumatı</p>
+
+    <div class="card-number" id="cardNumber">
+      XXXX XXXX XXXX XXXX
     </div>
 
+    <button class="copy" onclick="copyCard()">
+      📋 Kartı kopyala
+    </button>
 
-    <div
-        class="menu-item"
-        onclick="
-        showToast(
-            'Virtual pulqabı açıldı'
-        )
-        "
-    >
+    <p id="copyMessage" style="margin-top:10px;color:#72ff9b;"></p>
 
-        <div class="menu-left">
+  </div>
 
-            <div class="menu-icon">
-                👛
-            </div>
+  <div class="notice">
+    Bu səhifə əyləncə məqsədli oyun interfeysidir.
+    Real pul çıxarışı və real pul mükafatı təqdim edilmir.
+  </div>
 
-            <strong>
-                Virtual Pulqabı
-            </strong>
-
-        </div>
-
-        <span>
-            ›
-        </span>
-
-    </div>
-
-
-    <div
-        class="menu-item"
-        onclick="
-        showToast(
-            'Demo əməliyyatlar bölməsi'
-        )
-        "
-    >
-
-        <div class="menu-left">
-
-            <div class="menu-icon">
-                🔄
-            </div>
-
-            <strong>
-                Əməliyyatlar
-            </strong>
-
-        </div>
-
-        <span>
-            ›
-        </span>
-
-    </div>
-
-
-    <div
-        class="menu-item"
-        onclick="
-        showToast(
-            'Oyun tarixçəsi açıldı'
-        )
-        "
-    >
-
-        <div class="menu-left">
-
-            <div class="menu-icon">
-                🎮
-            </div>
-
-            <strong>
-                Oyun Tarixçəsi
-            </strong>
-
-        </div>
-
-        <span>
-            ›
-        </span>
-
-    </div>
-
-
-    <div
-        class="menu-item"
-        onclick="
-        showToast(
-            'Profil bölməsi'
-        )
-        "
-    >
-
-        <div class="menu-left">
-
-            <div class="menu-icon">
-                👤
-            </div>
-
-            <strong>
-                Profil
-            </strong>
-
-        </div>
-
-        <span>
-            ›
-        </span>
-
-    </div>
-
-</section>
-
-
-<!-- BOTTOM NAVIGATION -->
-
-<nav class="bottom-nav">
-
-
-    <div
-        class="nav-item active"
-        onclick="goHome()"
-    >
-
-        <div class="nav-icon">
-            ⌂
-        </div>
-
-        Əsas
-
-    </div>
-
-
-    <div
-        class="nav-item"
-        onclick="scrollGames()"
-    >
-
-        <div class="nav-icon">
-            🏆
-        </div>
-
-        Oyunlar
-
-    </div>
-
-
-    <div>
-
-        <div
-            class="center-menu"
-            onclick="scrollGames()"
-        >
-            ☰
-        </div>
-
-    </div>
-
-
-    <div
-        class="nav-item"
-        onclick="
-        showToast(
-            'Demo söhbət bölməsi'
-        )
-        "
-    >
-
-        <div class="nav-icon">
-            💬
-        </div>
-
-        Söhbət
-
-    </div>
-
-
-    <div
-        class="nav-item"
-        onclick="
-        showToast(
-            'Profil bölməsi'
-        )
-        "
-    >
-
-        <div class="nav-icon">
-            ♙
-        </div>
-
-        Profil
-
-    </div>
-
-
-</nav>
-
+</div>
 
 <script>
 
-
-/* BALANCE */
-
 let balance = 1000;
 
+const fruits = [
+  "🍒",
+  "🍋",
+  "🍊",
+  "🍉",
+  "🍇",
+  "🍓",
+  "🥝"
+];
 
-function showToast(text){
+function updateBalance(){
+  document.getElementById("balance").innerText = balance;
+}
 
-    const toast =
-        document.getElementById("toast");
+function openGame(id){
 
-    toast.textContent = text;
+  document.querySelectorAll(".panel")
+    .forEach(p => p.classList.remove("active"));
 
-    toast.classList.add("show");
+  document.getElementById(id)
+    .classList.add("active");
 
-    setTimeout(
-        function(){
+  window.scrollTo({
+    top:document.getElementById(id).offsetTop - 20,
+    behavior:"smooth"
+  });
+}
 
-            toast.classList.remove("show");
+function closeGames(){
 
-        },
-        1800
-    );
+  document.querySelectorAll(".panel")
+    .forEach(p => p.classList.remove("active"));
 
 }
 
+function spin(){
 
-/* ADD VIRTUAL POINTS */
+  if(balance < 10){
+    document.getElementById("slotResult").innerText =
+      "Kifayət qədər xal yoxdur.";
+    return;
+  }
 
-function addPoints(){
+  balance -= 10;
+  updateBalance();
+
+  let a = fruits[Math.floor(Math.random()*fruits.length)];
+  let b = fruits[Math.floor(Math.random()*fruits.length)];
+  let c = fruits[Math.floor(Math.random()*fruits.length)];
+
+  document.getElementById("r1").innerText = a;
+  document.getElementById("r2").innerText = b;
+  document.getElementById("r3").innerText = c;
+
+  if(a === b && b === c){
 
     balance += 100;
 
-    updateBalance();
+    document.getElementById("slotResult").innerText =
+      "🎉 Uğurlu kombinasiya! +100 xal";
 
-    showToast(
-        "🎁 100 virtual xal əlavə edildi"
-    );
+  }else if(a === b || b === c || a === c){
 
+    balance += 30;
+
+    document.getElementById("slotResult").innerText =
+      "⭐ İki eyni simvol! +30 xal";
+
+  }else{
+
+    document.getElementById("slotResult").innerText =
+      "Yenidən cəhd edə bilərsən.";
+
+  }
+
+  updateBalance();
 }
 
+function rollDice(){
 
-/* UPDATE BALANCE */
+  if(balance < 10){
+    document.getElementById("diceResult").innerText =
+      "Kifayət qədər xal yoxdur.";
+    return;
+  }
 
-function updateBalance(){
+  balance -= 10;
 
-    document.getElementById(
-        "balance"
-    ).textContent =
-        balance + " xal";
+  let number = Math.floor(Math.random()*6)+1;
 
+  const diceFaces = [
+    "⚀","⚁","⚂","⚃","⚄","⚅"
+  ];
 
-    document.getElementById(
-        "profileBalance"
-    ).textContent =
-        balance + " xal";
+  document.getElementById("diceNumber").innerText =
+    diceFaces[number-1];
 
+  if(number >= 4){
+
+    balance += 20;
+
+    document.getElementById("diceResult").innerText =
+      "🎉 Uğurlu nəticə! +20 xal";
+
+  }else{
+
+    document.getElementById("diceResult").innerText =
+      "Bu dəfə alınmadı.";
+
+  }
+
+  updateBalance();
 }
 
+function drawCards(){
 
-/* DEMO PAYMENT */
+  if(balance < 10){
+    document.getElementById("cardResult").innerText =
+      "Kifayət qədər xal yoxdur.";
+    return;
+  }
 
-function demoDeposit(points){
+  balance -= 10;
 
-    balance += points;
+  const symbols = [
+    "A","K","Q","J","10","9","8","7"
+  ];
 
-    updateBalance();
+  let p =
+    symbols[Math.floor(Math.random()*symbols.length)];
 
-    showToast(
-        "🎁 +" +
-        points +
-        " virtual xal əlavə edildi"
-    );
+  let h =
+    symbols[Math.floor(Math.random()*symbols.length)];
 
+  document.getElementById("playerCard").innerText = p;
+  document.getElementById("houseCard").innerText = h;
+
+  let pv = symbols.indexOf(p);
+  let hv = symbols.indexOf(h);
+
+  if(pv < hv){
+
+    balance += 30;
+
+    document.getElementById("cardResult").innerText =
+      "🏆 Sən qazandın! +30 xal";
+
+  }else{
+
+    document.getElementById("cardResult").innerText =
+      "Bu dəfə ev üstün gəldi.";
+
+  }
+
+  updateBalance();
 }
 
+function copyCard(){
 
-/* DEMO GAME */
+  const card =
+    document.getElementById("cardNumber").innerText.trim();
 
-function playGame(name){
+  navigator.clipboard.writeText(card);
 
-    if(balance < 50){
-
-        showToast(
-            "Virtual xalınız azdır"
-        );
-
-        return;
-
-    }
-
-
-    balance -= 50;
-
-    updateBalance();
-
-
-    const result =
-        Math.floor(
-            Math.random()*201
-        ) + 50;
-
-
-    showToast(
-        "🎮 " +
-        name +
-        " başladı..."
-    );
-
-
-    setTimeout(
-        function(){
-
-            balance += result;
-
-            updateBalance();
-
-            showToast(
-                "🎉 +" +
-                result +
-                " virtual xal"
-            );
-
-        },
-        900
-    );
-
+  document.getElementById("copyMessage").innerText =
+    "✓ Kart məlumatı kopyalandı";
 }
 
-
-/* SCROLL TO GAMES */
-
-function scrollGames(){
-
-    document
-    .getElementById("games")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-/* HOME */
-
-function goHome(){
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
+updateBalance();
 
 </script>
-
 
 </body>
 </html>
