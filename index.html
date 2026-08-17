@@ -2,1728 +2,1480 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#070710">
-<title>WEBCRAFT | Sayt Sifariş Mərkəzi</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elan.az — Elan Saytı</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 :root{
---bg:#06060d;
---card:#10101b;
---purple:#8b5cf6;
---pink:#ec4899;
---cyan:#22d3ee;
---green:#25d366;
---gold:#ffd54a;
---text:#fff;
---muted:#9493a7
+  --bg:#f5f7fb;
+  --card:#fff;
+  --text:#172033;
+  --muted:#7b8496;
+  --primary:#6c4cff;
+  --primary2:#8b5cf6;
+  --border:#e8eaf0;
+  --danger:#ff4d67;
+  --shadow:0 12px 35px rgba(25,30,55,.08);
 }
 
 body{
-font-family:Arial,Helvetica,sans-serif;
-background:
-radial-gradient(circle at 10% 0%,#32125e 0,transparent 30%),
-radial-gradient(circle at 100% 15%,#063c4c 0,transparent 25%),
-linear-gradient(145deg,#05050b,#110817);
-color:#fff;
-min-height:100vh
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
-.container{
-width:94%;
-max-width:850px;
-margin:auto;
-padding-bottom:60px
+button,input,select,textarea{
+  font:inherit;
 }
 
-.header{padding:20px 0}
+button{
+  cursor:pointer;
+  border:0;
+}
 
-.top{
-display:flex;
-justify-content:space-between;
-align-items:center
+.header{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
 
 .logo{
-display:flex;
-align-items:center;
-gap:11px
+  font-size:25px;
+  font-weight:900;
+  color:var(--primary);
+  white-space:nowrap;
 }
 
-.logoIcon{
-width:50px;
-height:50px;
-border-radius:16px;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:27px;
-background:linear-gradient(135deg,#8b5cf6,#ec4899);
-box-shadow:0 0 30px rgba(139,92,246,.4)
+.logo span{
+  color:#111827;
 }
 
-.logo h1{font-size:23px}
-
-.logo small{
-display:block;
-color:var(--muted);
-margin-top:3px
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.online{
-font-size:10px;
-padding:8px 11px;
-border-radius:12px;
-color:#70ffc1;
-background:rgba(37,211,102,.08);
-border:1px solid rgba(37,211,102,.2)
+.nav-btn{
+  background:#f1efff;
+  color:var(--primary);
+  padding:11px 16px;
+  border-radius:12px;
+  font-weight:700;
+}
+
+.add-btn{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:white;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:800;
+  box-shadow:0 7px 20px rgba(108,76,255,.25);
 }
 
 .hero{
-position:relative;
-overflow:hidden;
-padding:28px 23px;
-border-radius:28px;
-background:
-radial-gradient(circle at 90% 0%,rgba(34,211,238,.22),transparent 30%),
-radial-gradient(circle at 0% 100%,rgba(236,72,153,.22),transparent 35%),
-linear-gradient(135deg,#1b1230,#0d0d18);
-border:1px solid rgba(255,255,255,.09);
-box-shadow:0 25px 70px rgba(0,0,0,.35)
+  background:
+    radial-gradient(circle at 15% 30%,rgba(139,92,246,.35),transparent 30%),
+    radial-gradient(circle at 85% 20%,rgba(59,130,246,.28),transparent 28%),
+    linear-gradient(135deg,#17152d,#302060 55%,#151827);
+  color:#fff;
+  padding:55px 20px 70px;
 }
 
-.hero h2{
-font-size:32px;
-line-height:1.1;
-max-width:600px
+.hero-inner{
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
 }
 
-.gradient{
-background:linear-gradient(90deg,#bfa4ff,#ff8fc6,#5deaff);
--webkit-background-clip:text;
-color:transparent
+.hero h1{
+  font-size:clamp(32px,6vw,58px);
+  line-height:1.05;
+  margin-bottom:15px;
+}
+
+.hero h1 span{
+  color:#c4b5fd;
 }
 
 .hero p{
-margin-top:12px;
-color:#aaa8ba;
-line-height:1.5;
-max-width:600px
+  color:#ddd9ed;
+  font-size:17px;
+  margin-bottom:30px;
 }
 
-.stats{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-top:18px
+.search-box{
+  max-width:900px;
+  margin:auto;
+  background:#fff;
+  padding:10px;
+  border-radius:18px;
+  display:grid;
+  grid-template-columns:1fr 190px 120px;
+  gap:8px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
 }
 
-.stat{
-padding:9px 12px;
-border-radius:11px;
-font-size:11px;
-background:rgba(255,255,255,.06);
-border:1px solid rgba(255,255,255,.07)
+.search-box input,
+.search-box select{
+  border:0;
+  outline:0;
+  padding:15px;
+  color:#222;
+  background:#f7f7fa;
+  border-radius:12px;
 }
 
-.progress{
-margin:16px 0;
-padding:15px;
-border-radius:18px;
-background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.07)
+.search-btn{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:white;
+  border-radius:12px;
+  font-weight:800;
 }
 
-.progressTop{
-display:flex;
-justify-content:space-between;
-font-size:12px;
-color:#aaa7b7;
-margin-bottom:9px
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:30px 20px;
 }
 
-.progressBar{
-height:7px;
-border-radius:10px;
-overflow:hidden;
-background:#292638
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:18px;
 }
 
-.progressFill{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,#8b5cf6,#ec4899,#22d3ee);
-transition:.3s
+.section-title h2{
+  font-size:24px;
 }
 
-.section{
-margin-top:15px;
-padding:20px;
-border-radius:22px;
-background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
-border:1px solid rgba(255,255,255,.08)
+.section-title p{
+  color:var(--muted);
+  font-size:14px;
 }
 
-.sectionTitle{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:15px
+.categories{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+  margin-bottom:35px;
 }
 
-.sectionTitle h3{font-size:19px}
-
-.number{
-color:#777489;
-font-size:11px
+.category{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px 10px;
+  text-align:center;
+  transition:.2s;
+  box-shadow:0 4px 15px rgba(20,20,40,.03);
 }
 
-.normal{
-display:block;
-font-size:13px;
-color:#c9c6d2;
-margin-bottom:7px
+.category:hover{
+  transform:translateY(-3px);
+  border-color:#cfc7ff;
 }
 
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-textarea,
-select{
-width:100%;
-padding:14px;
-border-radius:13px;
-background:#090910;
-border:1px solid rgba(255,255,255,.1);
-color:#fff;
-outline:none;
-font-size:14px;
-margin-bottom:13px
+.category .icon{
+  width:48px;
+  height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 8px;
+  border-radius:14px;
+  background:#f0edff;
+  font-size:24px;
 }
 
-textarea{
-height:100px;
-resize:none
+.category b{
+  font-size:14px;
 }
 
-.options{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px
+.vip-section{
+  margin-bottom:38px;
 }
 
-.option input{display:none}
-
-.option label{
-display:block;
-min-height:112px;
-padding:15px;
-border-radius:17px;
-cursor:pointer;
-background:#0c0c15;
-border:1px solid rgba(255,255,255,.08);
-transition:.2s
+.listing-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
-.option label:hover{
-transform:translateY(-2px);
-border-color:#7652d0
+.card{
+  background:var(--card);
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  transition:.2s;
+  position:relative;
 }
 
-.option input:checked+label{
-background:linear-gradient(145deg,rgba(139,92,246,.3),rgba(236,72,153,.1));
-border-color:#8b5cf6;
-box-shadow:0 0 25px rgba(139,92,246,.15)
+.card:hover{
+  transform:translateY(-4px);
 }
 
-.icon{
-font-size:30px;
-margin-bottom:8px
+.card-img{
+  height:190px;
+  background:#eee;
+  position:relative;
+  overflow:hidden;
 }
 
-.name{
-font-size:14px;
-font-weight:bold
+.card-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-.desc{
-display:block;
-margin-top:5px;
-font-size:11px;
-color:#8e8c9d
+.badge{
+  position:absolute;
+  left:10px;
+  top:10px;
+  background:#ffb703;
+  color:#231600;
+  padding:6px 9px;
+  border-radius:8px;
+  font-size:11px;
+  font-weight:900;
+}
+
+.heart{
+  position:absolute;
+  right:10px;
+  top:10px;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  background:rgba(255,255,255,.95);
+  font-size:18px;
+}
+
+.card-body{
+  padding:15px;
+}
+
+.card-title{
+  font-size:17px;
+  font-weight:800;
+  margin-bottom:8px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .price{
-display:block;
-margin-top:8px;
-font-size:12px;
-font-weight:bold;
-color:var(--gold)
+  font-size:20px;
+  font-weight:900;
+  color:var(--primary);
+  margin-bottom:8px;
 }
 
-.checkGrid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:9px
+.location{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:10px;
 }
 
-.check{
-display:flex;
-align-items:center;
-gap:8px;
-padding:12px;
-border-radius:13px;
-background:#0c0c15;
-border:1px solid rgba(255,255,255,.06);
-font-size:12px;
-color:#ddd
+.card-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:#9aa1b1;
+  font-size:12px;
 }
 
-.check input{
-width:17px;
-height:17px;
-accent-color:#8b5cf6
+.normal-section{
+  margin-top:10px;
 }
 
-.colors{
-display:flex;
-flex-wrap:wrap;
-gap:10px
+.filters{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:15px;
+  border-radius:16px;
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
-.color{
-width:43px;
-height:43px;
-border-radius:50%;
-border:3px solid transparent;
-cursor:pointer
+.filters select,
+.filters input{
+  padding:11px 12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  outline:none;
+  background:#fff;
+  min-width:150px;
 }
 
-.color input{display:none}
-
-.color:has(input:checked){
-border-color:white;
-box-shadow:0 0 18px rgba(255,255,255,.4)
+.reset-btn{
+  padding:11px 15px;
+  border-radius:10px;
+  background:#f0edff;
+  color:var(--primary);
+  font-weight:700;
 }
 
-.purple{background:#8b5cf6}
-.blue{background:#2563eb}
-.cyan{background:#06b6d4}
-.green{background:#10b981}
-.red{background:#ef4444}
-.orange{background:#f97316}
-.pink{background:#ec4899}
-.gold{background:#eab308}
-.black{background:#111}
-
-.summary{
-margin-top:18px;
-padding:20px;
-border-radius:24px;
-background:linear-gradient(145deg,#1b1430,#0d0c16);
-border:1px solid rgba(139,92,246,.35);
-box-shadow:0 20px 60px rgba(0,0,0,.4)
+.empty{
+  display:none;
+  background:#fff;
+  border:1px dashed #ccd0da;
+  border-radius:16px;
+  padding:40px 20px;
+  text-align:center;
+  color:var(--muted);
 }
 
-.summaryHead{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:13px
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(10,12,25,.65);
+  z-index:2000;
+  padding:20px;
+  overflow:auto;
 }
 
-.live{
-font-size:9px;
-color:#6effbd
+.modal.active{
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.row{
-display:flex;
-justify-content:space-between;
-gap:15px;
-padding:9px 0;
-border-bottom:1px solid rgba(255,255,255,.06);
-font-size:12px;
-color:#a6a3b3
+.modal-box{
+  background:#fff;
+  width:min(650px,100%);
+  border-radius:22px;
+  padding:25px;
+  position:relative;
+  max-height:95vh;
+  overflow:auto;
 }
 
-.row strong{
-color:white;
-text-align:right
+.close{
+  position:absolute;
+  right:18px;
+  top:16px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#f1f2f6;
+  font-size:20px;
 }
 
-.total{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-top:15px
+.modal h2{
+  margin-bottom:20px;
+  padding-right:45px;
 }
 
-.total small{color:#aaa7b5}
-
-.total strong{
-font-size:29px;
-color:var(--gold)
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
 }
 
-
-/* =========================
-   PREMIUM PAYMENT
-========================= */
-
-.premiumPayment{
-margin-top:20px;
-padding:22px;
-border-radius:30px;
-background:
-radial-gradient(circle at 100% 0%,rgba(139,92,246,.22),transparent 32%),
-radial-gradient(circle at 0% 100%,rgba(34,211,238,.12),transparent 30%),
-linear-gradient(145deg,#171426,#0a0911);
-border:1px solid rgba(255,255,255,.1);
-box-shadow:0 25px 80px rgba(0,0,0,.45);
-overflow:hidden
+.form-group{
+  margin-bottom:14px;
 }
 
-.paymentTop{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-gap:15px;
-margin-bottom:20px
+.form-group.full{
+  grid-column:1/-1;
 }
 
-.paymentBadge{
-display:inline-block;
-font-size:9px;
-letter-spacing:1.5px;
-color:#bda8ff;
-padding:6px 9px;
-border-radius:8px;
-background:rgba(139,92,246,.12);
-border:1px solid rgba(139,92,246,.2);
-margin-bottom:8px
+.form-group label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:7px;
 }
 
-.paymentTop h3{font-size:22px}
-
-.paymentTop p{
-font-size:11px;
-line-height:1.5;
-color:#858294;
-margin-top:6px;
-max-width:420px
+.form-group input,
+.form-group select,
+.form-group textarea{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:11px;
+  padding:13px;
+  outline:none;
+  background:#fafbfc;
 }
 
-.secureIcon{
-width:45px;
-height:45px;
-border-radius:14px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:rgba(37,211,102,.08);
-border:1px solid rgba(37,211,102,.15);
-font-size:19px
+.form-group textarea{
+  min-height:110px;
+  resize:vertical;
 }
 
-.paymentAmountBox{
-padding:18px;
-border-radius:20px;
-background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.025));
-border:1px solid rgba(255,255,255,.08);
-text-align:center
+.publish{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  color:#fff;
+  font-weight:900;
+  margin-top:5px;
 }
 
-.paymentAmountBox>span{
-font-size:9px;
-letter-spacing:1.5px;
-color:#817d91
+.details-img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:15px;
+  margin-bottom:18px;
 }
 
-.paymentAmountBox strong{
-display:block;
-font-size:34px;
-margin-top:5px;
-color:#ffd75a
+.details-price{
+  color:var(--primary);
+  font-size:28px;
+  font-weight:900;
+  margin:10px 0;
 }
 
-.paymentAmountBox strong small{
-font-size:14px;
-color:#aaa6b6
+.details-meta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:15px 0;
 }
 
-.paymentStatus{
-display:inline-flex;
-align-items:center;
-gap:6px;
-margin-top:10px;
-padding:7px 10px;
-border-radius:20px;
-font-size:10px;
-color:#ffda72;
-background:rgba(255,213,74,.07);
-border:1px solid rgba(255,213,74,.13)
+.meta{
+  background:#f4f5f8;
+  padding:9px 12px;
+  border-radius:9px;
+  font-size:13px;
 }
 
-.paymentStatus i{
-width:6px;
-height:6px;
-border-radius:50%;
-background:#ffd54a;
-box-shadow:0 0 8px #ffd54a
+.contact-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:20px;
 }
 
-.virtualCard{
-position:relative;
-height:220px;
-margin-top:16px;
-padding:22px;
-border-radius:24px;
-overflow:hidden;
-background:linear-gradient(135deg,#30225d 0%,#17132c 48%,#0e1726 100%);
-border:1px solid rgba(255,255,255,.13);
-box-shadow:0 20px 50px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.08)
+.call{
+  background:#16a34a;
+  color:#fff;
+  padding:14px;
+  border-radius:11px;
+  font-weight:800;
 }
 
-.cardGlow{
-position:absolute;
-width:220px;
-height:220px;
-right:-80px;
-top:-80px;
-border-radius:50%;
-background:#8b5cf6;
-filter:blur(60px);
-opacity:.3
+.message{
+  background:#f0edff;
+  color:var(--primary);
+  padding:14px;
+  border-radius:11px;
+  font-weight:800;
 }
 
-.cardTop,.cardMiddle,.cardBottom{
-position:relative;
-z-index:2
+.toast{
+  position:fixed;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%) translateY(100px);
+  background:#171a25;
+  color:#fff;
+  padding:14px 20px;
+  border-radius:12px;
+  z-index:5000;
+  opacity:0;
+  transition:.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-.cardTop{
-display:flex;
-justify-content:space-between;
-align-items:center
-}
-
-.chip{
-width:43px;
-height:32px;
-border-radius:8px;
-background:linear-gradient(135deg,#f6d77a,#b58b32);
-position:relative;
-overflow:hidden
-}
-
-.chip span{position:absolute;background:rgba(255,255,255,.35)}
-.chip span:nth-child(1){width:100%;height:1px;top:10px}
-.chip span:nth-child(2){width:1px;height:100%;left:14px}
-.chip span:nth-child(3){width:1px;height:100%;right:14px}
-
-.cardBrand{
-font-weight:900;
-font-size:14px;
-letter-spacing:1px
-}
-
-.cardBrand span{color:#c4a5ff}
-
-.cardMiddle{margin-top:30px}
-
-.cardLabel{
-font-size:8px;
-letter-spacing:2px;
-color:#aaa5b8
-}
-
-.cardNumberPremium{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:10px;
-margin-top:9px;
-font-size:17px;
-font-weight:bold;
-letter-spacing:2px
-}
-
-.copyPremium{
-width:38px;
-height:38px;
-padding:0;
-border-radius:11px;
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.13);
-color:#fff;
-font-size:18px;
-cursor:pointer;
-transition:.2s
-}
-
-.copyPremium:hover{
-background:#8b5cf6;
-transform:scale(1.04)
-}
-
-.cardBottom{
-position:absolute;
-left:22px;
-right:22px;
-bottom:20px;
-display:flex;
-justify-content:space-between
-}
-
-.cardBottom small{
-display:block;
-font-size:7px;
-letter-spacing:1.5px;
-color:#8f8a9e;
-margin-bottom:4px
-}
-
-.cardBottom strong{
-font-size:10px;
-letter-spacing:1px
-}
-
-.copyInfo{
-margin-top:10px;
-padding:11px;
-border-radius:12px;
-background:rgba(255,255,255,.035);
-color:#888497;
-font-size:10px;
-text-align:center
-}
-
-.receiptBox{
-margin-top:16px;
-padding:16px;
-border-radius:21px;
-background:rgba(255,255,255,.035);
-border:1px solid rgba(255,255,255,.07)
-}
-
-.receiptHeader{
-display:flex;
-align-items:center;
-gap:11px;
-margin-bottom:13px
-}
-
-.receiptIcon{
-width:43px;
-height:43px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:13px;
-background:rgba(139,92,246,.12);
-border:1px solid rgba(139,92,246,.16);
-font-size:20px
-}
-
-.receiptHeader h4{font-size:14px}
-
-.receiptHeader span{
-display:block;
-font-size:10px;
-color:#7e7a8d;
-margin-top:3px
-}
-
-.receiptUpload{
-position:relative;
-min-height:160px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-padding:20px;
-border-radius:17px;
-border:1px dashed rgba(139,92,246,.45);
-background:linear-gradient(145deg,rgba(139,92,246,.07),rgba(255,255,255,.02));
-cursor:pointer;
-text-align:center;
-transition:.25s
-}
-
-.receiptUpload:hover{
-border-color:#a47cff;
-background:rgba(139,92,246,.1)
-}
-
-.receiptUpload input{
-position:absolute;
-inset:0;
-opacity:0;
-cursor:pointer
-}
-
-.uploadCircle{
-width:48px;
-height:48px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-background:linear-gradient(135deg,#8b5cf6,#ec4899);
-font-size:22px;
-box-shadow:0 0 25px rgba(139,92,246,.25);
-margin-bottom:10px
-}
-
-.receiptUpload strong{font-size:13px}
-
-.receiptUpload small{
-font-size:9px;
-color:#777387;
-margin-top:5px
-}
-
-.chooseReceipt{
-margin-top:10px;
-padding:8px 14px;
-border-radius:10px;
-font-size:10px;
-background:#27213c;
-color:#c8b9ff;
-border:1px solid rgba(139,92,246,.2)
-}
-
-.receiptPreview{
-display:none;
-margin-top:10px;
-padding:11px;
-border-radius:12px;
-background:#091b14;
-border:1px solid rgba(37,211,102,.2);
-color:#6dffb7;
-font-size:10px;
-text-align:center
-}
-
-.paidPremium{
-width:100%;
-margin-top:12px;
-padding:16px;
-border:0;
-border-radius:15px;
-background:linear-gradient(90deg,#8b5cf6,#ec4899);
-color:#fff;
-font-size:14px;
-font-weight:bold;
-box-shadow:0 10px 30px rgba(139,92,246,.2);
-transition:.2s;
-cursor:pointer
-}
-
-.paidPremium:hover{transform:translateY(-2px)}
-
-.paidPremium span{
-display:inline-flex;
-width:22px;
-height:22px;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-background:rgba(255,255,255,.18);
-margin-right:5px
-}
-
-.premiumSuccess{
-display:none;
-margin-top:12px;
-padding:14px;
-border-radius:14px;
-background:linear-gradient(145deg,rgba(37,211,102,.1),rgba(37,211,102,.03));
-border:1px solid rgba(37,211,102,.2);
-color:#7affc0;
-font-size:11px;
-line-height:1.5;
-text-align:center
-}
-
-.finalBtn{
-width:100%;
-margin-top:12px;
-padding:17px;
-border:0;
-border-radius:15px;
-background:linear-gradient(90deg,#25d366,#1ebe5d);
-color:white;
-font-size:16px;
-font-weight:bold;
-box-shadow:0 0 25px rgba(37,211,102,.18);
-cursor:pointer
-}
-
-.notice{
-margin-top:10px;
-font-size:10px;
-line-height:1.5;
-color:#777487;
-text-align:center
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
 }
 
 .footer{
-text-align:center;
-color:#626071;
-font-size:11px;
-line-height:1.6;
-margin-top:25px
+  margin-top:40px;
+  background:#151827;
+  color:#aaa;
+  padding:35px 20px;
 }
 
-@media(max-width:500px){
-.options{grid-template-columns:1fr 1fr}
-.checkGrid{grid-template-columns:1fr}
-.hero h2{font-size:27px}
-.virtualCard{height:205px}
-.cardNumberPremium{font-size:13px}
+.footer-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
-@media(max-width:370px){
-.options{grid-template-columns:1fr}
+.footer strong{
+  color:#fff;
+}
+
+.mobile-add{
+  display:none;
+}
+
+@media(max-width:900px){
+  .listing-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:650px){
+  .nav{
+    padding:12px 14px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  .nav-btn{
+    display:none;
+  }
+
+  .add-btn{
+    padding:10px 12px;
+    font-size:13px;
+  }
+
+  .hero{
+    padding:38px 15px 45px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .search-box{
+    grid-template-columns:1fr;
+    padding:8px;
+  }
+
+  .search-btn{
+    padding:13px;
+  }
+
+  .container{
+    padding:25px 14px;
+  }
+
+  .listing-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
+  }
+
+  .card-img{
+    height:145px;
+  }
+
+  .card-body{
+    padding:11px;
+  }
+
+  .card-title{
+    font-size:14px;
+  }
+
+  .price{
+    font-size:17px;
+  }
+
+  .categories{
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+  }
+
+  .category{
+    padding:12px 5px;
+  }
+
+  .category .icon{
+    width:40px;
+    height:40px;
+    font-size:20px;
+  }
+
+  .category b{
+    font-size:11px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .form-group.full{
+    grid-column:auto;
+  }
+
+  .contact-buttons{
+    grid-template-columns:1fr;
+  }
+
+  .details-img{
+    height:220px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
 <header class="header">
-<div class="top">
+  <div class="nav">
+    <div class="logo">ELAN<span>.AZ</span></div>
 
-<div class="logo">
-<div class="logoIcon">🚀</div>
-<div>
-<h1>WEBCRAFT</h1>
-<small>Sayt Sifariş Mərkəzi</small>
-</div>
-</div>
+    <div class="nav-right">
+      <button class="nav-btn" onclick="showToast('Giriş bölməsi tezliklə əlavə olunacaq')">
+        👤 Giriş
+      </button>
 
-<div class="online">● ONLINE</div>
-
-</div>
+      <button class="add-btn" onclick="openModal('addModal')">
+        ＋ Elan yerləşdir
+      </button>
+    </div>
+  </div>
 </header>
 
-
 <section class="hero">
+  <div class="hero-inner">
 
-<h2>
-Saytını
-<span class="gradient">özün dizayn et.</span>
-</h2>
+    <h1>İstədiyini <span>tap.</span><br>Elanını <span>yerləşdir.</span></h1>
 
-<p>
-Hazır paket seç və ya bütün detalları özün müəyyən et.
-Sifarişini göndər, layihən üçün əlaqə saxlayaq.
-</p>
+    <p>Minlərlə elan arasında axtar, müqayisə et və rahatlıqla əlaqə saxla.</p>
 
-<div class="stats">
-<div class="stat">⚡ Sürətli sifariş</div>
-<div class="stat">🎨 Fərdi dizayn</div>
-<div class="stat">📱 Mobil uyğun</div>
-<div class="stat">💬 Birbaşa əlaqə</div>
-</div>
+    <div class="search-box">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="Məsələn: iPhone 15, avtomobil, ev..."
+        oninput="filterListings()"
+      >
 
+      <select id="searchCategory" onchange="filterListings()">
+        <option value="">Bütün kateqoriyalar</option>
+        <option value="Telefon">Telefon</option>
+        <option value="Avtomobil">Avtomobil</option>
+        <option value="Ev">Ev</option>
+        <option value="Elektronika">Elektronika</option>
+        <option value="Geyim">Geyim</option>
+        <option value="Xidmət">Xidmət</option>
+      </select>
+
+      <button class="search-btn" onclick="filterListings()">🔎 Axtar</button>
+    </div>
+
+  </div>
 </section>
 
+<main class="container">
+
+  <section>
+    <div class="section-title">
+      <div>
+        <h2>Kateqoriyalar</h2>
+        <p>Elanlara kateqoriyaya görə bax</p>
+      </div>
+    </div>
+
+    <div class="categories">
+
+      <div class="category" onclick="chooseCategory('Telefon')">
+        <div class="icon">📱</div>
+        <b>Telefon</b>
+      </div>
+
+      <div class="category" onclick="chooseCategory('Avtomobil')">
+        <div class="icon">🚗</div>
+        <b>Avtomobil</b>
+      </div>
+
+      <div class="category" onclick="chooseCategory('Ev')">
+        <div class="icon">🏠</div>
+        <b>Ev</b>
+      </div>
+
+      <div class="category" onclick="chooseCategory('Elektronika')">
+        <div class="icon">💻</div>
+        <b>Elektronika</b>
+      </div>
+
+      <div class="category" onclick="chooseCategory('Geyim')">
+        <div class="icon">👕</div>
+        <b>Geyim</b>
+      </div>
 
-<div class="progress">
-
-<div class="progressTop">
-<span>Sifariş tamamlanması</span>
-<span id="progressText">0%</span>
-</div>
-
-<div class="progressBar">
-<div class="progressFill" id="progressFill"></div>
-</div>
-
-</div>
-
-
-<section class="section">
-
-<div class="sectionTitle">
-<h3>👤 Müştəri məlumatları</h3>
-<span class="number">01</span>
-</div>
-
-<label class="normal">Ad Soyad</label>
-<input id="customerName" type="text" placeholder="Adınızı yazın">
-
-<label class="normal">Telefon / WhatsApp</label>
-<input id="customerPhone" type="tel" placeholder="050 000 00 00">
-
-<label class="normal">E-mail</label>
-<input id="customerEmail" type="email" placeholder="example@gmail.com">
-
-<label class="normal">Brend / Şirkət adı</label>
-<input id="brandName" type="text" placeholder="Məsələn: Super GB">
-
-</section>
-
-
-<section class="section">
-
-<div class="sectionTitle">
-<h3>🌐 Sayt növünü seçin</h3>
-<span class="number">02</span>
-</div>
-
-<div class="options">
-
-<div class="option">
-<input type="radio" name="site" id="business"
-value="Biznes saytı" data-price="80" checked>
-<label for="business">
-<div class="icon">🏢</div>
-<div class="name">Biznes saytı</div>
-<span class="desc">Şirkət və xidmət təqdimatı</span>
-<span class="price">80 AZN-dən</span>
-</label>
-</div>
-
-<div class="option">
-<input type="radio" name="site" id="shop"
-value="Online mağaza" data-price="180">
-<label for="shop">
-<div class="icon">🛒</div>
-<div class="name">Online mağaza</div>
-<span class="desc">Məhsul və sifariş sistemi</span>
-<span class="price">180 AZN-dən</span>
-</label>
-</div>
-
-<div class="option">
-<input type="radio" name="site" id="landing"
-value="Landing Page" data-price="60">
-<label for="landing">
-<div class="icon">🚀</div>
-<div class="name">Landing Page</div>
-<span class="desc">Reklam və satış səhifəsi</span>
-<span class="price">60 AZN-dən</span>
-</label>
-</div>
-
-<div class="option">
-<input type="radio" name="site" id="portfolio"
-value="Portfolio" data-price="70">
-<label for="portfolio">
-<div class="icon">🎨</div>
-<div class="name">Portfolio</div>
-<span class="desc">Şəxsi və iş nümunələri</span>
-<span class="price">70 AZN-dən</span>
-</label>
-</div>
-
-<div class="option">
-<input type="radio" name="site" id="restaurant"
-value="Restoran saytı" data-price="100">
-<label for="restaurant">
-<div class="icon">🍽️</div>
-<div class="name">Restoran</div>
-<span class="desc">Menyu və rezervasiya</span>
-<span class="price">100 AZN-dən</span>
-</label>
-</div>
-
-<div class="option">
-<input type="radio" name="site" id="booking"
-value="Rezervasiya saytı" data-price="140">
-<label for="booking">
-<div class="icon">📅</div>
-<div class="name">Rezervasiya</div>
-<span class="desc">Vaxt və görüş sistemi</span>
-<span class="price">140 AZN-dən</span>
-</label>
-</div>
-
-<div class="option">
-<input type="radio" name="site" id="game"
-value="Oyun saytı" data-price="220">
-<label for="game">
-<div class="icon">🎮</div>
-<div class="name">Oyun saytı</div>
-<span class="desc">Müasir oyun interfeysi</span>
-<span class="price">220 AZN-dən</span>
-</label>
-</div>
-
-<div class="option">
-<input type="radio" name="site" id="news"
-value="Xəbər saytı" data-price="160">
-<label for="news">
-<div class="icon">📰</div>
-<div class="name">Xəbər saytı</div>
-<span class="desc">Məqalə və kateqoriyalar</span>
-<span class="price">160 AZN-dən</span>
-</label>
-</div>
-
-</div>
-</section>
-
-
-<section class="section">
-
-<div class="sectionTitle">
-<h3>🎨 Dizayn</h3>
-<span class="number">03</span>
-</div>
-
-<select id="design">
-
-<option value="Modern" data-price="0">Modern</option>
-<option value="Premium" data-price="30">Premium +30 AZN</option>
-<option value="Luxury" data-price="50">Luxury +50 AZN</option>
-<option value="Minimal" data-price="0">Minimal</option>
-<option value="Gaming / Neon" data-price="40">Gaming / Neon +40 AZN</option>
-<option value="Glassmorphism" data-price="35">Glassmorphism +35 AZN</option>
-<option value="3D Premium" data-price="80">3D Premium +80 AZN</option>
-
-</select>
-</section>
-
-
-<section class="section">
-
-<div class="sectionTitle">
-<h3>🌈 Əsas rəng</h3>
-<span class="number">04</span>
-</div>
-
-<div class="colors">
-
-<label class="color purple"><input type="radio" name="color" value="Bənövşəyi" checked></label>
-<label class="color blue"><input type="radio" name="color" value="Mavi"></label>
-<label class="color cyan"><input type="radio" name="color" value="Cyan"></label>
-<label class="color green"><input type="radio" name="color" value="Yaşıl"></label>
-<label class="color red"><input type="radio" name="color" value="Qırmızı"></label>
-<label class="color orange"><input type="radio" name="color" value="Narıncı"></label>
-<label class="color pink"><input type="radio" name="color" value="Çəhrayı"></label>
-<label class="color gold"><input type="radio" name="color" value="Qızılı"></label>
-<label class="color black"><input type="radio" name="color" value="Qara"></label>
-
-</div>
-</section>
-
-
-<section class="section">
-
-<div class="sectionTitle">
-<h3>📄 Səhifə sayı</h3>
-<span class="number">05</span>
-</div>
-
-<select id="pages">
-<option value="1" data-price="0">1 səhifə</option>
-<option value="3" data-price="20">3 səhifə +20 AZN</option>
-<option value="5" data-price="40">5 səhifə +40 AZN</option>
-<option value="7" data-price="60">7 səhifə +60 AZN</option>
-<option value="10" data-price="90">10 səhifə +90 AZN</option>
-<option value="15" data-price="130">15 səhifə +130 AZN</option>
-</select>
-
-</section>
-
-
-<section class="section">
-
-<div class="sectionTitle">
-<h3>⚙️ Funksiyalar</h3>
-<span class="number">06</span>
-</div>
-
-<div class="checkGrid">
-
-<label class="check"><input type="checkbox" value="WhatsApp" data-price="10">💬 WhatsApp</label>
-<label class="check"><input type="checkbox" value="Telegram" data-price="10">✈️ Telegram</label>
-<label class="check"><input type="checkbox" value="Instagram" data-price="5">📸 Instagram</label>
-<label class="check"><input type="checkbox" value="TikTok" data-price="5">🎵 TikTok</label>
-<label class="check"><input type="checkbox" value="Admin panel" data-price="60">🔐 Admin panel</label>
-<label class="check"><input type="checkbox" value="Giriş sistemi" data-price="40">👤 Giriş sistemi</label>
-<label class="check"><input type="checkbox" value="Məhsul sistemi" data-price="50">📦 Məhsul sistemi</label>
-<label class="check"><input type="checkbox" value="Səbət" data-price="40">🛒 Səbət</label>
-<label class="check"><input type="checkbox" value="Sifariş forması" data-price="20">📝 Sifariş forması</label>
-<label class="check"><input type="checkbox" value="Rezervasiya" data-price="40">📅 Rezervasiya</label>
-<label class="check"><input type="checkbox" value="Ödəniş interfeysi" data-price="50">💳 Ödəniş interfeysi</label>
-<label class="check"><input type="checkbox" value="Google xəritə" data-price="10">📍 Google xəritə</label>
-<label class="check"><input type="checkbox" value="SEO" data-price="30">🔎 SEO</label>
-<label class="check"><input type="checkbox" value="Çoxdilli" data-price="40">🌍 Çoxdilli</label>
-<label class="check"><input type="checkbox" value="Animasiya" data-price="35">✨ Animasiya</label>
-<label class="check"><input type="checkbox" value="Dark Mode" data-price="20">🌙 Dark Mode</label>
-<label class="check"><input type="checkbox" value="Bildiriş" data-price="35">🔔 Bildiriş</label>
-<label class="check"><input type="checkbox" value="Axtarış" data-price="25">🔍 Axtarış</label>
-<label class="check"><input type="checkbox" value="Filtr" data-price="30">🎛️ Filtr</label>
-<label class="check"><input type="checkbox" value="Mobil App görünüşü" data-price="50">📱 App görünüşü</label>
-
-</div>
-</section>
-
+      <div class="category" onclick="chooseCategory('Xidmət')">
+        <div class="icon">🛠️</div>
+        <b>Xidmət</b>
+      </div>
 
-<section class="section">
+    </div>
+  </section>
 
-<div class="sectionTitle">
-<h3>☁️ Texniki xidmətlər</h3>
-<span class="number">07</span>
-</div>
 
-<div class="checkGrid">
+  <section class="vip-section">
 
-<label class="check"><input type="checkbox" value="Domen" data-price="25">🌐 Domen</label>
-<label class="check"><input type="checkbox" value="Hosting" data-price="40">☁️ Hosting</label>
-<label class="check"><input type="checkbox" value="SSL" data-price="0">🔒 SSL</label>
-<label class="check"><input type="checkbox" value="Google Analytics" data-price="15">📊 Analytics</label>
-<label class="check"><input type="checkbox" value="Sürətləndirmə" data-price="25">⚡ Sürətləndirmə</label>
-<label class="check"><input type="checkbox" value="Backup" data-price="25">💾 Backup</label>
+    <div class="section-title">
+      <div>
+        <h2>🔥 VIP elanlar</h2>
+        <p>Daha çox görünən premium elanlar</p>
+      </div>
+    </div>
 
-</div>
-</section>
+    <div class="listing-grid" id="vipGrid"></div>
 
+  </section>
 
-<section class="section">
 
-<div class="sectionTitle">
-<h3>💰 Büdcə</h3>
-<span class="number">08</span>
-</div>
+  <section class="normal-section">
 
-<select id="budget">
-<option>50 - 100 AZN</option>
-<option>100 - 200 AZN</option>
-<option>200 - 350 AZN</option>
-<option>350 - 500 AZN</option>
-<option>500 - 1000 AZN</option>
-<option>1000+ AZN</option>
-</select>
+    <div class="section-title">
+      <div>
+        <h2>🆕 Son elanlar</h2>
+        <p id="resultCount">Elanlar göstərilir</p>
+      </div>
+    </div>
 
-</section>
+    <div class="filters">
 
+      <select id="filterCategory" onchange="filterListings()">
+        <option value="">Kateqoriya</option>
+        <option value="Telefon">Telefon</option>
+        <option value="Avtomobil">Avtomobil</option>
+        <option value="Ev">Ev</option>
+        <option value="Elektronika">Elektronika</option>
+        <option value="Geyim">Geyim</option>
+        <option value="Xidmət">Xidmət</option>
+      </select>
+
+      <input
+        id="minPrice"
+        type="number"
+        placeholder="Min qiymət"
+        oninput="filterListings()"
+      >
+
+      <input
+        id="maxPrice"
+        type="number"
+        placeholder="Max qiymət"
+        oninput="filterListings()"
+      >
+
+      <select id="sortPrice" onchange="filterListings()">
+        <option value="">Sıralama</option>
+        <option value="low">Əvvəl ucuz</option>
+        <option value="high">Əvvəl baha</option>
+      </select>
+
+      <button class="reset-btn" onclick="resetFilters()">↻ Sıfırla</button>
 
-<section class="section">
+    </div>
 
-<div class="sectionTitle">
-<h3>📝 Əlavə məlumat</h3>
-<span class="number">09</span>
-</div>
+    <div class="listing-grid" id="listingGrid"></div>
 
-<textarea id="details" placeholder="Saytınızın necə görünməsini istəyirsiniz?"></textarea>
+    <div class="empty" id="empty">
+      <div style="font-size:40px;margin-bottom:10px;">🔍</div>
+      <h3>Elan tapılmadı</h3>
+      <p>Axtarış və filtr seçimlərini dəyişərək yenidən cəhd edin.</p>
+    </div>
 
-<input id="reference" type="text" placeholder="Bəyəndiyiniz saytın linki (istəyə görə)">
+  </section>
 
-</section>
+</main>
 
 
-<section class="summary">
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <strong style="font-size:20px;">ELAN.AZ</strong>
+      <p style="margin-top:8px;">Al, sat və rahat elan yerləşdir.</p>
+    </div>
 
-<div class="summaryHead">
-<h3>📋 Sifariş xülasəsi</h3>
-<span class="live">● CANLI HESABLANIR</span>
-</div>
+    <div>
+      <p>© 2026 ELAN.AZ</p>
+      <p style="margin-top:5px;">Bütün hüquqlar qorunur.</p>
+    </div>
+  </div>
+</footer>
 
-<div class="row">
-<span>Sayt</span>
-<strong id="sumSite">Biznes saytı</strong>
-</div>
 
-<div class="row">
-<span>Dizayn</span>
-<strong id="sumDesign">Modern</strong>
-</div>
+<!-- ELAN YERLƏŞDİRMƏ MODALI -->
 
-<div class="row">
-<span>Rəng</span>
-<strong id="sumColor">Bənövşəyi</strong>
-</div>
+<div class="modal" id="addModal">
 
-<div class="row">
-<span>Səhifə</span>
-<strong id="sumPages">1</strong>
-</div>
+  <div class="modal-box">
 
-<div class="row">
-<span>Funksiyalar</span>
-<strong id="sumFeatures">0</strong>
-</div>
+    <button class="close" onclick="closeModal('addModal')">×</button>
 
-<div class="total">
-<small>Təxmini qiymət</small>
-<strong><span id="total">80</span> AZN</strong>
-</div>
+    <h2>➕ Yeni elan yerləşdir</h2>
 
-</section>
+    <form id="addForm">
 
+      <div class="form-grid">
 
-<!-- PREMIUM ÖDƏNİŞ -->
+        <div class="form-group">
+          <label>Elanın adı</label>
+          <input id="newTitle" required placeholder="Məsələn: iPhone 15 Pro">
+        </div>
 
-<section class="premiumPayment">
+        <div class="form-group">
+          <label>Qiymət (AZN)</label>
+          <input id="newPrice" type="number" min="0" required placeholder="1200">
+        </div>
 
-<div class="paymentTop">
+        <div class="form-group">
+          <label>Kateqoriya</label>
+          <select id="newCategory" required>
+            <option value="">Seçin</option>
+            <option value="Telefon">Telefon</option>
+            <option value="Avtomobil">Avtomobil</option>
+            <option value="Ev">Ev</option>
+            <option value="Elektronika">Elektronika</option>
+            <option value="Geyim">Geyim</option>
+            <option value="Xidmət">Xidmət</option>
+          </select>
+        </div>
 
-<div>
+        <div class="form-group">
+          <label>Şəhər / Rayon</label>
+          <input id="newLocation" required placeholder="Bakı, Sumqayıt və s.">
+        </div>
 
-<div class="paymentBadge">
-SECURE PAYMENT
-</div>
+        <div class="form-group full">
+          <label>Şəkil URL-i</label>
+          <input id="newImage" placeholder="https://...">
+          <small style="color:#888;">
+            Şəkil linki əlavə edə bilərsiniz. Boş saxlasanız standart şəkil istifadə olunacaq.
+          </small>
+        </div>
 
-<h3>Ödəniş mərkəzi</h3>
+        <div class="form-group full">
+          <label>Telefon nömrəsi</label>
+          <input id="newPhone" required placeholder="050 000 00 00">
+        </div>
 
-<p>
-Sifarişinizi tamamlamaq üçün ödəniş məlumatlarından istifadə edin.
-</p>
+        <div class="form-group full">
+          <label>Elan haqqında</label>
+          <textarea id="newDescription" required placeholder="Elan haqqında məlumat yazın..."></textarea>
+        </div>
 
-</div>
+      </div>
 
-<div class="secureIcon">🔒</div>
+      <button class="publish" type="submit">
+        🚀 Elanı yerləşdir
+      </button>
 
+    </form>
+
+  </div>
 </div>
 
 
-<div class="paymentAmountBox">
+<!-- ELAN DETALLARI -->
 
-<span>ÖDƏNİLMƏLİ MƏBLƏĞ</span>
+<div class="modal" id="detailsModal">
 
-<strong>
-<span id="paymentAmount">80</span>
-<small>AZN</small>
-</strong>
+  <div class="modal-box">
 
-<div class="paymentStatus">
-<i></i>
-Ödəniş gözlənilir
-</div>
+    <button class="close" onclick="closeModal('detailsModal')">×</button>
 
+    <div id="detailsContent"></div>
+
+  </div>
 </div>
 
 
-<div class="virtualCard">
-
-<div class="cardGlow"></div>
-
-<div class="cardTop">
-
-<div class="chip">
-<span></span>
-<span></span>
-<span></span>
-</div>
-
-<div class="cardBrand">
-WEB<span>CRAFT</span>
-</div>
-
-</div>
-
-
-<div class="cardMiddle">
-
-<div class="cardLabel">
-ÖDƏNİŞ KARTI
-</div>
-
-<div class="cardNumberPremium">
-
-<span id="cardNumber">
-YOUR_CARD_NUMBER
-</span>
-
-<button
-class="copyPremium"
-onclick="copyCardPremium()">
-⧉
-</button>
-
-</div>
-
-</div>
-
-
-<div class="cardBottom">
-
-<div>
-<small>KART SAHİBİ</small>
-<strong>WEBCRAFT</strong>
-</div>
-
-<div>
-<small>ÖDƏNİŞ</small>
-<strong>AZN</strong>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="copyInfo" id="copyInfo">
-💳 Kart nömrəsini kopyalamaq üçün sağdakı düyməyə toxunun.
-</div>
-
-
-<div class="receiptBox">
-
-<div class="receiptHeader">
-
-<div class="receiptIcon">📄</div>
-
-<div>
-<h4>Ödəniş qəbzi</h4>
-<span>Ödəniş etdikdən sonra qəbzi əlavə edin</span>
-</div>
-
-</div>
-
-
-<label class="receiptUpload">
-
-<input
-type="file"
-id="receipt"
-accept="image/*,.pdf"
-onchange="premiumReceipt()"
->
-
-<div class="uploadCircle">↑</div>
-
-<strong>
-Qəbzi buraya əlavə edin
-</strong>
-
-<small>
-JPG, PNG və ya PDF • Maks. 10 MB
-</small>
-
-<div class="chooseReceipt">
-Fayl seç
-</div>
-
-</label>
-
-
-<div
-class="receiptPreview"
-id="receiptPreview">
-</div>
-
-</div>
-
-
-<button
-class="paidPremium"
-onclick="premiumPaid()">
-
-<span>✓</span>
-Ödənişi etdim
-
-</button>
-
-
-<div
-id="paidMessage"
-class="premiumSuccess">
-</div>
-
-</section>
-
-
-<button
-class="finalBtn"
-onclick="sendOrder()">
-
-📲 SİFARİŞİ WHATSAPP İLƏ GÖNDƏR
-
-</button>
-
-
-<div class="notice">
-Ödəniş kartı məlumatını öz kartınızla dəyişin.
-Qəbz seçildikdən sonra sifariş məlumatı WhatsApp vasitəsilə göndərilir.
-</div>
-
-
-<div class="footer">
-WEBCRAFT • Sayt Sifariş Mərkəzi<br>
-Müasir saytlar • Fərdi dizayn • Mobil uyğunluq
-</div>
-
-</div>
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-/* =========================
-   BÜTÜN INPUTLARI İZLƏ
-========================= */
+const defaultImage =
+"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80";
 
-document.querySelectorAll("input,select,textarea")
-.forEach(el=>{
-el.addEventListener("change",calculate);
-el.addEventListener("input",calculate);
+
+let listings = [
+
+  {
+    id:1,
+    title:"iPhone 15 Pro 256GB",
+    price:1850,
+    category:"Telefon",
+    location:"Bakı",
+    date:"Bu gün",
+    image:"https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=80",
+    vip:true,
+    phone:"050 555 55 55",
+    description:"Təmiz və səliqəli iPhone 15 Pro. 256GB yaddaş. Telefon problemsiz işləyir."
+  },
+
+  {
+    id:2,
+    title:"Toyota Camry 2021",
+    price:38500,
+    category:"Avtomobil",
+    location:"Bakı",
+    date:"Bu gün",
+    image:"https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=900&q=80",
+    vip:true,
+    phone:"050 222 22 22",
+    description:"Toyota Camry 2021. Avtomobil ideal vəziyyətdədir."
+  },
+
+  {
+    id:3,
+    title:"3 otaqlı mənzil",
+    price:145000,
+    category:"Ev",
+    location:"Sumqayıt",
+    date:"Bu gün",
+    image:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80",
+    vip:true,
+    phone:"050 333 33 33",
+    description:"Müasir təmirli 3 otaqlı mənzil. Ətraflı məlumat üçün əlaqə saxlayın."
+  },
+
+  {
+    id:4,
+    title:"MacBook Air M2",
+    price:2100,
+    category:"Elektronika",
+    location:"Bakı",
+    date:"1 saat əvvəl",
+    image:"https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=900&q=80",
+    vip:true,
+    phone:"050 444 44 44",
+    description:"MacBook Air M2, çox yaxşı vəziyyətdədir."
+  },
+
+  {
+    id:5,
+    title:"Samsung Galaxy S24",
+    price:1450,
+    category:"Telefon",
+    location:"Bakı",
+    date:"2 saat əvvəl",
+    image:"https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80",
+    vip:false,
+    phone:"051 111 11 11",
+    description:"Samsung Galaxy S24. Səliqəli istifadə olunub."
+  },
+
+  {
+    id:6,
+    title:"Mercedes-Benz C-Class",
+    price:42000,
+    category:"Avtomobil",
+    location:"Gəncə",
+    date:"3 saat əvvəl",
+    image:"https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=80",
+    vip:false,
+    phone:"051 222 22 22",
+    description:"Mercedes-Benz C-Class. Avtomobil yaxşı vəziyyətdədir."
+  },
+
+  {
+    id:7,
+    title:"Gaming komputer",
+    price:2600,
+    category:"Elektronika",
+    location:"Bakı",
+    date:"4 saat əvvəl",
+    image:"https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=900&q=80",
+    vip:false,
+    phone:"051 333 33 33",
+    description:"Güclü gaming komputer. Oyun və iş üçün uyğundur."
+  },
+
+  {
+    id:8,
+    title:"Yeni tikili mənzil",
+    price:98000,
+    category:"Ev",
+    location:"Xırdalan",
+    date:"5 saat əvvəl",
+    image:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80",
+    vip:false,
+    phone:"051 444 44 44",
+    description:"Yeni tikili binada mənzil satılır."
+  }
+
+];
+
+
+function money(value){
+
+  return Number(value).toLocaleString("az-AZ") + " AZN";
+
+}
+
+
+function createCard(item){
+
+  return `
+
+    <div class="card">
+
+      <div class="card-img">
+
+        <img
+          src="${item.image || defaultImage}"
+          onerror="this.src='${defaultImage}'"
+          alt="${item.title}"
+        >
+
+        ${item.vip ? `<div class="badge">⭐ VIP</div>` : ""}
+
+        <button
+          class="heart"
+          onclick="favorite(event,${item.id})"
+        >♡</button>
+
+      </div>
+
+      <div class="card-body">
+
+        <div class="card-title">${escapeHTML(item.title)}</div>
+
+        <div class="price">${money(item.price)}</div>
+
+        <div class="location">
+          📍 ${escapeHTML(item.location)}
+        </div>
+
+        <div class="card-footer">
+          <span>${escapeHTML(item.category)}</span>
+          <span>${escapeHTML(item.date || "İndi")}</span>
+        </div>
+
+        <button
+          onclick="openDetails(${item.id})"
+          style="
+            width:100%;
+            margin-top:12px;
+            padding:11px;
+            border-radius:10px;
+            background:#f0edff;
+            color:#6045dc;
+            font-weight:800;
+          "
+        >
+          Elana bax →
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function render(){
+
+  const vipGrid = document.getElementById("vipGrid");
+
+  const normalGrid = document.getElementById("listingGrid");
+
+  const vips = listings.filter(x => x.vip);
+
+  vipGrid.innerHTML = vips.map(createCard).join("");
+
+  filterListings();
+
+}
+
+
+function filterListings(){
+
+  const search =
+    document.getElementById("searchInput").value.toLowerCase().trim();
+
+  const searchCategory =
+    document.getElementById("searchCategory").value;
+
+  const filterCategory =
+    document.getElementById("filterCategory").value;
+
+  const min =
+    parseFloat(document.getElementById("minPrice").value) || 0;
+
+  const maxValue =
+    parseFloat(document.getElementById("maxPrice").value);
+
+  const sort =
+    document.getElementById("sortPrice").value;
+
+
+  let result = listings.filter(item => {
+
+    const text =
+      (
+        item.title +
+        " " +
+        item.category +
+        " " +
+        item.location
+      ).toLowerCase();
+
+    const matchesSearch =
+      !search || text.includes(search);
+
+    const matchesSearchCategory =
+      !searchCategory ||
+      item.category === searchCategory;
+
+    const matchesFilterCategory =
+      !filterCategory ||
+      item.category === filterCategory;
+
+    const matchesMin =
+      item.price >= min;
+
+    const matchesMax =
+      !maxValue ||
+      item.price <= maxValue;
+
+    return (
+      matchesSearch &&
+      matchesSearchCategory &&
+      matchesFilterCategory &&
+      matchesMin &&
+      matchesMax
+    );
+
+  });
+
+
+  if(sort === "low"){
+    result.sort((a,b) => a.price - b.price);
+  }
+
+  if(sort === "high"){
+    result.sort((a,b) => b.price - a.price);
+  }
+
+
+  const grid =
+    document.getElementById("listingGrid");
+
+  const empty =
+    document.getElementById("empty");
+
+  const count =
+    document.getElementById("resultCount");
+
+
+  grid.innerHTML =
+    result.map(createCard).join("");
+
+  count.textContent =
+    result.length + " elan göstərilir";
+
+  empty.style.display =
+    result.length ? "none" : "block";
+
+}
+
+
+function chooseCategory(category){
+
+  document.getElementById("searchCategory").value = category;
+
+  document.getElementById("filterCategory").value = category;
+
+  filterListings();
+
+  window.scrollTo({
+    top:document.querySelector(".normal-section").offsetTop - 80,
+    behavior:"smooth"
+  });
+
+}
+
+
+function resetFilters(){
+
+  document.getElementById("searchInput").value = "";
+
+  document.getElementById("searchCategory").value = "";
+
+  document.getElementById("filterCategory").value = "";
+
+  document.getElementById("minPrice").value = "";
+
+  document.getElementById("maxPrice").value = "";
+
+  document.getElementById("sortPrice").value = "";
+
+  filterListings();
+
+}
+
+
+function favorite(event,id){
+
+  event.stopPropagation();
+
+  const btn = event.currentTarget;
+
+  if(btn.textContent === "♡"){
+
+    btn.textContent = "♥";
+
+    showToast("❤️ Elan yadda saxlanıldı");
+
+  }else{
+
+    btn.textContent = "♡";
+
+    showToast("Elan yadda saxlananlardan silindi");
+
+  }
+
+}
+
+
+function openModal(id){
+
+  document.getElementById(id).classList.add("active");
+
+}
+
+
+function closeModal(id){
+
+  document.getElementById(id).classList.remove("active");
+
+}
+
+
+function openDetails(id){
+
+  const item =
+    listings.find(x => x.id === id);
+
+  if(!item) return;
+
+
+  document.getElementById("detailsContent").innerHTML = `
+
+    <img
+      class="details-img"
+      src="${item.image || defaultImage}"
+      onerror="this.src='${defaultImage}'"
+    >
+
+    <h2>${escapeHTML(item.title)}</h2>
+
+    <div class="details-price">
+      ${money(item.price)}
+    </div>
+
+    <div class="details-meta">
+
+      <div class="meta">📍 ${escapeHTML(item.location)}</div>
+
+      <div class="meta">🏷️ ${escapeHTML(item.category)}</div>
+
+      <div class="meta">🕒 ${escapeHTML(item.date || "İndi")}</div>
+
+    </div>
+
+    <h3 style="margin-bottom:8px;">
+      Elan haqqında
+    </h3>
+
+    <p style="color:#626b7d;line-height:1.6;">
+      ${escapeHTML(item.description || "Məlumat yoxdur.")}
+    </p>
+
+    <div class="contact-buttons">
+
+      <button
+        class="call"
+        onclick="callNumber('${escapeHTML(item.phone || "")}')"
+      >
+        📞 Zəng et
+      </button>
+
+      <button
+        class="message"
+        onclick="showToast('Mesaj funksiyası tezliklə aktiv olacaq')"
+      >
+        💬 Mesaj yaz
+      </button>
+
+    </div>
+
+  `;
+
+
+  openModal("detailsModal");
+
+}
+
+
+function callNumber(phone){
+
+  if(!phone){
+
+    showToast("Telefon nömrəsi yoxdur");
+
+    return;
+
+  }
+
+  window.location.href =
+    "tel:" + phone.replace(/\s/g,"");
+
+}
+
+
+document.getElementById("addForm")
+.addEventListener("submit",function(e){
+
+  e.preventDefault();
+
+
+  const title =
+    document.getElementById("newTitle").value.trim();
+
+  const price =
+    Number(document.getElementById("newPrice").value);
+
+  const category =
+    document.getElementById("newCategory").value;
+
+  const location =
+    document.getElementById("newLocation").value.trim();
+
+  const image =
+    document.getElementById("newImage").value.trim();
+
+  const phone =
+    document.getElementById("newPhone").value.trim();
+
+  const description =
+    document.getElementById("newDescription").value.trim();
+
+
+  const newListing = {
+
+    id:Date.now(),
+
+    title:title,
+
+    price:price,
+
+    category:category,
+
+    location:location,
+
+    date:"İndi",
+
+    image:image || defaultImage,
+
+    vip:false,
+
+    phone:phone,
+
+    description:description
+
+  };
+
+
+  listings.unshift(newListing);
+
+
+  closeModal("addModal");
+
+  document.getElementById("addForm").reset();
+
+  render();
+
+  showToast("🚀 Elan uğurla yerləşdirildi!");
+
+
+  window.scrollTo({
+
+    top:document.querySelector(".normal-section").offsetTop - 70,
+
+    behavior:"smooth"
+
+  });
+
 });
 
 
-/* =========================
-   SAYT
-========================= */
+function showToast(message){
 
-function getSite(){
+  const toast =
+    document.getElementById("toast");
 
-return document.querySelector(
-'input[name="site"]:checked'
-);
+  toast.textContent = message;
 
-}
+  toast.classList.add("show");
 
+  setTimeout(() => {
 
-/* =========================
-   FUNKSİYALAR
-========================= */
+    toast.classList.remove("show");
 
-function getFeatures(){
-
-let list=[];
-
-document.querySelectorAll(
-'.check input:checked'
-).forEach(item=>{
-
-list.push({
-name:item.value,
-price:Number(item.dataset.price)
-});
-
-});
-
-return list;
+  },2500);
 
 }
 
 
-/* =========================
-   QİYMƏT
-========================= */
+function escapeHTML(text){
 
-function calculate(){
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-let total=
-Number(getSite().dataset.price);
-
-
-/* DESIGN */
-
-let design=
-document.getElementById("design");
-
-total+=Number(
-design.options[
-design.selectedIndex
-].dataset.price
-);
+}
 
 
-/* PAGES */
+window.addEventListener("click",function(e){
 
-let pages=
-document.getElementById("pages");
+  if(e.target.classList.contains("modal")){
 
-total+=Number(
-pages.options[
-pages.selectedIndex
-].dataset.price
-);
+    e.target.classList.remove("active");
 
+  }
 
-/* FEATURES */
-
-let features=getFeatures();
-
-features.forEach(item=>{
-total+=item.price;
 });
 
 
-/* SUMMARY */
-
-document.getElementById("sumSite")
-.innerText=getSite().value;
-
-document.getElementById("sumDesign")
-.innerText=design.value;
-
-document.getElementById("sumPages")
-.innerText=pages.value+" səhifə";
-
-document.getElementById("sumFeatures")
-.innerText=features.length+" funksiya";
-
-
-let color=
-document.querySelector(
-'input[name="color"]:checked'
-);
-
-document.getElementById("sumColor")
-.innerText=color.value;
-
-
-document.getElementById("total")
-.innerText=total;
-
-document.getElementById("paymentAmount")
-.innerText=total;
-
-
-/* PROGRESS */
-
-let progress=0;
-
-if(document.getElementById("customerName").value)
-progress+=15;
-
-if(document.getElementById("customerPhone").value)
-progress+=15;
-
-if(document.getElementById("brandName").value)
-progress+=10;
-
-progress+=15;
-progress+=15;
-
-progress+=Math.min(features.length*2,20);
-
-if(document.getElementById("details").value)
-progress+=10;
-
-if(progress>100)
-progress=100;
-
-document.getElementById("progressFill")
-.style.width=progress+"%";
-
-document.getElementById("progressText")
-.innerText=progress+"%";
-
-}
-
-
-/* =========================
-   KART KOPYALA
-========================= */
-
-function copyCardPremium(){
-
-const card=
-document.getElementById("cardNumber")
-.innerText
-.trim();
-
-navigator.clipboard.writeText(card);
-
-const info=
-document.getElementById("copyInfo");
-
-info.innerHTML=
-"✓ Kart nömrəsi uğurla kopyalandı";
-
-info.style.color="#72ffc0";
-
-setTimeout(()=>{
-
-info.innerHTML=
-"💳 Kart nömrəsini kopyalamaq üçün sağdakı düyməyə toxunun.";
-
-info.style.color="";
-
-},2500);
-
-}
-
-
-/* =========================
-   QƏBZ
-========================= */
-
-function premiumReceipt(){
-
-const input=
-document.getElementById("receipt");
-
-const preview=
-document.getElementById("receiptPreview");
-
-if(!input.files.length)
-return;
-
-const file=input.files[0];
-
-preview.style.display="block";
-
-preview.innerHTML=
-"✓ Qəbz seçildi: <b>"+
-file.name+
-"</b>";
-
-}
-
-
-/* =========================
-   ÖDƏNİŞ ETDİM
-========================= */
-
-function premiumPaid(){
-
-const box=
-document.getElementById("paidMessage");
-
-box.style.display="block";
-
-box.innerHTML=
-"✓ Ödəniş etdiyiniz qeyd edildi.<br>"+
-"Qəbzi əlavə edib sifarişi göndərin.";
-
-}
-
-
-/* =========================
-   SİFARİŞ MƏTNİ
-========================= */
-
-function createMessage(){
-
-let features=
-getFeatures();
-
-let color=
-document.querySelector(
-'input[name="color"]:checked'
-).value;
-
-return `
-🌐 WEBCRAFT — SAYT SİFARİŞİ
-
-👤 Müştəri:
-${document.getElementById("customerName").value}
-
-📱 Telefon:
-${document.getElementById("customerPhone").value}
-
-📧 E-mail:
-${document.getElementById("customerEmail").value}
-
-🏢 Brend:
-${document.getElementById("brandName").value}
-
-━━━━━━━━━━━━━━
-
-🌐 Sayt:
-${getSite().value}
-
-🎨 Dizayn:
-${document.getElementById("design").value}
-
-🌈 Rəng:
-${color}
-
-📄 Səhifə:
-${document.getElementById("pages").value}
-
-⚙️ Funksiyalar:
-${
-features.length
-?features.map(x=>"• "+x.name).join("\n")
-:"Yoxdur"
-}
-
-💰 Büdcə:
-${document.getElementById("budget").value}
-
-💵 Təxmini qiymət:
-${document.getElementById("total").innerText} AZN
-
-━━━━━━━━━━━━━━
-
-📝 Əlavə məlumat:
-${document.getElementById("details").value}
-
-🔗 Referans:
-${document.getElementById("reference").value}
-
-━━━━━━━━━━━━━━
-
-WEBCRAFT
-Sayt Sifariş Mərkəzi
-`;
-
-}
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-function sendOrder(){
-
-let name=
-document.getElementById("customerName")
-.value.trim();
-
-let phone=
-document.getElementById("customerPhone")
-.value.trim();
-
-
-if(!name || !phone){
-
-alert(
-"Əvvəlcə adınızı və telefon nömrənizi yazın."
-);
-
-return;
-
-}
-
-calculate();
-
-
-/*
-  BURAYA SƏNİN WHATSAPP NÖMRÜNÜ YAZ.
-
-  Məsələn:
-  994501234567
-*/
-
-let whatsappNumber=
-"YOUR_WHATSAPP_NUMBER";
-
-
-let message=
-createMessage();
-
-let url=
-"https://wa.me/"+
-whatsappNumber+
-"?text="+
-encodeURIComponent(message);
-
-window.open(url,"_blank");
-
-}
-
-
-/* =========================
-   START
-========================= */
-
-calculate();
+render();
 
 </script>
 
