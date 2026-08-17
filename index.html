@@ -3,459 +3,1675 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Saytını Yarat | Peşəkar Sayt Sifarişi</title>
+
+<title>Panda Kazino</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
 }
 
 body{
-    background:#070712;
-    color:white;
-    overflow-x:hidden;
+    font-family:Arial,sans-serif;
+    background:#050505;
+    color:#fff;
+    min-height:100vh;
+    padding-bottom:95px;
 }
 
-.hero{
-    min-height:100vh;
+/* HEADER */
+
+.header{
+    height:82px;
+    background:#0d0d0d;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 15px;
+    position:sticky;
+    top:0;
+    z-index:50;
+    border-bottom:1px solid #222;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.panda{
+    width:47px;
+    height:47px;
+    border-radius:15px;
+
+    background:
+    linear-gradient(145deg,#ff3218,#a90000);
+
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:30px 18px;
-    position:relative;
-    background:
-    radial-gradient(circle at top left,#6c2cff55,transparent 35%),
-    radial-gradient(circle at bottom right,#00e5ff33,transparent 35%),
-    #070712;
+
+    font-size:27px;
+
+    box-shadow:
+    0 0 22px #ff241555;
 }
 
-.container{
-    width:100%;
-    max-width:1100px;
-    text-align:center;
-}
-
-.badge{
-    display:inline-block;
-    padding:9px 17px;
-    border:1px solid #7c4dff;
-    border-radius:30px;
-    background:#7c4dff18;
-    color:#cbbcff;
-    font-size:14px;
-    margin-bottom:20px;
-}
-
-h1{
-    font-size:clamp(42px,9vw,82px);
-    line-height:1;
+.logo h1{
+    font-size:20px;
     font-weight:900;
-    background:linear-gradient(90deg,#fff,#a980ff,#00e5ff);
-    -webkit-background-clip:text;
-    color:transparent;
-    margin-bottom:22px;
+    font-style:italic;
 }
 
-.hero p{
-    max-width:700px;
-    margin:auto;
-    color:#b8b8c9;
-    font-size:18px;
-    line-height:1.6;
+.logo span{
+    color:#ff3218;
 }
 
-.buttons{
-    margin-top:30px;
+.balance{
+    background:#191919;
+    border:1px solid #292929;
+    border-radius:30px;
+    padding:6px 7px 6px 12px;
+
     display:flex;
-    gap:14px;
-    justify-content:center;
-    flex-wrap:wrap;
+    align-items:center;
+    gap:9px;
 }
 
-.btn{
-    text-decoration:none;
-    padding:16px 25px;
-    border-radius:14px;
-    font-weight:800;
-    transition:.3s;
-    display:inline-block;
-}
-
-.primary{
-    background:linear-gradient(90deg,#7c3cff,#00cfff);
-    color:white;
-    box-shadow:0 10px 35px #7c3cff55;
-}
-
-.secondary{
-    border:1px solid #ffffff22;
-    background:#ffffff0b;
-    color:white;
-}
-
-.btn:hover{
-    transform:translateY(-4px);
-}
-
-section{
-    padding:75px 18px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:38px;
-    margin-bottom:12px;
-}
-
-.section-text{
-    text-align:center;
-    color:#9999aa;
-    margin-bottom:40px;
-}
-
-.cards{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
-}
-
-.card{
-    background:linear-gradient(145deg,#151527,#0d0d19);
-    border:1px solid #ffffff12;
-    padding:28px;
-    border-radius:22px;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-7px);
-    border-color:#754cff;
-    box-shadow:0 15px 40px #0008;
-}
-
-.icon{
-    font-size:38px;
-    margin-bottom:15px;
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#9d9dac;
-    line-height:1.5;
-}
-
-.form-box{
-    max-width:650px;
-    margin:auto;
-    background:#10101c;
-    border:1px solid #ffffff15;
-    padding:28px;
-    border-radius:24px;
-    box-shadow:0 20px 70px #0008;
-}
-
-label{
+.balance small{
     display:block;
-    text-align:left;
-    margin:15px 0 7px;
-    color:#ddd;
+    color:#888;
+    font-size:9px;
+}
+
+.balance strong{
+    font-size:13px;
+}
+
+.plus{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+
+    background:#ff3218;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:24px;
     font-weight:bold;
-}
 
-input,select,textarea{
-    width:100%;
-    padding:15px;
-    border-radius:12px;
-    border:1px solid #ffffff18;
-    outline:none;
-    background:#080811;
-    color:white;
-    font-size:15px;
-}
-
-textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-.submit{
-    width:100%;
-    margin-top:20px;
-    padding:16px;
-    border:0;
-    border-radius:13px;
-    background:linear-gradient(90deg,#7c3cff,#00cfff);
-    color:white;
-    font-size:17px;
-    font-weight:bold;
     cursor:pointer;
 }
 
-.contact{
-    text-align:center;
+/* HERO */
+
+.hero{
+    margin:14px;
+    height:215px;
+
+    border-radius:23px;
+    overflow:hidden;
+    position:relative;
+
+    background:
+    radial-gradient(
+        circle at 20% 30%,
+        #ff3a173d,
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 80% 70%,
+        #ff00002c,
+        transparent 35%
+    ),
+    linear-gradient(
+        135deg,
+        #350000,
+        #090909 55%,
+        #280000
+    );
+
+    border:1px solid #461515;
 }
 
-.contact-box{
-    max-width:700px;
-    margin:30px auto 0;
-    padding:30px;
-    border-radius:22px;
-    background:#10101c;
-    border:1px solid #ffffff12;
+.hero:before{
+    content:"🐼";
+
+    position:absolute;
+    right:12px;
+    bottom:-22px;
+
+    font-size:155px;
+
+    opacity:.14;
 }
 
-footer{
-    text-align:center;
-    padding:30px 15px;
-    color:#77778a;
-    border-top:1px solid #ffffff0d;
+.hero-content{
+    position:relative;
+    z-index:2;
+    padding:30px 21px;
 }
 
-.whatsapp{
-    position:fixed;
-    right:18px;
-    bottom:18px;
-    width:58px;
-    height:58px;
-    border-radius:50%;
+.hero-label{
+    color:#ff3a20;
+    font-weight:bold;
+    font-size:12px;
+    letter-spacing:1px;
+}
+
+.hero h2{
+    font-size:31px;
+    line-height:1.05;
+    margin:12px 0;
+}
+
+.hero p{
+    color:#aaa;
+    font-size:13px;
+    max-width:280px;
+    line-height:1.5;
+}
+
+.demo-btn{
+    margin-top:17px;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    background:#ff3218;
+    color:#fff;
+
+    font-weight:bold;
+
+    border:0;
+
+    cursor:pointer;
+}
+
+/* SECTION */
+
+.section{
+    padding:15px;
+}
+
+.section-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:20px 0;
+}
+
+.section-icon{
+    width:45px;
+    height:45px;
+
+    border-radius:14px;
+
+    background:#26100c;
+
+    border:1px solid #4d1811;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    font-size:28px;
-    box-shadow:0 8px 30px #25d36666;
+
+    font-size:22px;
+}
+
+.section-head h2{
+    font-size:21px;
+}
+
+.online{
+    color:#777;
+    font-size:11px;
+    margin-top:4px;
+}
+
+.online b{
+    color:#13c96b;
+}
+
+/* GAMES */
+
+.games{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    padding-bottom:8px;
+}
+
+.games::-webkit-scrollbar{
+    display:none;
+}
+
+.game{
+    min-width:190px;
+
+    background:#111;
+
+    border:1px solid #252525;
+
+    border-radius:20px;
+
+    padding:10px;
+}
+
+.game-image{
+    height:145px;
+
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.game:nth-child(1)
+.game-image{
+    background:
+    linear-gradient(
+        145deg,
+        #1e0710,
+        #870f17
+    );
+}
+
+.game:nth-child(2)
+.game-image{
+    background:
+    linear-gradient(
+        145deg,
+        #071b25,
+        #123d58
+    );
+}
+
+.game:nth-child(3)
+.game-image{
+    background:
+    linear-gradient(
+        145deg,
+        #17100b,
+        #754211
+    );
+}
+
+.game:nth-child(4)
+.game-image{
+    background:
+    linear-gradient(
+        145deg,
+        #16091e,
+        #5b1680
+    );
+}
+
+.game-emoji{
+    font-size:68px;
+
+    filter:
+    drop-shadow(
+        0 8px 15px #000
+    );
+}
+
+.win{
+    position:absolute;
+
+    right:7px;
+    top:7px;
+
+    background:#ff3218;
+
+    padding:6px 9px;
+
+    border-radius:8px;
+
+    font-size:10px;
+
+    font-weight:bold;
+}
+
+.game h3{
+    font-size:15px;
+
+    margin:10px 4px 4px;
+}
+
+.game p{
+    color:#777;
+
+    font-size:11px;
+
+    margin:0 4px 10px;
+}
+
+.play{
+    width:100%;
+
+    padding:10px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:#21100e;
+
+    color:#ff432e;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* PAYMENT */
+
+.payment-section{
+    margin:25px 15px;
+
+    padding:22px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #151515,
+        #090909
+    );
+
+    border:1px solid #3b1712;
+
+    border-radius:24px;
+}
+
+.payment-title{
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    margin-bottom:20px;
+}
+
+.payment-title-icon{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:14px;
+
+    background:#27100d;
+
+    font-size:23px;
+}
+
+.payment-title h2{
+    font-size:21px;
+}
+
+.payment-title p{
+    color:#888;
+
+    font-size:12px;
+
+    margin-top:4px;
+}
+
+.payment-tabs{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:8px;
+
+    background:#101010;
+
+    padding:5px;
+
+    border-radius:15px;
+}
+
+.payment-tabs button{
+    border:0;
+
+    padding:13px 7px;
+
+    border-radius:11px;
+
+    background:transparent;
+
+    color:#999;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.payment-tabs button.active{
+    background:#ff3218;
+    color:#fff;
+}
+
+.demo-card{
+    margin-top:20px;
+
+    padding:22px;
+
+    min-height:180px;
+
+    border-radius:20px;
+
+    background:
+    radial-gradient(
+        circle at 90% 20%,
+        #ff321822,
+        transparent 35%
+    ),
+    linear-gradient(
+        145deg,
+        #181818,
+        #090909
+    );
+
+    border:1px solid #35201d;
+}
+
+.bank-label{
+    color:#888;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+}
+
+.demo-card h3{
+    margin-top:15px;
+
+    font-size:20px;
+}
+
+.demo-number{
+    margin-top:25px;
+
+    font-size:19px;
+
+    letter-spacing:3px;
+
+    color:#ddd;
+}
+
+.demo-card p{
+    margin-top:15px;
+
+    color:#777;
+
+    font-size:10px;
+
+    line-height:1.5;
+}
+
+.amount-label{
+    display:block;
+
+    margin:22px 0 10px;
+
+    color:#aaa;
+}
+
+.amounts{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:8px;
+}
+
+.amounts button{
+    padding:13px 5px;
+
+    border-radius:12px;
+
+    border:1px solid #292929;
+
+    background:#171717;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.amounts button:active{
+    background:#ff3218;
+}
+
+.confirm-payment{
+    width:100%;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border:0;
+
+    border-radius:13px;
+
+    background:#ff3218;
+
+    color:#fff;
+
+    font-weight:900;
+
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+/* PROFILE */
+
+.profile{
+    margin:20px 15px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #171717,
+        #0d0d0d
+    );
+
+    border:1px solid #292929;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    text-align:center;
+}
+
+.avatar{
+    width:76px;
+    height:76px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#171717;
+
+    border:2px solid #ff3218;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:42px;
+}
+
+.profile h2{
+    margin:12px 0 5px;
+}
+
+.player-id{
+    display:inline-block;
+
+    background:#222;
+
+    color:#aaa;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:11px;
+}
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.stat{
+    background:#1b1b1b;
+
+    padding:17px;
+
+    border-radius:17px;
+}
+
+.stat small{
+    color:#888;
+}
+
+.stat strong{
+    display:block;
+
+    margin-top:7px;
+
+    font-size:19px;
+}
+
+.red{
+    color:#ff3218;
+}
+
+/* MENU */
+
+.menu-title{
+    color:#777;
+
+    font-weight:bold;
+
+    margin:25px 0 12px;
+}
+
+.menu-item{
+    background:#111;
+
+    border:1px solid #242424;
+
+    border-radius:18px;
+
+    padding:19px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+    cursor:pointer;
+}
+
+.menu-left{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.menu-icon{
+    width:43px;
+    height:43px;
+
+    border-radius:50%;
+
+    background:#191919;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:20px;
+}
+
+.menu-item span{
+    color:#888;
+
+    font-size:23px;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+    position:fixed;
+
+    bottom:10px;
+
+    left:10px;
+    right:10px;
+
+    height:74px;
+
+    background:#151515ee;
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid #303030;
+
+    border-radius:22px;
+
     z-index:100;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    align-items:center;
 }
 
-@media(max-width:600px){
-    .hero{
-        min-height:90vh;
-    }
+.nav-item{
+    text-align:center;
 
-    .hero p{
-        font-size:16px;
-    }
+    color:#777;
 
-    section{
-        padding:55px 15px;
-    }
+    font-size:10px;
 
-    .section-title{
-        font-size:30px;
-    }
+    font-weight:bold;
 
-    .form-box{
-        padding:20px;
-    }
+    cursor:pointer;
 }
+
+.nav-icon{
+    font-size:21px;
+
+    margin-bottom:3px;
+}
+
+.nav-item.active{
+    color:#fff;
+}
+
+.nav-item.active .nav-icon{
+    color:#ff3218;
+}
+
+.center-menu{
+    width:58px;
+    height:58px;
+
+    background:#ff3218;
+
+    border:5px solid #090909;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:24px;
+
+    margin:-28px auto 0;
+
+    box-shadow:
+    0 0 25px #ff321855;
+
+    cursor:pointer;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+
+    top:95px;
+    left:50%;
+
+    transform:
+    translateX(-50%)
+    translateY(-20px);
+
+    background:#191919;
+
+    border:1px solid #ff3218;
+
+    padding:13px 20px;
+
+    border-radius:12px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:200;
+
+    white-space:nowrap;
+
+    font-size:13px;
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+/* DESKTOP */
+
+@media(min-width:700px){
+
+    .hero,
+    .section,
+    .profile,
+    .payment-section{
+        max-width:900px;
+
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .games{
+        display:grid;
+
+        grid-template-columns:
+        repeat(4,1fr);
+
+        overflow:visible;
+    }
+
+    .game{
+        min-width:0;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<header class="hero">
-<div class="container">
 
-<div class="badge">🚀 SİZİN İDEYANIZ — BİZİM DİZAYNIMIZ</div>
+<!-- TOAST -->
 
-<h1>Saytını Yarat</h1>
-
-<p>
-Biznesin, mağazan və ya şəxsi layihən üçün
-müasir, sürətli və mobil uyğun sayt sifariş et.
-İdeyanı bizə göndər, qalanını biz hazırlayaq.
-</p>
-
-<div class="buttons">
-<a href="#sifaris" class="btn primary">🚀 Saytımı Sifariş Et</a>
-<a href="#saytlar" class="btn secondary">Sayt Növlərinə Bax</a>
+<div class="toast" id="toast">
+    Demo əməliyyat
 </div>
 
-</div>
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <div class="panda">
+            🐼
+        </div>
+
+        <h1>
+            PANDA
+            <span>KAZİNO</span>
+        </h1>
+
+    </div>
+
+
+    <div class="balance">
+
+        <div>
+
+            <small>
+                Virtual balans
+            </small>
+
+            <strong id="balance">
+                1000 xal
+            </strong>
+
+        </div>
+
+        <div
+            class="plus"
+            onclick="addPoints()"
+        >
+            +
+        </div>
+
+    </div>
+
 </header>
 
-<section id="saytlar">
 
-<h2 class="section-title">Nə cür sayt istəyirsən?</h2>
+<!-- HERO -->
 
-<p class="section-text">
-Sən seç, biz hazırlayaq.
-</p>
+<section class="hero">
 
-<div class="cards">
+    <div class="hero-content">
 
-<div class="card">
-<div class="icon">🏢</div>
-<h3>Biznes Saytı</h3>
-<p>Şirkət, xidmət və biznesinizi təqdim edən peşəkar sayt.</p>
-</div>
+        <div class="hero-label">
+            🐼 PANDA KAZİNO
+        </div>
 
-<div class="card">
-<div class="icon">🛒</div>
-<h3>Onlayn Mağaza</h3>
-<p>Məhsullarınızı internetdə təqdim etmək üçün mağaza saytı.</p>
-</div>
+        <h2>
+            ƏYLƏNCƏNİN<br>
+            YENİ ÜNVANI
+        </h2>
 
-<div class="card">
-<div class="icon">📱</div>
-<h3>Mobil Sayt</h3>
-<p>Telefonlarda sürətli və rahat işləyən müasir dizayn.</p>
-</div>
+        <p>
+            Demo oyunları kəşf et və
+            virtual xallarla əylən.
+        </p>
 
-<div class="card">
-<div class="icon">🎨</div>
-<h3>Fərdi Dizayn</h3>
-<p>Sənin ideyana uyğun tam fərdi sayt hazırlanması.</p>
-</div>
+        <button
+            class="demo-btn"
+            onclick="scrollGames()"
+        >
+            🎮 OYUNLARA BAX
+        </button>
 
-</div>
-</section>
-
-<section>
-
-<h2 class="section-title">Niyə bizi seçməlisən?</h2>
-
-<p class="section-text">
-Sadə sifariş. Müasir görünüş. Mobil uyğunluq.
-</p>
-
-<div class="cards">
-
-<div class="card">
-<div class="icon">⚡</div>
-<h3>Sürətli</h3>
-<p>Saytların sürətli açılması və rahat istifadə üçün hazırlanır.</p>
-</div>
-
-<div class="card">
-<div class="icon">📲</div>
-<h3>Mobil Uyğun</h3>
-<p>Telefon, planşet və kompüter ekranlarına uyğun dizayn.</p>
-</div>
-
-<div class="card">
-<div class="icon">✨</div>
-<h3>Müasir Dizayn</h3>
-<p>Diqqətçəkən və professional görünüş.</p>
-</div>
-
-<div class="card">
-<div class="icon">💬</div>
-<h3>Birbaşa Əlaqə</h3>
-<p>Sifarişdən əvvəl istəklərini bizə bildirə bilərsən.</p>
-</div>
-
-</div>
-</section>
-
-<section id="sifaris">
-
-<h2 class="section-title">Saytını İndi Sifariş Et 🚀</h2>
-
-<p class="section-text">
-Formanı doldur, sifariş məlumatların WhatsApp-a göndərilsin.
-</p>
-
-<div class="form-box">
-
-<form id="orderForm">
-
-<label>Adınız</label>
-<input type="text" id="name" placeholder="Adınızı yazın" required>
-
-<label>Telefon nömrəsi</label>
-<input type="tel" id="phone" placeholder="+994 XX XXX XX XX" required>
-
-<label>Sayt növü</label>
-<select id="type" required>
-<option value="">Seçim edin</option>
-<option>Biznes saytı</option>
-<option>Onlayn mağaza</option>
-<option>Şəxsi sayt</option>
-<option>Mobil sayt</option>
-<option>Fərdi layihə</option>
-</select>
-
-<label>Sayt haqqında məlumat</label>
-<textarea id="message" placeholder="Saytda nələrin olmasını istəyirsiniz?"></textarea>
-
-<button class="submit" type="submit">
-🚀 SİFARİŞİ GÖNDƏR
-</button>
-
-</form>
-
-</div>
-</section>
-
-<section class="contact">
-
-<h2 class="section-title">Sualın var?</h2>
-
-<div class="contact-box">
-<p style="color:#aaa;line-height:1.7;">
-Sayt sifarişi və qiymət haqqında məlumat almaq üçün
-bizimlə WhatsApp vasitəsilə əlaqə saxla.
-</p>
-
-<br>
-
-<a class="btn primary"
-href="https://wa.me/994XXXXXXXXX"
-target="_blank">
-💬 WhatsApp-dan Yaz
-</a>
-
-</div>
+    </div>
 
 </section>
 
-<footer>
-© 2026 Saytını Yarat — Bütün hüquqlar qorunur.
-</footer>
 
-<a class="whatsapp"
-href="https://wa.me/994XXXXXXXXX"
-target="_blank">
-💬
-</a>
+<!-- GAMES -->
+
+<section
+    class="section"
+    id="games"
+>
+
+    <div class="section-head">
+
+        <div class="section-icon">
+            🏆
+        </div>
+
+        <div>
+
+            <h2>
+                Günün oyunları
+            </h2>
+
+            <div class="online">
+                <b>●</b>
+                Demo oyunlar aktivdir
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="games">
+
+
+        <!-- GAME 1 -->
+
+        <div class="game">
+
+            <div class="game-image">
+
+                <div class="game-emoji">
+                    💎
+                </div>
+
+                <div class="win">
+                    PLAY
+                </div>
+
+            </div>
+
+            <h3>
+                Diamond Panda
+            </h3>
+
+            <p>
+                Virtual xal oyunu
+            </p>
+
+            <button
+                class="play"
+                onclick="playGame('Diamond Panda')"
+            >
+                OYNA
+            </button>
+
+        </div>
+
+
+        <!-- GAME 2 -->
+
+        <div class="game">
+
+            <div class="game-image">
+
+                <div class="game-emoji">
+                    🏴‍☠️
+                </div>
+
+                <div class="win">
+                    PLAY
+                </div>
+
+            </div>
+
+            <h3>
+                Panda Pirate
+            </h3>
+
+            <p>
+                Virtual xal oyunu
+            </p>
+
+            <button
+                class="play"
+                onclick="playGame('Panda Pirate')"
+            >
+                OYNA
+            </button>
+
+        </div>
+
+
+        <!-- GAME 3 -->
+
+        <div class="game">
+
+            <div class="game-image">
+
+                <div class="game-emoji">
+                    💰
+                </div>
+
+                <div class="win">
+                    PLAY
+                </div>
+
+            </div>
+
+            <h3>
+                Golden Panda
+            </h3>
+
+            <p>
+                Virtual xal oyunu
+            </p>
+
+            <button
+                class="play"
+                onclick="playGame('Golden Panda')"
+            >
+                OYNA
+            </button>
+
+        </div>
+
+
+        <!-- GAME 4 -->
+
+        <div class="game">
+
+            <div class="game-image">
+
+                <div class="game-emoji">
+                    🎮
+                </div>
+
+                <div class="win">
+                    PLAY
+                </div>
+
+            </div>
+
+            <h3>
+                Panda Game
+            </h3>
+
+            <p>
+                Virtual xal oyunu
+            </p>
+
+            <button
+                class="play"
+                onclick="playGame('Panda Game')"
+            >
+                OYNA
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- PAYMENT -->
+
+<section class="payment-section">
+
+    <div class="payment-title">
+
+        <div class="payment-title-icon">
+            💳
+        </div>
+
+        <div>
+
+            <h2>
+                Virtual balans
+            </h2>
+
+            <p>
+                Demo balans üçün xal əlavə et
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="payment-tabs">
+
+        <button class="active">
+            💳 Demo əlavə et
+        </button>
+
+        <button
+            onclick="
+            showToast(
+                'Bu bölmə yalnız demo məqsədlidir'
+            )
+            "
+        >
+            🧾 Tarixçə
+        </button>
+
+    </div>
+
+
+    <div class="demo-card">
+
+        <div class="bank-label">
+            DEMO ÖDƏNİŞ
+        </div>
+
+        <h3>
+            Panda Kazino
+        </h3>
+
+        <div class="demo-number">
+            0000 0000 0000 0000
+        </div>
+
+        <p>
+            Bu kart nömrəsi yalnız nümayiş
+            üçündür. Real ödəniş qəbul edilmir.
+        </p>
+
+    </div>
+
+
+    <label class="amount-label">
+        Virtual xal seç
+    </label>
+
+
+    <div class="amounts">
+
+        <button
+            onclick="demoDeposit(100)"
+        >
+            +100 xal
+        </button>
+
+        <button
+            onclick="demoDeposit(500)"
+        >
+            +500 xal
+        </button>
+
+        <button
+            onclick="demoDeposit(1000)"
+        >
+            +1000 xal
+        </button>
+
+    </div>
+
+
+    <button
+        class="confirm-payment"
+        onclick="
+        showToast(
+            '✅ Demo balans bölməsi hazırdır'
+        )
+        "
+    >
+        DEMO BALANSI ARTIR
+    </button>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section class="profile">
+
+    <div class="avatar">
+        🐼
+    </div>
+
+    <h2>
+        Oyunçu
+    </h2>
+
+    <div class="player-id">
+        Demo istifadəçi
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <small>
+                Virtual balans
+            </small>
+
+            <strong id="profileBalance">
+                1000 xal
+            </strong>
+
+        </div>
+
+
+        <div class="stat">
+
+            <small>
+                Bonus
+            </small>
+
+            <strong class="red">
+                500 xal
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MENU -->
+
+<section class="section">
+
+    <div class="menu-title">
+        MENYU
+    </div>
+
+
+    <div
+        class="menu-item"
+        onclick="
+        showToast(
+            'Virtual pulqabı açıldı'
+        )
+        "
+    >
+
+        <div class="menu-left">
+
+            <div class="menu-icon">
+                👛
+            </div>
+
+            <strong>
+                Virtual Pulqabı
+            </strong>
+
+        </div>
+
+        <span>
+            ›
+        </span>
+
+    </div>
+
+
+    <div
+        class="menu-item"
+        onclick="
+        showToast(
+            'Demo əməliyyatlar bölməsi'
+        )
+        "
+    >
+
+        <div class="menu-left">
+
+            <div class="menu-icon">
+                🔄
+            </div>
+
+            <strong>
+                Əməliyyatlar
+            </strong>
+
+        </div>
+
+        <span>
+            ›
+        </span>
+
+    </div>
+
+
+    <div
+        class="menu-item"
+        onclick="
+        showToast(
+            'Oyun tarixçəsi açıldı'
+        )
+        "
+    >
+
+        <div class="menu-left">
+
+            <div class="menu-icon">
+                🎮
+            </div>
+
+            <strong>
+                Oyun Tarixçəsi
+            </strong>
+
+        </div>
+
+        <span>
+            ›
+        </span>
+
+    </div>
+
+
+    <div
+        class="menu-item"
+        onclick="
+        showToast(
+            'Profil bölməsi'
+        )
+        "
+    >
+
+        <div class="menu-left">
+
+            <div class="menu-icon">
+                👤
+            </div>
+
+            <strong>
+                Profil
+            </strong>
+
+        </div>
+
+        <span>
+            ›
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+
+    <div
+        class="nav-item active"
+        onclick="goHome()"
+    >
+
+        <div class="nav-icon">
+            ⌂
+        </div>
+
+        Əsas
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="scrollGames()"
+    >
+
+        <div class="nav-icon">
+            🏆
+        </div>
+
+        Oyunlar
+
+    </div>
+
+
+    <div>
+
+        <div
+            class="center-menu"
+            onclick="scrollGames()"
+        >
+            ☰
+        </div>
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="
+        showToast(
+            'Demo söhbət bölməsi'
+        )
+        "
+    >
+
+        <div class="nav-icon">
+            💬
+        </div>
+
+        Söhbət
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="
+        showToast(
+            'Profil bölməsi'
+        )
+        "
+    >
+
+        <div class="nav-icon">
+            ♙
+        </div>
+
+        Profil
+
+    </div>
+
+
+</nav>
+
 
 <script>
 
-document.getElementById("orderForm").addEventListener("submit",function(e){
 
-e.preventDefault();
+/* BALANCE */
 
-const name=document.getElementById("name").value;
-const phone=document.getElementById("phone").value;
-const type=document.getElementById("type").value;
-const message=document.getElementById("message").value;
+let balance = 1000;
 
-const text=
-"🚀 YENİ SAYT SİFARİŞİ%0A%0A"+
-"👤 Ad: "+encodeURIComponent(name)+"%0A"+
-"📞 Telefon: "+encodeURIComponent(phone)+"%0A"+
-"💻 Sayt növü: "+encodeURIComponent(type)+"%0A"+
-"📝 İstək: "+encodeURIComponent(message);
 
-window.open(
-"https://wa.me/994XXXXXXXXX?text="+text,
-"_blank"
-);
+function showToast(text){
 
-});
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = text;
+
+    toast.classList.add("show");
+
+    setTimeout(
+        function(){
+
+            toast.classList.remove("show");
+
+        },
+        1800
+    );
+
+}
+
+
+/* ADD VIRTUAL POINTS */
+
+function addPoints(){
+
+    balance += 100;
+
+    updateBalance();
+
+    showToast(
+        "🎁 100 virtual xal əlavə edildi"
+    );
+
+}
+
+
+/* UPDATE BALANCE */
+
+function updateBalance(){
+
+    document.getElementById(
+        "balance"
+    ).textContent =
+        balance + " xal";
+
+
+    document.getElementById(
+        "profileBalance"
+    ).textContent =
+        balance + " xal";
+
+}
+
+
+/* DEMO PAYMENT */
+
+function demoDeposit(points){
+
+    balance += points;
+
+    updateBalance();
+
+    showToast(
+        "🎁 +" +
+        points +
+        " virtual xal əlavə edildi"
+    );
+
+}
+
+
+/* DEMO GAME */
+
+function playGame(name){
+
+    if(balance < 50){
+
+        showToast(
+            "Virtual xalınız azdır"
+        );
+
+        return;
+
+    }
+
+
+    balance -= 50;
+
+    updateBalance();
+
+
+    const result =
+        Math.floor(
+            Math.random()*201
+        ) + 50;
+
+
+    showToast(
+        "🎮 " +
+        name +
+        " başladı..."
+    );
+
+
+    setTimeout(
+        function(){
+
+            balance += result;
+
+            updateBalance();
+
+            showToast(
+                "🎉 +" +
+                result +
+                " virtual xal"
+            );
+
+        },
+        900
+    );
+
+}
+
+
+/* SCROLL TO GAMES */
+
+function scrollGames(){
+
+    document
+    .getElementById("games")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* HOME */
+
+function goHome(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
 
 </script>
+
 
 </body>
 </html>
