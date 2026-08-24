@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080816">
+<meta name="theme-color" content="#090714">
 
-<title>Panda Kod Satışı</title>
+<title>🐼 Panda Kod Satışı</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -15,106 +16,168 @@
     font-family:Arial,Helvetica,sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     min-height:100vh;
     color:#fff;
     overflow-x:hidden;
+
     background:
-    radial-gradient(circle at 10% 10%,rgba(124,58,237,.35),transparent 30%),
-    radial-gradient(circle at 90% 10%,rgba(6,182,212,.25),transparent 30%),
-    radial-gradient(circle at 50% 100%,rgba(236,72,153,.25),transparent 35%),
-    #080816;
+        radial-gradient(
+            circle at 5% 5%,
+            rgba(168,85,247,.45),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 95% 10%,
+            rgba(6,182,212,.35),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 50% 55%,
+            rgba(236,72,153,.18),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 90%,
+            rgba(34,211,238,.22),
+            transparent 28%
+        ),
+        #080611;
 }
 
-/* ARXA İŞIQLAR */
 
-.light{
+/* =========================
+   ARXA NEON İŞIQLAR
+========================= */
+
+.bg-light{
     position:fixed;
-    width:260px;
-    height:260px;
+    width:280px;
+    height:280px;
     border-radius:50%;
     filter:blur(100px);
-    opacity:.28;
+    opacity:.30;
     pointer-events:none;
     z-index:0;
 }
 
-.light.one{
-    background:#7c3aed;
-    left:-120px;
+.bg1{
+    background:#9333ea;
+    left:-130px;
     top:-100px;
 }
 
-.light.two{
+.bg2{
     background:#06b6d4;
-    right:-120px;
-    top:30%;
+    right:-130px;
+    top:25%;
 }
 
-.light.three{
+.bg3{
     background:#ec4899;
-    left:30%;
-    bottom:-130px;
+    left:20%;
+    bottom:-150px;
 }
 
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 nav{
     position:relative;
-    z-index:5;
-    padding:20px 7%;
+    z-index:20;
+
+    width:100%;
+    padding:18px 6%;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
+    border-bottom:1px solid rgba(255,255,255,.06);
+
+    background:rgba(8,6,17,.35);
+    backdrop-filter:blur(18px);
 }
 
 .logo{
     display:flex;
     align-items:center;
     gap:11px;
-    font-size:21px;
+
+    font-size:20px;
     font-weight:900;
 }
 
-.logo-icon{
+.logo-panda{
     width:45px;
     height:45px;
-    border-radius:15px;
+
     display:flex;
-    justify-content:center;
     align-items:center;
-    font-size:25px;
+    justify-content:center;
+
+    border-radius:15px;
+
     background:
-    linear-gradient(135deg,#8b5cf6,#06b6d4);
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #d9d9e5
+        );
+
+    color:#111;
+
+    font-size:24px;
+
     box-shadow:
-    0 0 25px rgba(139,92,246,.55);
+        0 0 25px rgba(255,255,255,.25);
 }
 
-.nav-btn{
-    color:#fff;
-    text-decoration:none;
-    padding:11px 18px;
+.online{
+    padding:9px 14px;
+
     border-radius:30px;
-    border:1px solid rgba(255,255,255,.14);
-    background:rgba(255,255,255,.06);
+
+    color:#86efac;
+
+    font-size:12px;
+
+    background:rgba(34,197,94,.08);
+
+    border:1px solid rgba(34,197,94,.20);
+}
+
+.online span{
+    color:#4ade80;
 }
 
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     position:relative;
     z-index:2;
-    padding:45px 20px 70px;
+
+    padding:65px 20px 80px;
 }
 
 .hero-container{
     max-width:1120px;
     margin:auto;
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1.05fr .95fr;
+
     gap:55px;
+
     align-items:center;
 }
 
@@ -122,663 +185,1309 @@ nav{
     display:inline-flex;
     align-items:center;
     gap:8px;
+
     padding:9px 15px;
+
     border-radius:30px;
-    color:#d8d4ff;
-    background:rgba(255,255,255,.07);
-    border:1px solid rgba(255,255,255,.13);
+
+    color:#ddd6fe;
+
+    background:rgba(255,255,255,.055);
+
+    border:1px solid rgba(255,255,255,.11);
+
     font-size:13px;
-    margin-bottom:20px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+        0 0 25px rgba(139,92,246,.08);
 }
 
-.badge span{
+.badge-dot{
     width:8px;
     height:8px;
+
     border-radius:50%;
-    background:#34d399;
-    box-shadow:0 0 14px #34d399;
+
+    background:#4ade80;
+
+    box-shadow:
+        0 0 13px #4ade80;
 }
 
-h1{
-    font-size:clamp(45px,6vw,76px);
-    line-height:.98;
-    letter-spacing:-3px;
-    margin-bottom:22px;
+.hero h1{
+    font-size:clamp(48px,6vw,80px);
+
+    line-height:.93;
+
+    letter-spacing:-4px;
+
+    margin-bottom:24px;
 }
 
-.gradient{
+.hero h1 .white{
+    display:block;
+}
+
+.hero h1 .gradient{
+    display:block;
+
     background:
-    linear-gradient(
-        90deg,
-        #a78bfa,
-        #22d3ee,
-        #f472b6
-    );
+        linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #c084fc 25%,
+            #22d3ee 55%,
+            #f472b6 85%
+        );
+
     -webkit-background-clip:text;
     background-clip:text;
+
     color:transparent;
 }
 
 .hero-text{
-    color:#aaa9bd;
-    max-width:560px;
+    max-width:570px;
+
+    color:#a4a2b7;
+
     font-size:17px;
-    line-height:1.7;
-    margin-bottom:28px;
+
+    line-height:1.75;
+
+    margin-bottom:30px;
 }
 
-.hero-button{
-    display:inline-block;
+
+/* BUTTON */
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn-main{
     border:0;
-    color:white;
+
+    padding:16px 26px;
+
+    border-radius:15px;
+
+    color:#fff;
+
+    font-weight:900;
+
     cursor:pointer;
-    padding:15px 25px;
-    border-radius:14px;
-    font-weight:800;
+
     background:
-    linear-gradient(135deg,#7c3aed,#06b6d4);
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #06b6d4
+        );
+
     box-shadow:
-    0 12px 35px rgba(124,58,237,.35);
+        0 12px 40px rgba(124,58,237,.35);
+
     transition:.3s;
 }
 
-.hero-button:hover{
-    transform:translateY(-3px);
+.btn-main:hover{
+    transform:translateY(-3px) scale(1.02);
+
     box-shadow:
-    0 18px 45px rgba(124,58,237,.5);
+        0 18px 50px rgba(124,58,237,.5);
 }
 
-
-/* PANDA PREVIEW */
-
-.preview{
-    position:relative;
-}
-
-.glow{
-    position:absolute;
-    inset:10%;
-    background:
-    linear-gradient(
-        135deg,
-        #7c3aed,
-        #06b6d4,
-        #ec4899
-    );
-    filter:blur(80px);
-    opacity:.28;
-}
-
-.preview-card{
-    position:relative;
-    padding:25px;
-    border-radius:30px;
-    background:rgba(15,15,34,.82);
+.btn-secondary{
     border:1px solid rgba(255,255,255,.13);
-    box-shadow:
-    0 35px 80px rgba(0,0,0,.5),
-    inset 0 1px rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    animation:float 5s ease-in-out infinite;
+
+    padding:16px 26px;
+
+    border-radius:15px;
+
+    color:white;
+
+    background:rgba(255,255,255,.055);
+
+    cursor:pointer;
+
+    transition:.3s;
 }
 
-@keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-9px);
-    }
+.btn-secondary:hover{
+    background:rgba(255,255,255,.12);
+
+    transform:translateY(-3px);
 }
+
+
+/* =========================
+   PANDA VISUAL
+========================= */
 
 .panda-area{
-    min-height:330px;
-    border-radius:22px;
-    padding:30px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:
-    radial-gradient(
-        circle at center,
-        rgba(139,92,246,.3),
-        transparent 60%
-    );
+    position:relative;
 }
 
-.panda{
-    width:125px;
-    height:105px;
+.panda-glow{
+    position:absolute;
+
+    width:80%;
+    height:80%;
+
+    left:10%;
+    top:10%;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9333ea,
+            #06b6d4,
+            #ec4899
+        );
+
+    filter:blur(75px);
+
+    opacity:.35;
+}
+
+.panda-card{
     position:relative;
-    background:#fff;
-    border-radius:48% 48% 44% 44%;
+
+    padding:28px;
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.12),
+            rgba(255,255,255,.035)
+        );
+
+    border:1px solid rgba(255,255,255,.15);
+
     box-shadow:
-    0 0 45px rgba(255,255,255,.18);
+        0 35px 90px rgba(0,0,0,.5),
+        inset 0 1px rgba(255,255,255,.15);
+
+    backdrop-filter:blur(25px);
+
+    animation:pandaFloat 5s ease-in-out infinite;
+}
+
+@keyframes pandaFloat{
+
+    0%,100%{
+        transform:translateY(0) rotate(0);
+    }
+
+    50%{
+        transform:translateY(-10px) rotate(.5deg);
+    }
+
+}
+
+.panda-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
     margin-bottom:25px;
 }
 
-.panda:before,
-.panda:after{
-    content:"";
-    position:absolute;
-    width:38px;
-    height:38px;
-    background:#111;
+.panda-face{
+    position:relative;
+
+    width:105px;
+    height:105px;
+
     border-radius:50%;
-    top:-12px;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 35px rgba(255,255,255,.18);
 }
 
-.panda:before{
-    left:8px;
-}
-
-.panda:after{
-    right:8px;
-}
-
-.eye{
+.panda-ear{
     position:absolute;
-    width:25px;
+
+    width:34px;
     height:34px;
-    background:#111;
+
     border-radius:50%;
-    top:32px;
-    z-index:2;
+
+    background:#111;
+
+    top:-5px;
 }
 
-.eye.left{
-    left:28px;
-    transform:rotate(35deg);
+.panda-ear.left{
+    left:4px;
 }
 
-.eye.right{
-    right:28px;
-    transform:rotate(-35deg);
+.panda-ear.right{
+    right:4px;
 }
 
-.nose{
+.panda-eye{
     position:absolute;
-    width:18px;
-    height:13px;
+
+    width:27px;
+    height:35px;
+
     border-radius:50%;
+
     background:#111;
+
+    top:34px;
+}
+
+.panda-eye.left{
+    left:19px;
+
+    transform:rotate(25deg);
+}
+
+.panda-eye.right{
+    right:19px;
+
+    transform:rotate(-25deg);
+}
+
+.panda-eye:after{
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    top:7px;
+    left:7px;
+}
+
+.panda-nose{
+    position:absolute;
+
+    width:17px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#111;
+
     left:50%;
-    top:58px;
+    top:62px;
+
     transform:translateX(-50%);
-    z-index:3;
 }
 
-.panda-title{
-    font-size:28px;
+.panda-mouth{
+    position:absolute;
+
+    width:18px;
+    height:9px;
+
+    border-bottom:3px solid #111;
+
+    border-radius:50%;
+
+    left:50%;
+    top:70px;
+
+    transform:translateX(-50%);
+}
+
+.panda-label{
+    text-align:right;
+}
+
+.panda-label small{
+    display:block;
+
+    color:#9290a4;
+
+    font-size:11px;
+
+    margin-bottom:6px;
+}
+
+.panda-label strong{
+    font-size:22px;
+}
+
+.big-price{
+    font-size:44px;
+
     font-weight:900;
+
+    margin:20px 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a78bfa,
+            #22d3ee,
+            #f472b6
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
 }
 
-.panda-price{
-    margin-top:8px;
-    color:#a78bfa;
-    font-weight:800;
+.panda-info{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:10px;
+}
+
+.info{
+    padding:14px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.055);
+
+    border:1px solid rgba(255,255,255,.07);
+}
+
+.info small{
+    display:block;
+
+    color:#858397;
+
+    font-size:10px;
+
+    margin-bottom:5px;
+}
+
+.info strong{
+    font-size:14px;
 }
 
 
-/* SATIŞ BÖLMƏSİ */
+/* =========================
+   KOD BÖLMƏSİ
+========================= */
 
-.sales{
+.codes-section{
     position:relative;
     z-index:3;
-    max-width:1050px;
-    margin:0 auto 30px;
-    padding:20px;
+
+    max-width:1120px;
+
+    margin:auto;
+
+    padding:20px 20px 80px;
 }
 
-.section-title{
+.section-head{
     text-align:center;
-    font-size:32px;
-    margin-bottom:8px;
+
+    margin-bottom:32px;
 }
 
-.section-subtitle{
-    text-align:center;
-    color:#9292a8;
+.section-head h2{
+    font-size:34px;
+
+    margin-bottom:9px;
+}
+
+.section-head h2 span{
+    background:
+        linear-gradient(
+            90deg,
+            #c084fc,
+            #22d3ee
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.section-head p{
+    color:#858397;
+
     font-size:14px;
-    margin-bottom:28px;
 }
 
 
-/* KODLAR */
+/* KOD GRID */
 
-.code-grid{
+.codes-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:12px;
 }
 
 .code-card{
     position:relative;
-    padding:20px 15px;
+
+    padding:19px 15px;
+
     border-radius:20px;
-    text-align:center;
-    cursor:pointer;
-    background:rgba(255,255,255,.055);
-    border:1px solid rgba(255,255,255,.1);
-    transition:.3s;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.075),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(255,255,255,.09);
+
     overflow:hidden;
+
+    transition:.3s;
+}
+
+.code-card:before{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:100px;
+
+    border-radius:50%;
+
+    right:-55px;
+    top:-55px;
+
+    background:#8b5cf6;
+
+    filter:blur(40px);
+
+    opacity:.18;
 }
 
 .code-card:hover{
     transform:translateY(-5px);
-    border-color:#8b5cf6;
-    box-shadow:
-    0 15px 35px rgba(124,58,237,.22);
-}
 
-.code-card.selected{
-    border-color:#22d3ee;
-    background:
-    linear-gradient(
-        145deg,
-        rgba(124,58,237,.25),
-        rgba(6,182,212,.12)
-    );
+    border-color:
+        rgba(139,92,246,.45);
+
     box-shadow:
-    0 0 25px rgba(34,211,238,.13);
+        0 18px 45px rgba(0,0,0,.3);
 }
 
 .code-icon{
-    font-size:25px;
-    margin-bottom:8px;
+    width:40px;
+    height:40px;
+
+    border-radius:12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #06b6d4
+        );
+
+    box-shadow:
+        0 7px 20px rgba(124,58,237,.2);
 }
 
-.code-name{
-    color:#aaa9bd;
-    font-size:12px;
-    margin-bottom:7px;
+.code-card h3{
+    font-size:15px;
+
+    margin-bottom:5px;
+}
+
+.code-card p{
+    color:#818092;
+
+    font-size:10px;
+
+    min-height:28px;
+
+    line-height:1.4;
 }
 
 .code-price{
-    font-size:24px;
+    font-size:22px;
+
     font-weight:900;
+
+    margin-top:13px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #a78bfa
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
 }
 
-.selected-mark{
-    position:absolute;
-    top:8px;
-    right:9px;
+.choose-btn{
+    width:100%;
+
+    margin-top:13px;
+
+    padding:10px;
+
+    border:0;
+
+    border-radius:11px;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.075);
+
+    transition:.3s;
+}
+
+.choose-btn:hover{
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #06b6d4
+        );
+}
+
+
+/* =========================
+   ÖDƏNİŞ BÖLMƏSİ
+========================= */
+
+.payment-section{
     display:none;
-    color:#34d399;
-}
 
-.code-card.selected .selected-mark{
-    display:block;
-}
-
-
-/* ÖDƏNİŞ */
-
-.payment{
     position:relative;
-    z-index:3;
+    z-index:5;
+
     max-width:850px;
-    margin:0 auto 80px;
+
+    margin:0 auto 90px;
+
     padding:20px;
+}
+
+.payment-section.show{
+    display:block;
+
+    animation:paymentShow .5s ease;
+}
+
+@keyframes paymentShow{
+
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.98);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
 }
 
 .payment-box{
     padding:30px;
-    border-radius:30px;
-    background:rgba(13,13,29,.88);
+
+    border-radius:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,17,38,.96),
+            rgba(10,9,22,.96)
+        );
+
     border:1px solid rgba(255,255,255,.13);
+
     box-shadow:
-    0 30px 80px rgba(0,0,0,.48),
-    inset 0 1px rgba(255,255,255,.06);
-    backdrop-filter:blur(22px);
+        0 35px 100px rgba(0,0,0,.5),
+        0 0 50px rgba(124,58,237,.08);
+
+    backdrop-filter:blur(25px);
 }
 
 .payment-title{
     text-align:center;
+
     font-size:30px;
-    margin-bottom:8px;
+
+    margin-bottom:7px;
 }
 
 .payment-subtitle{
     text-align:center;
-    color:#9292a8;
-    font-size:14px;
+
+    color:#89879a;
+
+    font-size:13px;
+
     margin-bottom:25px;
 }
 
+
+/* SEÇİLMİŞ KOD */
+
+.selected{
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    padding:16px;
+
+    border-radius:16px;
+
+    margin-bottom:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(124,58,237,.14),
+            rgba(6,182,212,.08)
+        );
+
+    border:1px solid rgba(139,92,246,.22);
+}
+
+.selected small{
+    display:block;
+
+    color:#858397;
+
+    font-size:10px;
+
+    margin-bottom:4px;
+}
+
+.selected strong{
+    font-size:18px;
+}
+
+.selected-price{
+    font-size:24px;
+
+    font-weight:900;
+
+    color:#c4b5fd;
+}
+
+
+/* FORM */
+
 .form-group{
-    margin-bottom:18px;
+    margin-bottom:17px;
 }
 
 .form-group label{
     display:block;
-    color:#c8c8d8;
-    font-size:13px;
-    margin-bottom:8px;
+
+    color:#c5c3d4;
+
+    font-size:12px;
+
+    margin-bottom:7px;
 }
 
 .input{
     width:100%;
+
     padding:15px;
-    border-radius:14px;
-    outline:none;
-    border:1px solid rgba(255,255,255,.1);
+
     color:white;
-    background:rgba(255,255,255,.06);
+
+    outline:none;
+
+    border-radius:14px;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    background:rgba(255,255,255,.055);
+
+    font-size:14px;
+
+    transition:.3s;
 }
 
 .input:focus{
     border-color:#8b5cf6;
-    box-shadow:0 0 0 3px rgba(139,92,246,.1);
-}
 
-
-/* KART */
-
-.pay-card{
-    position:relative;
-    overflow:hidden;
-    padding:25px;
-    border-radius:25px;
-    background:
-    linear-gradient(
-        135deg,
-        rgba(124,58,237,.9),
-        rgba(6,182,212,.65)
-    );
     box-shadow:
-    0 20px 50px rgba(124,58,237,.25);
+        0 0 0 3px rgba(139,92,246,.1);
 }
 
-.pay-card:before{
-    content:"";
-    position:absolute;
-    width:220px;
-    height:220px;
-    right:-80px;
-    top:-110px;
-    border-radius:50%;
-    background:rgba(255,255,255,.12);
+
+/* TELEFON */
+
+.phone-wrap{
+    position:relative;
 }
 
-.pay-card:after{
-    content:"";
+.prefix{
     position:absolute;
-    width:150px;
-    height:150px;
-    left:-80px;
-    bottom:-80px;
+
+    left:15px;
+    top:15px;
+
+    color:#8f8da0;
+
+    font-size:14px;
+}
+
+.phone{
+    padding-left:58px;
+}
+
+
+/* =========================
+   BANK KARTI
+========================= */
+
+.bank-card{
+    position:relative;
+
+    margin-top:22px;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4c1d95,
+            #7c3aed 42%,
+            #0891b2
+        );
+
+    box-shadow:
+        0 25px 60px rgba(124,58,237,.28);
+}
+
+.bank-card:before{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    right:-110px;
+    top:-160px;
+
     border-radius:50%;
+
+    background:rgba(255,255,255,.11);
+}
+
+.bank-card:after{
+    content:"";
+
+    position:absolute;
+
+    width:160px;
+    height:160px;
+
+    left:-90px;
+    bottom:-110px;
+
+    border-radius:50%;
+
     background:rgba(255,255,255,.08);
 }
 
-.pay-top{
+.bank-top,
+.bank-number,
+.bank-bottom,
+.bank-amount{
     position:relative;
+
     z-index:2;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:30px;
 }
 
-.pay-logo{
-    font-size:18px;
+.bank-top{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:32px;
+}
+
+.bank-name{
+    font-size:17px;
+
     font-weight:900;
 }
 
 .chip{
-    width:44px;
+    width:45px;
     height:32px;
+
     border-radius:8px;
+
     background:
-    linear-gradient(135deg,#eee,#999);
+        linear-gradient(
+            135deg,
+            #f1f1f1,
+            #8d8d8d
+        );
 }
 
-.card-number{
-    position:relative;
-    z-index:2;
+.bank-number{
     font-size:21px;
+
     letter-spacing:3px;
-    margin-bottom:23px;
+
+    margin-bottom:20px;
 }
 
-.pay-bottom{
-    position:relative;
-    z-index:2;
+.bank-bottom{
     display:flex;
+
     justify-content:space-between;
-    color:rgba(255,255,255,.75);
-    font-size:11px;
+
+    font-size:10px;
+
+    color:rgba(255,255,255,.7);
 }
 
-.total{
-    position:relative;
-    z-index:2;
-    font-size:30px;
+.bank-amount{
+    margin-top:10px;
+
+    font-size:28px;
+
     font-weight:900;
-    margin-top:9px;
 }
+
+
+/* KOPYALA */
 
 .copy-btn{
     width:100%;
-    padding:15px;
+
+    padding:14px;
+
     margin-top:14px;
-    border-radius:14px;
-    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:13px;
+
+    border:1px solid rgba(255,255,255,.11);
+
     color:white;
-    background:rgba(255,255,255,.07);
+
+    background:rgba(255,255,255,.065);
+
     cursor:pointer;
+
     font-weight:800;
+
     transition:.3s;
 }
 
 .copy-btn:hover{
-    background:rgba(255,255,255,.14);
+    background:rgba(255,255,255,.13);
+
+    transform:translateY(-2px);
 }
 
 
-/* QƏBİZ */
+/* =========================
+   QƏBİZ
+========================= */
 
-.receipt{
-    margin-top:25px;
+.receipt-box{
+    margin-top:22px;
+
     padding:22px;
+
     border-radius:22px;
-    border:1px dashed rgba(255,255,255,.2);
-    background:rgba(255,255,255,.035);
+
+    border:1px dashed rgba(255,255,255,.18);
+
+    background:rgba(255,255,255,.025);
 }
 
-.receipt h3{
-    margin-bottom:8px;
+.receipt-box h3{
+    font-size:17px;
+
+    margin-bottom:7px;
 }
 
-.receipt p{
-    color:#8f8fa4;
-    font-size:13px;
+.receipt-box p{
+    color:#858397;
+
+    font-size:12px;
+
     line-height:1.6;
-    margin-bottom:16px;
+
+    margin-bottom:15px;
 }
 
 .upload{
     display:block;
+
     width:100%;
-    text-align:center;
-    padding:18px;
+
+    padding:19px;
+
     border-radius:15px;
+
+    text-align:center;
+
     cursor:pointer;
-    color:#d4d4e4;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.12);
+
+    color:#c7c5d5;
+
+    background:rgba(255,255,255,.045);
+
+    border:1px solid rgba(255,255,255,.09);
+
     transition:.3s;
 }
 
 .upload:hover{
-    background:rgba(255,255,255,.1);
-    border-color:#8b5cf6;
+    background:rgba(255,255,255,.09);
+
+    border-color:rgba(139,92,246,.4);
 }
 
 #receipt{
     display:none;
 }
 
-.preview-image{
+.receipt-preview{
     display:none;
+
     width:100%;
-    max-height:300px;
+
+    max-height:330px;
+
     object-fit:contain;
+
     margin-top:15px;
+
     border-radius:15px;
-    border:1px solid rgba(255,255,255,.1);
+
+    border:1px solid rgba(255,255,255,.10);
 }
 
 .send-btn{
     width:100%;
+
+    padding:16px;
+
     margin-top:15px;
-    padding:17px;
+
     border:0;
+
     border-radius:15px;
-    color:white;
-    cursor:pointer;
-    font-size:15px;
+
+    color:#fff;
+
+    font-size:14px;
+
     font-weight:900;
+
+    cursor:pointer;
+
     background:
-    linear-gradient(
-        135deg,
-        #7c3aed,
-        #06b6d4
-    );
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #06b6d4
+        );
+
     box-shadow:
-    0 12px 35px rgba(124,58,237,.3);
+        0 12px 35px rgba(124,58,237,.3);
+
     transition:.3s;
 }
 
 .send-btn:hover{
     transform:translateY(-2px);
+
+    box-shadow:
+        0 17px 45px rgba(124,58,237,.45);
 }
 
 .success{
     display:none;
+
     margin-top:15px;
+
     padding:15px;
+
+    text-align:center;
+
     border-radius:14px;
-    text-align:center;
+
     color:#86efac;
-    background:rgba(34,197,94,.12);
-    border:1px solid rgba(34,197,94,.25);
-}
 
-.info{
-    margin-top:20px;
-    padding:16px;
-    border-radius:15px;
-    color:#9292a8;
-    text-align:center;
+    background:rgba(34,197,94,.09);
+
+    border:1px solid rgba(34,197,94,.20);
+
     font-size:12px;
+
     line-height:1.6;
-    background:rgba(255,255,255,.035);
 }
 
 
-/* MOBİL */
+/* INFO */
 
-@media(max-width:850px){
+.security{
+    margin-top:18px;
+
+    padding:14px;
+
+    text-align:center;
+
+    color:#7f7d90;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.025);
+}
+
+
+/* FOOTER */
+
+footer{
+    position:relative;
+
+    z-index:2;
+
+    padding:25px 20px 35px;
+
+    text-align:center;
+
+    color:#676576;
+
+    font-size:11px;
+
+    border-top:1px solid rgba(255,255,255,.05);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
 
     .hero-container{
         grid-template-columns:1fr;
     }
 
-    .code-grid{
-        grid-template-columns:repeat(2,1fr);
+    .panda-area{
+        max-width:600px;
+
+        width:100%;
+
+        margin:auto;
     }
 
-    .preview{
-        max-width:600px;
-        margin:auto;
-        width:100%;
+    .codes-grid{
+        grid-template-columns:
+            repeat(4,1fr);
     }
+
 }
 
-@media(max-width:500px){
+@media(max-width:750px){
+
+    .codes-grid{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:550px){
 
     nav{
-        padding:17px 20px;
+        padding:15px 18px;
     }
 
     .logo{
-        font-size:17px;
+        font-size:16px;
     }
 
-    .logo-icon{
+    .logo-panda{
         width:38px;
         height:38px;
+
+        font-size:20px;
     }
 
-    .nav-btn{
-        padding:9px 14px;
-        font-size:13px;
+    .online{
+        font-size:9px;
+
+        padding:8px 10px;
     }
 
     .hero{
-        padding-top:30px;
+        padding-top:40px;
     }
 
-    h1{
-        font-size:45px;
-        letter-spacing:-2px;
+    .hero h1{
+        font-size:48px;
+
+        letter-spacing:-3px;
     }
 
     .hero-text{
-        font-size:15px;
+        font-size:14px;
     }
 
-    .hero-button{
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons button{
         width:100%;
     }
 
-    .preview-card{
-        padding:16px;
+    .panda-card{
+        padding:20px;
+
+        border-radius:25px;
     }
 
-    .panda-area{
-        min-height:280px;
+    .panda-face{
+        width:80px;
+        height:80px;
     }
 
-    .code-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
+    .panda-eye{
+        width:21px;
+        height:28px;
+
+        top:27px;
+    }
+
+    .panda-eye.left{
+        left:14px;
+    }
+
+    .panda-eye.right{
+        right:14px;
+    }
+
+    .panda-nose{
+        top:49px;
+    }
+
+    .panda-mouth{
+        top:57px;
+    }
+
+    .panda-ear{
+        width:28px;
+        height:28px;
+    }
+
+    .big-price{
+        font-size:34px;
+    }
+
+    .codes-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:9px;
     }
 
     .code-card{
-        padding:17px 10px;
+        padding:15px 12px;
     }
 
     .code-price{
-        font-size:21px;
+        font-size:20px;
     }
 
-    .payment{
+    .section-head h2{
+        font-size:28px;
+    }
+
+    .payment-section{
         padding:12px;
     }
 
     .payment-box{
         padding:20px 15px;
-        border-radius:24px;
+
+        border-radius:25px;
     }
 
     .payment-title{
         font-size:25px;
     }
 
-    .card-number{
-        font-size:17px;
+    .bank-number{
+        font-size:16px;
+
         letter-spacing:2px;
     }
 
-    .total{
-        font-size:25px;
+    .bank-amount{
+        font-size:24px;
     }
+
 }
+
+@media(max-width:350px){
+
+    .codes-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
 </style>
 </head>
 
@@ -786,9 +1495,11 @@ h1{
 <body>
 
 
-<div class="light one"></div>
-<div class="light two"></div>
-<div class="light three"></div>
+<!-- NEON İŞIQLAR -->
+
+<div class="bg-light bg1"></div>
+<div class="bg-light bg2"></div>
+<div class="bg-light bg3"></div>
 
 
 <!-- NAVBAR -->
@@ -797,7 +1508,7 @@ h1{
 
     <div class="logo">
 
-        <div class="logo-icon">
+        <div class="logo-panda">
             🐼
         </div>
 
@@ -805,11 +1516,14 @@ h1{
 
     </div>
 
-    <a href="#payment" class="nav-btn">
-        Ödəniş
-    </a>
+
+    <div class="online">
+        <span>●</span>
+        Aktivdir
+    </div>
 
 </nav>
+
 
 
 <!-- HERO -->
@@ -823,19 +1537,21 @@ h1{
 
             <div class="badge">
 
-                <span></span>
+                <div class="badge-dot"></div>
 
-                Kodlar artıq saytda
+                Panda Kod Satışı artıq onlayndır
 
             </div>
 
 
             <h1>
 
-                Panda
+                <span class="white">
+                    Kodunu seç.
+                </span>
 
                 <span class="gradient">
-                    Kod Satışı
+                    Panda ilə al.
                 </span>
 
             </h1>
@@ -843,50 +1559,114 @@ h1{
 
             <p class="hero-text">
 
-                İstədiyiniz kodu seçin, ödənişi edin
-                və qəbizinizi göndərin.
-                Sürətli və müasir sifariş sistemi.
+                İstədiyiniz kod məbləğini seçin,
+                ödənişi tamamlayın və qəbizinizi
+                göndərin. Sadə, sürətli və müasir
+                Panda Kod Satışı.
 
             </p>
 
 
-            <button
-                class="hero-button"
-                onclick="goCodes()">
+            <div class="hero-buttons">
 
-                🐼 Kod seç
+                <button
+                    class="btn-main"
+                    onclick="scrollToCodes()">
 
-            </button>
+                    🐼 Kodları gör
+
+                </button>
+
+
+                <button
+                    class="btn-secondary"
+                    onclick="scrollToPayment()">
+
+                    💳 Ödəniş bölməsi
+
+                </button>
+
+            </div>
 
         </div>
 
 
 
-        <div class="preview">
+        <!-- PANDA KART -->
 
-            <div class="glow"></div>
+        <div class="panda-area">
 
-            <div class="preview-card">
+            <div class="panda-glow"></div>
 
-                <div class="panda-area">
 
-                    <div class="panda">
+            <div class="panda-card">
 
-                        <div class="eye left"></div>
-                        <div class="eye right"></div>
-                        <div class="nose"></div>
+
+                <div class="panda-header">
+
+
+                    <div class="panda-face">
+
+                        <div class="panda-ear left"></div>
+                        <div class="panda-ear right"></div>
+
+                        <div class="panda-eye left"></div>
+                        <div class="panda-eye right"></div>
+
+                        <div class="panda-nose"></div>
+                        <div class="panda-mouth"></div>
 
                     </div>
 
 
-                    <div class="panda-title">
-                        PANDA KOD
+                    <div class="panda-label">
+
+                        <small>
+                            XÜSUSİ KODLAR
+                        </small>
+
+                        <strong>
+                            PANDA 🐼
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="big-price">
+                    10 — 700 AZN
+                </div>
+
+
+                <div class="panda-info">
+
+
+                    <div class="info">
+
+                        <small>
+                            BAŞLANĞIC
+                        </small>
+
+                        <strong>
+                            10 AZN
+                        </strong>
+
                     </div>
 
 
-                    <div class="panda-price">
-                        10 AZN — 1000 AZN
+                    <div class="info">
+
+                        <small>
+                            MAKSİMUM
+                        </small>
+
+                        <strong>
+                            700 AZN
+                        </strong>
+
                     </div>
+
 
                 </div>
 
@@ -903,220 +1683,27 @@ h1{
 <!-- KODLAR -->
 
 <section
-    class="sales"
+    class="codes-section"
     id="codes">
 
 
-    <h2 class="section-title">
-        🎁 Kod seçin
-    </h2>
+    <div class="section-head">
 
+        <h2>
+            🐼 <span>Kodunu seç</span>
+        </h2>
 
-    <p class="section-subtitle">
-        Sizə uyğun məbləği seçin
-    </p>
+        <p>
+            10 AZN-dən 700 AZN-ə qədər
+            istədiyiniz məbləği seçin
+        </p>
 
+    </div>
 
-    <div class="code-grid">
 
-
-        <div
-            class="code-card selected"
-            data-price="10"
-            onclick="selectCode(this)">
-
-            <div class="selected-mark">
-                ✓
-            </div>
-
-            <div class="code-icon">
-                🎁
-            </div>
-
-            <div class="code-name">
-                Panda Kod
-            </div>
-
-            <div class="code-price">
-                10 AZN
-            </div>
-
-        </div>
-
-
-
-        <div
-            class="code-card"
-            data-price="25"
-            onclick="selectCode(this)">
-
-            <div class="selected-mark">
-                ✓
-            </div>
-
-            <div class="code-icon">
-                🎁
-            </div>
-
-            <div class="code-name">
-                Panda Kod
-            </div>
-
-            <div class="code-price">
-                25 AZN
-            </div>
-
-        </div>
-
-
-
-        <div
-            class="code-card"
-            data-price="50"
-            onclick="selectCode(this)">
-
-            <div class="selected-mark">
-                ✓
-            </div>
-
-            <div class="code-icon">
-                🎁
-            </div>
-
-            <div class="code-name">
-                Panda Kod
-            </div>
-
-            <div class="code-price">
-                50 AZN
-            </div>
-
-        </div>
-
-
-
-        <div
-            class="code-card"
-            data-price="100"
-            onclick="selectCode(this)">
-
-            <div class="selected-mark">
-                ✓
-            </div>
-
-            <div class="code-icon">
-                🎁
-            </div>
-
-            <div class="code-name">
-                Panda Kod
-            </div>
-
-            <div class="code-price">
-                100 AZN
-            </div>
-
-        </div>
-
-
-
-        <div
-            class="code-card"
-            data-price="200"
-            onclick="selectCode(this)">
-
-            <div class="selected-mark">
-                ✓
-            </div>
-
-            <div class="code-icon">
-                💎
-            </div>
-
-            <div class="code-name">
-                Premium Kod
-            </div>
-
-            <div class="code-price">
-                200 AZN
-            </div>
-
-        </div>
-
-
-
-        <div
-            class="code-card"
-            data-price="300"
-            onclick="selectCode(this)">
-
-            <div class="selected-mark">
-                ✓
-            </div>
-
-            <div class="code-icon">
-                💎
-            </div>
-
-            <div class="code-name">
-                Premium Kod
-            </div>
-
-            <div class="code-price">
-                300 AZN
-            </div>
-
-        </div>
-
-
-
-        <div
-            class="code-card"
-            data-price="500"
-            onclick="selectCode(this)">
-
-            <div class="selected-mark">
-                ✓
-            </div>
-
-            <div class="code-icon">
-                👑
-            </div>
-
-            <div class="code-name">
-                VIP Kod
-            </div>
-
-            <div class="code-price">
-                500 AZN
-            </div>
-
-        </div>
-
-
-
-        <div
-            class="code-card"
-            data-price="1000"
-            onclick="selectCode(this)">
-
-            <div class="selected-mark">
-                ✓
-            </div>
-
-            <div class="code-icon">
-                👑
-            </div>
-
-            <div class="code-name">
-                VIP Kod
-            </div>
-
-            <div class="code-price">
-                1000 AZN
-            </div>
-
-        </div>
+    <div
+        class="codes-grid"
+        id="codesGrid">
 
     </div>
 
@@ -1127,7 +1714,7 @@ h1{
 <!-- ÖDƏNİŞ -->
 
 <section
-    class="payment"
+    class="payment-section"
     id="payment">
 
 
@@ -1135,30 +1722,41 @@ h1{
 
 
         <h2 class="payment-title">
-            💳 Ödəniş
+            💳 Ödənişi tamamla
         </h2>
 
 
         <p class="payment-subtitle">
-            Seçdiyiniz kod üçün ödənişi tamamlayın
+            Kod seçiminiz təsdiqləndi
         </p>
 
 
 
-        <!-- SEÇİLƏN KOD -->
+        <!-- SEÇİLMİŞ KOD -->
 
-        <div class="form-group">
-
-            <label>
-                Seçilmiş kod
-            </label>
+        <div class="selected">
 
 
-            <input
-                class="input"
-                id="selectedCode"
-                value="Panda Kod — 10 AZN"
-                readonly>
+            <div>
+
+                <small>
+                    SEÇİLMİŞ KOD
+                </small>
+
+                <strong id="selectedCode">
+                    Panda Kod
+                </strong>
+
+            </div>
+
+
+            <div
+                class="selected-price"
+                id="selectedPrice">
+
+                10 AZN
+
+            </div>
 
         </div>
 
@@ -1173,12 +1771,21 @@ h1{
             </label>
 
 
-            <input
-                class="input"
-                id="phone"
-                type="tel"
-                maxlength="9"
-                placeholder="50 123 45 67">
+            <div class="phone-wrap">
+
+                <span class="prefix">
+                    +994
+                </span>
+
+
+                <input
+                    id="phone"
+                    class="input phone"
+                    type="tel"
+                    maxlength="9"
+                    placeholder="50 123 45 67">
+
+            </div>
 
         </div>
 
@@ -1186,26 +1793,31 @@ h1{
 
         <!-- KART -->
 
-        <div class="pay-card">
+        <div class="bank-card">
 
 
-            <div class="pay-top">
+            <div class="bank-top">
 
-                <div class="pay-logo">
-                    🐼 PANDA PAY
+                <div class="bank-name">
+                    🐼 PANDA KOD
                 </div>
+
 
                 <div class="chip"></div>
 
             </div>
 
 
-            <div class="card-number">
+            <div
+                class="bank-number"
+                id="bankNumber">
+
                 4169 1234 5678 9012
+
             </div>
 
 
-            <div class="pay-bottom">
+            <div class="bank-bottom">
 
                 <span>
                     ÖDƏNİŞ KARTI
@@ -1219,8 +1831,8 @@ h1{
 
 
             <div
-                class="total"
-                id="total">
+                class="bank-amount"
+                id="bankAmount">
 
                 10 AZN
 
@@ -1230,7 +1842,7 @@ h1{
 
 
 
-        <!-- KOPYALA -->
+        <!-- KART KOPYALA -->
 
         <button
             class="copy-btn"
@@ -1244,18 +1856,19 @@ h1{
 
         <!-- QƏBİZ -->
 
-        <div class="receipt">
+        <div class="receipt-box">
 
 
             <h3>
-                📸 Qəbiz göndər
+                📸 Qəbizi göndər
             </h3>
 
 
             <p>
 
-                Ödənişi etdikdən sonra qəbizin
-                şəklini seçərək göndərin.
+                Ödənişi etdikdən sonra bank tətbiqindən
+                aldığınız qəbizin şəklini aşağıdakı
+                bölmədən yükləyin.
 
             </p>
 
@@ -1274,9 +1887,9 @@ h1{
 
 
             <img
-                id="previewImage"
-                class="preview-image"
-                alt="Qəbiz">
+                id="receiptPreview"
+                class="receipt-preview"
+                alt="Ödəniş qəbzi">
 
 
             <button
@@ -1289,11 +1902,11 @@ h1{
 
 
             <div
-                class="success"
-                id="success">
+                id="success"
+                class="success">
 
-                ✅ Qəbiz qəbul edildi.<br>
-                Ödəniş yoxlanıldıqdan sonra
+                ✅ Qəbiz qəbul edildi!<br>
+                Ödənişiniz yoxlanıldıqdan sonra
                 kodunuz təqdim ediləcək.
 
             </div>
@@ -1301,11 +1914,12 @@ h1{
         </div>
 
 
-        <div class="info">
 
-            🔒 Təhlükəsiz sifariş sistemi.
-            Ödəniş etdikdən sonra qəbizi göndərin.
-            Sifarişiniz yoxlanıldıqdan sonra kod təqdim olunur.
+        <div class="security">
+
+            🔒 Ödəniş etdikdən sonra qəbizi göndərin.
+            Sifariş məlumatlarınız yoxlanıldıqdan sonra
+            kodunuz təqdim ediləcək.
 
         </div>
 
@@ -1315,74 +1929,195 @@ h1{
 
 
 
+<footer>
+
+    🐼 Panda Kod Satışı
+    <br>
+    © 2026 Bütün hüquqlar qorunur.
+
+</footer>
+
+
+
 <script>
 
-/* SEÇİLƏN KOD */
 
-let selectedPrice = 10;
+/* =========================
+   KODLARI AVTOMATİK YARAT
+========================= */
 
+const prices = [];
 
-/* KOD SEÇ */
+for(let i = 10; i <= 700; i += 5){
 
-function selectCode(card){
-
-    const cards =
-        document.querySelectorAll(".code-card");
-
-
-    cards.forEach(function(item){
-
-        item.classList.remove("selected");
-
-    });
-
-
-    card.classList.add("selected");
-
-
-    selectedPrice =
-        Number(card.dataset.price);
-
-
-    document.getElementById(
-        "selectedCode"
-    ).value =
-        "Panda Kod — " +
-        selectedPrice +
-        " AZN";
-
-
-    document.getElementById(
-        "total"
-    ).innerText =
-        selectedPrice +
-        " AZN";
-
-
-    document.getElementById(
-        "payment"
-    ).scrollIntoView({
-        behavior:"smooth",
-        block:"start"
-    });
+    prices.push(i);
 
 }
 
 
-/* KODA GET */
+const grid =
+    document.getElementById("codesGrid");
 
-function goCodes(){
 
-    document.getElementById(
-        "codes"
-    ).scrollIntoView({
+prices.forEach(function(price, index){
+
+    const card =
+        document.createElement("div");
+
+    card.className =
+        "code-card";
+
+
+    let icon = "🔑";
+
+    if(price >= 50){
+        icon = "⚡";
+    }
+
+    if(price >= 100){
+        icon = "💎";
+    }
+
+    if(price >= 250){
+        icon = "🔥";
+    }
+
+    if(price >= 500){
+        icon = "👑";
+    }
+
+
+    card.innerHTML = `
+
+        <div class="code-icon">
+            ${icon}
+        </div>
+
+        <h3>
+            Panda Kod
+        </h3>
+
+        <p>
+            ${price} AZN-lik kod
+        </p>
+
+        <div class="code-price">
+            ${price} AZN
+        </div>
+
+        <button
+            class="choose-btn"
+            onclick="selectCode(${price})">
+
+            Seç →
+            
+        </button>
+
+    `;
+
+
+    grid.appendChild(card);
+
+});
+
+
+
+/* =========================
+   KOD SEÇ
+========================= */
+
+function selectCode(price){
+
+    document
+    .getElementById("selectedPrice")
+    .innerText =
+        price + " AZN";
+
+
+    document
+    .getElementById("bankAmount")
+    .innerText =
+        price + " AZN";
+
+
+    document
+    .getElementById("selectedCode")
+    .innerText =
+        "Panda Kod — " + price + " AZN";
+
+
+    const payment =
+        document.getElementById("payment");
+
+
+    payment.classList.add("show");
+
+
+    setTimeout(function(){
+
+        payment.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    },100);
+
+}
+
+
+
+/* =========================
+   ÖDƏNİŞƏ GET
+========================= */
+
+function scrollToPayment(){
+
+    const payment =
+        document.getElementById("payment");
+
+
+    if(
+        !payment.classList.contains("show")
+    ){
+
+        alert(
+            "Əvvəlcə almaq istədiyiniz kodu seçin 🐼"
+        );
+
+        scrollToCodes();
+
+        return;
+
+    }
+
+
+    payment.scrollIntoView({
         behavior:"smooth"
     });
 
 }
 
 
-/* KART KOPYALA */
+
+/* =========================
+   KODLARA GET
+========================= */
+
+function scrollToCodes(){
+
+    document
+    .getElementById("codes")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+
+/* =========================
+   KARTI KOPYALA
+========================= */
 
 function copyCard(){
 
@@ -1417,22 +2152,28 @@ function copyCard(){
 }
 
 
-/* ALTERNATİV KOPYALAMA */
-
 function fallbackCopy(text){
 
     const area =
         document.createElement("textarea");
 
+
     area.value = text;
 
-    area.style.position = "fixed";
-    area.style.opacity = "0";
+    area.style.position =
+        "fixed";
+
+    area.style.opacity =
+        "0";
+
 
     document.body.appendChild(area);
 
+
     area.focus();
+
     area.select();
+
 
     try{
 
@@ -1443,17 +2184,17 @@ function fallbackCopy(text){
     }catch(error){
 
         alert(
-            "Kart nömrəsi: " + text
+            "Kart nömrəsi: " +
+            text
         );
 
     }
+
 
     document.body.removeChild(area);
 
 }
 
-
-/* KOPYALANDI */
 
 function copied(){
 
@@ -1475,7 +2216,10 @@ function copied(){
 }
 
 
-/* QƏBİZ ÖNİZLƏMƏ */
+
+/* =========================
+   QƏBİZ ÖNİZLƏMƏ
+========================= */
 
 function previewReceipt(event){
 
@@ -1484,16 +2228,14 @@ function previewReceipt(event){
 
 
     if(!file){
-
         return;
-
     }
 
 
     if(!file.type.startsWith("image/")){
 
         alert(
-            "Yalnız şəkil faylı seçə bilərsiniz."
+            "Zəhmət olmasa qəbizin şəklini seçin."
         );
 
         event.target.value = "";
@@ -1512,7 +2254,7 @@ function previewReceipt(event){
 
             const image =
                 document.getElementById(
-                    "previewImage"
+                    "receiptPreview"
                 );
 
 
@@ -1531,34 +2273,46 @@ function previewReceipt(event){
 }
 
 
-/* QƏBİZ GÖNDƏR */
+
+/* =========================
+   QƏBİZ GÖNDƏR
+========================= */
 
 function sendReceipt(){
 
     const phone =
-        document.getElementById(
-            "phone"
-        ).value.trim();
+        document
+        .getElementById("phone")
+        .value
+        .trim();
 
 
     const file =
-        document.getElementById(
-            "receipt"
-        ).files[0];
+        document
+        .getElementById("receipt")
+        .files[0];
 
 
     if(!phone){
 
         alert(
-            "Zəhmət olmasa telefon nömrəsini daxil edin."
+            "Zəhmət olmasa telefon nömrənizi daxil edin."
         );
+
+        document
+        .getElementById("phone")
+        .focus();
 
         return;
 
     }
 
 
-    if(phone.length !== 9){
+    const cleanPhone =
+        phone.replace(/\D/g,"");
+
+
+    if(cleanPhone.length !== 9){
 
         alert(
             "Telefon nömrəsini düzgün daxil edin."
@@ -1572,7 +2326,7 @@ function sendReceipt(){
     if(!file){
 
         alert(
-            "Əvvəlcə qəbiz şəklini seçin."
+            "Əvvəlcə ödəniş qəbzini yükləyin."
         );
 
         return;
@@ -1581,13 +2335,17 @@ function sendReceipt(){
 
 
     const success =
-        document.getElementById(
-            "success"
-        );
+        document.getElementById("success");
 
 
     success.style.display =
         "block";
+
+
+    success.innerHTML =
+        "✅ Qəbiz qəbul edildi!<br>" +
+        "Ödənişiniz yoxlanıldıqdan sonra " +
+        "kodunuz təqdim ediləcək.";
 
 
     success.scrollIntoView({
