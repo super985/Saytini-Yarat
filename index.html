@@ -14,27 +14,29 @@
 }
 
 :root{
-    --bg:#070711;
-    --card:#111020;
-    --card2:#17142a;
+    --bg:#05050b;
+    --card:#100d1d;
     --purple:#9b4dff;
-    --purple2:#6d28d9;
+    --purple2:#641cff;
     --yellow:#ffc400;
-    --green:#35e86b;
-    --pink:#ff3e76;
-    --text:#fff;
-    --muted:#aaa7bd;
-    --border:rgba(255,255,255,.10);
+    --green:#36ed76;
+    --pink:#ff3d83;
+    --white:#fff;
+    --muted:#aaa7ba;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:
-        radial-gradient(circle at 15% 5%,rgba(128,43,255,.25),transparent 25%),
-        radial-gradient(circle at 90% 15%,rgba(255,0,119,.12),transparent 25%),
-        radial-gradient(circle at 50% 60%,rgba(91,0,255,.10),transparent 30%),
-        #070711;
-    color:var(--text);
     min-height:100vh;
+    color:#fff;
+    background:
+        radial-gradient(circle at 15% 5%,rgba(117,31,255,.22),transparent 25%),
+        radial-gradient(circle at 90% 15%,rgba(255,0,119,.12),transparent 24%),
+        radial-gradient(circle at 50% 70%,rgba(74,0,255,.10),transparent 30%),
+        #05050b;
     overflow-x:hidden;
 }
 
@@ -43,14 +45,15 @@ body:before{
     position:fixed;
     inset:0;
     pointer-events:none;
-    background-image:
-        radial-gradient(circle,rgba(255,255,255,.18) 1px,transparent 1px);
-    background-size:90px 90px;
-    opacity:.08;
     z-index:-1;
+    opacity:.13;
+    background-image:
+        radial-gradient(circle,#fff 1px,transparent 1px);
+    background-size:90px 90px;
 }
 
-button,input{
+button,
+input{
     font:inherit;
 }
 
@@ -63,18 +66,18 @@ button{
     margin:auto;
 }
 
-/* =========================
+/* ================================
    NAVBAR
-========================= */
+================================ */
 
 .navbar{
-    height:86px;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(5,5,12,.80);
-    backdrop-filter:blur(22px);
+    height:82px;
     position:sticky;
     top:0;
     z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    background:rgba(4,4,10,.82);
+    backdrop-filter:blur(22px);
 }
 
 .nav-inner{
@@ -88,344 +91,453 @@ button{
 .logo{
     display:flex;
     align-items:center;
-    gap:11px;
-    min-width:190px;
+    gap:10px;
 }
 
 .logo-panda{
-    width:55px;
-    height:55px;
-    border-radius:17px;
+    width:52px;
+    height:52px;
+    border-radius:16px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:34px;
-    background:
-        linear-gradient(145deg,#fff,#dcdcdc);
+    font-size:33px;
+    background:linear-gradient(145deg,#fff,#d5d5d5);
     box-shadow:
-        0 0 20px rgba(255,255,255,.18),
-        0 0 35px rgba(155,77,255,.20);
-    transform:rotate(-3deg);
-}
-
-.logo-text{
-    line-height:1;
+        0 0 20px rgba(255,255,255,.16),
+        0 0 35px rgba(155,77,255,.35);
 }
 
 .logo-text strong{
     display:block;
     color:#ffc400;
-    font-size:21px;
+    font-size:20px;
     letter-spacing:1px;
-    text-shadow:0 0 15px rgba(255,196,0,.30);
+    text-shadow:0 0 15px rgba(255,196,0,.4);
 }
 
 .logo-text span{
     display:block;
-    color:#fff;
-    font-size:17px;
+    font-size:15px;
     font-weight:900;
     margin-top:4px;
-    letter-spacing:.5px;
 }
 
 .nav-links{
     display:flex;
-    align-items:center;
-    gap:6px;
-    padding:6px;
+    gap:5px;
+    padding:5px;
     border:1px solid rgba(255,255,255,.08);
-    background:rgba(17,17,29,.85);
-    border-radius:14px;
+    border-radius:13px;
+    background:rgba(20,18,32,.8);
 }
 
 .nav-links button{
     border:0;
-    color:#c9c7d3;
     background:transparent;
-    padding:11px 16px;
+    color:#aaa7b7;
+    padding:10px 14px;
     border-radius:9px;
-    font-size:13px;
-    transition:.2s;
+    font-size:12px;
 }
 
 .nav-links button:hover,
 .nav-links button.active{
     color:#fff;
-    background:#17172a;
-    box-shadow:
-        inset 0 0 0 1px rgba(255,196,0,.25),
-        0 0 18px rgba(155,77,255,.08);
+    background:#211b35;
 }
 
 .account-btn{
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:12px;
-    padding:13px 18px;
-    background:linear-gradient(135deg,#ffd83b,#ffad00);
-    color:#15110a;
+    border:1px solid #ffc400;
+    border-radius:11px;
+    padding:12px 17px;
     font-weight:900;
-    box-shadow:0 0 28px rgba(255,196,0,.18);
-    transition:.2s;
-}
-
-.account-btn:hover{
-    transform:translateY(-2px);
-    box-shadow:0 0 35px rgba(255,196,0,.28);
+    background:linear-gradient(135deg,#ffe15a,#ffae00);
+    color:#151109;
+    box-shadow:0 0 25px rgba(255,196,0,.18);
 }
 
 .mobile-menu{
     display:none;
+    border:0;
+    background:#1c1730;
+    color:#fff;
+    padding:10px;
+    border-radius:9px;
 }
 
-/* =========================
-   HERO
-========================= */
+/* ================================
+   5D HERO
+================================ */
 
 .hero{
-    margin-top:20px;
+    margin-top:22px;
 }
 
 .hero-box{
-    min-height:470px;
-    border:1px solid rgba(155,77,255,.42);
-    border-radius:24px;
-    overflow:hidden;
+    min-height:570px;
     position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    border:1px solid rgba(159,76,255,.58);
+
     background:
-        radial-gradient(circle at 78% 45%,rgba(139,38,255,.28),transparent 25%),
-        radial-gradient(circle at 95% 100%,rgba(255,196,0,.10),transparent 25%),
-        linear-gradient(115deg,#0f0820,#0a0915 58%,#10091c);
+        radial-gradient(circle at 75% 45%,rgba(145,45,255,.35),transparent 28%),
+        radial-gradient(circle at 95% 10%,rgba(255,196,0,.14),transparent 20%),
+        linear-gradient(120deg,#090610,#140b24 48%,#07060e);
+
     box-shadow:
-        0 30px 90px rgba(0,0,0,.35),
-        inset 0 0 80px rgba(122,45,255,.06);
+        0 35px 100px rgba(0,0,0,.55),
+        inset 0 0 100px rgba(120,30,255,.10);
 }
 
 .hero-box:before{
     content:"";
     position:absolute;
-    width:480px;
-    height:480px;
+    width:650px;
+    height:650px;
+    right:-100px;
+    top:-50px;
     border-radius:50%;
-    right:35px;
-    top:-10px;
     background:
-        radial-gradient(circle,rgba(155,77,255,.28),rgba(100,30,200,.05) 45%,transparent 70%);
-    filter:blur(12px);
-    animation:pulseGlow 4s ease-in-out infinite;
+        radial-gradient(circle,
+        rgba(155,77,255,.38),
+        rgba(100,30,220,.10) 45%,
+        transparent 70%);
+    filter:blur(15px);
+    animation:heroGlow 5s ease-in-out infinite;
 }
 
-@keyframes pulseGlow{
-    0%,100%{transform:scale(1);opacity:.8}
-    50%{transform:scale(1.08);opacity:1}
+@keyframes heroGlow{
+    0%,100%{
+        transform:scale(1);
+        opacity:.75;
+    }
+    50%{
+        transform:scale(1.12);
+        opacity:1;
+    }
 }
 
-.hero-box:after{
-    content:"";
+.hero-grid{
     position:absolute;
-    width:170px;
-    height:170px;
-    right:32%;
-    bottom:-80px;
-    border-radius:50%;
-    background:rgba(255,196,0,.10);
-    filter:blur(55px);
+    inset:0;
+    opacity:.12;
+    background-image:
+        linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);
+    background-size:55px 55px;
+    transform:perspective(500px) rotateX(55deg) scale(1.5);
+    transform-origin:center bottom;
 }
 
 .hero-content{
     position:relative;
-    z-index:3;
-    padding:62px 52px;
-    width:61%;
+    z-index:10;
+    width:58%;
+    padding:72px 50px;
 }
 
 .hero-badge{
     display:inline-flex;
-    gap:8px;
     align-items:center;
-    padding:10px 16px;
-    border:1px solid rgba(161,75,255,.65);
+    gap:7px;
+    padding:10px 17px;
     border-radius:30px;
-    background:rgba(111,35,255,.12);
+    border:1px solid rgba(170,80,255,.7);
+    background:rgba(100,30,200,.13);
     box-shadow:
-        0 0 25px rgba(145,45,255,.20),
-        inset 0 0 18px rgba(155,77,255,.08);
+        0 0 25px rgba(155,77,255,.25),
+        inset 0 0 20px rgba(155,77,255,.08);
+    color:#eee;
     font-size:11px;
-    font-weight:800;
-    letter-spacing:.5px;
-    margin-bottom:24px;
+    font-weight:900;
+    margin-bottom:25px;
+    animation:badgeGlow 2.5s infinite;
 }
 
-.hero h1{
-    font-size:70px;
-    line-height:.92;
-    letter-spacing:-4px;
-    text-shadow:0 8px 30px rgba(0,0,0,.35);
+@keyframes badgeGlow{
+    50%{
+        box-shadow:
+            0 0 40px rgba(155,77,255,.4),
+            inset 0 0 25px rgba(155,77,255,.15);
+    }
 }
 
-.hero h1 .white{
+/* 5D TITLE */
+
+.hero-title{
+    position:relative;
+    font-size:72px;
+    line-height:.9;
+    letter-spacing:-5px;
+    font-weight:1000;
+    text-transform:uppercase;
+}
+
+.hero-title .panda-text{
     color:#fff;
+    position:relative;
+    text-shadow:
+        0 2px 0 #777,
+        0 5px 0 #333,
+        0 10px 25px rgba(0,0,0,.7),
+        0 0 35px rgba(255,255,255,.14);
 }
 
-.hero h1 .yellow{
+.hero-title .kod-text{
     color:#ffc400;
     text-shadow:
-        0 0 12px rgba(255,196,0,.30),
-        0 0 35px rgba(255,196,0,.18);
+        0 2px 0 #9d7000,
+        0 5px 0 #624600,
+        0 10px 25px rgba(0,0,0,.7),
+        0 0 15px rgba(255,196,0,.55),
+        0 0 45px rgba(255,196,0,.25);
+    animation:titleLight 2.5s ease-in-out infinite;
 }
 
-.hero p{
-    margin-top:22px;
-    color:#b4b1c0;
-    font-size:15px;
+@keyframes titleLight{
+    50%{
+        text-shadow:
+            0 2px 0 #9d7000,
+            0 5px 0 #624600,
+            0 10px 25px rgba(0,0,0,.7),
+            0 0 25px rgba(255,196,0,.8),
+            0 0 65px rgba(255,196,0,.4);
+    }
+}
+
+.hero-subtitle{
+    margin-top:23px;
+    color:#b9b5c7;
+    max-width:500px;
     line-height:1.7;
-    max-width:490px;
+    font-size:14px;
 }
 
 .hero-buttons{
     display:flex;
     gap:12px;
-    margin-top:28px;
+    margin-top:29px;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:15px 23px;
+    border-radius:12px;
+    font-weight:900;
+    transition:.25s;
 }
 
 .primary-btn{
+    color:#111;
     border:1px solid #ffc400;
-    background:linear-gradient(135deg,#ffdf48,#ffad00);
-    color:#161109;
-    font-weight:900;
-    padding:15px 24px;
-    border-radius:12px;
-    box-shadow:0 0 28px rgba(255,196,0,.18);
-    transition:.25s;
+    background:linear-gradient(135deg,#ffe04b,#ffad00);
+    box-shadow:0 0 30px rgba(255,196,0,.2);
 }
 
-.primary-btn:hover{
+.primary-btn:hover,
+.secondary-btn:hover{
     transform:translateY(-3px);
-    box-shadow:0 10px 30px rgba(255,196,0,.20);
 }
 
 .secondary-btn{
-    border:1px solid rgba(255,255,255,.13);
-    background:rgba(21,19,34,.85);
     color:#fff;
-    padding:15px 24px;
-    border-radius:12px;
-    transition:.25s;
+    background:#181329;
+    border:1px solid rgba(255,255,255,.13);
 }
 
-.secondary-btn:hover{
-    transform:translateY(-3px);
-    border-color:rgba(155,77,255,.6);
-}
+/* ================================
+   5D PANDA
+================================ */
 
-.panda-hero{
+.panda-stage{
     position:absolute;
-    right:3%;
-    bottom:0;
-    width:40%;
+    right:0;
+    top:0;
+    width:47%;
     height:100%;
+    z-index:5;
     display:flex;
     align-items:center;
     justify-content:center;
-    z-index:2;
+    perspective:1000px;
 }
 
-.panda-ring{
+.panda-orbit{
+    position:absolute;
+    width:390px;
+    height:390px;
+    border-radius:50%;
+    border:1px solid rgba(177,92,255,.55);
+    box-shadow:
+        0 0 35px rgba(140,40,255,.25),
+        inset 0 0 35px rgba(140,40,255,.15);
+    animation:orbit 12s linear infinite;
+}
+
+.panda-orbit:before{
+    content:"";
+    position:absolute;
+    inset:28px;
+    border-radius:50%;
+    border:1px solid rgba(255,196,0,.35);
+}
+
+.panda-orbit:after{
+    content:"";
+    position:absolute;
+    inset:62px;
+    border-radius:50%;
+    border:1px dashed rgba(255,255,255,.18);
+}
+
+@keyframes orbit{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.panda-light{
     position:absolute;
     width:330px;
     height:330px;
     border-radius:50%;
-    border:1px solid rgba(180,100,255,.28);
-    box-shadow:
-        0 0 50px rgba(135,43,255,.18),
-        inset 0 0 50px rgba(135,43,255,.08);
-    animation:ringSpin 12s linear infinite;
+    background:
+        radial-gradient(circle,
+        rgba(155,77,255,.38),
+        rgba(155,77,255,.12) 40%,
+        transparent 70%);
+    filter:blur(18px);
+    animation:pandaLight 3s ease-in-out infinite;
 }
 
-.panda-ring:before,
-.panda-ring:after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    border:1px solid rgba(255,196,0,.22);
+@keyframes pandaLight{
+    50%{
+        transform:scale(1.16);
+        opacity:.8;
+    }
 }
 
-.panda-ring:before{
-    inset:24px;
-}
-
-.panda-ring:after{
-    inset:55px;
-}
-
-@keyframes ringSpin{
-    from{transform:rotate(0deg)}
-    to{transform:rotate(360deg)}
-}
-
-.panda-big{
+.panda-3d{
     position:relative;
-    z-index:4;
-    font-size:190px;
+    z-index:10;
+    font-size:205px;
+    transform-style:preserve-3d;
     filter:
-        drop-shadow(0 0 20px rgba(255,255,255,.16))
-        drop-shadow(0 0 50px rgba(145,55,255,.55));
-    animation:floatPanda 4s ease-in-out infinite;
+        drop-shadow(0 12px 0 rgba(0,0,0,.45))
+        drop-shadow(0 20px 30px rgba(0,0,0,.65))
+        drop-shadow(0 0 22px rgba(255,255,255,.25))
+        drop-shadow(0 0 60px rgba(145,45,255,.65));
+    animation:
+        pandaFloat 4s ease-in-out infinite,
+        pandaRotate 7s ease-in-out infinite;
 }
 
-@keyframes floatPanda{
-    0%,100%{transform:translateY(0) rotate(-2deg)}
-    50%{transform:translateY(-14px) rotate(2deg)}
+@keyframes pandaFloat{
+    0%,100%{
+        transform:translateY(0) rotateY(-7deg) rotateZ(-2deg);
+    }
+    50%{
+        transform:translateY(-18px) rotateY(7deg) rotateZ(2deg);
+    }
 }
 
-.panda-floating{
+@keyframes pandaRotate{
+    0%,100%{
+        filter:
+            drop-shadow(0 12px 0 rgba(0,0,0,.45))
+            drop-shadow(0 20px 30px rgba(0,0,0,.65))
+            drop-shadow(0 0 22px rgba(255,255,255,.25))
+            drop-shadow(0 0 60px rgba(145,45,255,.65));
+    }
+    50%{
+        filter:
+            drop-shadow(0 12px 0 rgba(0,0,0,.45))
+            drop-shadow(0 20px 35px rgba(0,0,0,.65))
+            drop-shadow(0 0 35px rgba(255,255,255,.35))
+            drop-shadow(0 0 80px rgba(145,45,255,.85));
+    }
+}
+
+.particle{
     position:absolute;
-    font-size:25px;
-    opacity:.65;
-    animation:floatSmall 5s ease-in-out infinite;
+    z-index:8;
+    font-size:22px;
+    animation:particleFloat 4s ease-in-out infinite;
 }
 
-.panda-floating.one{
-    top:24%;
-    right:17%;
+.p1{
+    top:22%;
+    right:18%;
 }
 
-.panda-floating.two{
-    bottom:25%;
-    right:8%;
-    animation-delay:1.4s;
-}
-
-.panda-floating.three{
-    top:35%;
+.p2{
+    top:32%;
     left:10%;
-    animation-delay:2.2s;
+    animation-delay:1s;
 }
 
-@keyframes floatSmall{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-18px)}
+.p3{
+    bottom:23%;
+    right:12%;
+    animation-delay:2s;
 }
 
-/* =========================
+.p4{
+    bottom:17%;
+    left:20%;
+    animation-delay:1.5s;
+}
+
+@keyframes particleFloat{
+    0%,100%{
+        transform:translateY(0) scale(1);
+        opacity:.5;
+    }
+    50%{
+        transform:translateY(-22px) scale(1.2);
+        opacity:1;
+    }
+}
+
+.panda-tag{
+    position:absolute;
+    z-index:15;
+    bottom:45px;
+    right:15%;
+    padding:11px 17px;
+    border-radius:12px;
+    border:1px solid rgba(255,196,0,.5);
+    background:rgba(10,8,18,.75);
+    backdrop-filter:blur(10px);
+    color:#ffc400;
+    font-weight:900;
+    font-size:11px;
+    box-shadow:0 0 25px rgba(255,196,0,.14);
+}
+
+/* ================================
    BENEFITS
-========================= */
+================================ */
 
 .benefits{
-    margin-top:0;
     display:grid;
     grid-template-columns:repeat(4,1fr);
     border:1px solid rgba(255,255,255,.08);
-    background:rgba(16,16,28,.90);
+    border-top:0;
     border-radius:0 0 18px 18px;
+    background:#11101c;
     overflow:hidden;
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
 }
 
 .benefit{
-    padding:21px;
     display:flex;
-    gap:12px;
+    gap:11px;
+    padding:20px;
     border-right:1px solid rgba(255,255,255,.06);
 }
 
@@ -434,99 +546,94 @@ button{
 }
 
 .benefit-icon{
-    font-size:27px;
+    font-size:26px;
 }
 
 .benefit strong{
     display:block;
-    font-size:14px;
-    margin-bottom:6px;
+    font-size:13px;
+    margin-bottom:5px;
 }
 
 .benefit span{
-    color:#888597;
-    font-size:11px;
+    color:#858293;
+    font-size:10px;
     line-height:1.4;
 }
 
-/* =========================
+/* ================================
    ACCOUNT
-========================= */
+================================ */
 
 .account-section{
+    display:none;
     margin-top:22px;
-    border:1px solid rgba(154,75,255,.27);
-    background:
-        linear-gradient(135deg,rgba(20,17,40,.96),rgba(12,11,23,.96));
-    border-radius:18px;
     padding:22px;
+    border:1px solid rgba(155,77,255,.28);
+    border-radius:18px;
+    background:#100e1b;
 }
 
 .account-head{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    gap:20px;
+    justify-content:space-between;
+    gap:15px;
 }
 
 .account-user{
     display:flex;
     align-items:center;
-    gap:15px;
+    gap:13px;
 }
 
 .avatar{
-    width:70px;
-    height:70px;
+    width:65px;
+    height:65px;
     border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:34px;
-    background:radial-gradient(circle,#4d1e9e,#161126);
+    font-size:30px;
+    background:radial-gradient(circle,#4d1e9e,#141021);
     border:1px solid #9b4dff;
-    box-shadow:0 0 25px rgba(155,77,255,.35);
+    box-shadow:0 0 25px rgba(155,77,255,.3);
 }
 
 .account-user h2{
     font-size:17px;
-    margin-bottom:6px;
+    margin-bottom:5px;
 }
 
 .account-user p{
-    color:#a09dae;
-    font-size:12px;
+    color:#9995a6;
+    font-size:11px;
 }
 
 .logout{
     border:0;
-    background:#211c3a;
+    border-radius:9px;
+    padding:10px 16px;
     color:#fff;
-    padding:11px 19px;
-    border-radius:10px;
+    background:#211b35;
 }
-
-/* =========================
-   ORDERS
-========================= */
 
 .orders{
     margin-top:20px;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:14px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:13px;
     overflow:hidden;
 }
 
 .orders-head{
-    padding:16px 18px;
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    padding:15px;
     border-bottom:1px solid rgba(255,255,255,.06);
 }
 
 .orders-head h3{
-    font-size:15px;
+    font-size:14px;
 }
 
 .orders-list{
@@ -535,69 +642,64 @@ button{
 
 .order{
     display:grid;
-    grid-template-columns:70px 1.5fr 1fr 1fr;
-    gap:15px;
+    grid-template-columns:65px 1.5fr 1fr 1fr;
+    gap:14px;
     align-items:center;
-    padding:15px;
-    border:1px solid rgba(255,255,255,.06);
-    border-radius:13px;
-    background:#121121;
+    padding:13px;
     margin-bottom:8px;
+    border-radius:12px;
+    background:#151321;
+    border:1px solid rgba(255,255,255,.06);
 }
 
 .order-icon{
-    width:60px;
-    height:60px;
-    border-radius:13px;
-    background:linear-gradient(135deg,#48209b,#7728db);
+    width:55px;
+    height:55px;
+    border-radius:12px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:28px;
+    background:linear-gradient(135deg,#49209c,#7829db);
+    font-size:27px;
 }
 
 .order-title{
+    font-size:13px;
     font-weight:900;
-    font-size:14px;
 }
 
 .order-price{
     color:#ffc400;
-    font-size:19px;
+    font-size:18px;
     font-weight:900;
-    margin-top:4px;
+    margin:3px 0;
 }
 
 .order-info{
-    color:#8f8c9d;
-    font-size:11px;
-    line-height:1.7;
+    color:#888596;
+    font-size:10px;
+    line-height:1.6;
 }
 
 .status{
     display:inline-block;
-    padding:6px 10px;
+    color:#62ef8b;
+    background:rgba(53,232,107,.1);
+    padding:5px 9px;
     border-radius:20px;
-    background:rgba(34,197,94,.12);
-    color:#58e883;
-    font-size:10px;
-    font-weight:800;
+    font-size:9px;
 }
 
-/* =========================
+/* ================================
    PACKAGES
-========================= */
+================================ */
 
 .packages-section{
     margin-top:22px;
     padding:25px;
     border:1px solid rgba(155,77,255,.25);
     border-radius:18px;
-    background:rgba(12,11,23,.82);
-}
-
-.section-title{
-    margin-bottom:22px;
+    background:rgba(13,11,23,.88);
 }
 
 .section-title h2{
@@ -605,60 +707,37 @@ button{
 }
 
 .section-title p{
-    color:#9996a8;
-    font-size:13px;
-    margin-top:8px;
+    color:#9793a5;
+    font-size:12px;
+    margin-top:7px;
 }
 
 .packages{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:14px;
+    margin-top:22px;
 }
 
 .package{
     position:relative;
-    border:1px solid rgba(155,77,255,.55);
-    border-radius:15px;
-    padding:18px;
-    text-align:center;
-    background:linear-gradient(160deg,#151126,#0d0c17);
-    transition:.25s;
     overflow:hidden;
-}
-
-.package:before{
-    content:"";
-    position:absolute;
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    background:rgba(155,77,255,.10);
-    top:-45px;
-    right:-35px;
-    filter:blur(15px);
+    padding:19px;
+    text-align:center;
+    border-radius:15px;
+    border:1px solid rgba(155,77,255,.55);
+    background:linear-gradient(160deg,#171126,#0d0b16);
+    transition:.25s;
 }
 
 .package:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 40px rgba(0,0,0,.35);
-}
-
-.package:nth-child(2){
-    border-color:#c59a00;
-}
-
-.package:nth-child(3){
-    border-color:#2bbd55;
-}
-
-.package:nth-child(4){
-    border-color:#df3764;
+    transform:translateY(-6px);
+    box-shadow:0 18px 45px rgba(0,0,0,.4);
 }
 
 .package-icon{
-    font-size:43px;
-    margin:8px 0 10px;
+    font-size:40px;
+    margin-bottom:8px;
 }
 
 .package h3{
@@ -666,83 +745,95 @@ button{
 }
 
 .package p{
-    color:#aaa6b5;
-    font-size:12px;
-    margin:7px 0 16px;
+    color:#9995a6;
+    font-size:11px;
+    margin:7px 0 15px;
 }
 
-.select-package{
+.select-package,
+.small-package button{
     width:100%;
     border-radius:9px;
     padding:10px;
     color:#fff;
     background:#241344;
-    border:1px solid #8e3dff;
-    font-weight:800;
+    border:1px solid #9142ff;
+    font-weight:900;
+}
+
+.package:nth-child(2){
+    border-color:#c89b00;
 }
 
 .package:nth-child(2) .select-package{
     border-color:#ffc400;
-    background:#332a0c;
+    background:#32290b;
+}
+
+.package:nth-child(3){
+    border-color:#2bc15b;
 }
 
 .package:nth-child(3) .select-package{
-    border-color:#36d75f;
-    background:#0c2916;
+    border-color:#36df66;
+    background:#0b2815;
+}
+
+.package:nth-child(4){
+    border-color:#dd3766;
 }
 
 .package:nth-child(4) .select-package{
     border-color:#ff477b;
-    background:#2b0e19;
+    background:#2b0d18;
 }
 
-/* =========================
-   ALL PACKAGES
-========================= */
-
 .all-packages{
-    margin-top:20px;
     display:grid;
     grid-template-columns:repeat(5,1fr);
     gap:10px;
+    margin-top:18px;
 }
 
 .small-package{
-    border:1px solid rgba(255,255,255,.08);
-    background:#11101d;
-    border-radius:12px;
-    padding:15px;
+    padding:14px;
     text-align:center;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:11px;
+    background:#12101d;
 }
 
 .small-package strong{
     display:block;
-    font-size:18px;
     color:#ffc400;
+    font-size:17px;
+}
+
+.small-package span{
+    color:#777486;
+    font-size:9px;
 }
 
 .small-package button{
-    margin-top:9px;
-    border:0;
-    width:100%;
+    margin-top:8px;
     padding:8px;
-    border-radius:8px;
-    background:#211a39;
-    color:#fff;
-    font-size:11px;
+    font-size:10px;
+    background:#201a35;
+    border-color:rgba(155,77,255,.25);
 }
 
-/* =========================
+/* ================================
    STATS
-========================= */
+================================ */
 
 .stats{
     margin-top:22px;
     display:grid;
     grid-template-columns:repeat(3,1fr);
     border:1px solid rgba(255,255,255,.07);
-    background:#11101d;
     border-radius:14px;
+    overflow:hidden;
+    background:#11101c;
 }
 
 .stat{
@@ -756,144 +847,120 @@ button{
 }
 
 .stat-icon{
-    font-size:26px;
-    margin-bottom:7px;
+    font-size:25px;
+    margin-bottom:6px;
 }
 
 .stat strong{
     display:block;
-    font-size:13px;
+    font-size:12px;
 }
 
 .stat span{
-    color:#858292;
+    color:#858293;
     font-size:10px;
 }
 
-/* =========================
+/* ================================
    MODAL
-========================= */
+================================ */
 
 .modal{
+    display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.80);
-    backdrop-filter:blur(12px);
-    display:none;
+    z-index:5000;
     align-items:center;
     justify-content:center;
-    padding:20px;
-    z-index:5000;
+    padding:18px;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(12px);
 }
 
 .modal.show{
     display:flex;
-    animation:modalFade .25s ease;
-}
-
-@keyframes modalFade{
-    from{opacity:0}
-    to{opacity:1}
 }
 
 .modal-box{
     width:min(500px,100%);
     max-height:90vh;
     overflow:auto;
+    padding:24px;
+    border-radius:21px;
     border:1px solid rgba(155,77,255,.45);
     background:
-        radial-gradient(circle at 50% 0%,rgba(155,77,255,.12),transparent 35%),
+        radial-gradient(circle at 50% 0%,rgba(155,77,255,.13),transparent 38%),
         #11101e;
-    border-radius:22px;
-    padding:25px;
-    box-shadow:
-        0 30px 100px #000,
-        0 0 50px rgba(108,40,217,.10);
-    animation:modalUp .3s ease;
-}
-
-@keyframes modalUp{
-    from{
-        transform:translateY(20px) scale(.98);
-        opacity:0;
-    }
-    to{
-        transform:translateY(0) scale(1);
-        opacity:1;
-    }
+    box-shadow:0 30px 100px #000;
 }
 
 .modal-head{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
+    margin-bottom:19px;
 }
 
 .modal-head h2{
-    font-size:21px;
-}
-
-.close{
-    border:0;
-    background:#24213a;
-    color:#fff;
-    width:35px;
-    height:35px;
-    border-radius:9px;
     font-size:20px;
 }
 
-/* =========================
-   AUTH
-========================= */
+.close{
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:9px;
+    background:#24203a;
+    color:#fff;
+    font-size:20px;
+}
 
 .tabs{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:7px;
+    gap:6px;
     padding:5px;
+    margin-bottom:18px;
     background:#0b0a14;
     border-radius:10px;
-    margin-bottom:18px;
 }
 
 .tabs button{
     padding:10px;
     border:0;
     border-radius:7px;
-    color:#aaa6b7;
+    color:#9995a7;
     background:transparent;
 }
 
 .tabs button.active{
-    background:#27203d;
     color:#fff;
+    background:#29213e;
 }
 
 .form-group{
-    margin-bottom:14px;
+    margin-bottom:13px;
 }
 
 .form-group label{
     display:block;
-    font-size:11px;
-    color:#a5a2b2;
+    color:#a5a1b1;
+    font-size:10px;
     margin-bottom:6px;
 }
 
 .input{
     width:100%;
     padding:13px;
-    border-radius:10px;
-    outline:0;
     color:#fff;
-    background:#0d0c17;
-    border:1px solid rgba(255,255,255,.10);
+    outline:none;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.1);
+    background:#0c0b15;
 }
 
 .input:focus{
-    border-color:#974bff;
+    border-color:#984cff;
     box-shadow:0 0 0 3px rgba(155,77,255,.08);
 }
 
@@ -903,36 +970,34 @@ button{
     border:0;
     border-radius:10px;
     color:#111;
-    background:linear-gradient(135deg,#ffd83c,#ffad00);
+    background:linear-gradient(135deg,#ffdc46,#ffac00);
     font-weight:900;
 }
 
 .error{
-    color:#ff6d8f;
-    font-size:11px;
-    margin-bottom:12px;
     display:none;
+    color:#ff6e91;
+    font-size:10px;
+    margin-bottom:10px;
 }
 
-/* =========================
-   MODERN PAYMENT
-========================= */
+/* ================================
+   PAYMENT
+================================ */
 
 .payment-summary{
-    border:1px solid rgba(155,77,255,.35);
-    background:
-        linear-gradient(135deg,rgba(31,24,56,.95),rgba(20,16,38,.95));
-    padding:16px;
-    border-radius:14px;
-    margin-bottom:17px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:inset 0 0 25px rgba(155,77,255,.05);
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid rgba(155,77,255,.35);
+    border-radius:13px;
+    background:#1a1530;
 }
 
 .payment-summary small{
-    color:#8f8b9e;
+    color:#858192;
 }
 
 .payment-summary strong{
@@ -942,69 +1007,37 @@ button{
 
 .amount{
     color:#ffc400;
-    font-size:23px;
+    font-size:22px;
     font-weight:900;
-    text-shadow:0 0 15px rgba(255,196,0,.18);
-}
-
-/* MODERN CARD */
-
-.bank-card-wrapper{
-    position:relative;
-    margin-bottom:14px;
 }
 
 .bank-card{
-    border-radius:21px;
-    padding:23px;
-    min-height:205px;
-    background:
-        radial-gradient(circle at 90% 20%,rgba(255,255,255,.17),transparent 22%),
-        radial-gradient(circle at 10% 90%,rgba(255,196,0,.12),transparent 25%),
-        linear-gradient(135deg,#29104c,#7024bd 47%,#211039);
-    border:1px solid rgba(255,255,255,.18);
     position:relative;
+    min-height:200px;
+    padding:22px;
     overflow:hidden;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.2);
+    background:
+        radial-gradient(circle at 85% 20%,rgba(255,255,255,.18),transparent 22%),
+        linear-gradient(135deg,#281047,#7527c1 48%,#211035);
     box-shadow:
-        0 20px 45px rgba(0,0,0,.30),
-        0 0 35px rgba(116,35,210,.16);
+        0 20px 45px rgba(0,0,0,.4),
+        0 0 35px rgba(116,35,210,.18);
 }
 
-.bank-card:before{
-    content:"";
-    position:absolute;
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.09);
-    right:-100px;
-    bottom:-140px;
-}
-
-.bank-card:after{
-    content:"";
-    position:absolute;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:rgba(255,255,255,.07);
-    right:-70px;
-    top:-90px;
-    filter:blur(3px);
-}
-
-.bank-top{
+.bank-top,
+.card-bottom{
+    position:relative;
+    z-index:2;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    position:relative;
-    z-index:2;
 }
 
 .bank-brand{
-    font-size:15px;
+    font-size:14px;
     font-weight:900;
-    letter-spacing:.8px;
 }
 
 .bank-brand span{
@@ -1012,115 +1045,62 @@ button{
 }
 
 .chip{
-    width:44px;
-    height:31px;
+    width:43px;
+    height:30px;
     border-radius:7px;
-    background:
-        linear-gradient(135deg,#f4f4f4,#aaa);
-    border:1px solid rgba(255,255,255,.45);
-    position:relative;
-}
-
-.chip:after{
-    content:"";
-    position:absolute;
-    left:50%;
-    top:0;
-    width:1px;
-    height:100%;
-    background:rgba(80,80,80,.5);
+    background:linear-gradient(135deg,#eee,#999);
 }
 
 .card-number{
-    font-size:20px;
-    letter-spacing:2.3px;
-    margin:32px 0 19px;
     position:relative;
     z-index:2;
-    font-weight:700;
-    text-shadow:0 2px 5px rgba(0,0,0,.3);
+    margin:32px 0 18px;
+    font-size:19px;
+    letter-spacing:2px;
+    font-weight:800;
 }
 
-.card-bottom{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    position:relative;
-    z-index:2;
-}
-
-.card-label{
-    font-size:9px;
-    color:#d8cee3;
-    letter-spacing:.8px;
-}
-
+.card-label,
 .card-secure{
-    font-size:9px;
-    color:#d8cee3;
-    display:flex;
-    align-items:center;
-    gap:4px;
+    color:#d4cde0;
+    font-size:8px;
 }
 
 .copy-card{
     width:100%;
     padding:13px;
-    border:1px solid rgba(155,77,255,.40);
-    background:
-        linear-gradient(135deg,#211932,#171326);
+    margin:12px 0;
+    border-radius:10px;
     color:#fff;
-    border-radius:11px;
-    margin-bottom:14px;
+    background:#201931;
+    border:1px solid rgba(155,77,255,.4);
     font-weight:800;
-    transition:.25s;
-}
-
-.copy-card:hover{
-    transform:translateY(-2px);
-    border-color:#a456ff;
-    box-shadow:0 8px 25px rgba(116,35,210,.16);
 }
 
 .copy-card.copied{
-    background:linear-gradient(135deg,#103b20,#0c2817);
-    border-color:#35e86b;
-    color:#66ef91;
+    color:#6af091;
+    border-color:#36e873;
+    background:#10351d;
 }
-
-/* PAYMENT SECURITY */
 
 .payment-security{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 12px;
-    margin-bottom:15px;
-    border-radius:10px;
+    margin-bottom:14px;
+    padding:10px;
+    border-radius:9px;
+    color:#86db9c;
+    font-size:9px;
     background:rgba(53,232,107,.06);
-    border:1px solid rgba(53,232,107,.12);
-    color:#83d99b;
-    font-size:10px;
+    border:1px solid rgba(53,232,107,.13);
 }
-
-/* UPLOAD */
 
 .upload{
     display:block;
+    padding:19px;
     text-align:center;
     border:1px dashed rgba(155,77,255,.55);
-    padding:20px;
-    border-radius:13px;
-    color:#bcb8ca;
+    border-radius:12px;
+    color:#b8b4c5;
     cursor:pointer;
-    background:
-        linear-gradient(135deg,rgba(155,77,255,.05),rgba(13,12,23,.8));
-    transition:.25s;
-}
-
-.upload:hover{
-    border-color:#b36bff;
-    background:rgba(155,77,255,.08);
 }
 
 .upload input{
@@ -1134,96 +1114,67 @@ button{
     object-fit:contain;
     margin-top:12px;
     border-radius:10px;
-    border:1px solid rgba(255,255,255,.08);
 }
 
 .confirm-payment{
     width:100%;
-    padding:15px;
-    margin-top:14px;
+    padding:14px;
+    margin-top:13px;
     border:0;
-    border-radius:11px;
+    border-radius:10px;
     color:#111;
-    background:linear-gradient(135deg,#ffd83c,#ffad00);
+    background:linear-gradient(135deg,#ffdc46,#ffad00);
     font-weight:900;
-    box-shadow:0 0 25px rgba(255,196,0,.12);
 }
 
-/* =========================
-   SUCCESS SCREEN
-========================= */
+/* ================================
+   SUCCESS
+================================ */
 
 .success-card{
     display:none;
     text-align:center;
-    padding:8px 2px 2px;
 }
 
 .success-card.show{
     display:block;
-    animation:successIn .45s ease;
-}
-
-@keyframes successIn{
-    from{
-        opacity:0;
-        transform:scale(.92) translateY(15px);
-    }
-    to{
-        opacity:1;
-        transform:scale(1) translateY(0);
-    }
 }
 
 .success-icon{
-    width:92px;
-    height:92px;
-    margin:0 auto 17px;
-    border-radius:50%;
+    width:90px;
+    height:90px;
+    margin:5px auto 17px;
     display:flex;
     align-items:center;
     justify-content:center;
+    border-radius:50%;
+    color:#fff;
     font-size:45px;
-    background:
-        radial-gradient(circle,#2bea70 0%,#159c48 60%,#0e522c 100%);
-    border:4px solid rgba(80,255,145,.22);
-    box-shadow:
-        0 0 0 10px rgba(53,232,107,.05),
-        0 0 45px rgba(53,232,107,.30);
-    animation:successPulse 2s ease-in-out infinite;
-}
-
-@keyframes successPulse{
-    0%,100%{box-shadow:0 0 0 10px rgba(53,232,107,.05),0 0 45px rgba(53,232,107,.30)}
-    50%{box-shadow:0 0 0 17px rgba(53,232,107,.03),0 0 60px rgba(53,232,107,.42)}
+    background:radial-gradient(circle,#2be96f,#159847);
+    box-shadow:0 0 55px rgba(53,232,107,.35);
 }
 
 .success-card h2{
-    color:#58ed88;
-    font-size:24px;
-    letter-spacing:.4px;
+    color:#59ed89;
+    font-size:23px;
 }
 
-.success-card .success-text{
-    color:#aaa7b7;
-    font-size:12px;
+.success-text{
+    color:#aaa6b6;
+    font-size:11px;
     line-height:1.6;
-    margin:8px auto 18px;
-    max-width:350px;
+    margin:8px auto 17px;
 }
 
 .success-order{
-    padding:15px;
-    border-radius:14px;
-    background:
-        linear-gradient(135deg,rgba(53,232,107,.08),rgba(18,16,31,.95));
-    border:1px solid rgba(53,232,107,.18);
-    margin-bottom:14px;
+    padding:14px;
+    border-radius:12px;
+    background:rgba(53,232,107,.06);
+    border:1px solid rgba(53,232,107,.16);
 }
 
 .success-order small{
-    color:#8f8c9b;
-    font-size:10px;
+    color:#858292;
 }
 
 .success-amount{
@@ -1235,102 +1186,76 @@ button{
 
 .code-box{
     position:relative;
-    padding:18px 14px;
-    border-radius:15px;
-    background:
-        radial-gradient(circle at 50% 0%,rgba(155,77,255,.18),transparent 50%),
-        #0c0b16;
+    margin-top:12px;
+    padding:17px 12px;
+    border-radius:14px;
     border:1px solid rgba(155,77,255,.42);
-    margin-bottom:12px;
+    background:#0c0b15;
     overflow:hidden;
 }
 
-.code-box:before{
-    content:"";
-    position:absolute;
-    left:-30%;
-    top:0;
-    width:60%;
-    height:100%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
-    transform:skewX(-20deg);
-    animation:codeShine 3s infinite;
-}
-
-@keyframes codeShine{
-    0%{left:-60%}
-    45%,100%{left:130%}
-}
-
 .code-label{
-    color:#8e8a9b;
-    font-size:10px;
-    position:relative;
-    z-index:2;
+    color:#898595;
+    font-size:9px;
 }
 
 .success-code{
     display:block;
+    margin-top:7px;
     color:#fff;
-    font-size:25px;
-    letter-spacing:3px;
-    margin-top:8px;
-    position:relative;
-    z-index:2;
-    text-shadow:0 0 20px rgba(155,77,255,.40);
+    font-size:23px;
+    letter-spacing:2px;
 }
 
 .copy-code{
     width:100%;
-    padding:12px;
-    border:1px solid rgba(155,77,255,.35);
-    background:#1b1530;
-    color:#fff;
-    border-radius:10px;
-    font-weight:800;
     margin-top:10px;
-    position:relative;
-    z-index:2;
+    padding:11px;
+    border-radius:9px;
+    border:1px solid rgba(155,77,255,.35);
+    color:#fff;
+    background:#1c1530;
+    font-weight:800;
 }
 
 .copy-code.copied{
-    background:#12351e;
-    border-color:#35e86b;
     color:#6af091;
+    background:#12351e;
+    border-color:#36e873;
 }
 
 .success-buttons{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:9px;
+    gap:8px;
     margin-top:14px;
 }
 
 .success-home,
 .success-account{
     padding:12px;
-    border-radius:10px;
-    border:1px solid rgba(255,255,255,.10);
+    border-radius:9px;
+    border:1px solid rgba(255,255,255,.1);
+    background:#191629;
     color:#fff;
-    background:#19162a;
     font-weight:800;
 }
 
 .success-account{
     color:#111;
-    background:linear-gradient(135deg,#ffd83c,#ffad00);
+    background:linear-gradient(135deg,#ffdc46,#ffad00);
     border-color:#ffc400;
 }
 
-/* =========================
+/* ================================
    FOOTER
-========================= */
+================================ */
 
 footer{
     margin-top:22px;
     padding:28px 0;
     border-top:1px solid rgba(255,255,255,.07);
-    background:#0b0a14;
+    background:#090812;
 }
 
 .footer-inner{
@@ -1349,22 +1274,22 @@ footer{
 
 .social{
     display:flex;
-    gap:9px;
+    gap:8px;
 }
 
 .social div{
-    width:38px;
-    height:38px;
-    border-radius:10px;
+    width:37px;
+    height:37px;
     display:flex;
     align-items:center;
     justify-content:center;
+    border-radius:9px;
     background:#171525;
 }
 
-/* =========================
+/* ================================
    MOBILE
-========================= */
+================================ */
 
 @media(max-width:900px){
 
@@ -1374,44 +1299,42 @@ footer{
 
     .mobile-menu{
         display:block;
-        border:0;
-        background:#19152a;
-        color:#fff;
-        padding:11px;
-        border-radius:9px;
+    }
+
+    .hero-box{
+        min-height:auto;
     }
 
     .hero-content{
         width:100%;
-        padding:40px 25px 20px;
+        padding:45px 28px 15px;
     }
 
-    .hero h1{
-        font-size:52px;
+    .hero-title{
+        font-size:56px;
     }
 
-    .panda-hero{
+    .panda-stage{
         position:relative;
-        right:auto;
         width:100%;
-        height:260px;
+        height:320px;
     }
 
-    .panda-big{
-        font-size:140px;
+    .panda-3d{
+        font-size:150px;
     }
 
-    .panda-ring{
-        width:250px;
-        height:250px;
+    .panda-orbit{
+        width:290px;
+        height:290px;
     }
 
     .benefits{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:1fr 1fr;
     }
 
     .packages{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:1fr 1fr;
     }
 
     .all-packages{
@@ -1422,50 +1345,51 @@ footer{
 @media(max-width:600px){
 
     .navbar{
-        height:72px;
+        height:70px;
     }
 
     .logo-panda{
         width:43px;
         height:43px;
         font-size:27px;
-        border-radius:13px;
     }
 
     .logo-text strong{
-        font-size:17px;
+        font-size:16px;
     }
 
     .logo-text span{
-        font-size:14px;
+        font-size:12px;
     }
 
     .account-btn{
-        padding:10px 12px;
-        font-size:11px;
+        padding:9px 11px;
+        font-size:10px;
+    }
+
+    .hero{
+        margin-top:12px;
     }
 
     .hero-box{
-        border-radius:16px;
-        min-height:auto;
+        border-radius:19px;
     }
 
     .hero-content{
-        padding:30px 20px 5px;
+        padding:30px 19px 5px;
     }
 
     .hero-badge{
-        font-size:9px;
-        padding:8px 11px;
+        font-size:8px;
     }
 
-    .hero h1{
-        font-size:46px;
+    .hero-title{
+        font-size:44px;
         letter-spacing:-2px;
     }
 
-    .hero p{
-        font-size:13px;
+    .hero-subtitle{
+        font-size:12px;
     }
 
     .hero-buttons{
@@ -1476,17 +1400,28 @@ footer{
         width:100%;
     }
 
-    .panda-hero{
-        height:220px;
+    .panda-stage{
+        height:245px;
     }
 
-    .panda-big{
-        font-size:120px;
+    .panda-3d{
+        font-size:118px;
     }
 
-    .panda-ring{
-        width:205px;
-        height:205px;
+    .panda-orbit{
+        width:210px;
+        height:210px;
+    }
+
+    .panda-light{
+        width:230px;
+        height:230px;
+    }
+
+    .panda-tag{
+        right:20%;
+        bottom:18px;
+        font-size:8px;
     }
 
     .benefits{
@@ -1494,80 +1429,44 @@ footer{
     }
 
     .benefit{
-        padding:14px 10px;
+        padding:13px 9px;
     }
 
     .benefit-icon{
-        font-size:22px;
+        font-size:20px;
     }
 
     .benefit strong{
-        font-size:11px;
-    }
-
-    .benefit span{
-        font-size:9px;
-    }
-
-    .account-section{
-        padding:15px;
-    }
-
-    .account-head{
-        align-items:flex-start;
-    }
-
-    .account-user{
-        gap:10px;
-    }
-
-    .avatar{
-        width:53px;
-        height:53px;
-        font-size:25px;
-    }
-
-    .logout{
-        padding:8px 10px;
         font-size:10px;
     }
 
-    .order{
-        grid-template-columns:50px 1fr;
+    .benefit span{
+        font-size:8px;
     }
 
-    .order-icon{
-        width:50px;
-        height:50px;
-    }
-
-    .order-info{
-        grid-column:2;
-    }
-
+    .account-section,
     .packages-section{
         padding:15px;
     }
 
     .packages{
-        grid-template-columns:1fr 1fr;
-        gap:9px;
+        gap:8px;
     }
 
     .package{
-        padding:12px 8px;
+        padding:12px 7px;
     }
 
     .package-icon{
-        font-size:32px;
+        font-size:31px;
     }
 
     .package h3{
-        font-size:18px;
+        font-size:17px;
     }
 
     .all-packages{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:1fr 1fr;
     }
 
     .stats{
@@ -1583,33 +1482,21 @@ footer{
         border-bottom:0;
     }
 
-    .footer-inner{
-        flex-direction:column;
-        text-align:center;
+    .order{
+        grid-template-columns:50px 1fr;
     }
 
-    .bank-card{
-        min-height:190px;
-        padding:19px;
-    }
-
-    .card-number{
-        font-size:16px;
-        letter-spacing:1.8px;
-        margin:30px 0 18px;
-    }
-
-    .success-card h2{
-        font-size:21px;
-    }
-
-    .success-code{
-        font-size:21px;
-        letter-spacing:2px;
+    .order-info{
+        grid-column:2;
     }
 
     .success-buttons{
         grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
     }
 }
 </style>
@@ -1618,126 +1505,150 @@ footer{
 <body>
 
 <header class="navbar">
-    <div class="container nav-inner">
+<div class="container nav-inner">
 
-        <div class="logo">
-            <div class="logo-panda">🐼</div>
-
-            <div class="logo-text">
-                <strong>PANDA</strong>
-                <span>KOD SATIŞI</span>
-            </div>
+    <div class="logo">
+        <div class="logo-panda">🐼</div>
+        <div class="logo-text">
+            <strong>PANDA</strong>
+            <span>KOD SATIŞI</span>
         </div>
-
-        <nav class="nav-links">
-            <button class="active" onclick="goHome()">Ana səhifə</button>
-            <button onclick="goPackages()">Kod paketləri</button>
-            <button onclick="showOrders()">Sifarişlərim</button>
-            <button onclick="about()">Haqqımızda</button>
-            <button onclick="contact()">Əlaqə</button>
-        </nav>
-
-        <div style="display:flex;gap:8px;align-items:center;">
-            <button class="mobile-menu" onclick="openAuth()">☰</button>
-
-            <button class="account-btn" onclick="openAccount()">
-                👤 Hesabım
-            </button>
-        </div>
-
     </div>
+
+    <nav class="nav-links">
+        <button class="active" onclick="goHome()">Ana səhifə</button>
+        <button onclick="goPackages()">Kod paketləri</button>
+        <button onclick="showOrders()">Sifarişlərim</button>
+        <button onclick="about()">Haqqımızda</button>
+        <button onclick="contact()">Əlaqə</button>
+    </nav>
+
+    <div style="display:flex;gap:7px;align-items:center;">
+        <button class="mobile-menu" onclick="openAuth()">☰</button>
+        <button class="account-btn" onclick="openAccount()">
+            👤 Hesabım
+        </button>
+    </div>
+
+</div>
 </header>
+
 
 <main class="container">
 
+<!-- ================================
+     5D PANDA HERO
+================================ -->
+
 <section class="hero" id="home">
 
-    <div class="hero-box">
+<div class="hero-box">
 
-        <div class="hero-content">
+    <div class="hero-grid"></div>
 
-            <div class="hero-badge">
-                🛡️ GÜVƏNLİ &nbsp;•&nbsp; ⚡ SÜRƏTLİ &nbsp;•&nbsp; 🎧 7/24 XİDMƏT
-            </div>
+    <div class="hero-content">
 
-            <h1>
-                <span class="white">PANDA</span><br>
-                <span class="yellow">KOD</span>
-                <span class="white"> SATIŞI</span>
-            </h1>
-
-            <p>
-                Kodunu seç • Sifariş et • Ödəniş et •
-                Qəbzini göndər və kodunu hesabından əldə et.
-            </p>
-
-            <div class="hero-buttons">
-
-                <button class="primary-btn" onclick="goPackages()">
-                    Kod paketlərini gör 🛍
-                </button>
-
-                <button class="secondary-btn" onclick="openAuth()">
-                    👤 Qeydiyyatdan keç
-                </button>
-
-            </div>
-
+        <div class="hero-badge">
+            🐼 PREMIUM PANDA PLATFORM
+            • ⚡ SÜRƏTLİ
+            • 🛡️ GÜVƏNLİ
         </div>
 
-        <div class="panda-hero">
+        <div class="hero-title">
+            <div class="panda-text">PANDA</div>
+            <div>
+                <span class="kod-text">KOD</span>
+                <span class="panda-text"> SATIŞI</span>
+            </div>
+        </div>
 
-            <div class="panda-ring"></div>
+        <p class="hero-subtitle">
+            Panda Kod Satışı platformasına xoş gəlmisiniz.
+            Paketini seç, sifarişini tamamla və kodunu
+            hesabından rahat şəkildə əldə et.
+        </p>
 
-            <div class="panda-floating one">✨</div>
-            <div class="panda-floating two">⭐</div>
-            <div class="panda-floating three">💜</div>
+        <div class="hero-buttons">
 
-            <div class="panda-big">🐼</div>
+            <button class="primary-btn" onclick="goPackages()">
+                🛍 KOD PAKETLƏRİNƏ BAX
+            </button>
+
+            <button class="secondary-btn" onclick="openAuth()">
+                👤 HESAB YARAT
+            </button>
 
         </div>
 
     </div>
 
-    <div class="benefits">
 
-        <div class="benefit">
-            <div class="benefit-icon">🛡️</div>
-            <div>
-                <strong>100% Güvənli</strong>
-                <span>Təhlükəsiz ödəniş və məlumat qorunması</span>
-            </div>
+    <div class="panda-stage">
+
+        <div class="panda-light"></div>
+
+        <div class="panda-orbit"></div>
+
+        <div class="particle p1">✨</div>
+        <div class="particle p2">💜</div>
+        <div class="particle p3">⭐</div>
+        <div class="particle p4">⚡</div>
+
+        <div class="panda-3d">
+            🐼
         </div>
 
-        <div class="benefit">
-            <div class="benefit-icon">⚡</div>
-            <div>
-                <strong>Ani çatdırılma</strong>
-                <span>Kodlar təsdiqdən sonra təqdim edilir</span>
-            </div>
-        </div>
-
-        <div class="benefit">
-            <div class="benefit-icon">🎧</div>
-            <div>
-                <strong>7/24 Dəstək</strong>
-                <span>Hər zaman yanınızda sürətli dəstək</span>
-            </div>
-        </div>
-
-        <div class="benefit">
-            <div class="benefit-icon">%</div>
-            <div>
-                <strong>Ən uyğun qiymət</strong>
-                <span>Uyğun və sərfəli kod paketləri</span>
-            </div>
+        <div class="panda-tag">
+            ✨ 5D PREMIUM EXPERIENCE
         </div>
 
     </div>
+
+</div>
+
+
+<div class="benefits">
+
+    <div class="benefit">
+        <div class="benefit-icon">🛡️</div>
+        <div>
+            <strong>Güvənli sistem</strong>
+            <span>Təhlükəsiz sifariş prosesi</span>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">⚡</div>
+        <div>
+            <strong>Sürətli xidmət</strong>
+            <span>Sifarişlər sürətli qəbul edilir</span>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">🎧</div>
+        <div>
+            <strong>7/24 Dəstək</strong>
+            <span>Hər zaman əlaqə imkanı</span>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">💎</div>
+        <div>
+            <strong>Premium xidmət</strong>
+            <span>Müasir və rahat platforma</span>
+        </div>
+    </div>
+
+</div>
 
 </section>
 
-<section class="account-section" id="accountSection" style="display:none;">
+
+<!-- ACCOUNT -->
+
+<section class="account-section" id="accountSection">
 
     <div class="account-head">
 
@@ -1746,7 +1657,10 @@ footer{
             <div class="avatar">👤</div>
 
             <div>
-                <h2 id="welcomeUser">Xoş gəlmisiniz!</h2>
+                <h2 id="welcomeUser">
+                    Xoş gəlmisiniz!
+                </h2>
+
                 <p id="userEmail"></p>
             </div>
 
@@ -1758,13 +1672,14 @@ footer{
 
     </div>
 
+
     <div class="orders">
 
         <div class="orders-head">
-            <h3>🛍 Son Sifarişlərim</h3>
+            <h3>🛍 Sifarişlərim</h3>
 
-            <span style="color:#aaa;font-size:11px;">
-                Hesabım
+            <span style="color:#888;font-size:10px;">
+                Panda hesabı
             </span>
         </div>
 
@@ -1774,6 +1689,9 @@ footer{
 
 </section>
 
+
+<!-- PACKAGES -->
+
 <section class="packages-section" id="packages">
 
     <div class="section-title">
@@ -1781,10 +1699,11 @@ footer{
         <h2>🎟 Kod paketini seç</h2>
 
         <p>
-            10 AZN-dən 700 AZN-ə qədər
+            10 AZN-dən 700 AZN-ə qədər paketlər
         </p>
 
     </div>
+
 
     <div class="packages">
 
@@ -1792,8 +1711,8 @@ footer{
             <div class="package-icon">🎟️</div>
             <h3>10 AZN</h3>
             <p>Panda Paket Kod</p>
-
-            <button class="select-package" onclick="selectPackage(10)">
+            <button class="select-package"
+                    onclick="selectPackage(10)">
                 🛒 Seç
             </button>
         </div>
@@ -1802,8 +1721,8 @@ footer{
             <div class="package-icon">🎟️</div>
             <h3>25 AZN</h3>
             <p>Panda Paket Kod</p>
-
-            <button class="select-package" onclick="selectPackage(25)">
+            <button class="select-package"
+                    onclick="selectPackage(25)">
                 🛒 Seç
             </button>
         </div>
@@ -1812,8 +1731,8 @@ footer{
             <div class="package-icon">🎟️</div>
             <h3>50 AZN</h3>
             <p>Panda Paket Kod</p>
-
-            <button class="select-package" onclick="selectPackage(50)">
+            <button class="select-package"
+                    onclick="selectPackage(50)">
                 🛒 Seç
             </button>
         </div>
@@ -1822,403 +1741,417 @@ footer{
             <div class="package-icon">🎟️</div>
             <h3>100 AZN</h3>
             <p>Panda Paket Kod</p>
-
-            <button class="select-package" onclick="selectPackage(100)">
+            <button class="select-package"
+                    onclick="selectPackage(100)">
                 🛒 Seç
             </button>
         </div>
 
     </div>
 
+
     <div class="all-packages" id="allPackages"></div>
 
 </section>
+
+
+<!-- STATS -->
 
 <section class="stats">
 
     <div class="stat">
         <div class="stat-icon">👥</div>
         <strong>1000+ Müştəri</strong>
-        <span>Məmnun müştərilər</span>
+        <span>Məmnun istifadəçilər</span>
     </div>
 
     <div class="stat">
         <div class="stat-icon">🛡️</div>
-        <strong>Təhlükəsiz ödəniş</strong>
-        <span>Kart məlumatlarınız qorunur</span>
+        <strong>Təhlükəsiz sistem</strong>
+        <span>Məlumat qorunması</span>
     </div>
 
     <div class="stat">
-        <div class="stat-icon">🎧</div>
+        <div class="stat-icon">⚡</div>
         <strong>7/24 Aktiv</strong>
-        <span>Sürətli və etibarlı xidmət</span>
+        <span>Sürətli xidmət</span>
     </div>
 
 </section>
 
 </main>
 
+
 <footer>
 
-    <div class="container footer-inner">
+<div class="container footer-inner">
 
-        <div class="footer-logo">
-            🐼
-            <span>
-                PANDA<br>
-                KOD SATIŞI
-            </span>
-        </div>
-
-        <div style="color:#858292;font-size:11px;">
-            © 2026 Panda Kod Satışı.
-            Bütün hüquqlar qorunur.
-        </div>
-
-        <div class="social">
-            <div>➤</div>
-            <div>◎</div>
-            <div>◉</div>
-        </div>
-
+    <div class="footer-logo">
+        🐼
+        <span>
+            PANDA<br>
+            KOD SATIŞI
+        </span>
     </div>
+
+    <div style="color:#858292;font-size:10px;">
+        © 2026 Panda Kod Satışı.
+        Bütün hüquqlar qorunur.
+    </div>
+
+    <div class="social">
+        <div>➤</div>
+        <div>◎</div>
+        <div>◉</div>
+    </div>
+
+</div>
 
 </footer>
 
-<!-- AUTH MODAL -->
+
+<!-- ================================
+     AUTH MODAL
+================================ -->
 
 <div class="modal" id="authModal">
 
-    <div class="modal-box">
+<div class="modal-box">
 
-        <div class="modal-head">
+    <div class="modal-head">
 
-            <h2 id="authTitle">
-                👤 Hesaba daxil ol
-            </h2>
+        <h2 id="authTitle">
+            👤 Hesaba daxil ol
+        </h2>
 
-            <button class="close" onclick="closeAuth()">×</button>
-
-        </div>
-
-        <div class="tabs">
-
-            <button id="loginTab" class="active" onclick="showLogin()">
-                Giriş
-            </button>
-
-            <button id="registerTab" onclick="showRegister()">
-                Qeydiyyat
-            </button>
-
-        </div>
-
-        <div id="authError" class="error"></div>
-
-        <form id="loginForm" onsubmit="login(event)">
-
-            <div class="form-group">
-
-                <label>E-poçt</label>
-
-                <input
-                    class="input"
-                    id="loginEmail"
-                    type="email"
-                    placeholder="email@example.com"
-                    required>
-
-            </div>
-
-            <div class="form-group">
-
-                <label>Şifrə</label>
-
-                <input
-                    class="input"
-                    id="loginPassword"
-                    type="password"
-                    placeholder="••••••••"
-                    required>
-
-            </div>
-
-            <button class="form-btn">
-                Daxil ol
-            </button>
-
-        </form>
-
-        <form
-            id="registerForm"
-            style="display:none;"
-            onsubmit="register(event)">
-
-            <div class="form-group">
-
-                <label>Ad və soyad</label>
-
-                <input
-                    class="input"
-                    id="regName"
-                    type="text"
-                    placeholder="Ad Soyad"
-                    required>
-
-            </div>
-
-            <div class="form-group">
-
-                <label>Telefon</label>
-
-                <input
-                    class="input"
-                    id="regPhone"
-                    type="tel"
-                    placeholder="+994 50 123 45 67"
-                    required>
-
-            </div>
-
-            <div class="form-group">
-
-                <label>E-poçt</label>
-
-                <input
-                    class="input"
-                    id="regEmail"
-                    type="email"
-                    placeholder="email@example.com"
-                    required>
-
-            </div>
-
-            <div class="form-group">
-
-                <label>Şifrə</label>
-
-                <input
-                    class="input"
-                    id="regPassword"
-                    type="password"
-                    placeholder="Minimum 6 simvol"
-                    minlength="6"
-                    required>
-
-            </div>
-
-            <button class="form-btn">
-                Hesab yarat
-            </button>
-
-        </form>
+        <button class="close" onclick="closeAuth()">×</button>
 
     </div>
 
+
+    <div class="tabs">
+
+        <button id="loginTab"
+                class="active"
+                onclick="showLogin()">
+            Giriş
+        </button>
+
+        <button id="registerTab"
+                onclick="showRegister()">
+            Qeydiyyat
+        </button>
+
+    </div>
+
+
+    <div id="authError" class="error"></div>
+
+
+    <form id="loginForm"
+          onsubmit="login(event)">
+
+        <div class="form-group">
+
+            <label>E-poçt</label>
+
+            <input class="input"
+                   id="loginEmail"
+                   type="email"
+                   placeholder="email@example.com"
+                   required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Şifrə</label>
+
+            <input class="input"
+                   id="loginPassword"
+                   type="password"
+                   placeholder="••••••••"
+                   required>
+
+        </div>
+
+
+        <button class="form-btn">
+            Daxil ol
+        </button>
+
+    </form>
+
+
+    <form id="registerForm"
+          style="display:none;"
+          onsubmit="register(event)">
+
+        <div class="form-group">
+
+            <label>Ad və soyad</label>
+
+            <input class="input"
+                   id="regName"
+                   type="text"
+                   placeholder="Ad Soyad"
+                   required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Telefon</label>
+
+            <input class="input"
+                   id="regPhone"
+                   type="tel"
+                   placeholder="+994 50 123 45 67"
+                   required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>E-poçt</label>
+
+            <input class="input"
+                   id="regEmail"
+                   type="email"
+                   placeholder="email@example.com"
+                   required>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Şifrə</label>
+
+            <input class="input"
+                   id="regPassword"
+                   type="password"
+                   minlength="6"
+                   placeholder="Minimum 6 simvol"
+                   required>
+
+        </div>
+
+
+        <button class="form-btn">
+            Hesab yarat
+        </button>
+
+    </form>
+
 </div>
 
-<!-- PAYMENT MODAL -->
+</div>
+
+
+<!-- ================================
+     PAYMENT MODAL
+================================ -->
 
 <div class="modal" id="paymentModal">
 
-    <div class="modal-box">
+<div class="modal-box">
 
-        <div class="modal-head">
+    <div class="modal-head">
 
-            <h2>💳 Ödəniş</h2>
+        <h2>💳 Ödəniş</h2>
 
-            <button class="close" onclick="closePayment()">
-                ×
-            </button>
+        <button class="close"
+                onclick="closePayment()">
+            ×
+        </button>
 
-        </div>
+    </div>
 
-        <!-- PAYMENT AREA -->
 
-        <div id="paymentArea">
+    <div id="paymentArea">
 
-            <div class="payment-summary">
+        <div class="payment-summary">
 
-                <div>
-                    <small>Seçilmiş paket</small>
+            <div>
+                <small>Seçilmiş paket</small>
 
-                    <strong id="paymentPackage">
-                        Panda Kod
-                    </strong>
-                </div>
-
-                <div class="amount" id="paymentAmount">
-                    10 AZN
-                </div>
-
-            </div>
-
-            <!-- MODERN CARD -->
-
-            <div class="bank-card-wrapper">
-
-                <div class="bank-card">
-
-                    <div class="bank-top">
-
-                        <div class="bank-brand">
-                            🐼 PANDA <span>PAY</span>
-                        </div>
-
-                        <div class="chip"></div>
-
-                    </div>
-
-                    <div class="card-number">
-                        5315 9921 2761 6081
-                    </div>
-
-                    <div class="card-bottom">
-
-                        <div class="card-label">
-                            ÖDƏNİŞ KARTI<br>
-                            AZƏRBAYCAN
-                        </div>
-
-                        <div class="card-secure">
-                            🔒 SECURE PAYMENT
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <button class="copy-card" id="copyCardButton" onclick="copyCard()">
-                📋 &nbsp; Kart nömrəsini kopyala
-            </button>
-
-            <div class="payment-security">
-                🔐 Ödəniş məlumatlarınız qorunur və təhlükəsiz şəkildə qəbul edilir.
-            </div>
-
-            <div class="form-group">
-
-                <label>
-                    Əlaqə nömrəniz
-                </label>
-
-                <input
-                    class="input"
-                    id="paymentPhone"
-                    placeholder="+994 50 123 45 67">
-
-            </div>
-
-            <label class="upload">
-
-                📸
-                <strong> Ödəniş qəbzini seç</strong>
-
-                <br>
-
-                <span style="font-size:10px;color:#777;">
-                    Şəkil formatı JPG / PNG
-                </span>
-
-                <input
-                    type="file"
-                    id="receipt"
-                    accept="image/*"
-                    onchange="previewReceipt(event)">
-
-            </label>
-
-            <img
-                id="receiptPreview"
-                class="preview">
-
-            <button
-                class="confirm-payment"
-                onclick="confirmPayment()">
-
-                ✅ Ödənişi etdim — qəbzi göndər
-
-            </button>
-
-        </div>
-
-        <!-- SUCCESS AREA -->
-
-        <div class="success-card" id="successCard">
-
-            <div class="success-icon">
-                ✓
-            </div>
-
-            <h2>
-                ÖDƏNİŞ QƏBUL EDİLDİ
-            </h2>
-
-            <p class="success-text">
-                🎉 Ödənişiniz uğurla qəbul edildi.
-                Sifarişiniz hesabınıza əlavə olundu.
-            </p>
-
-            <div class="success-order">
-
-                <small>
-                    Sifariş məbləği
-                </small>
-
-                <div
-                    class="success-amount"
-                    id="successAmount">
-                    10 AZN
-                </div>
-
-            </div>
-
-            <div class="code-box">
-
-                <div class="code-label">
-                    🎟️ SİZİN KODUNUZ
-                </div>
-
-                <strong
-                    class="success-code"
-                    id="successCode">
-                    KOD,32-73-12-98-43-23-87-32
+                <strong id="paymentPackage">
+                    Panda Kod
                 </strong>
+            </div>
 
-                <button
-                    class="copy-code"
+            <div class="amount"
+                 id="paymentAmount">
+                10 AZN
+            </div>
+
+        </div>
+
+
+        <div class="bank-card">
+
+            <div class="bank-top">
+
+                <div class="bank-brand">
+                    🐼 PANDA <span>PAY</span>
+                </div>
+
+                <div class="chip"></div>
+
+            </div>
+
+
+            <div class="card-number">
+                5315 9921 2761 6081
+            </div>
+
+
+            <div class="card-bottom">
+
+                <div class="card-label">
+                    ÖDƏNİŞ KARTI<br>
+                    AZƏRBAYCAN
+                </div>
+
+                <div class="card-secure">
+                    🔒 SECURE PAYMENT
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button class="copy-card"
+                id="copyCardButton"
+                onclick="copyCard()">
+            📋 Kart nömrəsini kopyala
+        </button>
+
+
+        <div class="payment-security">
+            🔐 Ödəniş məlumatlarınız qorunur.
+        </div>
+
+
+        <div class="form-group">
+
+            <label>Əlaqə nömrəniz</label>
+
+            <input class="input"
+                   id="paymentPhone"
+                   placeholder="+994 50 123 45 67">
+
+        </div>
+
+
+        <label class="upload">
+
+            📸
+            <strong> Ödəniş qəbzini seç</strong>
+
+            <br>
+
+            <span style="font-size:9px;color:#777;">
+                JPG / PNG formatı
+            </span>
+
+            <input type="file"
+                   id="receipt"
+                   accept="image/*"
+                   onchange="previewReceipt(event)">
+
+        </label>
+
+
+        <img id="receiptPreview"
+             class="preview">
+
+
+        <button class="confirm-payment"
+                onclick="confirmPayment()">
+            ✅ Ödənişi etdim — qəbzi göndər
+        </button>
+
+    </div>
+
+
+    <!-- SUCCESS -->
+
+    <div class="success-card"
+         id="successCard">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>
+            ÖDƏNİŞ QƏBUL EDİLDİ
+        </h2>
+
+        <p class="success-text">
+            🎉 Ödənişiniz uğurla qəbul edildi.
+            Sifarişiniz hesabınıza əlavə olundu.
+        </p>
+
+
+        <div class="success-order">
+
+            <small>
+                Sifariş məbləği
+            </small>
+
+            <div class="success-amount"
+                 id="successAmount">
+                10 AZN
+            </div>
+
+        </div>
+
+
+        <div class="code-box">
+
+            <div class="code-label">
+                🎟️ SİZİN KODUNUZ
+            </div>
+
+            <strong class="success-code"
+                    id="successCode">
+                PND-0000-0000
+            </strong>
+
+            <button class="copy-code"
                     id="copyCodeButton"
                     onclick="copyGeneratedCode()">
-                    📋 Kodu kopyala
-                </button>
+                📋 Kodu kopyala
+            </button>
 
-            </div>
+        </div>
 
-            <div style="
-                color:#858292;
-                font-size:10px;
-                line-height:1.5;
-                margin-top:10px;">
-                Kodunuz hesabınızda da saxlanıldı.
-            </div>
 
-            <div class="success-buttons">
+        <div style="
+            color:#858292;
+            font-size:9px;
+            margin-top:10px;">
+            Kodunuz hesabınızda saxlanıldı.
+        </div>
 
-                <button
-                    class="success-home"
+
+        <div class="success-buttons">
+
+            <button class="success-home"
                     onclick="closePayment();goHome();">
-                    🏠 Ana səhifə
-                </button>
+                🏠 Ana səhifə
+            </button>
 
-                <button
-                    class="success-account"
+            <button class="success-account"
                     onclick="closePayment();openAccount();">
-                    👤 Hesabıma keç
-                </button>
-
-            </div>
+                👤 Hesabıma keç
+            </button>
 
         </div>
 
@@ -2226,216 +2159,178 @@ footer{
 
 </div>
 
+</div>
+
+
 <script>
 
-/* =========================================
-   LOCAL STORAGE
-========================================= */
+/* ================================
+   STORAGE
+================================ */
 
-const USERS_KEY = "panda_users";
-const CURRENT_KEY = "panda_current_user";
-const ORDERS_KEY = "panda_orders";
+const USERS_KEY="panda_users";
+const CURRENT_KEY="panda_current_user";
+const ORDERS_KEY="panda_orders";
 
 function getUsers(){
-
     return JSON.parse(
-        localStorage.getItem(USERS_KEY) || "[]"
+        localStorage.getItem(USERS_KEY)||"[]"
     );
-
 }
 
 function saveUsers(users){
-
     localStorage.setItem(
         USERS_KEY,
         JSON.stringify(users)
     );
-
 }
 
 function getCurrentUser(){
-
     return JSON.parse(
-        localStorage.getItem(CURRENT_KEY) || "null"
+        localStorage.getItem(CURRENT_KEY)||"null"
     );
-
 }
 
 function saveCurrentUser(user){
-
     localStorage.setItem(
         CURRENT_KEY,
         JSON.stringify(user)
     );
-
 }
 
 function getOrders(){
-
     return JSON.parse(
-        localStorage.getItem(ORDERS_KEY) || "[]"
+        localStorage.getItem(ORDERS_KEY)||"[]"
     );
-
 }
 
 function saveOrders(orders){
-
     localStorage.setItem(
         ORDERS_KEY,
         JSON.stringify(orders)
     );
-
 }
 
 
-/* =========================================
-   PAKETLƏR
-========================================= */
+/* ================================
+   PACKAGE LIST
+================================ */
 
-const packagePrices = [];
+const packagePrices=[];
 
 for(let i=10;i<=700;i+=5){
-
     packagePrices.push(i);
-
 }
 
-const allPackages =
+const allPackages=
     document.getElementById("allPackages");
 
 packagePrices
-.filter(price =>
-    ![10,25,50,100].includes(price)
-)
-.forEach(price => {
+.filter(price=>![10,25,50,100].includes(price))
+.forEach(price=>{
 
-    const div =
-        document.createElement("div");
+    const div=document.createElement("div");
 
-    div.className = "small-package";
+    div.className="small-package";
 
-    div.innerHTML = `
+    div.innerHTML=`
         <strong>${price} AZN</strong>
-
-        <span style="
-            font-size:10px;
-            color:#888">
-            Panda Kod
-        </span>
-
+        <span>Panda Kod</span>
         <button onclick="selectPackage(${price})">
             Seç
         </button>
     `;
 
     allPackages.appendChild(div);
-
 });
 
 
-/* =========================================
+/* ================================
    AUTH
-========================================= */
+================================ */
 
 function openAuth(){
-
     document
     .getElementById("authModal")
     .classList.add("show");
-
 }
 
 function closeAuth(){
-
     document
     .getElementById("authModal")
     .classList.remove("show");
-
 }
 
 function showLogin(){
 
-    document
-    .getElementById("loginForm")
+    document.getElementById("loginForm")
     .style.display="block";
 
-    document
-    .getElementById("registerForm")
+    document.getElementById("registerForm")
     .style.display="none";
 
-    document
-    .getElementById("loginTab")
+    document.getElementById("loginTab")
     .classList.add("active");
 
-    document
-    .getElementById("registerTab")
+    document.getElementById("registerTab")
     .classList.remove("active");
 
-    document
-    .getElementById("authTitle")
+    document.getElementById("authTitle")
     .innerText="👤 Hesaba daxil ol";
-
 }
 
 function showRegister(){
 
-    document
-    .getElementById("loginForm")
+    document.getElementById("loginForm")
     .style.display="none";
 
-    document
-    .getElementById("registerForm")
+    document.getElementById("registerForm")
     .style.display="block";
 
-    document
-    .getElementById("loginTab")
+    document.getElementById("loginTab")
     .classList.remove("active");
 
-    document
-    .getElementById("registerTab")
+    document.getElementById("registerTab")
     .classList.add("active");
 
-    document
-    .getElementById("authTitle")
+    document.getElementById("authTitle")
     .innerText="✨ Yeni hesab yarat";
-
 }
 
 function authError(text){
 
-    const box =
+    const box=
         document.getElementById("authError");
 
     box.innerText=text;
-
     box.style.display="block";
-
 }
 
 
-/* =========================================
-   QEYDİYYAT
-========================================= */
+/* ================================
+   REGISTER
+================================ */
 
 function register(event){
 
     event.preventDefault();
 
-    const name =
-        document.getElementById("regName").value.trim();
+    const name=
+        document.getElementById("regName")
+        .value.trim();
 
-    const phone =
-        document.getElementById("regPhone").value.trim();
+    const phone=
+        document.getElementById("regPhone")
+        .value.trim();
 
-    const email =
-        document
-        .getElementById("regEmail")
-        .value
-        .trim()
+    const email=
+        document.getElementById("regEmail")
+        .value.trim()
         .toLowerCase();
 
-    const password =
-        document.getElementById("regPassword").value;
+    const password=
+        document.getElementById("regPassword")
+        .value;
 
     const users=getUsers();
 
@@ -2449,56 +2344,47 @@ function register(event){
     }
 
     const user={
-
         id:"USR-"+Date.now(),
-
         name,
         phone,
         email,
         password
-
     };
 
     users.push(user);
 
     saveUsers(users);
-
     saveCurrentUser(user);
 
     closeAuth();
-
     updateAccount();
 
     alert(
         "🎉 Hesabınız uğurla yaradıldı!"
     );
-
 }
 
 
-/* =========================================
-   GİRİŞ
-========================================= */
+/* ================================
+   LOGIN
+================================ */
 
 function login(event){
 
     event.preventDefault();
 
-    const email =
-        document
-        .getElementById("loginEmail")
-        .value
-        .trim()
+    const email=
+        document.getElementById("loginEmail")
+        .value.trim()
         .toLowerCase();
 
-    const password =
-        document
-        .getElementById("loginPassword")
+    const password=
+        document.getElementById("loginPassword")
         .value;
 
-    const user =
+    const user=
         getUsers().find(
-            u =>
+            u=>
             u.email===email &&
             u.password===password
         );
@@ -2515,27 +2401,23 @@ function login(event){
     saveCurrentUser(user);
 
     closeAuth();
-
     updateAccount();
 
     alert(
-        "Xoş gəlmisiniz, " +
-        user.name + "!"
+        "Xoş gəlmisiniz, "+user.name+"!"
     );
-
 }
 
 
-/* =========================================
-   HESAB
-========================================= */
+/* ================================
+   ACCOUNT
+================================ */
 
 function updateAccount(){
 
-    const user =
-        getCurrentUser();
+    const user=getCurrentUser();
 
-    const section =
+    const section=
         document.getElementById(
             "accountSection"
         );
@@ -2543,38 +2425,28 @@ function updateAccount(){
     if(!user){
 
         section.style.display="none";
-
         return;
     }
 
     section.style.display="block";
 
-    document
-    .getElementById("welcomeUser")
-    .innerText =
-        "Xoş gəlmisiniz, " +
-        user.name;
+    document.getElementById("welcomeUser")
+    .innerText=
+        "Xoş gəlmisiniz, "+user.name;
 
-    document
-    .getElementById("userEmail")
-    .innerText =
-        user.email +
-        " • " +
-        user.phone;
+    document.getElementById("userEmail")
+    .innerText=
+        user.email+" • "+user.phone;
 
     renderOrders();
-
 }
 
 function openAccount(){
 
-    const user =
-        getCurrentUser();
+    const user=getCurrentUser();
 
     if(!user){
-
         openAuth();
-
         return;
     }
 
@@ -2583,45 +2455,34 @@ function openAccount(){
     .scrollIntoView({
         behavior:"smooth"
     });
-
 }
 
 function logout(){
 
-    localStorage.removeItem(
-        CURRENT_KEY
-    );
-
+    localStorage.removeItem(CURRENT_KEY);
     updateAccount();
-
 }
 
 
-/* =========================================
-   SİFARİŞLƏR
-========================================= */
+/* ================================
+   ORDERS
+================================ */
 
 function renderOrders(){
 
-    const user =
-        getCurrentUser();
+    const user=getCurrentUser();
 
-    const list =
-        document.getElementById(
-            "ordersList"
-        );
+    const list=
+        document.getElementById("ordersList");
 
     if(!user){
-
         list.innerHTML="";
-
         return;
     }
 
-    const orders =
-        getOrders().filter(
-            o=>o.userId===user.id
-        );
+    const orders=
+        getOrders()
+        .filter(o=>o.userId===user.id);
 
     if(!orders.length){
 
@@ -2630,7 +2491,7 @@ function renderOrders(){
                 padding:25px;
                 text-align:center;
                 color:#888;
-                font-size:12px;">
+                font-size:11px;">
                 Hələ sifarişiniz yoxdur.
             </div>
         `;
@@ -2638,7 +2499,7 @@ function renderOrders(){
         return;
     }
 
-    list.innerHTML =
+    list.innerHTML=
         orders
         .slice()
         .reverse()
@@ -2676,7 +2537,6 @@ function renderOrders(){
 
                     <br>
 
-                    Tarix<br>
                     ${order.date}
 
                 </div>
@@ -2687,7 +2547,7 @@ function renderOrders(){
 
                     <strong style="
                         color:#fff;
-                        font-size:13px;">
+                        font-size:12px;">
                         ${order.code}
                     </strong>
 
@@ -2697,159 +2557,110 @@ function renderOrders(){
 
         `)
         .join("");
-
 }
 
 
-/* =========================================
-   PAKET SEÇ
-========================================= */
+/* ================================
+   SELECT PACKAGE
+================================ */
 
-let selectedPrice = 0;
+let selectedPrice=0;
 
 function selectPackage(price){
 
     selectedPrice=price;
 
-    const user =
-        getCurrentUser();
+    const user=getCurrentUser();
 
     if(!user){
 
         alert(
-            "🐼 Davam etmək üçün əvvəlcə hesab yaradın və ya hesabınıza daxil olun."
+            "🐼 Davam etmək üçün əvvəlcə hesab yaradın və ya daxil olun."
         );
 
         openAuth();
-
         showRegister();
 
         return;
     }
 
-    document
-    .getElementById("paymentPackage")
-    .innerText =
-        "Panda Kod — " +
-        price +
-        " AZN";
+    document.getElementById("paymentPackage")
+    .innerText=
+        "Panda Kod — "+price+" AZN";
 
-    document
-    .getElementById("paymentAmount")
-    .innerText =
-        price +
-        " AZN";
+    document.getElementById("paymentAmount")
+    .innerText=
+        price+" AZN";
 
-    /* Ödəniş ekranını yenidən göstər */
-
-    document
-    .getElementById("paymentArea")
+    document.getElementById("paymentArea")
     .style.display="block";
 
-    document
-    .getElementById("successCard")
-    .classList.remove("show");
-
-    document
-    .getElementById("successCard")
+    document.getElementById("successCard")
     .style.display="none";
 
-    document
-    .getElementById("paymentModal")
-    .classList.add("show");
+    document.getElementById("successCard")
+    .classList.remove("show");
 
+    document.getElementById("paymentModal")
+    .classList.add("show");
 }
 
 
-/* =========================================
+/* ================================
    PAYMENT
-========================================= */
+================================ */
 
 function closePayment(){
 
-    document
-    .getElementById("paymentModal")
+    document.getElementById("paymentModal")
     .classList.remove("show");
-
 }
 
 function copyCard(){
 
-    const card =
-        "4169123456789012";
+    const card="4169123456789012";
 
-    const button =
+    const button=
         document.getElementById(
             "copyCardButton"
         );
 
-    function success(){
+    navigator.clipboard
+    .writeText(card)
+    .then(()=>{
 
-        button.innerHTML =
-            "✅ &nbsp; Kart nömrəsi kopyalandı";
+        button.innerHTML=
+            "✅ Kart nömrəsi kopyalandı";
 
         button.classList.add("copied");
 
         setTimeout(()=>{
 
-            button.innerHTML =
-                "📋 &nbsp; Kart nömrəsini kopyala";
+            button.innerHTML=
+                "📋 Kart nömrəsini kopyala";
 
             button.classList.remove("copied");
 
         },2500);
 
-    }
+    })
+    .catch(()=>{
 
-    if(navigator.clipboard){
-
-        navigator.clipboard
-        .writeText(card)
-        .then(success)
-        .catch(()=>{
-            fallbackCopy(card,success);
-        });
-
-    }else{
-
-        fallbackCopy(card,success);
-
-    }
-
-}
-
-function fallbackCopy(text,callback){
-
-    const temp =
-        document.createElement("textarea");
-
-    temp.value=text;
-
-    document.body.appendChild(temp);
-
-    temp.select();
-
-    try{
-        document.execCommand("copy");
-        callback();
-    }catch(e){
         alert(
             "Kart: 4169 1234 5678 9012"
         );
-    }
 
-    document.body.removeChild(temp);
-
+    });
 }
 
 
-/* =========================================
-   QƏBİZ PREVIEW
-========================================= */
+/* ================================
+   RECEIPT
+================================ */
 
 function previewReceipt(event){
 
-    const file =
+    const file=
         event.target.files[0];
 
     if(!file) return;
@@ -2863,101 +2674,87 @@ function previewReceipt(event){
         return;
     }
 
-    const reader =
-        new FileReader();
+    const reader=new FileReader();
 
     reader.onload=function(e){
 
-        const preview =
+        const preview=
             document.getElementById(
                 "receiptPreview"
             );
 
         preview.src=e.target.result;
-
         preview.style.display="block";
-
     };
 
     reader.readAsDataURL(file);
-
 }
 
 
-/* =========================================
-   KOD YARAT
-========================================= */
+/* ================================
+   CODE
+================================ */
 
 function generateCode(){
 
-    const chars =
+    const chars=
         "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
     let result="PND-";
 
     for(let i=0;i<4;i++){
 
-        result +=
+        result+=
             chars[
                 Math.floor(
-                    Math.random() *
-                    chars.length
+                    Math.random()*chars.length
                 )
             ];
-
     }
 
     result+="-";
 
     for(let i=0;i<4;i++){
 
-        result +=
+        result+=
             chars[
                 Math.floor(
-                    Math.random() *
-                    chars.length
+                    Math.random()*chars.length
                 )
             ];
-
     }
 
     return result;
-
 }
 
 
-/* =========================================
-   ÖDƏNİŞ TƏSDİQ
-========================================= */
+/* ================================
+   CONFIRM PAYMENT
+================================ */
 
 function confirmPayment(){
 
-    const user =
-        getCurrentUser();
+    const user=getCurrentUser();
 
     if(!user){
 
-        alert(
-            "Hesabınıza daxil olun."
-        );
+        alert("Hesabınıza daxil olun.");
 
         closePayment();
-
         openAuth();
 
         return;
     }
 
-    const phone =
-        document
-        .getElementById("paymentPhone")
-        .value
-        .trim();
+    const phone=
+        document.getElementById(
+            "paymentPhone"
+        ).value.trim();
 
-    const receipt =
-        document
-        .getElementById("receipt")
-        .files[0];
+    const receipt=
+        document.getElementById(
+            "receipt"
+        ).files[0];
 
     if(!phone){
 
@@ -2971,211 +2768,166 @@ function confirmPayment(){
     if(!receipt){
 
         alert(
-            "Əvvəlcə ödəniş qəbzini yükləyin."
+            "Əvvəlcə qəbzi yükləyin."
         );
 
         return;
     }
 
-    const code =
-        generateCode();
+    const code=generateCode();
 
-    const now =
-        new Date();
+    const now=new Date();
 
-    const date =
-        now.toLocaleString(
-            "az-AZ"
-        );
+    const date=
+        now.toLocaleString("az-AZ");
 
     const order={
 
         id:
-            "PND-" +
+            "PND-"+
             Date.now()
             .toString()
             .slice(-8),
 
-        userId:
-            user.id,
+        userId:user.id,
 
-        price:
-            selectedPrice,
+        price:selectedPrice,
 
-        code:
-            code,
+        code:code,
 
-        status:
-            "Tamamlandı",
+        status:"Tamamlandı",
 
-        date:
-            date
-
+        date:date
     };
 
-    const orders =
-        getOrders();
+    const orders=getOrders();
 
     orders.push(order);
 
     saveOrders(orders);
 
-    /* Kod məlumatlarını göstər */
+    document.getElementById("successAmount")
+    .innerText=
+        selectedPrice+" AZN";
 
-    document
-    .getElementById("successAmount")
-    .innerText =
-        selectedPrice +
-        " AZN";
+    document.getElementById("successCode")
+    .innerText=code;
 
-    document
-    .getElementById("successCode")
-    .innerText =
-        code;
-
-    /* Ödəniş hissəsini gizlət */
-
-    document
-    .getElementById("paymentArea")
+    document.getElementById("paymentArea")
     .style.display="none";
 
-    /* Uğurlu ödəniş ekranını göstər */
-
-    const success =
+    const success=
         document.getElementById(
             "successCard"
         );
 
     success.style.display="block";
-
     success.classList.add("show");
 
-    /* Sifarişləri yenilə */
-
     renderOrders();
-
 }
 
 
-/* =========================================
-   KODU KOPYALA
-========================================= */
+/* ================================
+   COPY CODE
+================================ */
 
 function copyGeneratedCode(){
 
-    const code =
-        document
-        .getElementById("successCode")
-        .innerText
-        .trim();
+    const code=
+        document.getElementById(
+            "successCode"
+        ).innerText.trim();
 
-    const button =
+    const button=
         document.getElementById(
             "copyCodeButton"
         );
 
-    function success(){
+    navigator.clipboard
+    .writeText(code)
+    .then(()=>{
 
-        button.innerHTML =
-            "✅ &nbsp; Kod kopyalandı";
+        button.innerHTML=
+            "✅ Kod kopyalandı";
 
         button.classList.add("copied");
 
         setTimeout(()=>{
 
-            button.innerHTML =
-                "📋 &nbsp; Kodu kopyala";
+            button.innerHTML=
+                "📋 Kodu kopyala";
 
             button.classList.remove("copied");
 
         },2500);
 
-    }
+    })
+    .catch(()=>{
 
-    if(navigator.clipboard){
+        alert("Kod: "+code);
 
-        navigator.clipboard
-        .writeText(code)
-        .then(success)
-        .catch(()=>{
-            fallbackCopy(code,success);
-        });
-
-    }else{
-
-        fallbackCopy(code,success);
-
-    }
-
+    });
 }
 
 
-/* =========================================
-   NAVİQASİYA
-========================================= */
+/* ================================
+   NAVIGATION
+================================ */
 
 function goHome(){
 
-    document
-    .getElementById("home")
+    document.getElementById("home")
     .scrollIntoView({
         behavior:"smooth"
     });
-
 }
 
 function goPackages(){
 
-    document
-    .getElementById("packages")
+    document.getElementById("packages")
     .scrollIntoView({
         behavior:"smooth"
     });
-
 }
 
 function showOrders(){
 
-    const user =
-        getCurrentUser();
+    const user=getCurrentUser();
 
     if(!user){
 
         openAuth();
-
         return;
     }
 
-    document
-    .getElementById("accountSection")
-    .scrollIntoView({
+    document.getElementById(
+        "accountSection"
+    ).scrollIntoView({
         behavior:"smooth"
     });
-
 }
 
 function about(){
 
     alert(
-        "🐼 Panda Kod Satışı\n\n" +
+        "🐼 PANDA KOD SATIŞI\n\n"+
         "Müasir kod satış platforması."
     );
-
 }
 
 function contact(){
 
     alert(
-        "📞 Əlaqə\n\n" +
-        "Dəstək: 7/24"
+        "📞 ƏLAQƏ\n\n"+
+        "Panda dəstək xidməti 7/24 aktivdir."
     );
-
 }
 
 
-/* =========================================
-   BAŞLANĞIC
-========================================= */
+/* ================================
+   START
+================================ */
 
 updateAccount();
 
