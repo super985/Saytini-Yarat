@@ -2,290 +2,588 @@
 <html lang="az">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LATO — Premium Game</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>LATO — Demo Loto</title>
 
 <style>
+:root{
+  --green:#002c24;
+  --green2:#004b3b;
+  --gold:#e7a92f;
+  --gold2:#ffd76a;
+  --cream:#fff5d7;
+  --red:#c9362e;
+  --dark:#07130f;
+}
+
 *{
+  box-sizing:border-box;
   margin:0;
   padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
+  -webkit-tap-highlight-color:transparent;
 }
 
 body{
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 20% 20%,rgba(126,87,255,.25),transparent 30%),
-    radial-gradient(circle at 80% 80%,rgba(0,220,255,.18),transparent 30%),
-    #070812;
+  background:#050807;
   color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100vh;
 }
 
-.container{
+button,input{
+  font-family:inherit;
+}
+
+.app{
   width:100%;
-  max-width:1150px;
+  max-width:720px;
+  min-height:100vh;
   margin:auto;
-  padding:20px;
+  background:
+    radial-gradient(circle at 50% 5%,rgba(255,184,45,.12),transparent 22%),
+    linear-gradient(180deg,#00352a,#001e18 70%,#001510);
+  border-left:2px solid #b78a2a;
+  border-right:2px solid #b78a2a;
+  position:relative;
+  overflow:hidden;
 }
 
-header{
+/* HEADER */
+
+.header{
+  min-height:105px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:15px 0 25px;
+  padding:12px 12px 8px;
+  border-bottom:1px solid rgba(226,174,55,.3);
 }
 
 .logo{
-  font-size:34px;
+  width:145px;
+}
+
+.logo-main{
+  font-size:31px;
+  font-weight:1000;
+  color:#f5b934;
+  text-shadow:
+    0 2px 0 #805600,
+    0 0 12px rgba(255,190,40,.45);
+  letter-spacing:-2px;
+}
+
+.logo-sub{
+  color:#e8d69b;
+  font-size:9px;
+  letter-spacing:.7px;
+  margin-top:2px;
+}
+
+.jackpot{
+  flex:1;
+  text-align:center;
+  margin:0 5px;
+}
+
+.jackpot-title{
+  color:#fff;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.jackpot-number{
+  color:#ffd35d;
+  font-size:24px;
   font-weight:900;
-  letter-spacing:4px;
-  background:linear-gradient(90deg,#fff,#9c7cff,#00e5ff);
-  -webkit-background-clip:text;
-  color:transparent;
-  text-shadow:0 0 25px rgba(123,90,255,.5);
+  text-shadow:0 0 12px rgba(255,190,40,.5);
+}
+
+.user-area{
+  width:115px;
+  text-align:right;
 }
 
 .balance{
-  display:none;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-  padding:10px 16px;
-  border-radius:15px;
-}
-
-.balance span{
-  color:#00e5ff;
-  font-weight:bold;
-}
-
-.hero{
-  padding:45px 25px;
-  border-radius:30px;
-  text-align:center;
-  background:linear-gradient(135deg,
-    rgba(124,77,255,.20),
-    rgba(0,229,255,.08));
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 25px 80px rgba(0,0,0,.35);
-}
-
-.hero h1{
-  font-size:clamp(42px,8vw,75px);
-  font-weight:900;
-  margin-bottom:12px;
-}
-
-.hero h1 span{
-  background:linear-gradient(90deg,#8c6cff,#00e5ff);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.hero p{
-  color:#b9bfd6;
-  font-size:17px;
-  margin-bottom:25px;
-}
-
-.btn{
-  border:none;
-  padding:14px 25px;
-  border-radius:14px;
-  cursor:pointer;
-  color:white;
+  color:#ffd45d;
   font-size:15px;
   font-weight:bold;
-  background:linear-gradient(90deg,#7357ff,#00bfe9);
-  box-shadow:0 8px 25px rgba(70,100,255,.3);
-  transition:.25s;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
-  box-shadow:0 12px 35px rgba(70,100,255,.45);
+.plus{
+  display:inline-flex;
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(#f3c64f,#a46e13);
+  color:#06352b;
+  font-size:25px;
+  font-weight:bold;
+  border:2px solid #6c4710;
+  cursor:pointer;
+  margin-top:4px;
 }
 
-.section{
-  margin-top:30px;
-}
+/* NAV */
 
-.section-title{
-  font-size:24px;
-  margin-bottom:18px;
-}
-
-.games{
+.nav{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+  padding:10px;
 }
 
-.game{
-  padding:25px;
-  min-height:190px;
-  border-radius:23px;
-  background:rgba(255,255,255,.055);
-  border:1px solid rgba(255,255,255,.1);
-  backdrop-filter:blur(15px);
-  transition:.25s;
+.nav button{
+  border:1px solid #8c6a20;
+  background:linear-gradient(180deg,#07523e,#003126);
+  color:#ffe39a;
+  padding:11px 4px;
+  border-radius:10px;
+  font-size:12px;
   cursor:pointer;
 }
 
-.game:hover{
-  transform:translateY(-5px);
-  border-color:rgba(0,229,255,.5);
+.nav button.active{
+  background:linear-gradient(180deg,#dca735,#936514);
+  color:#102a20;
 }
 
-.game-icon{
-  font-size:48px;
-  margin-bottom:15px;
+/* TOP INFO */
+
+.top-info{
+  margin:5px 13px 12px;
+  border:1px solid #8b6a26;
+  border-radius:20px;
+  padding:14px 12px;
+  background:rgba(0,38,30,.85);
+  box-shadow:0 8px 25px rgba(0,0,0,.25);
 }
 
-.game h3{
-  margin-bottom:8px;
+.info-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
 }
 
-.game p{
-  color:#9299b4;
+.info-box{
+  text-align:center;
+}
+
+.info-label{
+  color:#f9edc7;
   font-size:14px;
 }
+
+.info-value{
+  display:inline-block;
+  min-width:105px;
+  margin-top:5px;
+  padding:8px 14px;
+  border-radius:13px;
+  font-size:20px;
+  font-weight:900;
+}
+
+.price{
+  background:linear-gradient(#d9aa45,#805718);
+  color:#fff8df;
+  border:2px solid #9e7625;
+}
+
+.bank{
+  background:#00241c;
+  color:#ffd354;
+  border:2px solid #8b762e;
+}
+
+/* ACTIONS */
+
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+  margin-top:12px;
+}
+
+.action{
+  background:linear-gradient(#078150,#01432f);
+  border:1px solid #4a9e72;
+  border-radius:11px;
+  padding:9px 4px;
+  text-align:center;
+  color:white;
+  cursor:pointer;
+}
+
+.action strong{
+  display:block;
+  font-size:20px;
+}
+
+.action small{
+  font-size:11px;
+}
+
+/* SECTION */
+
+.section-title{
+  padding:8px 15px;
+  color:#ffdc75;
+  font-size:18px;
+  font-weight:900;
+}
+
+.ticket-list{
+  padding:0 12px 120px;
+}
+
+/* TICKET */
+
+.ticket{
+  margin-bottom:16px;
+  background:#f4f3ef;
+  color:#292929;
+  border:4px solid #d5d2c9;
+  outline:2px solid #787878;
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.35),
+    inset 0 0 0 2px #fff;
+  position:relative;
+}
+
+.ticket-head{
+  height:42px;
+  background:#efeee9;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 10px;
+  border-bottom:1px solid #aaa;
+}
+
+.ticket-number{
+  font-weight:bold;
+}
+
+.ticket-status{
+  color:#b72c26;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.ticket-grid{
+  display:grid;
+  grid-template-columns:repeat(9,1fr);
+  border-left:1px solid #bbb;
+  border-top:1px solid #bbb;
+}
+
+.cell{
+  min-height:49px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-right:1px solid #bbb;
+  border-bottom:1px solid #bbb;
+  font-family:Georgia,serif;
+  font-size:21px;
+  font-weight:bold;
+  cursor:pointer;
+  color:#555;
+  background:#fafafa;
+}
+
+.cell.selected{
+  background:#d7f49b;
+  color:#1e4b1e;
+}
+
+.cell.hit{
+  background:#f0bd42;
+  color:#3d2500;
+}
+
+.ticket-buttons{
+  display:flex;
+  justify-content:space-between;
+  padding:8px;
+  background:#eee;
+}
+
+.ticket-btn{
+  border:0;
+  background:transparent;
+  color:#075d42;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.delete-btn{
+  color:#b52c28;
+}
+
+/* BOTTOM */
+
+.bottom{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:720px;
+  padding:8px 12px;
+  background:linear-gradient(180deg,#00362a,#001b15);
+  border-top:2px solid #8c6b25;
+  display:flex;
+  gap:8px;
+  z-index:10;
+}
+
+.buy{
+  flex:1;
+  min-height:62px;
+  border-radius:20px;
+  border:2px solid #9a7022;
+  background:linear-gradient(180deg,#f0c65a,#a66e16);
+  color:#fff8dc;
+  font-size:20px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.buy small{
+  display:block;
+  font-size:12px;
+  color:#fff2bf;
+}
+
+.count-box{
+  width:180px;
+  border:2px solid #8e6e2c;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  background:#002b22;
+}
+
+.count-box button{
+  border:0;
+  background:none;
+  color:#5dd46c;
+  font-size:27px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.count{
+  font-size:21px;
+  font-weight:bold;
+}
+
+/* MODALS */
 
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  z-index:20;
-  background:rgba(0,0,0,.75);
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.78);
+  z-index:50;
   align-items:center;
   justify-content:center;
-  padding:20px;
+  padding:18px;
 }
 
 .modal-box{
   width:100%;
   max-width:430px;
-  padding:30px;
-  border-radius:25px;
-  background:#101221;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 30px 100px rgba(0,0,0,.6);
+  max-height:90vh;
+  overflow:auto;
+  background:linear-gradient(180deg,#06392d,#001c16);
+  border:2px solid #bd8d28;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 20px 80px rgba(0,0,0,.7);
 }
 
-.modal-box h2{
-  margin-bottom:20px;
-}
-
-input{
-  width:100%;
-  padding:14px;
-  margin-bottom:12px;
-  border-radius:13px;
-  border:1px solid rgba(255,255,255,.12);
-  background:#080a13;
-  color:#fff;
-  outline:none;
-}
-
-input:focus{
-  border-color:#00d9ff;
+.modal-title{
+  color:#ffd45b;
+  font-size:22px;
+  font-weight:900;
+  margin-bottom:18px;
 }
 
 .close{
   float:right;
-  cursor:pointer;
-  font-size:22px;
-  color:#aaa;
-}
-
-.auth-switch{
-  margin-top:18px;
-  text-align:center;
-  color:#9299b4;
-  font-size:14px;
-}
-
-.auth-switch span{
-  color:#00d9ff;
+  color:#ffd45b;
+  font-size:24px;
   cursor:pointer;
 }
 
-.dashboard{
-  display:none;
+.field{
+  margin-bottom:12px;
 }
 
-.profile{
-  margin-top:25px;
-  display:grid;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:15px;
-}
-
-.stat{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-  padding:20px;
-  border-radius:18px;
-}
-
-.stat small{
-  color:#8d94ad;
-}
-
-.stat strong{
+.field label{
   display:block;
-  font-size:25px;
-  margin-top:7px;
-}
-
-.game-screen{
-  display:none;
-  text-align:center;
-  margin-top:25px;
-  padding:35px;
-  border-radius:25px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.1);
-}
-
-.game-display{
-  font-size:80px;
-  margin:25px 0;
-}
-
-.message{
-  min-height:25px;
-  margin:15px 0;
-  color:#00e5ff;
-}
-
-footer{
-  text-align:center;
-  color:#626980;
-  padding:40px 0 20px;
+  color:#d7cfb3;
   font-size:13px;
+  margin-bottom:5px;
 }
 
-@media(max-width:750px){
-  .games{
-    grid-template-columns:1fr;
-  }
+.field input,
+.field select{
+  width:100%;
+  background:#001a14;
+  border:1px solid #806329;
+  border-radius:11px;
+  padding:13px;
+  color:#fff;
+  outline:none;
+}
 
-  .profile{
-    grid-template-columns:1fr;
-  }
+.gold-btn{
+  width:100%;
+  border:0;
+  padding:13px;
+  border-radius:12px;
+  background:linear-gradient(180deg,#f1c657,#9b6815);
+  color:#172a1e;
+  font-weight:900;
+  cursor:pointer;
+  margin-top:5px;
+}
 
-  header{
-    gap:10px;
+/* RECEIPT */
+
+.receipt{
+  background:#f6f2e8;
+  color:#222;
+  padding:18px;
+  border-radius:10px;
+  margin-top:12px;
+  font-family:monospace;
+}
+
+.receipt h3{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.receipt-line{
+  display:flex;
+  justify-content:space-between;
+  padding:5px 0;
+  border-bottom:1px dashed #aaa;
+}
+
+/* RESULT */
+
+.result-box{
+  text-align:center;
+  background:#001912;
+  border:1px solid #8d6c26;
+  border-radius:15px;
+  padding:15px;
+}
+
+.result-numbers{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  justify-content:center;
+  margin-top:12px;
+}
+
+.result-ball{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  background:linear-gradient(#f6ca58,#936116);
+  color:#17291e;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:90px;
+  transform:translateX(-50%) translateY(20px);
+  background:#f0c14d;
+  color:#10281e;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:bold;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:100;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* LOGIN */
+
+.login-logo{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.login-logo .logo-main{
+  font-size:48px;
+}
+
+.demo-note{
+  margin-top:12px;
+  color:#aaa;
+  font-size:11px;
+  text-align:center;
+  line-height:1.5;
+}
+
+@media(max-width:500px){
+
+  .header{
+    min-height:92px;
   }
 
   .logo{
+    width:120px;
+  }
+
+  .logo-main{
     font-size:27px;
   }
 
-  .hero{
-    padding:35px 18px;
+  .jackpot-number{
+    font-size:20px;
+  }
+
+  .user-area{
+    width:100px;
+  }
+
+  .cell{
+    min-height:42px;
+    font-size:18px;
+  }
+
+  .count-box{
+    width:130px;
+  }
+
+  .buy{
+    font-size:17px;
   }
 }
 </style>
@@ -293,332 +591,802 @@ footer{
 
 <body>
 
-<div class="container">
+<div class="app">
 
-<header>
-  <div class="logo">LATO</div>
+<header class="header">
 
-  <div class="balance" id="balanceBox">
-    🪙 Balans: <span id="balance">1000</span>
+  <div class="logo">
+    <div class="logo-main">LATO</div>
+    <div class="logo-sub">LOTO • DEMO PLATFORM</div>
   </div>
 
-  <button class="btn" id="loginButton" onclick="openAuth()">
-    Giriş / Qeydiyyat
-  </button>
+  <div class="jackpot">
+    <div class="jackpot-title">JACKPOT</div>
+    <div class="jackpot-number" id="jackpot">$412.92</div>
+  </div>
+
+  <div class="user-area">
+    <div class="balance">
+      🪙 <span id="balance">1000</span>
+    </div>
+
+    <button class="plus" onclick="openModal('depositModal')">+</button>
+  </div>
+
 </header>
 
-<section class="hero">
-  <h1>Welcome to <span>LATO</span></h1>
-  <p>
-    Premium virtual oyun platforması
-  </p>
+<nav class="nav">
 
-  <button class="btn" onclick="openAuth()">
-    🎮 İndi başla
-  </button>
-</section>
-
-<section class="dashboard" id="dashboard">
-
-  <div class="profile">
-
-    <div class="stat">
-      <small>İstifadəçi</small>
-      <strong id="username">Demo</strong>
-    </div>
-
-    <div class="stat">
-      <small>Virtual balans</small>
-      <strong>🪙 <span id="balance2">1000</span></strong>
-    </div>
-
-    <div class="stat">
-      <small>Status</small>
-      <strong>VIP</strong>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="section">
-
-  <h2 class="section-title">🎮 Oyunlar</h2>
-
-  <div class="games">
-
-    <div class="game" onclick="startGame('🎰')">
-      <div class="game-icon">🎰</div>
-      <h3>Lucky Spin</h3>
-      <p>Virtual kreditlə demo spin oyunu.</p>
-    </div>
-
-    <div class="game" onclick="startGame('🎲')">
-      <div class="game-icon">🎲</div>
-      <h3>Dice</h3>
-      <p>Virtual zərlə əyləncəli demo oyun.</p>
-    </div>
-
-    <div class="game" onclick="startGame('🃏')">
-      <div class="game-icon">🃏</div>
-      <h3>Cards</h3>
-      <p>Virtual kart oyunu.</p>
-    </div>
-
-  </div>
-
-</section>
-
-<section class="game-screen" id="gameScreen">
-
-  <span class="close" onclick="closeGame()">✕</span>
-
-  <h2 id="gameTitle">Lucky Spin</h2>
-
-  <div class="game-display" id="gameDisplay">
-    🎰
-  </div>
-
-  <div class="message" id="gameMessage">
-    Oynamaq üçün düyməyə bas.
-  </div>
-
-  <button class="btn" onclick="playGame()">
-    ▶ OYNA
+  <button class="active" onclick="showSection('lotto',this)">
+    🎟️ Loto
   </button>
 
+  <button onclick="openModal('depositModal')">
+    💰 Depozit
+  </button>
+
+  <button onclick="openModal('withdrawModal')">
+    📤 Çıxarış
+  </button>
+
+  <button onclick="openModal('receiptModal')">
+    🧾 Qəbz
+  </button>
+
+</nav>
+
+<section class="top-info">
+
+  <div class="info-row">
+
+    <div class="info-box">
+      <div class="info-label">Bilet qiyməti</div>
+      <div class="info-value price">10 🪙</div>
+    </div>
+
+    <div class="info-box">
+      <div class="info-label">Virtual bank</div>
+      <div class="info-value bank">
+        <span id="bankValue">1000</span> 🪙
+      </div>
+    </div>
+
+  </div>
+
+  <div class="actions">
+
+    <button class="action" onclick="newTicket()">
+      <strong>↻</strong>
+      <small>Yenilə</small>
+    </button>
+
+    <button class="action" onclick="autoAll()">
+      <strong>⚡</strong>
+      <small>Auto</small>
+    </button>
+
+    <button class="action" onclick="openModal('resultModal')">
+      <strong>🎯</strong>
+      <small>Nəticə</small>
+    </button>
+
+  </div>
+
 </section>
 
-<footer>
-  © 2026 LATO — Virtual Demo Gaming Platform
-</footer>
+<div id="lottoSection">
+
+  <div class="section-title">
+    🎟️ Biletlər
+  </div>
+
+  <div class="ticket-list" id="ticketList"></div>
+
+</div>
+
+<div class="bottom">
+
+  <button class="buy" onclick="buyTickets()">
+    ALMAQ
+    <small><span id="totalCost">10</span> 🪙 • BONUS ⭐ 6</small>
+  </button>
+
+  <div class="count-box">
+
+    <button onclick="changeTickets(-1)">−</button>
+
+    <div class="count" id="ticketCount">1</div>
+
+    <button onclick="changeTickets(1)">+</button>
+
+  </div>
+
+</div>
 
 </div>
 
 
-<!-- AUTH MODAL -->
+<!-- LOGIN MODAL -->
 
-<div class="modal" id="authModal">
+<div class="modal" id="loginModal">
 
   <div class="modal-box">
 
-    <span class="close" onclick="closeAuth()">✕</span>
+    <div class="login-logo">
+      <div class="logo-main">LATO</div>
+      <div class="logo-sub">PREMIUM DEMO LOTO</div>
+    </div>
 
-    <h2 id="authTitle">LATO-ya daxil ol</h2>
+    <div class="modal-title">Hesaba giriş</div>
 
-    <input
-      type="text"
-      id="authUser"
-      placeholder="İstifadəçi adı"
-    >
+    <div class="field">
+      <label>İstifadəçi adı</label>
+      <input id="loginName" placeholder="İstifadəçi adı">
+    </div>
 
-    <input
-      type="email"
-      id="authEmail"
-      placeholder="E-mail"
-    >
+    <div class="field">
+      <label>Şifrə</label>
+      <input type="password" id="loginPass" placeholder="Şifrə">
+    </div>
 
-    <input
-      type="password"
-      id="authPassword"
-      placeholder="Şifrə"
-    >
-
-    <button class="btn" style="width:100%" onclick="login()">
-      Davam et
+    <button class="gold-btn" onclick="login()">
+      DAXİL OL
     </button>
 
-    <div class="auth-switch">
-      Hesabın yoxdur?
-      <span onclick="toggleAuth()">Qeydiyyatdan keç</span>
+    <div class="demo-note">
+      Bu demo versiyadır. Real pul və real ödəniş sistemi yoxdur.
     </div>
 
   </div>
 
 </div>
+
+
+<!-- DEPOSIT -->
+
+<div class="modal" id="depositModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeModal('depositModal')">×</span>
+
+    <div class="modal-title">💰 Virtual depozit</div>
+
+    <div class="field">
+      <label>Məbləğ</label>
+      <input type="number" id="depositAmount" value="100">
+    </div>
+
+    <button class="gold-btn" onclick="deposit()">
+      VİRTUAL BALANSI ARTIR
+    </button>
+
+    <div class="demo-note">
+      Burada real bank/kart ödənişi həyata keçirilmir.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- WITHDRAW -->
+
+<div class="modal" id="withdrawModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeModal('withdrawModal')">×</span>
+
+    <div class="modal-title">📤 Çıxarış sorğusu</div>
+
+    <div class="field">
+      <label>Virtual kredit</label>
+      <input type="number" id="withdrawAmount" placeholder="Məbləğ">
+    </div>
+
+    <div class="field">
+      <label>Hesab adı</label>
+      <input id="withdrawName" placeholder="Ad / istifadəçi">
+    </div>
+
+    <button class="gold-btn" onclick="withdraw()">
+      DEMO SORĞU GÖNDƏR
+    </button>
+
+    <div class="demo-note">
+      Bu funksiya yalnız demo sorğusudur. Real pul çıxarışı yoxdur.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- RECEIPT -->
+
+<div class="modal" id="receiptModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeModal('receiptModal')">×</span>
+
+    <div class="modal-title">🧾 Qəbz bölməsi</div>
+
+    <div class="field">
+      <label>Qəbz / fayl</label>
+      <input type="file" id="receiptFile">
+    </div>
+
+    <button class="gold-btn" onclick="uploadReceipt()">
+      QƏBZİ YÜKLƏ
+    </button>
+
+    <div id="receiptPreview"></div>
+
+  </div>
+
+</div>
+
+
+<!-- RESULT -->
+
+<div class="modal" id="resultModal">
+
+  <div class="modal-box">
+
+    <span class="close" onclick="closeModal('resultModal')">×</span>
+
+    <div class="modal-title">🎯 Demo loto nəticəsi</div>
+
+    <div class="result-box">
+
+      <div>
+        Son nəticə
+      </div>
+
+      <div class="result-numbers" id="resultNumbers"></div>
+
+      <button class="gold-btn" onclick="generateResult()">
+        YENİ NƏTİCƏ
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- MESSAGE -->
+
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-let registered = false;
-let loggedIn = false;
+/* =========================
+   LATO DEMO SYSTEM
+========================= */
 
 let balance = 1000;
+let ticketCount = 1;
+let tickets = [];
 
-let currentGame = "Lucky Spin";
-let currentIcon = "🎰";
+let loggedIn = false;
 
-function openAuth(){
-  document.getElementById("authModal").style.display="flex";
-}
+const TICKET_PRICE = 10;
 
-function closeAuth(){
-  document.getElementById("authModal").style.display="none";
-}
 
-function toggleAuth(){
+/* START */
 
-  registered = !registered;
+function init(){
 
-  const title =
-    document.getElementById("authTitle");
-
-  const switchText =
-    document.querySelector(".auth-switch");
-
-  if(registered){
-
-    title.innerText="LATO hesabı yarat";
-
-    switchText.innerHTML =
-      'Artıq hesabın var? <span onclick="toggleAuth()">Daxil ol</span>';
-
-  }else{
-
-    title.innerText="LATO-ya daxil ol";
-
-    switchText.innerHTML =
-      'Hesabın yoxdur? <span onclick="toggleAuth()">Qeydiyyatdan keç</span>';
-
-  }
-}
-
-function login(){
-
-  const username =
-    document.getElementById("authUser").value.trim();
-
-  const email =
-    document.getElementById("authEmail").value.trim();
-
-  const password =
-    document.getElementById("authPassword").value.trim();
-
-  if(!username || !email || !password){
-
-    alert("Zəhmət olmasa bütün xanaları doldurun.");
-    return;
-
+  for(let i=0;i<ticketCount;i++){
+    tickets.push([]);
   }
 
-  loggedIn=true;
-
-  document.getElementById("username").innerText=username;
-
-  document.getElementById("dashboard").style.display="block";
-
-  document.getElementById("balanceBox").style.display="block";
-
-  document.getElementById("loginButton").innerText="Profil";
-
-  closeAuth();
-
-  alert(
-    registered
-    ? "Qeydiyyat tamamlandı!"
-    : "Uğurla daxil oldunuz!"
-  );
+  renderTickets();
+  generateResult();
 
 }
 
-function startGame(icon){
+init();
 
-  if(!loggedIn){
 
-    openAuth();
+/* TOAST */
 
-    alert("Oyunlara daxil olmaq üçün əvvəlcə qeydiyyatdan keçin.");
+function toast(text){
 
-    return;
+  const el=document.getElementById("toast");
+
+  el.innerText=text;
+  el.classList.add("show");
+
+  setTimeout(()=>{
+    el.classList.remove("show");
+  },2200);
+
+}
+
+
+/* BALANCE */
+
+function updateBalance(){
+
+  document.getElementById("balance").innerText=balance;
+  document.getElementById("bankValue").innerText=balance;
+
+}
+
+
+/* TICKET COUNT */
+
+function changeTickets(amount){
+
+  let next=ticketCount+amount;
+
+  if(next<1) next=1;
+  if(next>10) next=10;
+
+  ticketCount=next;
+
+  while(tickets.length<ticketCount){
+    tickets.push([]);
   }
 
-  currentIcon=icon;
-
-  if(icon==="🎰"){
-    currentGame="Lucky Spin";
+  if(tickets.length>ticketCount){
+    tickets=tickets.slice(0,ticketCount);
   }
 
-  if(icon==="🎲"){
-    currentGame="Dice";
+  document.getElementById("ticketCount").innerText=ticketCount;
+
+  document.getElementById("totalCost").innerText=
+    ticketCount*TICKET_PRICE;
+
+  renderTickets();
+
+}
+
+
+/* RANDOM NUMBERS */
+
+function randomNumbers(count){
+
+  let nums=[];
+
+  while(nums.length<count){
+
+    let n=Math.floor(Math.random()*90)+1;
+
+    if(!nums.includes(n)){
+      nums.push(n);
+    }
+
   }
 
-  if(icon==="🃏"){
-    currentGame="Cards";
-  }
+  return nums.sort((a,b)=>a-b);
 
-  document.getElementById("gameTitle").innerText=currentGame;
+}
 
-  document.getElementById("gameDisplay").innerText=icon;
 
-  document.getElementById("gameMessage").innerText=
-    "Oynamaq üçün düyməyə bas.";
+/* RENDER TICKETS */
 
-  document.getElementById("gameScreen").style.display="block";
+function renderTickets(){
 
-  window.scrollTo({
-    top:document.body.scrollHeight,
-    behavior:"smooth"
+  const list=document.getElementById("ticketList");
+
+  list.innerHTML="";
+
+  tickets.forEach((selected,index)=>{
+
+    const ticket=document.createElement("div");
+
+    ticket.className="ticket";
+
+    const head=document.createElement("div");
+
+    head.className="ticket-head";
+
+    head.innerHTML=`
+      <span class="ticket-number">
+        BİLET #${index+1}
+      </span>
+
+      <span class="ticket-status">
+        ${selected.length}/15
+      </span>
+    `;
+
+    ticket.appendChild(head);
+
+
+    const grid=document.createElement("div");
+
+    grid.className="ticket-grid";
+
+
+    for(let n=1;n<=90;n++){
+
+      const cell=document.createElement("div");
+
+      cell.className="cell";
+
+      if(selected.includes(n)){
+        cell.classList.add("selected");
+        cell.innerText=n;
+      }
+
+      cell.onclick=()=>toggleNumber(index,n);
+
+      grid.appendChild(cell);
+
+    }
+
+    ticket.appendChild(grid);
+
+
+    const buttons=document.createElement("div");
+
+    buttons.className="ticket-buttons";
+
+    buttons.innerHTML=`
+      <button class="ticket-btn"
+        onclick="autoTicket(${index})">
+        ↻ Yenilə
+      </button>
+
+      <button class="ticket-btn delete-btn"
+        onclick="clearTicket(${index})">
+        🗑 Sil
+      </button>
+    `;
+
+    ticket.appendChild(buttons);
+
+    list.appendChild(ticket);
+
   });
 
 }
 
-function closeGame(){
 
-  document.getElementById("gameScreen").style.display="none";
+/* NUMBER SELECT */
+
+function toggleNumber(ticketIndex,number){
+
+  let selected=tickets[ticketIndex];
+
+  if(selected.includes(number)){
+
+    tickets[ticketIndex]=
+      selected.filter(n=>n!==number);
+
+  }else{
+
+    if(selected.length>=15){
+
+      toast("Bir biletdə maksimum 15 rəqəm seçilə bilər.");
+
+      return;
+    }
+
+    selected.push(number);
+    selected.sort((a,b)=>a-b);
+
+  }
+
+  renderTickets();
 
 }
 
-function playGame(){
 
-  if(balance < 10){
+/* AUTO TICKET */
 
-    document.getElementById("gameMessage").innerText=
-      "Virtual balansınız kifayət etmir.";
+function autoTicket(index){
+
+  tickets[index]=randomNumbers(15);
+
+  renderTickets();
+
+  toast("Bilet avtomatik dolduruldu.");
+
+}
+
+
+/* AUTO ALL */
+
+function autoAll(){
+
+  tickets=tickets.map(()=>
+    randomNumbers(15)
+  );
+
+  renderTickets();
+
+  toast("Bütün biletlər avtomatik seçildi.");
+
+}
+
+
+/* NEW TICKET */
+
+function newTicket(){
+
+  tickets=[
+    randomNumbers(15)
+  ];
+
+  ticketCount=1;
+
+  document.getElementById("ticketCount").innerText=1;
+  document.getElementById("totalCost").innerText=10;
+
+  renderTickets();
+
+  toast("Yeni bilet yaradıldı.");
+
+}
+
+
+/* CLEAR */
+
+function clearTicket(index){
+
+  tickets[index]=[];
+
+  renderTickets();
+
+}
+
+
+/* BUY */
+
+function buyTickets(){
+
+  if(!loggedIn){
+
+    openModal("loginModal");
+
+    toast("Əvvəlcə hesaba daxil olun.");
 
     return;
   }
 
-  balance -= 10;
+  for(let ticket of tickets){
 
-  let win = Math.random() > 0.55;
+    if(ticket.length<5){
 
-  if(win){
+      toast("Hər bilet üçün ən azı 5 rəqəm seçin.");
 
-    const reward =
-      Math.floor(Math.random()*60)+20;
-
-    balance += reward;
-
-    document.getElementById("gameMessage").innerText=
-      "🎉 Demo uduş! +" + reward + " virtual kredit";
-
-  }else{
-
-    document.getElementById("gameMessage").innerText=
-      "😎 Bu dəfə alınmadı. Yenidən cəhd et.";
+      return;
+    }
 
   }
 
-  document.getElementById("balance").innerText=balance;
+  const cost=ticketCount*TICKET_PRICE;
 
-  document.getElementById("balance2").innerText=balance;
+  if(balance<cost){
 
-  animateGame();
+    toast("Virtual balans kifayət etmir.");
+
+    return;
+  }
+
+  balance-=cost;
+
+  updateBalance();
+
+  toast(
+    ticketCount+
+    " bilet demo olaraq alındı. -" +
+    cost+" 🪙"
+  );
 
 }
 
-function animateGame(){
 
-  const display =
-    document.getElementById("gameDisplay");
+/* LOGIN */
 
-  display.style.transform="scale(1.25)";
+function login(){
 
-  setTimeout(()=>{
-    display.style.transform="scale(1)";
-  },250);
+  const name=document.getElementById("loginName").value.trim();
+  const pass=document.getElementById("loginPass").value.trim();
+
+  if(!name || !pass){
+
+    toast("İstifadəçi adı və şifrə daxil edin.");
+
+    return;
+  }
+
+  loggedIn=true;
+
+  closeModal("loginModal");
+
+  toast("LATO hesabına xoş gəlmisiniz!");
 
 }
+
+
+/* MODALS */
+
+function openModal(id){
+
+  document.getElementById(id).style.display="flex";
+
+}
+
+function closeModal(id){
+
+  document.getElementById(id).style.display="none";
+
+}
+
+
+/* DEPOSIT */
+
+function deposit(){
+
+  let amount=parseInt(
+    document.getElementById("depositAmount").value
+  );
+
+  if(!amount || amount<=0){
+
+    toast("Düzgün məbləğ daxil edin.");
+
+    return;
+  }
+
+  balance+=amount;
+
+  updateBalance();
+
+  closeModal("depositModal");
+
+  toast(
+    "+"+amount+
+    " virtual kredit əlavə edildi."
+  );
+
+}
+
+
+/* WITHDRAW */
+
+function withdraw(){
+
+  let amount=parseInt(
+    document.getElementById("withdrawAmount").value
+  );
+
+  let name=document
+    .getElementById("withdrawName")
+    .value
+    .trim();
+
+  if(!amount || amount<=0 || !name){
+
+    toast("Məlumatları tam doldurun.");
+
+    return;
+  }
+
+  if(amount>balance){
+
+    toast("Virtual balans kifayət etmir.");
+
+    return;
+  }
+
+  closeModal("withdrawModal");
+
+  toast(
+    "Demo çıxarış sorğunuz yaradıldı."
+  );
+
+}
+
+
+/* RECEIPT */
+
+function uploadReceipt(){
+
+  const file=
+    document.getElementById("receiptFile").files[0];
+
+  if(!file){
+
+    toast("Əvvəlcə qəbz faylını seçin.");
+
+    return;
+  }
+
+  document.getElementById("receiptPreview").innerHTML=`
+
+    <div class="receipt">
+
+      <h3>LATO DEMO QƏBZ</h3>
+
+      <div class="receipt-line">
+        <span>Fayl</span>
+        <strong>${file.name}</strong>
+      </div>
+
+      <div class="receipt-line">
+        <span>Status</span>
+        <strong>Qəbul edildi</strong>
+      </div>
+
+      <div class="receipt-line">
+        <span>Tarix</span>
+        <strong>${new Date().toLocaleString("az-AZ")}</strong>
+      </div>
+
+    </div>
+
+  `;
+
+  toast("Qəbz demo olaraq qəbul edildi.");
+
+}
+
+
+/* RESULT */
+
+function generateResult(){
+
+  const nums=randomNumbers(15);
+
+  const box=
+    document.getElementById("resultNumbers");
+
+  box.innerHTML="";
+
+  nums.forEach(n=>{
+
+    const ball=document.createElement("div");
+
+    ball.className="result-ball";
+
+    ball.innerText=n;
+
+    box.appendChild(ball);
+
+  });
+
+}
+
+
+/* SECTION */
+
+function showSection(section,button){
+
+  document
+    .querySelectorAll(".nav button")
+    .forEach(btn=>btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+}
+
+
+/* CLICK OUTSIDE MODAL */
+
+document.querySelectorAll(".modal").forEach(modal=>{
+
+  modal.addEventListener("click",function(e){
+
+    if(e.target===modal){
+
+      modal.style.display="none";
+
+    }
+
+  });
+
+});
 
 </script>
 
