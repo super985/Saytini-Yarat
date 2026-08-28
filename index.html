@@ -3,27 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080808">
-
 <title>Panda Kod Satışı</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
 :root{
+    --bg:#050509;
+    --card:#101018;
+    --purple:#8d35ff;
+    --purple2:#c05cff;
+    --pink:#ff2d9b;
+    --cyan:#00f5ff;
+    --green:#37ff78;
     --yellow:#ffd21c;
-    --gold:#ffb300;
-    --green:#20e477;
-    --red:#ff3d5a;
-    --bg:#050505;
-    --card:rgba(255,255,255,.075);
-    --border:rgba(255,255,255,.12);
+    --white:#fff;
+    --muted:#aaa8b8;
 }
 
 html{
@@ -32,380 +32,843 @@ html{
 
 body{
     min-height:100vh;
-    font-family:'Inter',sans-serif;
     color:#fff;
     background:
-        radial-gradient(circle at 10% 10%,rgba(255,210,28,.16),transparent 28%),
-        radial-gradient(circle at 90% 20%,rgba(112,40,255,.18),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(255,55,95,.12),transparent 30%),
-        #050505;
+        radial-gradient(circle at 10% 5%,rgba(138,43,226,.20),transparent 24%),
+        radial-gradient(circle at 90% 15%,rgba(255,0,150,.16),transparent 23%),
+        radial-gradient(circle at 50% 80%,rgba(0,220,255,.08),transparent 28%),
+        #050509;
     overflow-x:hidden;
 }
 
-/* BACKGROUND LIGHTS */
-
-.bg-light{
+body:before{
+    content:"";
     position:fixed;
-    width:300px;
-    height:300px;
-    border-radius:50%;
-    filter:blur(90px);
-    opacity:.16;
+    inset:0;
     pointer-events:none;
+    opacity:.08;
+    background-image:
+        radial-gradient(circle,#fff 1px,transparent 1px);
+    background-size:80px 80px;
     z-index:-1;
 }
 
-.light1{
-    background:#ffd21c;
-    top:-100px;
-    left:-100px;
+button,input{
+    font:inherit;
 }
 
-.light2{
-    background:#7b35ff;
-    right:-120px;
-    top:35%;
+button{
+    cursor:pointer;
 }
 
-.light3{
-    background:#ff164d;
-    left:30%;
-    bottom:-150px;
+.container{
+    width:min(1180px,94%);
+    margin:auto;
 }
 
-/* HEADER */
+/* =========================
+   NAVBAR
+========================= */
 
-header{
+.navbar{
+    height:76px;
     position:sticky;
     top:0;
-    z-index:100;
-    padding:13px 16px;
-    background:rgba(5,5,5,.72);
-    backdrop-filter:blur(22px);
-    -webkit-backdrop-filter:blur(22px);
+    z-index:1000;
+    background:rgba(5,5,10,.84);
     border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
 }
 
-.nav{
-    max-width:1150px;
-    margin:auto;
+.nav-inner{
+    height:100%;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    gap:15px;
 }
 
-.brand{
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.logo-panda{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    background:linear-gradient(145deg,#fff,#aaa);
+    box-shadow:
+        0 0 12px rgba(255,255,255,.3),
+        0 0 25px rgba(150,40,255,.4);
+}
+
+.logo-text strong{
+    display:block;
+    color:#ffd21c;
+    font-size:18px;
+    font-weight:1000;
+    letter-spacing:1px;
+}
+
+.logo-text span{
+    display:block;
+    font-size:12px;
+    font-weight:900;
+    color:#fff;
+    margin-top:2px;
+}
+
+.nav-links{
+    display:flex;
+    gap:5px;
+    padding:5px;
+    background:#101018;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+}
+
+.nav-links button{
+    border:0;
+    background:transparent;
+    color:#aaa8b8;
+    padding:9px 13px;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.nav-links button:hover,
+.nav-links button.active{
+    background:#20172f;
+    color:#fff;
+    box-shadow:0 0 15px rgba(142,53,255,.15);
+}
+
+.account-btn{
+    border:1px solid #ffd21c;
+    background:linear-gradient(135deg,#ffe45a,#ffad00);
+    color:#111;
+    padding:11px 14px;
+    border-radius:10px;
+    font-size:11px;
+    font-weight:1000;
+    box-shadow:0 0 20px rgba(255,210,28,.18);
+}
+
+.mobile-menu{
+    display:none;
+    border:0;
+    background:#191525;
+    color:#fff;
+    width:39px;
+    height:39px;
+    border-radius:9px;
+    font-size:20px;
+}
+
+/* =========================
+   HERO / PANDA
+========================= */
+
+.hero{
+    margin-top:18px;
+}
+
+.hero-box{
+    position:relative;
+    min-height:390px;
+    overflow:hidden;
+    border-radius:22px;
+    border:1px solid rgba(178,68,255,.55);
+    background:
+        radial-gradient(circle at 70% 45%,rgba(157,48,255,.30),transparent 28%),
+        radial-gradient(circle at 95% 80%,rgba(255,20,170,.18),transparent 25%),
+        linear-gradient(115deg,#0c0715,#100a1d 50%,#09070e);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45),
+        inset 0 0 60px rgba(143,45,255,.08);
+}
+
+/* neon border */
+.hero-box:before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:24px;
+    border:2px solid transparent;
+    background:
+        linear-gradient(90deg,
+        #8d35ff,
+        #ff2d9b,
+        #00f5ff,
+        #8d35ff) border-box;
+    -webkit-mask:
+        linear-gradient(#000 0 0) padding-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    opacity:.7;
+    animation:borderMove 5s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes borderMove{
+    0%{filter:hue-rotate(0deg)}
+    100%{filter:hue-rotate(360deg)}
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    width:60%;
+    padding:45px 40px;
+}
+
+.neon-symbols{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.neon-symbol{
+    position:absolute;
+    font-weight:1000;
+    font-size:32px;
+    opacity:.85;
+    filter:drop-shadow(0 0 8px currentColor)
+           drop-shadow(0 0 20px currentColor);
+    animation:neonFloat 4s ease-in-out infinite;
+}
+
+.neon-symbol.s1{
+    color:#ff2d9b;
+    left:6%;
+    top:13%;
+}
+
+.neon-symbol.s2{
+    color:#00f5ff;
+    left:47%;
+    top:10%;
+    animation-delay:1s;
+}
+
+.neon-symbol.s3{
+    color:#ffd21c;
+    left:40%;
+    bottom:12%;
+    animation-delay:1.7s;
+}
+
+.neon-symbol.s4{
+    color:#8d35ff;
+    right:34%;
+    top:20%;
+    animation-delay:2.2s;
+}
+
+@keyframes neonFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-4deg) scale(1);
+    }
+    50%{
+        transform:translateY(-13px) rotate(5deg) scale(1.08);
+    }
+}
+
+.hero-badge{
+    display:inline-flex;
+    padding:8px 13px;
+    border-radius:30px;
+    border:1px solid rgba(0,245,255,.4);
+    background:rgba(0,245,255,.06);
+    color:#9dfaff;
+    font-size:9px;
+    font-weight:900;
+    box-shadow:
+        0 0 14px rgba(0,245,255,.12),
+        inset 0 0 14px rgba(0,245,255,.04);
+    margin-bottom:16px;
+}
+
+.hero-title{
+    white-space:nowrap;
+    font-size:45px;
+    line-height:1;
+    letter-spacing:-2px;
+    font-weight:1000;
+    text-transform:uppercase;
+}
+
+.hero-title .panda-word{
+    color:#fff;
+    text-shadow:
+        0 0 8px #fff,
+        0 0 20px rgba(255,255,255,.5);
+}
+
+.hero-title .code-word{
+    color:#ffd21c;
+    text-shadow:
+        0 0 7px #ffd21c,
+        0 0 20px #ff8c00,
+        0 0 38px rgba(255,210,28,.45);
+}
+
+.hero-title .sale-word{
+    color:#ff42b3;
+    text-shadow:
+        0 0 8px #ff42b3,
+        0 0 20px #ff1597,
+        0 0 40px rgba(255,45,155,.45);
+}
+
+.hero-line{
+    width:270px;
+    height:3px;
+    margin-top:14px;
+    border-radius:20px;
+    background:linear-gradient(
+        90deg,
+        #8d35ff,
+        #ff2d9b,
+        #ffd21c,
+        transparent
+    );
+    box-shadow:0 0 14px rgba(255,45,155,.6);
+}
+
+.hero p{
+    max-width:470px;
+    margin-top:17px;
+    color:#aaa8b8;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:9px;
+    margin-top:20px;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:12px 18px;
+    border-radius:10px;
+    font-size:11px;
+    font-weight:1000;
+}
+
+.primary-btn{
+    border:1px solid #ffd21c;
+    color:#111;
+    background:linear-gradient(135deg,#ffe45a,#ffad00);
+    box-shadow:0 0 20px rgba(255,210,28,.18);
+}
+
+.secondary-btn{
+    border:1px solid rgba(255,255,255,.13);
+    color:#fff;
+    background:#171321;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Panda 5D */
+.panda-stage{
+    position:absolute;
+    right:3%;
+    top:0;
+    width:42%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.panda-glow{
+    position:absolute;
+    width:270px;
+    height:270px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle,
+        rgba(180,60,255,.38),
+        rgba(92,30,200,.12) 45%,
+        transparent 70%);
+    filter:blur(10px);
+    animation:pandaGlow 3s ease-in-out infinite;
+}
+
+@keyframes pandaGlow{
+    0%,100%{
+        transform:scale(.95);
+        opacity:.7;
+    }
+    50%{
+        transform:scale(1.1);
+        opacity:1;
+    }
+}
+
+.panda-ring{
+    position:absolute;
+    width:270px;
+    height:270px;
+    border-radius:50%;
+    border:2px solid rgba(0,245,255,.25);
+    box-shadow:
+        0 0 20px rgba(0,245,255,.18),
+        inset 0 0 30px rgba(255,45,155,.12);
+    animation:ringRotate 12s linear infinite;
+}
+
+.panda-ring:before{
+    content:"777   ♦   ♠   777";
+    position:absolute;
+    inset:-18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ffd21c;
+    font-size:11px;
+    font-weight:1000;
+    letter-spacing:7px;
+    text-shadow:0 0 10px #ffd21c;
+}
+
+@keyframes ringRotate{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+}
+
+.panda-emoji{
+    position:relative;
+    z-index:5;
+    font-size:145px;
+    filter:
+        drop-shadow(0 0 10px #fff)
+        drop-shadow(0 0 25px #9c3cff)
+        drop-shadow(0 0 45px #ff2d9b);
+    animation:pandaFloat 3s ease-in-out infinite;
+}
+
+@keyframes pandaFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-2deg);
+    }
+    50%{
+        transform:translateY(-12px) rotate(2deg);
+    }
+}
+
+.casino-badge{
+    position:absolute;
+    z-index:7;
+    padding:7px 11px;
+    border-radius:9px;
+    font-weight:1000;
+    font-size:15px;
+    background:rgba(5,5,10,.75);
+    backdrop-filter:blur(8px);
+    animation:badgeFloat 4s ease-in-out infinite;
+}
+
+.casino-badge.one{
+    right:18%;
+    top:18%;
+    color:#ffd21c;
+    border:1px solid #ffd21c;
+    box-shadow:0 0 18px rgba(255,210,28,.35);
+}
+
+.casino-badge.two{
+    left:10%;
+    bottom:20%;
+    color:#00f5ff;
+    border:1px solid #00f5ff;
+    box-shadow:0 0 18px rgba(0,245,255,.30);
+    animation-delay:1s;
+}
+
+.casino-badge.three{
+    right:5%;
+    bottom:22%;
+    color:#ff42b3;
+    border:1px solid #ff42b3;
+    box-shadow:0 0 18px rgba(255,45,155,.30);
+    animation-delay:1.5s;
+}
+
+@keyframes badgeFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-9px)}
+}
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border:1px solid rgba(255,255,255,.07);
+    border-top:0;
+    border-radius:0 0 16px 16px;
+    background:#101018;
+    overflow:hidden;
+}
+
+.benefit{
+    padding:16px;
+    display:flex;
+    gap:9px;
+    border-right:1px solid rgba(255,255,255,.06);
+}
+
+.benefit:last-child{
+    border-right:0;
+}
+
+.benefit-icon{
+    font-size:22px;
+}
+
+.benefit strong{
+    display:block;
+    font-size:11px;
+    font-weight:1000;
+    margin-bottom:4px;
+}
+
+.benefit span{
+    color:#858293;
+    font-size:9px;
+    line-height:1.4;
+}
+
+/* =========================
+   PACKAGES
+========================= */
+
+.packages-section{
+    margin-top:20px;
+    padding:20px;
+    border:1px solid rgba(141,53,255,.25);
+    border-radius:16px;
+    background:rgba(12,11,20,.85);
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:15px;
+}
+
+.section-title h2{
+    font-size:19px;
+    font-weight:1000;
+}
+
+.section-title p{
+    color:#858293;
+    font-size:10px;
+}
+
+.packages{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.package{
+    position:relative;
+    overflow:hidden;
+    padding:15px 10px;
+    text-align:center;
+    border-radius:13px;
+    background:linear-gradient(150deg,#171124,#0d0c15);
+    border:1px solid rgba(141,53,255,.5);
+    transition:.25s;
+}
+
+.package:hover{
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.package:nth-child(2){
+    border-color:#ffd21c;
+}
+
+.package:nth-child(3){
+    border-color:#37ff78;
+}
+
+.package:nth-child(4){
+    border-color:#ff2d9b;
+}
+
+.package-icon{
+    font-size:32px;
+    margin-bottom:5px;
+    filter:drop-shadow(0 0 8px rgba(255,255,255,.2));
+}
+
+.package h3{
+    font-size:20px;
+    font-weight:1000;
+}
+
+.package p{
+    color:#8d899b;
+    font-size:9px;
+    margin:5px 0 11px;
+}
+
+.select-package{
+    width:100%;
+    border-radius:8px;
+    padding:9px;
+    border:1px solid #a34cff;
+    background:#211238;
+    color:#fff;
+    font-size:10px;
+    font-weight:1000;
+}
+
+.all-packages{
+    margin-top:10px;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:7px;
+}
+
+.small-package{
+    text-align:center;
+    padding:10px 7px;
+    background:#101018;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:9px;
+}
+
+.small-package strong{
+    display:block;
+    color:#ffd21c;
+    font-size:14px;
+    font-weight:1000;
+}
+
+.small-package span{
+    display:block;
+    color:#777485;
+    font-size:8px;
+    margin-top:3px;
+}
+
+.small-package button{
+    width:100%;
+    border:0;
+    background:#21172f;
+    color:#fff;
+    border-radius:6px;
+    padding:6px;
+    margin-top:7px;
+    font-size:9px;
+}
+
+/* =========================
+   ACCOUNT
+========================= */
+
+.account-section{
+    display:none;
+    margin-top:20px;
+    padding:17px;
+    border-radius:15px;
+    border:1px solid rgba(141,53,255,.3);
+    background:#101018;
+}
+
+.account-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.account-user{
     display:flex;
     align-items:center;
     gap:10px;
 }
 
-.logo{
-    width:47px;
-    height:47px;
-    border-radius:15px;
-    display:grid;
-    place-items:center;
-    font-size:27px;
-    background:linear-gradient(135deg,#fff,#d8d8d8);
-    box-shadow:
-        0 0 20px rgba(255,255,255,.25),
-        inset 0 1px 2px rgba(255,255,255,.8);
-}
-
-.brand-text{
-    font-weight:900;
-    letter-spacing:-.6px;
-    font-size:17px;
-}
-
-.brand-text span{
-    color:var(--yellow);
-}
-
-.login-btn{
-    border:1px solid rgba(255,210,28,.35);
-    background:rgba(255,210,28,.08);
-    color:#fff;
-    padding:11px 16px;
-    border-radius:13px;
-    font-weight:800;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.login-btn:hover{
-    background:var(--yellow);
-    color:#111;
-    transform:translateY(-2px);
-}
-
-/* MAIN */
-
-.container{
-    width:min(1150px,92%);
-    margin:auto;
-}
-
-/* HERO */
-
-.hero{
-    padding:55px 0 35px;
-    text-align:center;
-}
-
-.pill{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    padding:8px 13px;
-    border:1px solid rgba(255,210,28,.22);
-    background:rgba(255,210,28,.07);
-    border-radius:50px;
-    color:#ffe98a;
-    font-size:12px;
-    font-weight:800;
-    margin-bottom:18px;
-}
-
-.dot{
-    width:7px;
-    height:7px;
-    background:#20e477;
+.avatar{
+    width:52px;
+    height:52px;
     border-radius:50%;
-    box-shadow:0 0 12px #20e477;
-}
-
-.hero h1{
-    font-size:clamp(35px,7vw,72px);
-    line-height:.98;
-    font-weight:900;
-    letter-spacing:-3px;
-}
-
-.hero h1 span{
-    color:var(--yellow);
-    text-shadow:
-        0 0 15px rgba(255,210,28,.4),
-        0 0 45px rgba(255,210,28,.15);
-}
-
-.hero p{
-    max-width:620px;
-    margin:20px auto 0;
-    color:#aaa;
-    line-height:1.7;
-    font-size:14px;
-}
-
-/* CASINO VISUAL */
-
-.casino-banner{
-    margin:25px auto 45px;
-    max-width:1000px;
-    min-height:190px;
-    border-radius:28px;
-    position:relative;
-    overflow:hidden;
-    border:1px solid rgba(255,255,255,.1);
-    background:
-        linear-gradient(110deg,rgba(0,0,0,.9),rgba(28,12,38,.65)),
-        url("https://images.unsplash.com/photo-1518893883800-45cd0954574b?auto=format&fit=crop&w=1600&q=80")
-        center/cover;
-    box-shadow:0 25px 80px rgba(0,0,0,.5);
-}
-
-.casino-overlay{
-    position:absolute;
-    inset:0;
     display:flex;
     align-items:center;
     justify-content:center;
-    flex-direction:column;
-    background:linear-gradient(
-        90deg,
-        rgba(0,0,0,.82),
-        rgba(0,0,0,.25),
-        rgba(0,0,0,.82)
-    );
-}
-
-.casino-title{
-    font-size:clamp(25px,5vw,48px);
-    font-weight:900;
-    text-align:center;
-}
-
-.casino-title span{
-    color:var(--yellow);
-}
-
-.casino-icons{
-    margin-top:15px;
-    display:flex;
-    gap:15px;
     font-size:25px;
+    background:#211437;
+    border:1px solid #9c3cff;
+    box-shadow:0 0 18px rgba(156,60,255,.25);
 }
 
-/* SECTION */
-
-.section-title{
-    text-align:center;
-    margin-bottom:22px;
+.account-user h2{
+    font-size:14px;
+    font-weight:1000;
 }
 
-.section-title h2{
-    font-size:27px;
-    font-weight:900;
+.account-user p{
+    color:#777485;
+    font-size:9px;
+    margin-top:4px;
 }
 
-.section-title p{
-    color:#777;
-    margin-top:7px;
-    font-size:13px;
+.logout{
+    border:0;
+    border-radius:8px;
+    padding:9px 13px;
+    background:#21182e;
+    color:#fff;
+    font-size:10px;
 }
 
-/* PRICE GRID */
-
-.price-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
-    gap:12px;
-}
-
-.price-card{
-    position:relative;
-    padding:20px 14px;
-    min-height:105px;
-    border:1px solid var(--border);
-    background:var(--card);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    border-radius:19px;
-    cursor:pointer;
-    transition:.25s;
+.orders{
+    margin-top:13px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:10px;
     overflow:hidden;
 }
 
-.price-card:before{
-    content:"";
-    position:absolute;
-    width:80px;
-    height:80px;
-    background:var(--yellow);
-    filter:blur(50px);
-    opacity:0;
-    right:-20px;
-    top:-20px;
-    transition:.25s;
+.orders-head{
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    display:flex;
+    justify-content:space-between;
 }
 
-.price-card:hover{
-    transform:translateY(-4px);
-    border-color:rgba(255,210,28,.55);
-}
-
-.price-card.selected{
-    border-color:var(--yellow);
-    background:linear-gradient(
-        145deg,
-        rgba(255,210,28,.17),
-        rgba(255,255,255,.05)
-    );
-    box-shadow:
-        0 0 0 1px rgba(255,210,28,.12),
-        0 15px 40px rgba(255,210,28,.08);
-}
-
-.price-card.selected:before{
-    opacity:.35;
-}
-
-.price-card strong{
-    display:block;
-    font-size:24px;
-    font-weight:900;
-}
-
-.price-card small{
-    display:block;
-    margin-top:7px;
-    color:#888;
+.orders-head h3{
     font-size:11px;
 }
 
-.check{
-    position:absolute;
-    right:10px;
-    top:10px;
-    width:21px;
-    height:21px;
-    border-radius:50%;
-    background:var(--yellow);
-    color:#111;
-    display:none;
-    place-items:center;
-    font-size:12px;
-    font-weight:900;
+.orders-list{
+    padding:8px;
 }
 
-.price-card.selected .check{
+.order{
     display:grid;
+    grid-template-columns:50px 1.4fr 1fr 1fr;
+    gap:10px;
+    align-items:center;
+    padding:10px;
+    background:#14131e;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:9px;
+    margin-bottom:6px;
 }
 
-/* STEPS */
-
-.steps{
-    margin:45px 0;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-}
-
-.step{
-    text-align:center;
-    padding:20px 10px;
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.045);
-    border-radius:18px;
-}
-
-.step-number{
-    margin:auto;
-    width:35px;
-    height:35px;
-    border-radius:12px;
-    display:grid;
-    place-items:center;
-    background:rgba(255,210,28,.13);
-    color:var(--yellow);
-    font-weight:900;
-}
-
-.step h3{
-    font-size:13px;
-    margin-top:11px;
-}
-
-.step p{
-    color:#777;
-    font-size:10px;
-    margin-top:5px;
-}
-
-/* MODAL */
-
-.modal{
-    position:fixed;
-    inset:0;
-    z-index:500;
-    display:none;
+.order-icon{
+    width:45px;
+    height:45px;
+    display:flex;
     align-items:center;
     justify-content:center;
-    padding:18px;
-    background:rgba(0,0,0,.78);
+    border-radius:9px;
+    background:#28133e;
+    font-size:23px;
+}
+
+.order-title{
+    font-size:10px;
+    font-weight:1000;
+}
+
+.order-price{
+    color:#ffd21c;
+    font-size:15px;
+    font-weight:1000;
+    margin:3px 0;
+}
+
+.order-info{
+    color:#777485;
+    font-size:8px;
+    line-height:1.5;
+}
+
+.status{
+    color:#37ff78;
+    font-size:8px;
+    font-weight:1000;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:12px;
+    overflow:hidden;
+    background:#101018;
+}
+
+.stat{
+    text-align:center;
+    padding:15px;
+    border-right:1px solid rgba(255,255,255,.06);
+}
+
+.stat:last-child{
+    border:0;
+}
+
+.stat-icon{
+    font-size:22px;
+}
+
+.stat strong{
+    display:block;
+    font-size:10px;
+    margin-top:4px;
+}
+
+.stat span{
+    color:#777485;
+    font-size:8px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    background:rgba(0,0,0,.82);
     backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
 }
 
 .modal.show{
@@ -413,1059 +876,268 @@ header{
 }
 
 .modal-box{
-    width:min(470px,100%);
+    width:min(480px,100%);
     max-height:92vh;
-    overflow-y:auto;
-    padding:25px;
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:25px;
+    overflow:auto;
+    padding:20px;
+    border-radius:18px;
+    border:1px solid rgba(156,60,255,.45);
     background:
-        linear-gradient(
-            145deg,
-            rgba(35,35,35,.94),
-            rgba(10,10,10,.97)
-        );
-    box-shadow:0 30px 100px rgba(0,0,0,.7);
-    animation:modalIn .3s ease;
+        radial-gradient(circle at 50% 0%,rgba(156,60,255,.13),transparent 40%),
+        #111018;
+    box-shadow:0 30px 90px #000;
 }
 
-@keyframes modalIn{
-    from{
-        opacity:0;
-        transform:translateY(20px) scale(.97);
-    }
-    to{
-        opacity:1;
-        transform:none;
-    }
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:16px;
+}
+
+.modal-head h2{
+    font-size:18px;
+    font-weight:1000;
 }
 
 .close{
-    float:right;
     width:32px;
     height:32px;
     border:0;
-    border-radius:10px;
-    background:#202020;
-    color:#aaa;
-    cursor:pointer;
-    font-size:18px;
-}
-
-.modal-title{
-    font-size:25px;
-    font-weight:900;
-    margin-bottom:5px;
-}
-
-.modal-sub{
-    color:#777;
-    font-size:12px;
-    margin-bottom:22px;
+    border-radius:8px;
+    background:#231d31;
+    color:#fff;
+    font-size:19px;
 }
 
 /* AUTH */
 
-.auth-tabs{
+.tabs{
     display:grid;
     grid-template-columns:1fr 1fr;
+    gap:5px;
+    background:#09090f;
     padding:4px;
-    border-radius:13px;
-    background:#151515;
-    margin-bottom:18px;
+    border-radius:8px;
+    margin-bottom:15px;
 }
 
-.auth-tab{
-    padding:10px;
+.tabs button{
+    padding:9px;
     border:0;
-    border-radius:10px;
     background:transparent;
-    color:#777;
-    font-weight:800;
-    cursor:pointer;
+    color:#777485;
+    border-radius:6px;
+    font-size:10px;
 }
 
-.auth-tab.active{
-    color:#111;
-    background:var(--yellow);
+.tabs button.active{
+    background:#281a3b;
+    color:#fff;
 }
 
-.input-group{
-    margin-bottom:14px;
+.form-group{
+    margin-bottom:11px;
 }
 
-.input-group label{
+.form-group label{
     display:block;
-    margin-bottom:7px;
-    color:#aaa;
-    font-size:11px;
-    font-weight:700;
+    color:#92909e;
+    font-size:9px;
+    margin-bottom:5px;
 }
 
 .input{
     width:100%;
-    padding:14px;
+    padding:11px;
+    border-radius:8px;
+    outline:0;
+    border:1px solid rgba(255,255,255,.09);
+    background:#0b0b11;
     color:#fff;
-    background:#111;
-    border:1px solid #292929;
-    outline:none;
-    border-radius:13px;
-    font-family:inherit;
+    font-size:11px;
 }
 
 .input:focus{
-    border-color:rgba(255,210,28,.6);
-    box-shadow:0 0 0 3px rgba(255,210,28,.07);
+    border-color:#a64cff;
+    box-shadow:0 0 0 3px rgba(166,76,255,.07);
 }
 
-.primary-btn{
+.form-btn{
     width:100%;
-    padding:15px;
+    padding:12px;
     border:0;
-    border-radius:14px;
-    background:linear-gradient(135deg,#ffe55b,#ffb300);
+    border-radius:9px;
+    background:linear-gradient(135deg,#ffe45a,#ffad00);
     color:#111;
-    font-weight:900;
-    cursor:pointer;
-    box-shadow:0 10px 30px rgba(255,179,0,.17);
-    transition:.25s;
+    font-size:11px;
+    font-weight:1000;
 }
 
-.primary-btn:hover{
-    transform:translateY(-2px);
+.error{
+    display:none;
+    color:#ff5c87;
+    font-size:9px;
+    margin-bottom:10px;
 }
 
-/* PAYMENT */
+/* =========================
+   PAYMENT
+========================= */
 
-.order-info{
+.payment-summary{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:15px;
-    border-radius:15px;
-    background:rgba(255,210,28,.07);
-    border:1px solid rgba(255,210,28,.15);
-    margin-bottom:18px;
+    padding:13px;
+    border-radius:11px;
+    background:#19152a;
+    border:1px solid rgba(156,60,255,.28);
+    margin-bottom:12px;
 }
 
-.order-info span{
-    color:#888;
-    font-size:12px;
+.payment-summary small{
+    display:block;
+    color:#777485;
+    font-size:8px;
 }
 
-.order-info strong{
-    color:var(--yellow);
-    font-size:20px;
+.payment-summary strong{
+    display:block;
+    font-size:11px;
+    margin-top:4px;
 }
+
+.amount{
+    color:#ffd21c;
+    font-size:21px;
+    font-weight:1000;
+    text-shadow:0 0 15px rgba(255,210,28,.25);
+}
+
+/* MODERN CARD */
 
 .bank-card{
-    padding:22px;
-    border-radius:20px;
     position:relative;
+    min-height:185px;
     overflow:hidden;
+    padding:19px;
+    border-radius:18px;
     background:
-        radial-gradient(circle at 85% 20%,rgba(255,210,28,.3),transparent 28%),
-        linear-gradient(135deg,#202020,#080808);
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 20px 40px rgba(0,0,0,.35);
-    margin-bottom:16px;
+        radial-gradient(circle at 90% 20%,rgba(0,245,255,.20),transparent 23%),
+        radial-gradient(circle at 10% 90%,rgba(255,45,155,.20),transparent 25%),
+        linear-gradient(135deg,#241035,#7024c5 48%,#140b25);
+    border:1px solid rgba(255,255,255,.20);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.4),
+        0 0 35px rgba(141,53,255,.18);
 }
 
-.bank-card:after{
-    content:"";
+.bank-card:before{
+    content:"777   ♦   777";
     position:absolute;
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    border:1px solid rgba(255,210,28,.15);
-    right:-40px;
-    bottom:-50px;
+    right:13px;
+    bottom:13px;
+    color:rgba(255,255,255,.13);
+    font-size:18px;
+    font-weight:1000;
+    letter-spacing:4px;
 }
 
-.bank-name{
-    color:#aaa;
-    font-size:11px;
-    font-weight:700;
+.bank-top{
+    display:flex;
+    justify-content:space-between;
+}
+
+.bank-brand{
+    font-size:13px;
+    font-weight:1000;
+}
+
+.bank-brand span{
+    color:#ffd21c;
+}
+
+.chip{
+    width:39px;
+    height:28px;
+    border-radius:6px;
+    background:linear-gradient(135deg,#eee,#999);
 }
 
 .card-number{
-    margin:25px 0 20px;
+    margin:33px 0 20px;
     font-size:19px;
-    font-weight:900;
+    font-weight:800;
     letter-spacing:2px;
+    text-shadow:0 2px 5px #000;
 }
 
 .card-bottom{
     display:flex;
     justify-content:space-between;
-    color:#aaa;
+    color:#d7d2df;
+    font-size:8px;
+}
+
+.copy-card{
+    width:100%;
+    margin-top:9px;
+    padding:11px;
+    border-radius:9px;
+    background:#1b142a;
+    color:#fff;
+    border:1px solid rgba(156,60,255,.35);
     font-size:10px;
+    font-weight:1000;
 }
 
-.copy-btn{
-    width:100%;
-    margin-top:12px;
-    padding:13px;
-    border:1px solid rgba(255,210,28,.25);
-    background:rgba(255,210,28,.08);
-    color:#ffd21c;
-    border-radius:13px;
-    font-weight:800;
-    cursor:pointer;
+.copy-card.copied{
+    color:#37ff78;
+    border-color:#37ff78;
+    background:#102518;
 }
 
-.copy-btn.copied{
-    background:rgba(32,228,119,.12);
-    border-color:rgba(32,228,119,.4);
-    color:#20e477;
+.payment-security{
+    margin:10px 0;
+    padding:9px;
+    border-radius:8px;
+    color:#72dc94;
+    background:rgba(55,255,120,.05);
+    border:1px solid rgba(55,255,120,.12);
+    font-size:8px;
 }
 
-/* RECEIPT */
-
-.receipt-box{
-    margin-top:18px;
-    padding:20px;
-    border:1px dashed rgba(255,255,255,.18);
-    border-radius:18px;
-    background:rgba(255,255,255,.035);
-}
-
-.receipt-box h3{
-    font-size:15px;
-}
-
-.receipt-box p{
-    color:#777;
-    font-size:11px;
-    margin:6px 0 14px;
-}
-
-.file-input{
-    width:100%;
-    color:#999;
-    font-size:11px;
-}
-
-.file-input::file-selector-button{
-    border:0;
-    padding:10px 12px;
-    margin-right:10px;
+.upload{
+    display:block;
+    text-align:center;
+    padding:17px;
     border-radius:10px;
-    background:#222;
-    color:#fff;
+    border:1px dashed #9143ff;
+    color:#bbb7c7;
+    background:#0d0c15;
     cursor:pointer;
-}
-
-/* SUCCESS */
-
-.success{
-    text-align:center;
-    padding:15px 5px;
-}
-
-.success-icon{
-    width:85px;
-    height:85px;
-    margin:5px auto 18px;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    background:rgba(32,228,119,.1);
-    border:1px solid rgba(32,228,119,.35);
-    color:var(--green);
-    font-size:45px;
-    box-shadow:
-        0 0 0 10px rgba(32,228,119,.035),
-        0 0 45px rgba(32,228,119,.2);
-    animation:successPop .5s ease;
-}
-
-@keyframes successPop{
-    from{
-        transform:scale(.5);
-        opacity:0;
-    }
-    to{
-        transform:scale(1);
-        opacity:1;
-    }
-}
-
-.success h2{
-    font-size:27px;
-    font-weight:900;
-}
-
-.success p{
-    color:#888;
-    font-size:12px;
-    line-height:1.7;
-    margin:9px 0 18px;
-}
-
-.generated-code{
-    padding:18px 10px;
-    border-radius:17px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(32,228,119,.12),
-            rgba(255,255,255,.04)
-        );
-    border:1px solid rgba(32,228,119,.25);
-    color:#fff;
-    font-size:21px;
-    font-weight:900;
-    letter-spacing:2px;
-    word-break:break-all;
-}
-
-.code-label{
-    color:#20e477;
     font-size:10px;
-    font-weight:800;
-    margin-bottom:7px;
 }
 
-/* FOOTER */
-
-footer{
-    padding:45px 0 25px;
-    text-align:center;
-    color:#555;
-    font-size:11px;
+.upload input{
+    display:none;
 }
 
-.footer-logo{
-    font-size:20px;
-    margin-bottom:8px;
-    color:#ddd;
-    font-weight:900;
+.preview{
+    display:none;
+    width:100%;
+    max-height:210px;
+    object-fit:contain;
+    margin-top:8px;
+    border-radius:8px;
 }
 
-.footer-logo span{
-    color:var(--yellow);
-}
-
-/* MOBILE */
-
-@media(max-width:700px){
-
-    header{
-        padding:10px 12px;
-    }
-
-    .hero{
-        padding-top:38px;
-    }
-
-    .hero h1{
-        letter-spacing:-2px;
-    }
-
-    .casino-banner{
-        min-height:155px;
-        border-radius:22px;
-    }
-
-    .price-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .steps{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .modal-box{
-        padding:20px;
-        border-radius:22px;
-    }
-
-    .card-number{
-        font-size:16px;
-    }
-}
-
-@media(max-width:380px){
-
-    .price-grid{
-        grid-template-columns:1fr 1fr;
-        gap:8px;
-    }
-
-    .price-card{
-        padding:17px 11px;
-    }
-
-    .price-card strong{
-        font-size:21px;
-    }
-
-    .brand-text{
-        font-size:14px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="bg-light light1"></div>
-<div class="bg-light light2"></div>
-<div class="bg-light light3"></div>
-
-<header>
-    <div class="nav">
-
-        <div class="brand">
-            <div class="logo">🐼</div>
-
-            <div class="brand-text">
-                PANDA <span>KOD SATIŞI</span>
-            </div>
-        </div>
-
-        <button class="login-btn" onclick="openAuth()">
-            Giriş / Qeydiyyat
-        </button>
-
-    </div>
-</header>
-
-<main class="container">
-
-    <section class="hero">
-
-        <div class="pill">
-            <span class="dot"></span>
-            SÜRƏTLİ KOD SİSTEMİ
-        </div>
-
-        <h1>
-            PANDA<br>
-            <span>KOD SATIŞI</span>
-        </h1>
-
-        <p>
-            İstədiyiniz məbləği seçin, sifariş mərhələsinə keçin
-            və hesab məlumatlarınızı təhlükəsiz şəkildə daxil edin.
-        </p>
-
-    </section>
-
-
-    <section class="casino-banner">
-
-        <div class="casino-overlay">
-
-            <div class="casino-title">
-                🐼 PANDA <span>LUCKY</span>
-            </div>
-
-            <div class="casino-icons">
-                🎰 💎 🃏 🪙 🎲
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section>
-
-        <div class="section-title">
-            <h2>Kod məbləğini seç</h2>
-            <p>10 AZN-dən 500 AZN-ə qədər</p>
-        </div>
-
-        <div class="price-grid" id="priceGrid"></div>
-
-    </section>
-
-
-    <section class="steps">
-
-        <div class="step">
-            <div class="step-number">1</div>
-            <h3>Məbləği seç</h3>
-            <p>Uyğun kod məbləğini seç.</p>
-        </div>
-
-        <div class="step">
-            <div class="step-number">2</div>
-            <h3>Sifariş</h3>
-            <p>Sifariş məlumatlarını təsdiqlə.</p>
-        </div>
-
-        <div class="step">
-            <div class="step-number">3</div>
-            <h3>Qəbz</h3>
-            <p>Qəbz faylını əlavə et.</p>
-        </div>
-
-        <div class="step">
-            <div class="step-number">4</div>
-            <h3>Təsdiq</h3>
-            <p>Nəticə ekranını gör.</p>
-        </div>
-
-    </section>
-
-</main>
-
-
-<footer>
-
-    <div class="footer-logo">
-        🐼 PANDA <span>KOD SATIŞI</span>
-    </div>
-
-    <div>
-        © 2026 Panda Kod Satışı
-    </div>
-
-</footer>
-
-
-<!-- AUTH MODAL -->
-
-<div class="modal" id="authModal">
-
-    <div class="modal-box">
-
-        <button class="close" onclick="closeModal('authModal')">
-            ×
-        </button>
-
-        <div class="modal-title">
-            Hesab
-        </div>
-
-        <div class="modal-sub">
-            Nömrə və ya Gmail ilə davam edin.
-        </div>
-
-        <div class="auth-tabs">
-
-            <button
-                class="auth-tab active"
-                id="phoneTab"
-                onclick="switchAuth('phone')">
-                Nömrə
-            </button>
-
-            <button
-                class="auth-tab"
-                id="gmailTab"
-                onclick="switchAuth('gmail')">
-                Gmail
-            </button>
-
-        </div>
-
-        <div id="phoneAuth">
-
-            <div class="input-group">
-
-                <label>Telefon nömrəsi</label>
-
-                <input
-                    class="input"
-                    id="phone"
-                    type="tel"
-                    placeholder="+994 XX XXX XX XX">
-
-            </div>
-
-        </div>
-
-        <div id="gmailAuth" style="display:none">
-
-            <div class="input-group">
-
-                <label>Gmail</label>
-
-                <input
-                    class="input"
-                    id="gmail"
-                    type="email"
-                    placeholder="example@gmail.com">
-
-            </div>
-
-        </div>
-
-        <div class="input-group">
-
-            <label>Şifrə</label>
-
-            <input
-                class="input"
-                id="password"
-                type="password"
-                placeholder="••••••••">
-
-        </div>
-
-        <button
-            class="primary-btn"
-            onclick="loginUser()">
-            Davam et
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- PAYMENT MODAL -->
-
-<div class="modal" id="paymentModal">
-
-    <div class="modal-box">
-
-        <button class="close" onclick="closeModal('paymentModal')">
-            ×
-        </button>
-
-        <div class="modal-title">
-            Sifariş
-        </div>
-
-        <div class="modal-sub">
-            Seçdiyiniz məbləğ üzrə növbəti mərhələ.
-        </div>
-
-
-        <div class="order-info">
-
-            <span>Seçilmiş məbləğ</span>
-
-            <strong id="selectedAmount">
-                0 AZN
-            </strong>
-
-        </div>
-
-
-        <div class="bank-card">
-
-            <div class="bank-name">
-                PANDA PAYMENT
-            </div>
-
-            <div class="card-number" id="cardNumber">
-                4169 0000 0000 0000
-            </div>
-
-            <div class="card-bottom">
-                <span>KART NÖMRƏSİ</span>
-                <span>•••</span>
-            </div>
-
-        </div>
-
-
-        <button
-            class="copy-btn"
-            id="copyButton"
-            onclick="copyCard()">
-            📋 Kart nömrəsini kopyala
-        </button>
-
-
-        <div class="receipt-box">
-
-            <h3>
-                🧾 Qəbz göndər
-            </h3>
-
-            <p>
-                Ödəniş məlumatınızı təsdiqləmək üçün qəbz faylını seçin.
-            </p>
-
-            <input
-                class="file-input"
-                type="file"
-                id="receipt"
-                accept="image/*,.pdf">
-
-            <br><br>
-
-            <button
-                class="primary-btn"
-                onclick="sendReceipt()">
-                Qəbzi göndər
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- SUCCESS MODAL -->
-
-<div class="modal" id="successModal">
-
-    <div class="modal-box">
-
-        <div class="success">
-
-            <div class="success-icon">
-                ✓
-            </div>
-
-            <h2>
-                Təsdiqləndi
-            </h2>
-
-            <p>
-                Qəbz məlumatı qəbul edildi.
-                Aşağıdakı kod sizin üçün yaradıldı.
-            </p>
-
-            <div class="code-label">
-                SİZİN KODUNUZ
-            </div>
-
-            <div
-                class="generated-code"
-                id="generatedCode">
-            </div>
-
-            <br>
-
-            <button
-                class="primary-btn"
-                onclick="copyGeneratedCode()">
-                📋 Kodu kopyala
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<script>
-
-/* =========================
-   MƏBLƏĞLƏR
-========================= */
-
-const amounts = [];
-
-for(let i = 10; i <= 500; i += 5){
-    amounts.push(i);
-}
-
-const priceGrid = document.getElementById("priceGrid");
-
-amounts.forEach(amount => {
-
-    const card = document.createElement("div");
-
-    card.className = "price-card";
-
-    card.innerHTML = `
-        <span class="check">✓</span>
-        <strong>${amount} AZN</strong>
-        <small>Panda kod</small>
-    `;
-
-    card.onclick = () => selectAmount(amount, card);
-
-    priceGrid.appendChild(card);
-
-});
-
-
-let selectedAmount = 0;
-
-
-/* =========================
-   MƏBLƏĞ SEÇ
-========================= */
-
-function selectAmount(amount, element){
-
-    selectedAmount = amount;
-
-    document
-        .querySelectorAll(".price-card")
-        .forEach(card => card.classList.remove("selected"));
-
-    element.classList.add("selected");
-
-    document.getElementById("selectedAmount").textContent =
-        amount + " AZN";
-
-    openAuth();
-
-}
-
-
-/* =========================
-   AUTH
-========================= */
-
-function openAuth(){
-
-    document
-        .getElementById("authModal")
-        .classList.add("show");
-
-}
-
-function closeModal(id){
-
-    document
-        .getElementById(id)
-        .classList.remove("show");
-
-}
-
-
-function switchAuth(type){
-
-    const phoneTab =
-        document.getElementById("phoneTab");
-
-    const gmailTab =
-        document.getElementById("gmailTab");
-
-    const phoneAuth =
-        document.getElementById("phoneAuth");
-
-    const gmailAuth =
-        document.getElementById("gmailAuth");
-
-
-    if(type === "phone"){
-
-        phoneTab.classList.add("active");
-        gmailTab.classList.remove("active");
-
-        phoneAuth.style.display = "block";
-        gmailAuth.style.display = "none";
-
-    }else{
-
-        gmailTab.classList.add("active");
-        phoneTab.classList.remove("active");
-
-        gmailAuth.style.display = "block";
-        phoneAuth.style.display = "none";
-
-    }
-
-}
-
-
-function loginUser(){
-
-    const phoneVisible =
-        document.getElementById("phoneAuth").style.display !== "none";
-
-    const password =
-        document.getElementById("password").value.trim();
-
-
-    if(!password){
-
-        alert("Şifrəni daxil edin.");
-
-        return;
-    }
-
-
-    if(phoneVisible){
-
-        const phone =
-            document.getElementById("phone").value.trim();
-
-        if(phone.length < 7){
-
-            alert("Telefon nömrəsini düzgün daxil edin.");
-
-            return;
-        }
-
-    }else{
-
-        const gmail =
-            document.getElementById("gmail").value.trim();
-
-        if(!gmail.includes("@")){
-
-            alert("Gmail ünvanını düzgün daxil edin.");
-
-            return;
-        }
-
-    }
-
-
-    closeModal("authModal");
-
-    if(selectedAmount > 0){
-
-        document
-            .getElementById("paymentModal")
-            .classList.add("show");
-
-    }else{
-
-        alert("Əvvəlcə kod məbləğini seçin.");
-
-    }
-
-}
-
-
-/* =========================
-   KART KOPYALA
-========================= */
-
-function copyCard(){
-
-    const number =
-        document
-        .getElementById("cardNumber")
-        .textContent
-        .replace(/\s/g,'');
-
-    navigator.clipboard.writeText(number);
-
-    const btn =
-        document.getElementById("copyButton");
-
-    btn.classList.add("copied");
-
-    btn.textContent =
-        "✓ Kart nömrəsi kopyalandı";
-
-    setTimeout(() => {
-
-        btn.classList.remove("copied");
-
-        btn.textContent =
-            "📋 Kart nömrəsini kopyala";
-
-    },2000);
-
-}
-
-
-/* =========================
-   QƏBZ GÖNDƏR
-========================= */
-
-function sendReceipt(){
-
-    const receipt =
-        document.getElementById("receipt").files[0];
-
-
-    if(!receipt){
-
-        alert("Zəhmət olmasa qəbz faylını seçin.");
-
-        return;
-    }
-
-
-    closeModal("paymentModal");
-
-    const code =
-        generateCode();
-
-    document
-        .getElementById("generatedCode")
-        .textContent = code;
-
-    document
-        .getElementById("successModal")
-        .classList.add("show");
-
-}
-
-
-/* =========================
-   YENİ KOD YARAT
-========================= */
-
-function generateCode(){
-
-    const parts = [];
-
-    for(let i = 0; i < 7; i++){
-
-        const number =
-            Math.floor(Math.random() * 100)
-            .toString()
-            .padStart(2,"0");
-
-        parts.push(number);
-
-    }
-
-    return parts.join("-");
-
-}
-
-
-/* =========================
-   KOD KOPYALA
-========================= */
-
-function copyGeneratedCode(){
-
-    const code =
-        document
-        .getElementById("generatedCode")
-        .textContent;
-
-    navigator.clipboard.writeText(code);
-
-    const button =
-        document.querySelector("#successModal .primary-btn");
-
-    button.textContent =
-        "✓ Kod kopyalandı";
-
-    setTimeout(() => {
-
-        button.textContent =
-            "📋 Kodu kopyala";
-
-    },2000);
-
-}
-
-
-/* =========================
-   MODAL ÇÖLƏ TIKLAYANDA
-========================= */
-
-document.querySelectorAll(".modal").forEach(modal => {
-
-    modal.addEventListener("click", function(e){
-
-        if(e.target === modal){
-
-            modal.classList.remove("show");
-
-        }
-
-    });
-
-});
-
-</script>
-
-</body>
-</html>
+.confirm-payment{
+    width:100%;
+    margin-top:10px;
+    padding:13px;
+    border:0;
+    border-radius:9px;
+    background:linear-gradient(135deg,#ffe45a,#ffad00);
+    co
