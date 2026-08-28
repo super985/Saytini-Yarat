@@ -7,2610 +7,751 @@
 
 <style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
     font-family:Arial,Helvetica,sans-serif;
 }
 
-:root{
-    --bg:#080712;
-    --card:#111020;
-    --card2:#151326;
-    --purple:#9b4dff;
-    --purple2:#6d28d9;
-    --yellow:#ffc400;
-    --green:#35e86b;
-    --pink:#ff3e76;
-    --text:#fff;
-    --muted:#aaa7bd;
-    --border:rgba(255,255,255,.10);
-}
-
 body{
-    background:
-        radial-gradient(circle at 20% 10%,rgba(123,45,255,.20),transparent 28%),
-        radial-gradient(circle at 90% 20%,rgba(255,0,120,.10),transparent 25%),
-        radial-gradient(circle at 50% 80%,rgba(70,0,255,.12),transparent 30%),
-        var(--bg);
-    color:var(--text);
     min-height:100vh;
-    overflow-x:hidden;
-}
-
-button,input{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
+    background:
+      radial-gradient(circle at 20% 10%,#6b21a8 0,transparent 30%),
+      radial-gradient(circle at 80% 20%,#be185d 0,transparent 30%),
+      linear-gradient(145deg,#07020d,#12051b 45%,#050108);
+    color:#fff;
+    padding:18px;
 }
 
 .container{
-    width:min(1180px,94%);
+    width:100%;
+    max-width:480px;
     margin:auto;
 }
 
-/* NAVBAR */
-
-.navbar{
-    height:86px;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    background:rgba(5,5,12,.82);
-    backdrop-filter:blur(20px);
-    position:sticky;
-    top:0;
-    z-index:1000;
-}
-
-.nav-inner{
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    min-width:190px;
+    text-align:center;
+    margin:10px 0 20px;
 }
 
-.logo-panda{
-    width:53px;
-    height:53px;
-    border-radius:50%;
+.panda-icon{
+    width:76px;
+    height:76px;
+    margin:auto;
+    border-radius:24px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:33px;
-    background:#fff;
-    box-shadow:0 0 25px rgba(255,255,255,.16);
+    font-size:45px;
+    background:linear-gradient(135deg,#fff,#d8d8d8);
+    box-shadow:
+      0 0 15px #fff,
+      0 0 40px #a855f7;
 }
 
-.logo-text{
-    line-height:1;
+.logo h1{
+    margin-top:12px;
+    font-size:27px;
+    font-weight:1000;
+    letter-spacing:1px;
+    background:linear-gradient(90deg,#fff,#ffd21c,#ff4fd8,#fff);
+    -webkit-background-clip:text;
+    color:transparent;
+    text-shadow:0 0 20px #ff3fd4;
 }
 
-.logo-text strong{
-    display:block;
-    color:#ffc400;
-    font-size:21px;
-}
-
-.logo-text span{
-    display:block;
-    color:#fff;
-    font-size:17px;
-    font-weight:900;
-    margin-top:3px;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    padding:6px;
-    border:1px solid rgba(255,255,255,.08);
-    background:#11111d;
-    border-radius:14px;
-}
-
-.nav-links button{
-    border:0;
-    color:#c9c7d3;
-    background:transparent;
-    padding:11px 16px;
-    border-radius:9px;
+.logo p{
+    color:#cfc4d9;
     font-size:13px;
+    margin-top:5px;
 }
-
-.nav-links button:hover,
-.nav-links button.active{
-    color:#fff;
-    background:#17172a;
-    box-shadow:inset 0 0 0 1px rgba(255,196,0,.25);
-}
-
-.account-btn{
-    border:0;
-    border-radius:12px;
-    padding:13px 18px;
-    background:linear-gradient(135deg,#ffd43b,#ffb300);
-    color:#15110a;
-    font-weight:900;
-    box-shadow:0 0 25px rgba(255,196,0,.15);
-}
-
-.mobile-menu{
-    display:none;
-}
-
-/* HERO */
 
 .hero{
-    margin-top:18px;
-}
-
-.hero-box{
-    min-height:430px;
-    border:1px solid rgba(161,83,255,.38);
-    border-radius:18px;
+    height:150px;
+    border-radius:25px;
     overflow:hidden;
     position:relative;
+    margin-bottom:18px;
+    border:1px solid rgba(255,255,255,.15);
     background:
-        radial-gradient(circle at 75% 50%,rgba(130,35,255,.25),transparent 25%),
-        linear-gradient(110deg,#100a22,#0b0916);
-}
-
-.hero-box:before{
-    content:"";
-    position:absolute;
-    width:420px;
-    height:420px;
-    border-radius:50%;
-    right:50px;
-    top:10px;
-    background:rgba(143,50,255,.18);
-    filter:blur(55px);
+      linear-gradient(90deg,rgba(10,0,20,.95),rgba(10,0,20,.25)),
+      url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=1000&q=80")
+      center/cover;
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
 }
 
 .hero-content{
-    position:relative;
-    z-index:2;
-    padding:55px 50px;
-    width:58%;
-}
-
-.hero-badge{
-    display:inline-flex;
-    gap:7px;
-    align-items:center;
-    padding:9px 15px;
-    border:1px solid #8e3dff;
-    border-radius:30px;
-    background:rgba(111,35,255,.14);
-    box-shadow:0 0 25px rgba(145,45,255,.28);
-    font-size:12px;
-    margin-bottom:22px;
-}
-
-.hero h1{
-    font-size:68px;
-    line-height:.95;
-    letter-spacing:-3px;
-}
-
-.hero h1 .white{
-    color:#fff;
-}
-
-.hero h1 .yellow{
-    color:#ffc400;
-}
-
-.hero p{
-    margin-top:20px;
-    color:#b4b1c0;
-    font-size:15px;
-    line-height:1.7;
-    max-width:480px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    margin-top:25px;
-}
-
-.primary-btn{
-    border:1px solid #ffc400;
-    background:linear-gradient(135deg,#ffda35,#ffae00);
-    color:#161109;
-    font-weight:900;
-    padding:14px 23px;
-    border-radius:11px;
-    box-shadow:0 0 25px rgba(255,196,0,.16);
-}
-
-.secondary-btn{
-    border:1px solid rgba(255,255,255,.13);
-    background:#151322;
-    color:#fff;
-    padding:14px 23px;
-    border-radius:11px;
-}
-
-.panda-hero{
     position:absolute;
-    right:5%;
-    bottom:0;
-    width:40%;
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.panda-big{
-    font-size:190px;
-    filter:
-        drop-shadow(0 0 20px rgba(255,255,255,.15))
-        drop-shadow(0 0 45px rgba(145,55,255,.5));
-    animation:floatPanda 4s ease-in-out infinite;
-}
-
-@keyframes floatPanda{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
-}
-
-/* BENEFITS */
-
-.benefits{
-    margin-top:0;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    border:1px solid rgba(255,255,255,.08);
-    background:#10101c;
-    border-radius:0 0 16px 16px;
-    overflow:hidden;
-}
-
-.benefit{
-    padding:20px;
-    display:flex;
-    gap:12px;
-    border-right:1px solid rgba(255,255,255,.06);
-}
-
-.benefit:last-child{
-    border-right:0;
-}
-
-.benefit-icon{
-    font-size:27px;
-}
-
-.benefit strong{
-    display:block;
-    font-size:14px;
-    margin-bottom:6px;
-}
-
-.benefit span{
-    color:#888597;
-    font-size:11px;
-    line-height:1.4;
-}
-
-/* ACCOUNT */
-
-.account-section{
-    margin-top:20px;
-    border:1px solid rgba(154,75,255,.27);
-    background:
-        linear-gradient(135deg,rgba(20,17,40,.96),rgba(12,11,23,.96));
-    border-radius:17px;
+    inset:0;
     padding:22px;
-}
-
-.account-head{
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.account-user{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.avatar{
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
+    flex-direction:column;
     justify-content:center;
-    font-size:34px;
-    background:radial-gradient(circle,#4d1e9e,#161126);
-    border:1px solid #9b4dff;
-    box-shadow:0 0 25px rgba(155,77,255,.35);
 }
 
-.account-user h2{
-    font-size:17px;
-    margin-bottom:6px;
+.hero strong{
+    font-size:23px;
+    font-weight:900;
 }
 
-.account-user p{
-    color:#a09dae;
-    font-size:12px;
+.hero span{
+    margin-top:6px;
+    color:#ddd;
+    font-size:13px;
 }
 
-.logout{
-    border:0;
-    background:#211c3a;
-    color:#fff;
-    padding:11px 19px;
-    border-radius:10px;
+.card{
+    background:rgba(255,255,255,.075);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:23px;
+    padding:18px;
+    margin-bottom:16px;
+    backdrop-filter:blur(18px);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
 }
 
-/* ORDERS */
-
-.orders{
-    margin-top:20px;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:14px;
-    overflow:hidden;
+.card h2{
+    font-size:18px;
+    margin-bottom:14px;
 }
 
-.orders-head{
-    padding:16px 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-.orders-head h3{
-    font-size:15px;
-}
-
-.orders-list{
-    padding:10px;
-}
-
-.order{
-    display:grid;
-    grid-template-columns:70px 1.5fr 1fr 1fr;
-    gap:15px;
-    align-items:center;
+input{
+    width:100%;
     padding:15px;
-    border:1px solid rgba(255,255,255,.06);
-    border-radius:13px;
-    background:#121121;
-    margin-bottom:8px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:#180c21;
+    color:#fff;
+    border:1px solid #392442;
+    margin-bottom:10px;
 }
 
-.order-icon{
-    width:60px;
-    height:60px;
-    border-radius:13px;
-    background:linear-gradient(135deg,#48209b,#7728db);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
+input:focus{
+    border-color:#c026d3;
+    box-shadow:0 0 15px rgba(192,38,211,.3);
 }
 
-.order-title{
+.btn{
+    width:100%;
+    border:none;
+    padding:15px;
+    border-radius:14px;
+    color:#fff;
+    font-size:15px;
     font-weight:900;
-    font-size:14px;
+    cursor:pointer;
+    background:linear-gradient(100deg,#9333ea,#ec4899);
+    box-shadow:0 8px 25px rgba(236,72,153,.25);
+    transition:.2s;
 }
 
-.order-price{
-    color:#ffc400;
-    font-size:19px;
-    font-weight:900;
-    margin-top:4px;
-}
-
-.order-info{
-    color:#8f8c9d;
-    font-size:11px;
-    line-height:1.7;
-}
-
-.status{
-    display:inline-block;
-    padding:6px 10px;
-    border-radius:20px;
-    background:rgba(34,197,94,.12);
-    color:#58e883;
-    font-size:10px;
-    font-weight:800;
-}
-
-/* PACKAGES */
-
-.packages-section{
-    margin-top:20px;
-    padding:25px;
-    border:1px solid rgba(155,77,255,.25);
-    border-radius:17px;
-    background:rgba(12,11,23,.8);
+.btn:hover{
+    transform:translateY(-2px);
 }
 
 .section-title{
-    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
 }
 
-.section-title h2{
-    font-size:24px;
-}
-
-.section-title p{
-    color:#9996a8;
-    font-size:13px;
-    margin-top:8px;
+.badge{
+    background:#16a34a;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
 }
 
 .packages{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
 
 .package{
     position:relative;
-    border:1px solid rgba(155,77,255,.55);
-    border-radius:15px;
-    padding:18px;
-    text-align:center;
-    background:linear-gradient(160deg,#151126,#0d0c17);
-    transition:.25s;
-    overflow:hidden;
+    padding:16px 12px;
+    border-radius:18px;
+    background:linear-gradient(145deg,#21112d,#100916);
+    border:1px solid #40254c;
+    cursor:pointer;
+    transition:.2s;
 }
 
 .package:hover{
-    transform:translateY(-5px);
-    box-shadow:0 12px 35px rgba(0,0,0,.35);
+    transform:translateY(-3px);
+    border-color:#e879f9;
+    box-shadow:0 0 22px rgba(232,121,249,.25);
 }
 
-.package:nth-child(2){
-    border-color:#c59a00;
+.package.selected{
+    border:2px solid #f0abfc;
+    background:linear-gradient(145deg,#3b174c,#170b20);
+    box-shadow:0 0 25px rgba(217,70,239,.3);
 }
 
-.package:nth-child(3){
-    border-color:#2bbd55;
-}
-
-.package:nth-child(4){
-    border-color:#df3764;
-}
-
-.package-icon{
-    font-size:43px;
-    margin:8px 0 10px;
-}
-
-.package h3{
-    font-size:23px;
-}
-
-.package p{
-    color:#aaa6b5;
-    font-size:12px;
-    margin:7px 0 16px;
-}
-
-.select-package{
-    width:100%;
-    border-radius:9px;
-    padding:10px;
-    color:#fff;
-    background:#241344;
-    border:1px solid #8e3dff;
-    font-weight:800;
-}
-
-.package:nth-child(2) .select-package{
-    border-color:#ffc400;
-    background:#332a0c;
-}
-
-.package:nth-child(3) .select-package{
-    border-color:#36d75f;
-    background:#0c2916;
-}
-
-.package:nth-child(4) .select-package{
-    border-color:#ff477b;
-    background:#2b0e19;
-}
-
-/* ALL PACKAGES */
-
-.all-packages{
-    margin-top:20px;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
-}
-
-.small-package{
-    border:1px solid rgba(255,255,255,.08);
-    background:#11101d;
-    border-radius:12px;
-    padding:15px;
-    text-align:center;
-}
-
-.small-package strong{
-    display:block;
-    font-size:18px;
-    color:#ffc400;
-}
-
-.small-package button{
-    margin-top:9px;
-    border:0;
-    width:100%;
-    padding:8px;
-    border-radius:8px;
-    background:#211a39;
-    color:#fff;
-    font-size:11px;
-}
-
-/* STATS */
-
-.stats{
-    margin-top:20px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    border:1px solid rgba(255,255,255,.07);
-    background:#11101d;
-    border-radius:14px;
-}
-
-.stat{
-    padding:20px;
-    text-align:center;
-    border-right:1px solid rgba(255,255,255,.06);
-}
-
-.stat:last-child{
-    border-right:0;
-}
-
-.stat-icon{
-    font-size:26px;
-    margin-bottom:7px;
-}
-
-.stat strong{
-    display:block;
-    font-size:13px;
-}
-
-.stat span{
-    color:#858292;
-    font-size:10px;
-}
-
-/* MODAL */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.78);
-    backdrop-filter:blur(10px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    z-index:5000;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:min(500px,100%);
-    max-height:90vh;
-    overflow:auto;
-    border:1px solid rgba(155,77,255,.45);
-    background:#11101e;
-    border-radius:20px;
-    padding:25px;
-    box-shadow:0 30px 100px #000;
-}
-
-.modal-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.modal-head h2{
+.package .price{
     font-size:21px;
+    font-weight:1000;
+    color:#ffd21c;
 }
 
-.close{
-    border:0;
-    background:#24213a;
-    color:#fff;
-    width:35px;
-    height:35px;
-    border-radius:9px;
+.package .name{
+    margin-top:5px;
+    font-size:12px;
+    color:#cfc5d5;
 }
 
-.tabs{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:7px;
-    padding:5px;
-    background:#0b0a14;
-    border-radius:10px;
-    margin-bottom:18px;
+.package .check{
+    position:absolute;
+    top:9px;
+    right:10px;
+    display:none;
+    color:#4ade80;
 }
 
-.tabs button{
-    padding:10px;
-    border:0;
-    border-radius:7px;
-    color:#aaa6b7;
-    background:transparent;
-}
-
-.tabs button.active{
-    background:#27203d;
-    color:#fff;
-}
-
-.form-group{
-    margin-bottom:14px;
-}
-
-.form-group label{
+.package.selected .check{
     display:block;
-    font-size:11px;
-    color:#a5a2b2;
-    margin-bottom:6px;
 }
 
-.input{
-    width:100%;
-    padding:13px;
-    border-radius:10px;
-    outline:0;
-    color:#fff;
-    background:#0d0c17;
-    border:1px solid rgba(255,255,255,.10);
-}
-
-.input:focus{
-    border-color:#974bff;
-}
-
-.form-btn{
-    width:100%;
-    padding:14px;
-    border:0;
-    border-radius:10px;
-    color:#111;
-    background:linear-gradient(135deg,#ffd83c,#ffad00);
-    font-weight:900;
-}
-
-.error{
-    color:#ff6d8f;
-    font-size:11px;
-    margin-bottom:12px;
+#paymentSection,
+#receiptSection,
+#successSection{
     display:none;
 }
 
-/* PAYMENT */
-
-.payment-summary{
-    border:1px solid rgba(155,77,255,.35);
-    background:#17142a;
-    padding:15px;
-    border-radius:12px;
-    margin-bottom:17px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.selected-info{
+    padding:13px;
+    border-radius:13px;
+    background:#120a18;
+    border:1px solid #392542;
+    margin-bottom:13px;
 }
 
-.payment-summary small{
-    color:#8f8b9e;
-}
-
-.payment-summary strong{
-    display:block;
-    margin-top:4px;
-}
-
-.amount{
-    color:#ffc400;
-    font-size:22px;
-    font-weight:900;
+.selected-info b{
+    color:#ffd21c;
 }
 
 .bank-card{
-    border-radius:18px;
-    padding:22px;
-    background:
-        linear-gradient(135deg,#32115e,#6f1fc0 48%,#27114c);
-    border:1px solid rgba(255,255,255,.16);
+    background:linear-gradient(135deg,#111,#30203b);
+    border-radius:20px;
+    padding:20px;
     margin-bottom:14px;
-    position:relative;
-    overflow:hidden;
+    border:1px solid #69477c;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
 }
 
-.bank-card:after{
-    content:"";
-    width:190px;
-    height:190px;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    position:absolute;
-    right:-80px;
-    top:-80px;
+.bank-brand{
+    font-weight:1000;
+    font-size:18px;
 }
 
-.bank-top{
-    display:flex;
-    justify-content:space-between;
-    position:relative;
-    z-index:2;
+.bank-brand span{
+    color:#ffd21c;
 }
 
 .chip{
-    width:42px;
-    height:30px;
-    border-radius:7px;
+    width:39px;
+    height:28px;
+    border-radius:6px;
+    margin:18px 0;
     background:linear-gradient(135deg,#eee,#999);
 }
 
 .card-number{
-    font-size:19px;
+    font-size:18px;
+    font-weight:900;
     letter-spacing:2px;
-    margin:28px 0 16px;
-    position:relative;
-    z-index:2;
-}
-
-.card-label{
-    font-size:10px;
-    color:#cfc6dd;
-    position:relative;
-    z-index:2;
-}
-
-.copy-card{
-    width:100%;
-    padding:11px;
-    border:1px solid rgba(255,255,255,.10);
-    background:#201b31;
-    color:#fff;
-    border-radius:9px;
     margin-bottom:14px;
 }
 
-.upload{
-    display:block;
-    text-align:center;
-    border:1px dashed rgba(155,77,255,.55);
-    padding:18px;
-    border-radius:12px;
-    color:#bcb8ca;
-    cursor:pointer;
-    background:#0d0c17;
+.card-holder{
+    color:#bdb2c5;
+    font-size:11px;
 }
 
-.upload input{
-    display:none;
+.copy-btn{
+    width:100%;
+    border:1px solid #63476e;
+    background:#201027;
+    color:#fff;
+    padding:13px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.file-box{
+    border:1px dashed #704b7c;
+    border-radius:16px;
+    padding:18px;
+    text-align:center;
+    background:#120a18;
+    margin-bottom:12px;
+}
+
+.file-box input{
+    background:transparent;
+    border:none;
+    padding:5px;
 }
 
 .preview{
+    max-width:100%;
+    max-height:220px;
+    border-radius:14px;
     display:none;
-    width:100%;
-    max-height:230px;
-    object-fit:contain;
-    margin-top:12px;
-    border-radius:10px;
+    margin:10px auto;
 }
 
-.confirm-payment{
-    width:100%;
-    padding:14px;
-    margin-top:14px;
-    border:0;
-    border-radius:10px;
-    color:#111;
-    background:linear-gradient(135deg,#ffd83c,#ffad00);
-    font-weight:900;
+.success{
+    text-align:center;
+    padding:12px 5px 5px;
 }
 
-/* SUCCESS / CODE */
-
-.generated-code{
-    margin-top:15px;
-    padding:18px;
-    border:1px solid rgba(48,226,101,.30);
-    background:rgba(35,180,80,.08);
-    border-radius:13px;
-    display:none;
-}
-
-.generated-code small{
-    color:#78dc95;
-}
-
-.generated-code strong{
-    display:block;
-    margin-top:7px;
-    color:#fff;
-    font-size:22px;
-    letter-spacing:2px;
-}
-
-/* FOOTER */
-
-footer{
-    margin-top:20px;
-    padding:28px 0;
-    border-top:1px solid rgba(255,255,255,.07);
-    background:#0b0a14;
-}
-
-.footer-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.footer-logo{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-weight:900;
-}
-
-.social{
-    display:flex;
-    gap:9px;
-}
-
-.social div{
-    width:38px;
-    height:38px;
-    border-radius:10px;
+.success-icon{
+    width:82px;
+    height:82px;
+    border-radius:50%;
+    margin:0 auto 16px;
     display:flex;
     align-items:center;
     justify-content:center;
-    background:#171525;
+    font-size:43px;
+    color:#fff;
+    background:#16a34a;
+    box-shadow:0 0 25px rgba(34,197,94,.65);
+    animation:pop .5s ease;
 }
 
-/* MOBILE */
-
-@media(max-width:900px){
-
-    .nav-links{
-        display:none;
-    }
-
-    .mobile-menu{
-        display:block;
-        border:0;
-        background:#19152a;
-        color:#fff;
-        padding:11px;
-        border-radius:9px;
-    }
-
-    .hero-content{
-        width:100%;
-        padding:40px 25px 20px;
-    }
-
-    .hero h1{
-        font-size:52px;
-    }
-
-    .panda-hero{
-        position:relative;
-        right:auto;
-        width:100%;
-        height:250px;
-    }
-
-    .panda-big{
-        font-size:140px;
-    }
-
-    .benefits{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .packages{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .all-packages{
-        grid-template-columns:repeat(3,1fr);
-    }
-
+@keyframes pop{
+    0%{transform:scale(.3);opacity:0}
+    70%{transform:scale(1.12)}
+    100%{transform:scale(1);opacity:1}
 }
 
-@media(max-width:600px){
+.code-box{
+    margin-top:15px;
+    padding:17px;
+    border-radius:17px;
+    background:#09050d;
+    border:1px solid #533560;
+}
 
-    .navbar{
-        height:72px;
-    }
+.generated-code{
+    margin-top:9px;
+    font-size:20px;
+    font-weight:1000;
+    letter-spacing:2px;
+    color:#ffd21c;
+    word-break:break-all;
+}
 
-    .logo-panda{
-        width:43px;
-        height:43px;
-        font-size:27px;
-    }
+.notice{
+    color:#aaa0ad;
+    font-size:11px;
+    text-align:center;
+    margin-top:15px;
+    line-height:1.5;
+}
 
-    .logo-text strong{
-        font-size:17px;
-    }
+.hidden{
+    display:none!important;
+}
 
-    .logo-text span{
-        font-size:14px;
-    }
-
-    .account-btn{
-        padding:10px 12px;
-        font-size:11px;
-    }
-
-    .hero-box{
-        border-radius:14px;
-    }
-
-    .hero-content{
-        padding:30px 20px 5px;
-    }
-
-    .hero h1{
-        font-size:46px;
-        letter-spacing:-2px;
-    }
-
-    .hero p{
-        font-size:13px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .hero-buttons button{
-        width:100%;
-    }
-
-    .panda-hero{
-        height:210px;
-    }
-
-    .panda-big{
-        font-size:120px;
-    }
-
-    .benefits{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .benefit{
-        padding:14px 10px;
-    }
-
-    .benefit-icon{
-        font-size:22px;
-    }
-
-    .benefit strong{
-        font-size:11px;
-    }
-
-    .benefit span{
-        font-size:9px;
-    }
-
-    .account-section{
-        padding:15px;
-    }
-
-    .account-head{
-        align-items:flex-start;
-    }
-
-    .account-user{
-        gap:10px;
-    }
-
-    .avatar{
-        width:53px;
-        height:53px;
-        font-size:25px;
-    }
-
-    .logout{
-        padding:8px 10px;
-        font-size:10px;
-    }
-
-    .order{
-        grid-template-columns:50px 1fr;
-    }
-
-    .order-icon{
-        width:50px;
-        height:50px;
-    }
-
-    .order-info{
-        grid-column:2;
-    }
-
-    .packages-section{
-        padding:15px;
-    }
-
+@media(max-width:370px){
     .packages{
-        grid-template-columns:1fr 1fr;
-        gap:9px;
-    }
-
-    .package{
-        padding:12px 8px;
-    }
-
-    .package-icon{
-        font-size:32px;
-    }
-
-    .package h3{
-        font-size:18px;
-    }
-
-    .all-packages{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .stats{
         grid-template-columns:1fr;
     }
-
-    .stat{
-        border-right:0;
-        border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .stat:last-child{
-        border-bottom:0;
-    }
-
-    .footer-inner{
-        flex-direction:column;
-        text-align:center;
-    }
-
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<div class="container">
 
-<header class="navbar">
-    <div class="container nav-inner">
-
-        <div class="logo">
-            <div class="logo-panda">🐼</div>
-
-            <div class="logo-text">
-                <strong>PANDA</strong>
-                <span>KOD SATIŞI</span>
-            </div>
-        </div>
-
-        <nav class="nav-links">
-            <button class="active" onclick="goHome()">Ana səhifə</button>
-            <button onclick="goPackages()">Kod paketləri</button>
-            <button onclick="showOrders()">Sifarişlərim</button>
-            <button onclick="about()">Haqqımızda</button>
-            <button onclick="contact()">Əlaqə</button>
-        </nav>
-
-        <div style="display:flex;gap:8px;align-items:center;">
-            <button class="mobile-menu" onclick="openAuth()">
-                ☰
-            </button>
-
-            <button class="account-btn" onclick="openAccount()">
-                👤 Hesabım
-            </button>
-        </div>
-
+    <div class="logo">
+        <div class="panda-icon">🐼</div>
+        <h1>PANDA KOD SATIŞI</h1>
+        <p>Sürətli və rahat rəqəmsal voucher sifarişi</p>
     </div>
-</header>
 
-
-<main class="container">
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="hero-box">
-
+    <div class="hero">
         <div class="hero-content">
-
-            <div class="hero-badge">
-                ⭐ GÜVƏNLİ • SÜRƏTLİ • 7/24 XİDMƏT
-            </div>
-
-            <h1>
-                <span class="white">PANDA</span>
-                <span class="yellow">KOD</span>
-                <span class="white">SATIŞI</span>
-            </h1>
-
-            <p>
-                Kodunu seç • Sifariş et • Ödəniş et •
-                Qəbzini göndər və kodunu hesabından əldə et.
-            </p>
-
-            <div class="hero-buttons">
-
-                <button
-                    class="primary-btn"
-                    onclick="goPackages()">
-                    Kod paketlərini gör 🛍
-                </button>
-
-                <button
-                    class="secondary-btn"
-                    onclick="openAuth()">
-                    👤 Qeydiyyatdan keç
-                </button>
-
-            </div>
-
+            <strong>Premium Kodlar</strong>
+            <span>Seç • Sifariş et • Qəbzi göndər</span>
         </div>
-
-        <div class="panda-hero">
-            <div class="panda-big">🐼</div>
-        </div>
-
     </div>
 
+    <!-- QEYDIYYAT -->
+    <div class="card" id="registerSection">
+        <h2>👤 Qeydiyyat / Giriş</h2>
 
-    <div class="benefits">
+        <input
+            id="contact"
+            type="text"
+            placeholder="Telefon nömrəsi və ya Gmail"
+        >
 
-        <div class="benefit">
-            <div class="benefit-icon">🛡️</div>
-            <div>
-                <strong>100% Güvənli</strong>
-                <span>Təhlükəsiz ödəniş və məlumat qorunması</span>
-            </div>
-        </div>
-
-        <div class="benefit">
-            <div class="benefit-icon">⚡</div>
-            <div>
-                <strong>Ani çatdırılma</strong>
-                <span>Kodlar təsdiqdən sonra təqdim edilir</span>
-            </div>
-        </div>
-
-        <div class="benefit">
-            <div class="benefit-icon">🎧</div>
-            <div>
-                <strong>7/24 Dəstək</strong>
-                <span>Hər zaman yanınızda sürətli dəstək</span>
-            </div>
-        </div>
-
-        <div class="benefit">
-            <div class="benefit-icon">%</div>
-            <div>
-                <strong>Ən uyğun qiymət</strong>
-                <span>Uyğun və sərfəli kod paketləri</span>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ACCOUNT -->
-
-<section
-    class="account-section"
-    id="accountSection"
-    style="display:none;">
-
-    <div class="account-head">
-
-        <div class="account-user">
-
-            <div class="avatar">👤</div>
-
-            <div>
-                <h2 id="welcomeUser">
-                    Xoş gəlmisiniz!
-                </h2>
-
-                <p id="userEmail"></p>
-            </div>
-
-        </div>
-
-        <button
-            class="logout"
-            onclick="logout()">
-            Çıxış
+        <button class="btn" onclick="registerUser()">
+            Davam et →
         </button>
 
+        <div class="notice">
+            Məlumatlarınız sifarişin əlaqələndirilməsi üçün istifadə olunur.
+        </div>
     </div>
 
+    <!-- PAKETLƏR -->
+    <div class="card hidden" id="packageSection">
 
-    <div class="orders">
-
-        <div class="orders-head">
-            <h3>🛍 Son Sifarişlərim</h3>
-            <span style="color:#aaa;font-size:11px;">
-                Hesabım
-            </span>
+        <div class="section-title">
+            <h2>🎫 Kod seçin</h2>
+            <span class="badge">AKTİV</span>
         </div>
 
-        <div
-            class="orders-list"
-            id="ordersList">
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PACKAGES -->
-
-<section
-    class="packages-section"
-    id="packages">
-
-    <div class="section-title">
-        <h2>🎟 Kod paketini seç</h2>
-
-        <p>
-            10 AZN-dən 700 AZN-ə qədər
-        </p>
-    </div>
-
-
-    <div class="packages">
-
-        <div class="package">
-
-            <div class="package-icon">🎟️</div>
-
-            <h3>10 AZN</h3>
-
-            <p>Panda Paket Kod</p>
-
-            <button
-                class="select-package"
-                onclick="selectPackage(10)">
-                🛒 Seç
-            </button>
-
-        </div>
-
-
-        <div class="package">
-
-            <div class="package-icon">🎟️</div>
-
-            <h3>25 AZN</h3>
-
-            <p>Panda Paket Kod</p>
-
-            <button
-                class="select-package"
-                onclick="selectPackage(25)">
-                🛒 Seç
-            </button>
-
-        </div>
-
-
-        <div class="package">
-
-            <div class="package-icon">🎟️</div>
-
-            <h3>50 AZN</h3>
-
-            <p>Panda Paket Kod</p>
-
-            <button
-                class="select-package"
-                onclick="selectPackage(50)">
-                🛒 Seç
-            </button>
-
-        </div>
-
-
-        <div class="package">
-
-            <div class="package-icon">🎟️</div>
-
-            <h3>100 AZN</h3>
-
-            <p>Panda Paket Kod</p>
-
-            <button
-                class="select-package"
-                onclick="selectPackage(100)">
-                🛒 Seç
-            </button>
-
-        </div>
+        <div class="packages" id="packages"></div>
 
     </div>
 
+    <!-- ÖDƏNİŞ -->
+    <div class="card" id="paymentSection">
 
-    <div
-        class="all-packages"
-        id="allPackages">
-    </div>
-
-</section>
-
-
-<!-- STATS -->
-
-<section class="stats">
-
-    <div class="stat">
-        <div class="stat-icon">👥</div>
-        <strong>1000+ Müştəri</strong>
-        <span>Məmnun müştərilər</span>
-    </div>
-
-    <div class="stat">
-        <div class="stat-icon">🛡️</div>
-        <strong>Təhlükəsiz ödəniş</strong>
-        <span>Kart məlumatlarınız qorunur</span>
-    </div>
-
-    <div class="stat">
-        <div class="stat-icon">🎧</div>
-        <strong>7/24 Aktiv</strong>
-        <span>Sürətli və etibarlı xidmət</span>
-    </div>
-
-</section>
-
-</main>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div class="container footer-inner">
-
-        <div class="footer-logo">
-            🐼
-            <span>
-                PANDA<br>
-                KOD SATIŞI
-            </span>
+        <div class="section-title">
+            <h2>💳 Sifariş</h2>
         </div>
 
-        <div style="color:#858292;font-size:11px;">
-            © 2026 Panda Kod Satışı.
-            Bütün hüquqlar qorunur.
+        <div class="selected-info">
+            Seçilmiş məbləğ:
+            <b id="selectedPrice">0 AZN</b>
         </div>
-
-        <div class="social">
-            <div>➤</div>
-            <div>◎</div>
-            <div>◉</div>
-        </div>
-
-    </div>
-
-</footer>
-
-
-<!-- AUTH MODAL -->
-
-<div
-    class="modal"
-    id="authModal">
-
-    <div class="modal-box">
-
-        <div class="modal-head">
-
-            <h2 id="authTitle">
-                👤 Hesaba daxil ol
-            </h2>
-
-            <button
-                class="close"
-                onclick="closeAuth()">
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="tabs">
-
-            <button
-                id="loginTab"
-                class="active"
-                onclick="showLogin()">
-                Giriş
-            </button>
-
-            <button
-                id="registerTab"
-                onclick="showRegister()">
-                Qeydiyyat
-            </button>
-
-        </div>
-
-
-        <div
-            id="authError"
-            class="error">
-        </div>
-
-
-        <!-- LOGIN -->
-
-        <form
-            id="loginForm"
-            onsubmit="login(event)">
-
-            <div class="form-group">
-
-                <label>E-poçt</label>
-
-                <input
-                    class="input"
-                    id="loginEmail"
-                    type="email"
-                    placeholder="email@example.com"
-                    required>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Şifrə</label>
-
-                <input
-                    class="input"
-                    id="loginPassword"
-                    type="password"
-                    placeholder="••••••••"
-                    required>
-
-            </div>
-
-
-            <button class="form-btn">
-                Daxil ol
-            </button>
-
-        </form>
-
-
-        <!-- REGISTER -->
-
-        <form
-            id="registerForm"
-            style="display:none;"
-            onsubmit="register(event)">
-
-            <div class="form-group">
-
-                <label>Ad və soyad</label>
-
-                <input
-                    class="input"
-                    id="regName"
-                    type="text"
-                    placeholder="Ad Soyad"
-                    required>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Telefon</label>
-
-                <input
-                    class="input"
-                    id="regPhone"
-                    type="tel"
-                    placeholder="+994 50 123 45 67"
-                    required>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>E-poçt</label>
-
-                <input
-                    class="input"
-                    id="regEmail"
-                    type="email"
-                    placeholder="email@example.com"
-                    required>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label>Şifrə</label>
-
-                <input
-                    class="input"
-                    id="regPassword"
-                    type="password"
-                    placeholder="Minimum 6 simvol"
-                    minlength="6"
-                    required>
-
-            </div>
-
-
-            <button class="form-btn">
-                Hesab yarat
-            </button>
-
-        </form>
-
-    </div>
-
-</div>
-
-
-<!-- PAYMENT MODAL -->
-
-<div
-    class="modal"
-    id="paymentModal">
-
-    <div class="modal-box">
-
-        <div class="modal-head">
-
-            <h2>💳 Ödəniş</h2>
-
-            <button
-                class="close"
-                onclick="closePayment()">
-                ×
-            </button>
-
-        </div>
-
-
-        <div class="payment-summary">
-
-            <div>
-                <small>Seçilmiş paket</small>
-                <strong id="paymentPackage">
-                    Panda Kod
-                </strong>
-            </div>
-
-            <div
-                class="amount"
-                id="paymentAmount">
-                10 AZN
-            </div>
-
-        </div>
-
 
         <div class="bank-card">
 
-            <div class="bank-top">
-
-                <strong>🐼 PANDA PAY</strong>
-
-                <div class="chip"></div>
-
+            <div class="bank-brand">
+                PANDA <span>PAY</span>
             </div>
+
+            <div class="chip"></div>
 
             <div class="card-number">
-                4169 1234 5678 9012
+                4169 7351 2846 9057
             </div>
 
-            <div class="card-label">
-                ÖDƏNİŞ KARTI • AZƏRBAYCAN
+            <div class="card-holder">
+                PANDA KOD
             </div>
 
         </div>
 
-
-        <button
-            class="copy-card"
-            onclick="copyCard()">
-            📋 Kart nömrəsini kopyala
+        <button class="copy-btn" onclick="copyCard()">
+            📋 Kartı kopyala
         </button>
 
+        <br><br>
 
-        <div class="form-group">
+        <button class="btn" onclick="openReceipt()">
+            Ödənişi etdim →
+        </button>
 
-            <label>
-                Əlaqə nömrəniz
-            </label>
+    </div>
 
-            <input
-                class="input"
-                id="paymentPhone"
-                placeholder="+994 50 123 45 67">
+    <!-- QƏBZ -->
+    <div class="card" id="receiptSection">
 
-        </div>
+        <h2>📸 Qəbz göndər</h2>
 
+        <div class="file-box">
 
-        <label class="upload">
-
-            📸 Ödəniş qəbzini seç
+            <div>Qəbzin şəklini seçin</div>
 
             <input
                 type="file"
                 id="receipt"
                 accept="image/*"
-                onchange="previewReceipt(event)">
+                onchange="previewReceipt(event)"
+            >
 
-        </label>
+            <img id="preview" class="preview">
 
+        </div>
 
-        <img
-            id="receiptPreview"
-            class="preview">
-
-
-        <button
-            class="confirm-payment"
-            onclick="confirmPayment()">
-
-            ✅ Ödənişi etdim — qəbzi göndər
-
+        <button class="btn" onclick="sendReceipt()">
+            Qəbzi göndər ✓
         </button>
 
+    </div>
 
-        <div
-            class="generated-code"
-            id="generatedCode">
+    <!-- TƏSDİQ -->
+    <div class="card" id="successSection">
 
-            <small>
-                🎉 Sifarişiniz təsdiqləndi
-            </small>
+        <div class="success">
 
-            <strong id="codeText">
-                PNDA-0000-0000
-            </strong>
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>Qəbz qəbul edildi</h2>
+
+            <p style="color:#aaa;margin-top:8px;">
+                Sifarişiniz uğurla qeydə alındı.
+            </p>
+
+            <div class="code-box">
+
+                <div style="font-size:12px;color:#aaa;">
+                    Sizin voucher kodunuz
+                </div>
+
+                <div class="generated-code" id="generatedCode">
+                    -
+                </div>
+
+            </div>
+
+            <button
+                class="copy-btn"
+                style="margin-top:13px"
+                onclick="copyGeneratedCode()"
+            >
+                📋 Kodu kopyala
+            </button>
 
         </div>
 
     </div>
 
-</div>
+    <div class="notice">
+        Panda Kod Satışı • Rəqəmsal voucher sifariş xidməti
+    </div>
 
+</div>
 
 <script>
 
-/* =========================================
-   LOCAL STORAGE
-========================================= */
+/* Paketlər 10 AZN-dən 500 AZN-ə qədər */
 
-const USERS_KEY = "panda_users";
-const CURRENT_KEY = "panda_current_user";
-const ORDERS_KEY = "panda_orders";
+const prices = [];
 
-
-function getUsers(){
-    return JSON.parse(
-        localStorage.getItem(USERS_KEY) || "[]"
-    );
+for(let i = 10; i <= 500; i += 5){
+    prices.push(i);
 }
 
+const packagesBox = document.getElementById("packages");
 
-function saveUsers(users){
-    localStorage.setItem(
-        USERS_KEY,
-        JSON.stringify(users)
-    );
-}
+prices.forEach(price => {
 
+    const item = document.createElement("div");
 
-function getCurrentUser(){
-    return JSON.parse(
-        localStorage.getItem(CURRENT_KEY) || "null"
-    );
-}
+    item.className = "package";
 
-
-function saveCurrentUser(user){
-    localStorage.setItem(
-        CURRENT_KEY,
-        JSON.stringify(user)
-    );
-}
-
-
-function getOrders(){
-    return JSON.parse(
-        localStorage.getItem(ORDERS_KEY) || "[]"
-    );
-}
-
-
-function saveOrders(orders){
-    localStorage.setItem(
-        ORDERS_KEY,
-        JSON.stringify(orders)
-    );
-}
-
-
-/* =========================================
-   PAKETLƏR
-========================================= */
-
-const packagePrices = [];
-
-for(let i=10;i<=700;i+=5){
-    packagePrices.push(i);
-}
-
-
-const allPackages =
-    document.getElementById("allPackages");
-
-
-packagePrices
-.filter(price =>
-    ![10,25,50,100].includes(price)
-)
-.forEach(price => {
-
-    const div =
-        document.createElement("div");
-
-    div.className = "small-package";
-
-    div.innerHTML = `
-        <strong>${price} AZN</strong>
-        <span style="font-size:10px;color:#888">
-            Panda Kod
-        </span>
-        <button onclick="selectPackage(${price})">
-            Seç
-        </button>
+    item.innerHTML = `
+        <div class="check">✓</div>
+        <div class="price">${price} AZN</div>
+        <div class="name">Rəqəmsal voucher kodu</div>
     `;
 
-    allPackages.appendChild(div);
+    item.onclick = () => selectPackage(item, price);
+
+    packagesBox.appendChild(item);
 
 });
 
 
-/* =========================================
-   AUTH
-========================================= */
-
-function openAuth(){
-
-    document
-    .getElementById("authModal")
-    .classList.add("show");
-
-}
+let selectedAmount = 0;
 
 
-function closeAuth(){
+/* QEYDIYYAT */
 
-    document
-    .getElementById("authModal")
-    .classList.remove("show");
+function registerUser(){
 
-}
+    const contact =
+        document.getElementById("contact").value.trim();
 
-
-function showLogin(){
-
-    document
-    .getElementById("loginForm")
-    .style.display="block";
-
-    document
-    .getElementById("registerForm")
-    .style.display="none";
-
-    document
-    .getElementById("loginTab")
-    .classList.add("active");
-
-    document
-    .getElementById("registerTab")
-    .classList.remove("active");
-
-    document
-    .getElementById("authTitle")
-    .innerText="👤 Hesaba daxil ol";
-
-}
-
-
-function showRegister(){
-
-    document
-    .getElementById("loginForm")
-    .style.display="none";
-
-    document
-    .getElementById("registerForm")
-    .style.display="block";
-
-    document
-    .getElementById("loginTab")
-    .classList.remove("active");
-
-    document
-    .getElementById("registerTab")
-    .classList.add("active");
-
-    document
-    .getElementById("authTitle")
-    .innerText="✨ Yeni hesab yarat";
-
-}
-
-
-function authError(text){
-
-    const box =
-        document.getElementById("authError");
-
-    box.innerText=text;
-
-    box.style.display="block";
-
-}
-
-
-/* =========================================
-   QEYDİYYAT
-========================================= */
-
-function register(event){
-
-    event.preventDefault();
-
-    const name =
-        document.getElementById("regName").value.trim();
-
-    const phone =
-        document.getElementById("regPhone").value.trim();
-
-    const email =
-        document.getElementById("regEmail").value.trim().toLowerCase();
-
-    const password =
-        document.getElementById("regPassword").value;
-
-
-    const users=getUsers();
-
-
-    if(users.some(u=>u.email===email)){
-
-        authError(
-            "Bu e-poçt ilə artıq hesab yaradılıb."
-        );
-
+    if(!contact){
+        alert("Telefon nömrəsi və ya Gmail daxil edin.");
         return;
     }
 
-
-    const user={
-        id:"USR-"+Date.now(),
-        name,
-        phone,
-        email,
-        password
-    };
-
-
-    users.push(user);
-
-    saveUsers(users);
-
-    saveCurrentUser(user);
-
-    closeAuth();
-
-    updateAccount();
-
-    alert(
-        "🎉 Hesabınız uğurla yaradıldı!"
-    );
-
-}
-
-
-/* =========================================
-   GİRİŞ
-========================================= */
-
-function login(event){
-
-    event.preventDefault();
-
-
-    const email =
-        document
-        .getElementById("loginEmail")
-        .value
-        .trim()
-        .toLowerCase();
-
-
-    const password =
-        document
-        .getElementById("loginPassword")
-        .value;
-
-
-    const user =
-        getUsers().find(
-            u =>
-            u.email===email &&
-            u.password===password
-        );
-
-
-    if(!user){
-
-        authError(
-            "E-poçt və ya şifrə yanlışdır."
-        );
-
-        return;
-    }
-
-
-    saveCurrentUser(user);
-
-    closeAuth();
-
-    updateAccount();
-
-    alert(
-        "Xoş gəlmisiniz, " +
-        user.name + "!"
-    );
-
-}
-
-
-/* =========================================
-   HESAB
-========================================= */
-
-function updateAccount(){
-
-    const user =
-        getCurrentUser();
-
-
-    const section =
-        document.getElementById(
-            "accountSection"
-        );
-
-
-    if(!user){
-
-        section.style.display="none";
-
-        return;
-    }
-
-
-    section.style.display="block";
-
+    document
+        .getElementById("registerSection")
+        .classList.add("hidden");
 
     document
-    .getElementById("welcomeUser")
-    .innerText =
-        "Xoş gəlmisiniz, " +
-        user.name;
+        .getElementById("packageSection")
+        .classList.remove("hidden");
 
-
-    document
-    .getElementById("userEmail")
-    .innerText =
-        user.email +
-        " • " +
-        user.phone;
-
-
-    renderOrders();
-
-}
-
-
-function openAccount(){
-
-    const user =
-        getCurrentUser();
-
-
-    if(!user){
-
-        openAuth();
-
-        return;
-    }
-
-
-    document
-    .getElementById("accountSection")
-    .scrollIntoView({
+    window.scrollTo({
+        top:document.body.scrollHeight,
         behavior:"smooth"
     });
-
 }
 
 
-function logout(){
+/* PAKET SEÇİMİ */
 
-    localStorage.removeItem(
-        CURRENT_KEY
-    );
+function selectPackage(element, price){
 
-    updateAccount();
+    document
+        .querySelectorAll(".package")
+        .forEach(x => x.classList.remove("selected"));
 
+    element.classList.add("selected");
+
+    selectedAmount = price;
+
+    document.getElementById("selectedPrice").textContent =
+        price + " AZN";
+
+    document
+        .getElementById("paymentSection")
+        .style.display = "block";
+
+    document
+        .getElementById("paymentSection")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
 }
 
 
-/* =========================================
-   SİFARİŞLƏR
-========================================= */
-
-function renderOrders(){
-
-    const user =
-        getCurrentUser();
-
-    const list =
-        document.getElementById(
-            "ordersList"
-        );
-
-
-    if(!user){
-
-        list.innerHTML="";
-
-        return;
-    }
-
-
-    const orders =
-        getOrders().filter(
-            o=>o.userId===user.id
-        );
-
-
-    if(!orders.length){
-
-        list.innerHTML=`
-            <div style="
-                padding:25px;
-                text-align:center;
-                color:#888;
-                font-size:12px;">
-                Hələ sifarişiniz yoxdur.
-            </div>
-        `;
-
-        return;
-    }
-
-
-    list.innerHTML =
-        orders
-        .slice()
-        .reverse()
-        .map(order=>`
-
-            <div class="order">
-
-                <div class="order-icon">
-                    🎟️
-                </div>
-
-                <div>
-
-                    <div class="order-title">
-                        ${order.price} AZN Kod
-                    </div>
-
-                    <div class="order-price">
-                        ${order.price} AZN
-                    </div>
-
-                    <span class="status">
-                        ✓ ${order.status}
-                    </span>
-
-                </div>
-
-                <div class="order-info">
-
-                    Sifariş №<br>
-                    <strong style="color:#ddd">
-                        ${order.id}
-                    </strong>
-
-                    <br>
-
-                    Tarix<br>
-                    ${order.date}
-
-                </div>
-
-                <div class="order-info">
-
-                    Kod<br>
-
-                    <strong style="
-                        color:#fff;
-                        font-size:13px;">
-                        ${order.code}
-                    </strong>
-
-                </div>
-
-            </div>
-
-        `)
-        .join("");
-
-}
-
-
-/* =========================================
-   PAKET SEÇ
-========================================= */
-
-let selectedPrice = 0;
-
-
-function selectPackage(price){
-
-    selectedPrice=price;
-
-
-    const user =
-        getCurrentUser();
-
-
-    if(!user){
-
-        alert(
-            "🐼 Davam etmək üçün əvvəlcə hesab yaradın və ya hesabınıza daxil olun."
-        );
-
-        openAuth();
-
-        showRegister();
-
-        return;
-    }
-
-
-    document
-    .getElementById("paymentPackage")
-    .innerText =
-        "Panda Kod — " +
-        price +
-        " AZN";
-
-
-    document
-    .getElementById("paymentAmount")
-    .innerText =
-        price +
-        " AZN";
-
-
-    document
-    .getElementById("paymentModal")
-    .classList.add("show");
-
-
-    document
-    .getElementById("generatedCode")
-    .style.display="none";
-
-}
-
-
-/* =========================================
-   PAYMENT
-========================================= */
-
-function closePayment(){
-
-    document
-    .getElementById("paymentModal")
-    .classList.remove("show");
-
-}
-
+/* KART KOPYALA */
 
 function copyCard(){
 
-    const card =
-        " 5315 9921 2761 6081 ";
+    const card = "4169735128469057";
 
+    navigator.clipboard.writeText(card)
+    .then(() => {
 
-    if(navigator.clipboard){
+        alert("Kart nömrəsi kopyalandı ✓");
 
-        navigator.clipboard
-        .writeText(card)
-        .then(()=>{
-            alert(
-                "✅ Kart nömrəsi kopyalandı!"
-            );
-        });
+    })
+    .catch(() => {
 
-    }else{
+        alert("Kart nömrəsi: " + card);
 
-        alert(
-            "Kart: 5315 9921 2761 6081"
-        );
-
-    }
-
+    });
 }
 
 
-/* =========================================
-   QƏBİZ PREVIEW
-========================================= */
+/* QƏBZ BÖLMƏSİ */
+
+function openReceipt(){
+
+    if(selectedAmount === 0){
+        alert("Əvvəlcə paket seçin.");
+        return;
+    }
+
+    document
+        .getElementById("receiptSection")
+        .style.display = "block";
+
+    document
+        .getElementById("receiptSection")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+
+/* QƏBZ PREVIEW */
 
 function previewReceipt(event){
 
-    const file =
-        event.target.files[0];
-
+    const file = event.target.files[0];
 
     if(!file) return;
 
+    const preview =
+        document.getElementById("preview");
 
-    if(!file.type.startsWith("image/")){
+    preview.src =
+        URL.createObjectURL(file);
 
-        alert(
-            "Yalnız şəkil faylı seçin."
-        );
-
-        return;
-    }
-
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload=function(e){
-
-        const preview =
-            document.getElementById(
-                "receiptPreview"
-            );
-
-
-        preview.src=e.target.result;
-
-        preview.style.display="block";
-
-    };
-
-
-    reader.readAsDataURL(file);
-
+    preview.style.display = "block";
 }
 
 
-/* =========================================
-   KOD YARAT
-========================================= */
+/* UNİKAL VOUCHER KOD */
 
 function generateCode(){
 
-    const chars =
-        "28-39-49-10-33-67-87";
+    let code = [];
 
+    for(let i = 0; i < 7; i++){
 
-    let result="PND-";
-
-
-    for(let i=0;i<4;i++){
-
-        result +=
-            chars[
-                Math.floor(
-                    Math.random() *
-                    chars.length
-                )
-            ];
+        code.push(
+            Math.floor(10 + Math.random() * 90)
+        );
 
     }
 
-
-    result+="-";
-
-
-    for(let i=0;i<4;i++){
-
-        result +=
-            chars[
-                Math.floor(
-                    Math.random() *
-                    chars.length
-                )
-            ];
-
-    }
-
-
-    return result;
-
+    return code.join("-");
 }
 
 
-/* =========================================
-   ÖDƏNİŞ TƏSDİQ
-========================================= */
+/* QƏBZ GÖNDƏR */
 
-function confirmPayment(){
+function sendReceipt(){
 
-    const user =
-        getCurrentUser();
+    const file =
+        document.getElementById("receipt").files[0];
 
+    if(!file){
 
-    if(!user){
-
-        alert(
-            "Hesabınıza daxil olun."
-        );
-
-        closePayment();
-
-        openAuth();
+        alert("Zəhmət olmasa qəbz şəklini seçin.");
 
         return;
     }
 
+    /*
+      Həqiqi sistemdə burada serverə/API-yə
+      qəbz göndərilməsi həyata keçirilməlidir.
+    */
 
-    const phone =
-        document
-        .getElementById("paymentPhone")
-        .value
-        .trim();
+    const code = generateCode();
+
+    document.getElementById("generatedCode")
+        .textContent = code;
+
+    document.getElementById("receiptSection")
+        .style.display = "none";
+
+    document.getElementById("paymentSection")
+        .style.display = "none";
+
+    document.getElementById("successSection")
+        .style.display = "block";
+
+    document.getElementById("successSection")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
 
 
-    const receipt =
-        document
-        .getElementById("receipt")
-        .files[0];
+/* YARADILAN KODU KOPYALA */
 
-
-    if(!phone){
-
-        alert(
-            "Əlaqə nömrənizi daxil edin."
-        );
-
-        return;
-    }
-
-
-    if(!receipt){
-
-        alert(
-            "Əvvəlcə ödəniş qəbzini yükləyin."
-        );
-
-        return;
-    }
-
+function copyGeneratedCode(){
 
     const code =
-        generateCode();
+        document.getElementById("generatedCode").textContent;
 
-
-    const now =
-        new Date();
-
-
-    const date =
-        now.toLocaleString(
-            "az-AZ"
-        );
-
-
-    const order={
-
-        id:
-            "PND-" +
-            Date.now()
-            .toString()
-            .slice(-8),
-
-        userId:
-            user.id,
-
-        price:
-            selectedPrice,
-
-        code:
-            code,
-
-        status:
-            "Tamamlandı",
-
-        date:
-            date
-
-    };
-
-
-    const orders =
-        getOrders();
-
-
-    orders.push(order);
-
-    saveOrders(orders);
-
-
-    document
-    .getElementById("codeText")
-    .innerText=code;
-
-
-    document
-    .getElementById("generatedCode")
-    .style.display="block";
-
-
-    renderOrders();
-
-
-    alert(
-        "🎉 Sifariş yaradıldı! Kodunuz hesabınızda göndərildi."
-    );
-
+    navigator.clipboard.writeText(code)
+        .then(() => {
+            alert("Kod kopyalandı ✓");
+        })
+        .catch(() => {
+            alert(code);
+        });
 }
-
-
-/* =========================================
-   NAVİQASİYA
-========================================= */
-
-function goHome(){
-
-    document
-    .getElementById("home")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-function goPackages(){
-
-    document
-    .getElementById("packages")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-function showOrders(){
-
-    const user =
-        getCurrentUser();
-
-
-    if(!user){
-
-        openAuth();
-
-        return;
-    }
-
-
-    document
-    .getElementById("accountSection")
-    .scrollIntoView({
-        behavior:"smooth"
-    });
-
-}
-
-
-function about(){
-
-    alert(
-        "🐼 Panda Kod Satışı\n\n" +
-        "Müasir kod satış platforması."
-    );
-
-}
-
-
-function contact(){
-
-    alert(
-        "📞 Əlaqə\n\n" +
-        "Dəstək: 7/24"
-    );
-
-}
-
-
-/* =========================================
-   BAŞLANĞIC
-========================================= */
-
-updateAccount();
 
 </script>
 
