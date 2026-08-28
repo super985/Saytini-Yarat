@@ -173,7 +173,7 @@ button{
 }
 
 /* =========================
-   HERO / PANDA
+   HERO / COMPACT PANDA
 ========================= */
 
 .hero{
@@ -182,7 +182,7 @@ button{
 
 .hero-box{
     position:relative;
-    min-height:390px;
+    min-height:275px;
     overflow:hidden;
     border-radius:22px;
     border:1px solid rgba(178,68,255,.55);
@@ -195,7 +195,6 @@ button{
         inset 0 0 60px rgba(143,45,255,.08);
 }
 
-/* neon border */
 .hero-box:before{
     content:"";
     position:absolute;
@@ -203,11 +202,13 @@ button{
     border-radius:24px;
     border:2px solid transparent;
     background:
-        linear-gradient(90deg,
-        #8d35ff,
-        #ff2d9b,
-        #00f5ff,
-        #8d35ff) border-box;
+        linear-gradient(
+            90deg,
+            #8d35ff,
+            #ff2d9b,
+            #00f5ff,
+            #8d35ff
+        ) border-box;
     -webkit-mask:
         linear-gradient(#000 0 0) padding-box,
         linear-gradient(#000 0 0);
@@ -227,7 +228,7 @@ button{
     position:relative;
     z-index:5;
     width:60%;
-    padding:45px 40px;
+    padding:28px 32px;
 }
 
 .neon-symbols{
@@ -240,10 +241,11 @@ button{
 .neon-symbol{
     position:absolute;
     font-weight:1000;
-    font-size:32px;
-    opacity:.85;
-    filter:drop-shadow(0 0 8px currentColor)
-           drop-shadow(0 0 20px currentColor);
+    font-size:25px;
+    opacity:.75;
+    filter:
+        drop-shadow(0 0 8px currentColor)
+        drop-shadow(0 0 20px currentColor);
     animation:neonFloat 4s ease-in-out infinite;
 }
 
@@ -279,30 +281,30 @@ button{
         transform:translateY(0) rotate(-4deg) scale(1);
     }
     50%{
-        transform:translateY(-13px) rotate(5deg) scale(1.08);
+        transform:translateY(-9px) rotate(5deg) scale(1.06);
     }
 }
 
 .hero-badge{
     display:inline-flex;
-    padding:8px 13px;
+    padding:6px 11px;
     border-radius:30px;
     border:1px solid rgba(0,245,255,.4);
     background:rgba(0,245,255,.06);
     color:#9dfaff;
-    font-size:9px;
+    font-size:8px;
     font-weight:900;
     box-shadow:
         0 0 14px rgba(0,245,255,.12),
         inset 0 0 14px rgba(0,245,255,.04);
-    margin-bottom:16px;
+    margin-bottom:11px;
 }
 
 .hero-title{
     white-space:nowrap;
-    font-size:45px;
+    font-size:34px;
     line-height:1;
-    letter-spacing:-2px;
+    letter-spacing:-1.5px;
     font-weight:1000;
     text-transform:uppercase;
 }
@@ -331,9 +333,9 @@ button{
 }
 
 .hero-line{
-    width:270px;
+    width:220px;
     height:3px;
-    margin-top:14px;
+    margin-top:10px;
     border-radius:20px;
     background:linear-gradient(
         90deg,
@@ -346,24 +348,24 @@ button{
 }
 
 .hero p{
-    max-width:470px;
-    margin-top:17px;
+    max-width:400px;
+    margin-top:11px;
     color:#aaa8b8;
-    font-size:12px;
-    line-height:1.6;
+    font-size:10px;
+    line-height:1.5;
 }
 
 .hero-buttons{
     display:flex;
-    gap:9px;
-    margin-top:20px;
+    gap:8px;
+    margin-top:14px;
 }
 
 .primary-btn,
 .secondary-btn{
-    padding:12px 18px;
-    border-radius:10px;
-    font-size:11px;
+    padding:10px 15px;
+    border-radius:9px;
+    font-size:10px;
     font-weight:1000;
 }
 
@@ -385,12 +387,13 @@ button{
     transform:translateY(-2px);
 }
 
-/* Panda 5D */
+/* COMPACT PANDA */
+
 .panda-stage{
     position:absolute;
-    right:3%;
+    right:4%;
     top:0;
-    width:42%;
+    width:38%;
     height:100%;
     display:flex;
     justify-content:center;
@@ -399,15 +402,17 @@ button{
 
 .panda-glow{
     position:absolute;
-    width:270px;
-    height:270px;
+    width:190px;
+    height:190px;
     border-radius:50%;
     background:
-        radial-gradient(circle,
-        rgba(180,60,255,.38),
-        rgba(92,30,200,.12) 45%,
-        transparent 70%);
-    filter:blur(10px);
+        radial-gradient(
+            circle,
+            rgba(180,60,255,.38),
+            rgba(92,30,200,.12) 45%,
+            transparent 70%
+        );
+    filter:blur(8px);
     animation:pandaGlow 3s ease-in-out infinite;
 }
 
@@ -417,15 +422,15 @@ button{
         opacity:.7;
     }
     50%{
-        transform:scale(1.1);
+        transform:scale(1.08);
         opacity:1;
     }
 }
 
 .panda-ring{
     position:absolute;
-    width:270px;
-    height:270px;
+    width:190px;
+    height:190px;
     border-radius:50%;
     border:2px solid rgba(0,245,255,.25);
     box-shadow:
@@ -437,14 +442,14 @@ button{
 .panda-ring:before{
     content:"777   ♦   ♠   777";
     position:absolute;
-    inset:-18px;
+    inset:-15px;
     display:flex;
     align-items:center;
     justify-content:center;
     color:#ffd21c;
-    font-size:11px;
+    font-size:8px;
     font-weight:1000;
-    letter-spacing:7px;
+    letter-spacing:5px;
     text-shadow:0 0 10px #ffd21c;
 }
 
@@ -456,7 +461,7 @@ button{
 .panda-emoji{
     position:relative;
     z-index:5;
-    font-size:145px;
+    font-size:95px;
     filter:
         drop-shadow(0 0 10px #fff)
         drop-shadow(0 0 25px #9c3cff)
@@ -469,33 +474,33 @@ button{
         transform:translateY(0) rotate(-2deg);
     }
     50%{
-        transform:translateY(-12px) rotate(2deg);
+        transform:translateY(-8px) rotate(2deg);
     }
 }
 
 .casino-badge{
     position:absolute;
     z-index:7;
-    padding:7px 11px;
-    border-radius:9px;
+    padding:5px 8px;
+    border-radius:7px;
     font-weight:1000;
-    font-size:15px;
+    font-size:11px;
     background:rgba(5,5,10,.75);
     backdrop-filter:blur(8px);
     animation:badgeFloat 4s ease-in-out infinite;
 }
 
 .casino-badge.one{
-    right:18%;
-    top:18%;
+    right:15%;
+    top:17%;
     color:#ffd21c;
     border:1px solid #ffd21c;
     box-shadow:0 0 18px rgba(255,210,28,.35);
 }
 
 .casino-badge.two{
-    left:10%;
-    bottom:20%;
+    left:8%;
+    bottom:18%;
     color:#00f5ff;
     border:1px solid #00f5ff;
     box-shadow:0 0 18px rgba(0,245,255,.30);
@@ -503,8 +508,8 @@ button{
 }
 
 .casino-badge.three{
-    right:5%;
-    bottom:22%;
+    right:2%;
+    bottom:18%;
     color:#ff42b3;
     border:1px solid #ff42b3;
     box-shadow:0 0 18px rgba(255,45,155,.30);
@@ -513,7 +518,7 @@ button{
 
 @keyframes badgeFloat{
     0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-9px)}
+    50%{transform:translateY(-6px)}
 }
 
 /* =========================
@@ -622,9 +627,8 @@ button{
 }
 
 .package-icon{
-    font-size:32px;
+    font-size:30px;
     margin-bottom:5px;
-    filter:drop-shadow(0 0 8px rgba(255,255,255,.2));
 }
 
 .package h3{
@@ -649,6 +653,8 @@ button{
     font-weight:1000;
 }
 
+/* ALL PRICES */
+
 .all-packages{
     margin-top:10px;
     display:grid;
@@ -662,6 +668,12 @@ button{
     background:#101018;
     border:1px solid rgba(255,255,255,.07);
     border-radius:9px;
+    transition:.2s;
+}
+
+.small-package:hover{
+    border-color:#ffd21c;
+    transform:translateY(-2px);
 }
 
 .small-package strong{
@@ -700,6 +712,10 @@ button{
     border-radius:15px;
     border:1px solid rgba(141,53,255,.3);
     background:#101018;
+}
+
+.account-section.show{
+    display:block;
 }
 
 .account-head{
@@ -883,7 +899,11 @@ button{
     border-radius:18px;
     border:1px solid rgba(156,60,255,.45);
     background:
-        radial-gradient(circle at 50% 0%,rgba(156,60,255,.13),transparent 40%),
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(156,60,255,.13),
+            transparent 40%
+        ),
         #111018;
     box-shadow:0 30px 90px #000;
 }
@@ -1008,7 +1028,7 @@ button{
     margin-top:4px;
 }
 
-.amount{
+.payment-amount{
     color:#ffd21c;
     font-size:21px;
     font-weight:1000;
@@ -1024,8 +1044,16 @@ button{
     padding:19px;
     border-radius:18px;
     background:
-        radial-gradient(circle at 90% 20%,rgba(0,245,255,.20),transparent 23%),
-        radial-gradient(circle at 10% 90%,rgba(255,45,155,.20),transparent 25%),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(0,245,255,.20),
+            transparent 23%
+        ),
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(255,45,155,.20),
+            transparent 25%
+        ),
         linear-gradient(135deg,#241035,#7024c5 48%,#140b25);
     border:1px solid rgba(255,255,255,.20);
     box-shadow:
@@ -1034,14 +1062,14 @@ button{
 }
 
 .bank-card:before{
-    content:"777   ♦   777";
+    content:"PANDA  •  PREMIUM";
     position:absolute;
     right:13px;
     bottom:13px;
     color:rgba(255,255,255,.13);
-    font-size:18px;
+    font-size:12px;
     font-weight:1000;
-    letter-spacing:4px;
+    letter-spacing:3px;
 }
 
 .bank-top{
@@ -1140,4 +1168,1124 @@ button{
     border:0;
     border-radius:9px;
     background:linear-gradient(135deg,#ffe45a,#ffad00);
-    co
+    color:#111;
+    font-size:11px;
+    font-weight:1000;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(255,210,28,.18);
+    transition:.2s;
+}
+
+.confirm-payment:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+}
+
+.confirm-payment:active{
+    transform:scale(.98);
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:22px;
+    transform:translate(-50%,120px);
+    z-index:9000;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#15131e;
+    border:1px solid #8d35ff;
+    color:#fff;
+    font-size:10px;
+    font-weight:900;
+    box-shadow:0 10px 35px rgba(0,0,0,.5);
+    opacity:0;
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+
+    .packages{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .all-packages{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .benefits{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .benefit:nth-child(2){
+        border-right:0;
+    }
+
+    .benefit:nth-child(-n+2){
+        border-bottom:1px solid rgba(255,255,255,.06);
+    }
+}
+
+@media(max-width:650px){
+
+    .container{
+        width:94%;
+    }
+
+    .navbar{
+        height:66px;
+    }
+
+    .account-btn{
+        display:none;
+    }
+
+    .logo-panda{
+        width:40px;
+        height:40px;
+        font-size:24px;
+    }
+
+    .logo-text strong{
+        font-size:15px;
+    }
+
+    .logo-text span{
+        font-size:9px;
+    }
+
+    .hero{
+        margin-top:12px;
+    }
+
+    .hero-box{
+        min-height:235px;
+    }
+
+    .hero-content{
+        width:70%;
+        padding:24px 20px;
+    }
+
+    .hero-title{
+        font-size:25px;
+        letter-spacing:-1px;
+    }
+
+    .hero-line{
+        width:170px;
+    }
+
+    .hero p{
+        max-width:280px;
+        font-size:9px;
+    }
+
+    .hero-buttons{
+        margin-top:10px;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        padding:9px 11px;
+        font-size:9px;
+    }
+
+    .panda-stage{
+        right:-8%;
+        width:40%;
+    }
+
+    .panda-glow{
+        width:125px;
+        height:125px;
+    }
+
+    .panda-ring{
+        width:125px;
+        height:125px;
+    }
+
+    .panda-ring:before{
+        font-size:6px;
+        letter-spacing:2px;
+    }
+
+    .panda-emoji{
+        font-size:65px;
+    }
+
+    .casino-badge{
+        font-size:8px;
+        padding:4px 6px;
+    }
+
+    .benefit{
+        padding:12px;
+    }
+
+    .benefit-icon{
+        font-size:18px;
+    }
+
+    .benefit strong{
+        font-size:9px;
+    }
+
+    .benefit span{
+        font-size:7px;
+    }
+
+    .packages-section{
+        padding:14px;
+    }
+
+    .section-title h2{
+        font-size:16px;
+    }
+
+    .section-title p{
+        font-size:8px;
+    }
+
+    .packages{
+        grid-template-columns:repeat(2,1fr);
+        gap:7px;
+    }
+
+    .package{
+        padding:12px 7px;
+    }
+
+    .package-icon{
+        font-size:24px;
+    }
+
+    .package h3{
+        font-size:17px;
+    }
+
+    .package p{
+        font-size:8px;
+    }
+
+    .all-packages{
+        grid-template-columns:repeat(3,1fr);
+        gap:6px;
+    }
+
+    .small-package{
+        padding:8px 5px;
+    }
+
+    .small-package strong{
+        font-size:12px;
+    }
+
+    .small-package span{
+        font-size:7px;
+    }
+
+    .small-package button{
+        font-size:8px;
+        padding:5px;
+    }
+
+    .order{
+        grid-template-columns:42px 1fr;
+    }
+
+    .order-price,
+    .status{
+        grid-column:2;
+    }
+
+}
+
+@media(max-width:390px){
+
+    .hero-box{
+        min-height:220px;
+    }
+
+    .hero-content{
+        padding:21px 15px;
+    }
+
+    .hero-title{
+        font-size:22px;
+    }
+
+    .hero p{
+        max-width:220px;
+        font-size:8px;
+    }
+
+    .panda-stage{
+        right:-12%;
+    }
+
+    .panda-emoji{
+        font-size:55px;
+    }
+
+    .panda-ring{
+        width:105px;
+        height:105px;
+    }
+
+    .panda-glow{
+        width:105px;
+        height:105px;
+    }
+
+    .benefits{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .all-packages{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+    <div class="nav-inner">
+
+        <div class="logo">
+
+            <div class="logo-panda">
+                🐼
+            </div>
+
+            <div class="logo-text">
+                <strong>PANDA KOD</strong>
+                <span>KOD MƏRKƏZİ</span>
+            </div>
+
+        </div>
+
+        <div class="nav-links">
+
+            <button class="active" onclick="scrollToSection('home')">
+                Ana səhifə
+            </button>
+
+            <button onclick="scrollToSection('packages')">
+                Kodlar
+            </button>
+
+            <button onclick="openPaymentInfo()">
+                Məlumat
+            </button>
+
+        </div>
+
+        <button class="account-btn" onclick="openAccount()">
+            👤 Hesabım
+        </button>
+
+        <button class="mobile-menu" onclick="openAccount()">
+            ☰
+        </button>
+
+    </div>
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-box">
+
+        <div class="neon-symbols">
+
+            <div class="neon-symbol s1">♦</div>
+            <div class="neon-symbol s2">✦</div>
+            <div class="neon-symbol s3">♠</div>
+            <div class="neon-symbol s4">★</div>
+
+        </div>
+
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ✦ PREMIUM KOD MƏRKƏZİ
+            </div>
+
+            <h1 class="hero-title">
+                <span class="panda-word">PANDA</span>
+                <span class="code-word">KOD</span>
+                <span class="sale-word">SATIŞI</span>
+            </h1>
+
+            <div class="hero-line"></div>
+
+            <p>
+                Müasir və rahat kod seçim interfeysi.
+                Sizə uyğun məbləği seçin və sifariş məlumatını yaradın.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="scrollToSection('packages')">
+                    🎟️ Kodlara bax
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="openPaymentInfo()">
+                    ℹ Məlumat
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPACT PANDA -->
+
+        <div class="panda-stage">
+
+            <div class="panda-glow"></div>
+
+            <div class="panda-ring"></div>
+
+            <div class="panda-emoji">
+                🐼
+            </div>
+
+            <div class="casino-badge one">
+                777
+            </div>
+
+            <div class="casino-badge two">
+                ♦
+            </div>
+
+            <div class="casino-badge three">
+                ★
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- BENEFITS -->
+
+    <div class="benefits">
+
+        <div class="benefit">
+            <div class="benefit-icon">⚡</div>
+            <div>
+                <strong>Sürətli</strong>
+                <span>Sadə interfeys</span>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">✨</div>
+            <div>
+                <strong>Premium</strong>
+                <span>Müasir dizayn</span>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">📱</div>
+            <div>
+                <strong>Mobil</strong>
+                <span>Telefon uyğunluğu</span>
+            </div>
+        </div>
+
+        <div class="benefit">
+            <div class="benefit-icon">🧾</div>
+            <div>
+                <strong>Qəbz</strong>
+                <span>Demo yükləmə</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PACKAGES ================= -->
+
+<section class="packages-section" id="packages">
+
+    <div class="section-title">
+
+        <div>
+            <h2>🎟️ Kod məbləğləri</h2>
+            <p>10 AZN-dən 700 AZN-ə qədər</p>
+        </div>
+
+        <p>Seç və sifariş məlumatını yarat</p>
+
+    </div>
+
+
+    <div class="packages">
+
+        <div class="package">
+            <div class="package-icon">🎟️</div>
+            <h3>10 AZN</h3>
+            <p>Standart kod</p>
+            <button
+                class="select-package"
+                onclick="selectCode('10 AZN')">
+                SEÇ
+            </button>
+        </div>
+
+        <div class="package">
+            <div class="package-icon">🔥</div>
+            <h3>20 AZN</h3>
+            <p>Populyar seçim</p>
+            <button
+                class="select-package"
+                onclick="selectCode('20 AZN')">
+                SEÇ
+            </button>
+        </div>
+
+        <div class="package">
+            <div class="package-icon">⭐</div>
+            <h3>50 AZN</h3>
+            <p>Premium kod</p>
+            <button
+                class="select-package"
+                onclick="selectCode('50 AZN')">
+                SEÇ
+            </button>
+        </div>
+
+        <div class="package">
+            <div class="package-icon">👑</div>
+            <h3>100 AZN</h3>
+            <p>VIP seçim</p>
+            <button
+                class="select-package"
+                onclick="selectCode('100 AZN')">
+                SEÇ
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="all-packages">
+
+        <div class="small-package">
+            <strong>10 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('10 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>15 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('15 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>20 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('20 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>25 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('25 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>30 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('30 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>40 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('40 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>50 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('50 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>75 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('75 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>100 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('100 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>150 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('150 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>200 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('200 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>250 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('250 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>300 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('300 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>400 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('400 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>500 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('500 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>600 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('600 AZN')">Seç</button>
+        </div>
+
+        <div class="small-package">
+            <strong>700 AZN</strong>
+            <span>kod</span>
+            <button onclick="selectCode('700 AZN')">Seç</button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ACCOUNT ================= -->
+
+<section class="account-section" id="account">
+
+    <div class="account-head">
+
+        <div class="account-user">
+
+            <div class="avatar">
+                🐼
+            </div>
+
+            <div>
+                <h2>Demo hesab</h2>
+                <p>Panda Kod istifadəçisi</p>
+            </div>
+
+        </div>
+
+        <button class="logout" onclick="closeAccount()">
+            Bağla
+        </button>
+
+    </div>
+
+
+    <div class="orders">
+
+        <div class="orders-head">
+            <h3>Sifariş məlumatı</h3>
+            <span>Demo</span>
+        </div>
+
+        <div class="orders-list">
+
+            <div class="order">
+
+                <div class="order-icon">
+                    🎟️
+                </div>
+
+                <div>
+                    <div class="order-title">
+                        Seçilmiş kod
+                    </div>
+
+                    <div class="order-price" id="accountPrice">
+                        —
+                    </div>
+
+                    <div class="order-info">
+                        Panda Kod
+                    </div>
+                </div>
+
+                <div class="status">
+                    Hazır
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats">
+
+    <div class="stat">
+        <div class="stat-icon">🎟️</div>
+        <strong>17 seçim</strong>
+        <span>Məbləğ seçimi</span>
+    </div>
+
+    <div class="stat">
+        <div class="stat-icon">⚡</div>
+        <strong>Sürətli</strong>
+        <span>Demo interfeys</span>
+    </div>
+
+    <div class="stat">
+        <div class="stat-icon">📱</div>
+        <strong>Mobil</strong>
+        <span>Responsive</span>
+    </div>
+
+</div>
+
+
+<!-- ================= PAYMENT MODAL ================= -->
+
+<div class="modal" id="paymentModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+
+            <h2>💳 Sifariş məlumatı</h2>
+
+            <button class="close" onclick="closePaymentInfo()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="payment-summary">
+
+            <div>
+                <small>SEÇİLMİŞ KOD</small>
+                <strong id="modalPackage">
+                    —
+                </strong>
+            </div>
+
+            <div class="payment-amount" id="modalAmount">
+                —
+            </div>
+
+        </div>
+
+
+        <div class="bank-card">
+
+            <div class="bank-top">
+
+                <div class="bank-brand">
+                    PANDA <span>KOD</span>
+                </div>
+
+                <div class="chip"></div>
+
+            </div>
+
+            <div class="card-number">
+                0000 0000 0000 0000
+            </div>
+
+            <div class="card-bottom">
+
+                <span>DEMO CARD</span>
+
+                <span>2026</span>
+
+            </div>
+
+        </div>
+
+
+        <button class="copy-card" onclick="copyCard(this)">
+            📋 Demo kart nömrəsini kopyala
+        </button>
+
+
+        <div class="payment-security">
+            ✓ Bu bölmə yalnız demo interfeys üçündür.
+        </div>
+
+
+        <label class="upload">
+
+            📸 Qəbz / fayl seç
+
+            <input
+                type="file"
+                id="receiptInput"
+                accept="image/*,.pdf"
+                onchange="previewReceipt(event)"
+            >
+
+            <img
+                id="receiptPreview"
+                class="preview"
+                alt="Qəbz önizləmə"
+            >
+
+        </label>
+
+
+        <button
+            class="confirm-payment"
+            onclick="submitReceipt()">
+            ✓ Qəbzi göndər
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+    Hazırlandı ✓
+</div>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+let selectedCode = "";
+
+
+/* =========================
+   SCROLL
+========================= */
+
+function scrollToSection(id){
+
+    const element = document.getElementById(id);
+
+    if(element){
+        element.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+    }
+
+}
+
+
+/* =========================
+   SELECT CODE
+========================= */
+
+function selectCode(price){
+
+    selectedCode = price;
+
+    document.getElementById("modalPackage").textContent =
+        "Panda Kod";
+
+    document.getElementById("modalAmount").textContent =
+        price;
+
+    document.getElementById("accountPrice").textContent =
+        price;
+
+    document.getElementById("paymentModal").classList.add("show");
+
+}
+
+
+/* =========================
+   PAYMENT INFO
+========================= */
+
+function openPaymentInfo(){
+
+    if(!selectedCode){
+        selectedCode = "Kod seçilməyib";
+    }
+
+    document.getElementById("modalPackage").textContent =
+        selectedCode === "Kod seçilməyib"
+        ? "Kod seçilməyib"
+        : "Panda Kod";
+
+    document.getElementById("modalAmount").textContent =
+        selectedCode;
+
+    document.getElementById("paymentModal")
+        .classList.add("show");
+
+}
+
+function closePaymentInfo(){
+
+    document.getElementById("paymentModal")
+        .classList.remove("show");
+
+}
+
+
+/* =========================
+   ACCOUNT
+========================= */
+
+function openAccount(){
+
+    const account =
+        document.getElementById("account");
+
+    account.classList.toggle("show");
+
+    account.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+function closeAccount(){
+
+    document.getElementById("account")
+        .classList.remove("show");
+
+}
+
+
+/* =========================
+   COPY CARD
+========================= */
+
+function copyCard(button){
+
+    const cardNumber =
+        "0000 0000 0000 0000";
+
+    navigator.clipboard.writeText(cardNumber)
+    .then(function(){
+
+        button.classList.add("copied");
+
+        button.textContent =
+            "✓ Kopyalandı";
+
+        showToast("Kart nömrəsi kopyalandı");
+
+        setTimeout(function(){
+
+            button.classList.remove("copied");
+
+            button.textContent =
+                "📋 Demo kart nömrəsini kopyala";
+
+        },1800);
+
+    })
+    .catch(function(){
+
+        showToast("Kopyalama mümkün olmadı");
+
+    });
+
+}
+
+
+/* =========================
+   RECEIPT PREVIEW
+========================= */
+
+function previewReceipt(event){
+
+    const file =
+        event.target.files[0];
+
+    const preview =
+        document.getElementById("receiptPreview");
+
+    if(!file){
+        return;
+    }
+
+    if(file.type.startsWith("image/")){
+
+        const reader =
+            new FileReader();
+
+        reader.onload =
+            function(e){
+
+                preview.src =
+                    e.target.result;
+
+                preview.style.display =
+                    "block";
+
+            };
+
+        reader.readAsDataURL(file);
+
+    }else{
+
+        preview.style.display =
+            "none";
+
+        showToast("PDF faylı seçildi ✓");
+
+    }
+
+}
+
+
+/* =========================
+   SUBMIT RECEIPT
+========================= */
+
+function submitReceipt(){
+
+    const file =
+        document.getElementById("receiptInput");
+
+    if(!file.files.length){
+
+        showToast("Əvvəlcə qəbz faylı seçin");
+
+        return;
+    }
+
+    closePaymentInfo();
+
+    showToast(
+        "Qəbz demo olaraq qəbul edildi ✓"
+    );
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent =
+        message;
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2200);
+
+}
+
+
+/* =========================
+   MODAL OUTSIDE CLICK
+========================= */
+
+document
+.getElementById("paymentModal")
+.addEventListener("click",function(event){
+
+    if(event.target === this){
+        closePaymentInfo();
+    }
+
+});
+
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+        closePaymentInfo();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
