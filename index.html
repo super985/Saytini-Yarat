@@ -3,803 +3,1141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PANDA KOD</title>
+<title>Panda Kod Satışı</title>
 
 <style>
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
     font-family:Arial,Helvetica,sans-serif;
 }
 
+:root{
+    --bg:#050509;
+    --card:#101018;
+    --purple:#8d35ff;
+    --purple2:#c05cff;
+    --pink:#ff2d9b;
+    --cyan:#00f5ff;
+    --green:#37ff78;
+    --yellow:#ffd21c;
+    --white:#fff;
+    --muted:#aaa8b8;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    background:
-      radial-gradient(circle at top,#392300 0%,transparent 30%),
-      radial-gradient(circle at 90% 30%,#241100 0%,transparent 28%),
-      linear-gradient(135deg,#050505,#11100c,#030303);
-    color:white;
     min-height:100vh;
-    padding:15px;
+    color:#fff;
+    background:
+        radial-gradient(circle at 10% 5%,rgba(138,43,226,.20),transparent 24%),
+        radial-gradient(circle at 90% 15%,rgba(255,0,150,.16),transparent 23%),
+        radial-gradient(circle at 50% 80%,rgba(0,220,255,.08),transparent 28%),
+        #050509;
+    overflow-x:hidden;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.08;
+    background-image:
+        radial-gradient(circle,#fff 1px,transparent 1px);
+    background-size:80px 80px;
+    z-index:-1;
+}
+
+button,input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
 }
 
 .container{
-    max-width:520px;
+    width:min(1180px,94%);
     margin:auto;
 }
 
-/* LOGO */
+/* =========================
+   NAVBAR
+========================= */
 
-.logo-box{
-    text-align:center;
-    padding:18px 10px 20px;
+.navbar{
+    height:76px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(5,5,10,.84);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
 }
 
-.panda{
-    width:95px;
-    height:95px;
-    margin:auto;
-    border-radius:50%;
+.nav-inner{
+    height:100%;
     display:flex;
     align-items:center;
-    justify-content:center;
-    font-size:55px;
-    background:linear-gradient(145deg,#fff,#d5d5d5);
-    border:4px solid #d6a735;
-    box-shadow:
-        0 0 15px #d6a735,
-        0 0 45px rgba(214,167,53,.45);
+    justify-content:space-between;
+    gap:15px;
 }
 
 .logo{
-    margin-top:14px;
-    font-size:35px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.logo-panda{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    background:linear-gradient(145deg,#fff,#aaa);
+    box-shadow:
+        0 0 12px rgba(255,255,255,.3),
+        0 0 25px rgba(150,40,255,.4);
+}
+
+.logo-text strong{
+    display:block;
+    color:#ffd21c;
+    font-size:18px;
     font-weight:1000;
-    letter-spacing:2px;
-    color:#ffd75a;
+    letter-spacing:1px;
+}
+
+.logo-text span{
+    display:block;
+    font-size:12px;
+    font-weight:900;
+    color:#fff;
+    margin-top:2px;
+}
+
+.nav-links{
+    display:flex;
+    gap:5px;
+    padding:5px;
+    background:#101018;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;
+}
+
+.nav-links button{
+    border:0;
+    background:transparent;
+    color:#aaa8b8;
+    padding:9px 13px;
+    border-radius:8px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.nav-links button:hover,
+.nav-links button.active{
+    background:#20172f;
+    color:#fff;
+    box-shadow:0 0 15px rgba(142,53,255,.15);
+}
+
+.account-btn{
+    border:1px solid #ffd21c;
+    background:linear-gradient(135deg,#ffe45a,#ffad00);
+    color:#111;
+    padding:11px 14px;
+    border-radius:10px;
+    font-size:11px;
+    font-weight:1000;
+    box-shadow:0 0 20px rgba(255,210,28,.18);
+}
+
+.mobile-menu{
+    display:none;
+    border:0;
+    background:#191525;
+    color:#fff;
+    width:39px;
+    height:39px;
+    border-radius:9px;
+    font-size:20px;
+}
+
+/* =========================
+   HERO / PANDA
+========================= */
+
+.hero{
+    margin-top:18px;
+}
+
+.hero-box{
+    position:relative;
+    min-height:390px;
+    overflow:hidden;
+    border-radius:22px;
+    border:1px solid rgba(178,68,255,.55);
+    background:
+        radial-gradient(circle at 70% 45%,rgba(157,48,255,.30),transparent 28%),
+        radial-gradient(circle at 95% 80%,rgba(255,20,170,.18),transparent 25%),
+        linear-gradient(115deg,#0c0715,#100a1d 50%,#09070e);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45),
+        inset 0 0 60px rgba(143,45,255,.08);
+}
+
+/* neon border */
+.hero-box:before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:24px;
+    border:2px solid transparent;
+    background:
+        linear-gradient(90deg,
+        #8d35ff,
+        #ff2d9b,
+        #00f5ff,
+        #8d35ff) border-box;
+    -webkit-mask:
+        linear-gradient(#000 0 0) padding-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    opacity:.7;
+    animation:borderMove 5s linear infinite;
+    pointer-events:none;
+}
+
+@keyframes borderMove{
+    0%{filter:hue-rotate(0deg)}
+    100%{filter:hue-rotate(360deg)}
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    width:60%;
+    padding:45px 40px;
+}
+
+.neon-symbols{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.neon-symbol{
+    position:absolute;
+    font-weight:1000;
+    font-size:32px;
+    opacity:.85;
+    filter:drop-shadow(0 0 8px currentColor)
+           drop-shadow(0 0 20px currentColor);
+    animation:neonFloat 4s ease-in-out infinite;
+}
+
+.neon-symbol.s1{
+    color:#ff2d9b;
+    left:6%;
+    top:13%;
+}
+
+.neon-symbol.s2{
+    color:#00f5ff;
+    left:47%;
+    top:10%;
+    animation-delay:1s;
+}
+
+.neon-symbol.s3{
+    color:#ffd21c;
+    left:40%;
+    bottom:12%;
+    animation-delay:1.7s;
+}
+
+.neon-symbol.s4{
+    color:#8d35ff;
+    right:34%;
+    top:20%;
+    animation-delay:2.2s;
+}
+
+@keyframes neonFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-4deg) scale(1);
+    }
+    50%{
+        transform:translateY(-13px) rotate(5deg) scale(1.08);
+    }
+}
+
+.hero-badge{
+    display:inline-flex;
+    padding:8px 13px;
+    border-radius:30px;
+    border:1px solid rgba(0,245,255,.4);
+    background:rgba(0,245,255,.06);
+    color:#9dfaff;
+    font-size:9px;
+    font-weight:900;
+    box-shadow:
+        0 0 14px rgba(0,245,255,.12),
+        inset 0 0 14px rgba(0,245,255,.04);
+    margin-bottom:16px;
+}
+
+.hero-title{
+    white-space:nowrap;
+    font-size:45px;
+    line-height:1;
+    letter-spacing:-2px;
+    font-weight:1000;
+    text-transform:uppercase;
+}
+
+.hero-title .panda-word{
+    color:#fff;
     text-shadow:
-        0 0 5px #ffd75a,
-        0 0 18px rgba(255,191,0,.8);
+        0 0 8px #fff,
+        0 0 20px rgba(255,255,255,.5);
 }
 
-.subtitle{
-    margin-top:6px;
-    color:#aaa;
-    font-size:13px;
+.hero-title .code-word{
+    color:#ffd21c;
+    text-shadow:
+        0 0 7px #ffd21c,
+        0 0 20px #ff8c00,
+        0 0 38px rgba(255,210,28,.45);
 }
 
-/* GOLD LINE */
+.hero-title .sale-word{
+    color:#ff42b3;
+    text-shadow:
+        0 0 8px #ff42b3,
+        0 0 20px #ff1597,
+        0 0 40px rgba(255,45,155,.45);
+}
 
-.gold-line{
-    height:2px;
+.hero-line{
+    width:270px;
+    height:3px;
+    margin-top:14px;
+    border-radius:20px;
     background:linear-gradient(
         90deg,
-        transparent,
-        #d6a735,
-        #fff1a8,
-        #d6a735,
+        #8d35ff,
+        #ff2d9b,
+        #ffd21c,
         transparent
     );
-    margin:5px 0 18px;
+    box-shadow:0 0 14px rgba(255,45,155,.6);
 }
 
-/* MAIN CARD */
+.hero p{
+    max-width:470px;
+    margin-top:17px;
+    color:#aaa8b8;
+    font-size:12px;
+    line-height:1.6;
+}
 
-.card{
-    background:linear-gradient(
-        145deg,
-        rgba(31,29,22,.96),
-        rgba(12,12,10,.96)
-    );
-    border:1px solid rgba(214,167,53,.35);
-    border-radius:24px;
-    padding:20px;
-    margin-bottom:16px;
+.hero-buttons{
+    display:flex;
+    gap:9px;
+    margin-top:20px;
+}
+
+.primary-btn,
+.secondary-btn{
+    padding:12px 18px;
+    border-radius:10px;
+    font-size:11px;
+    font-weight:1000;
+}
+
+.primary-btn{
+    border:1px solid #ffd21c;
+    color:#111;
+    background:linear-gradient(135deg,#ffe45a,#ffad00);
+    box-shadow:0 0 20px rgba(255,210,28,.18);
+}
+
+.secondary-btn{
+    border:1px solid rgba(255,255,255,.13);
+    color:#fff;
+    background:#171321;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* Panda 5D */
+.panda-stage{
+    position:absolute;
+    right:3%;
+    top:0;
+    width:42%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.panda-glow{
+    position:absolute;
+    width:270px;
+    height:270px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle,
+        rgba(180,60,255,.38),
+        rgba(92,30,200,.12) 45%,
+        transparent 70%);
+    filter:blur(10px);
+    animation:pandaGlow 3s ease-in-out infinite;
+}
+
+@keyframes pandaGlow{
+    0%,100%{
+        transform:scale(.95);
+        opacity:.7;
+    }
+    50%{
+        transform:scale(1.1);
+        opacity:1;
+    }
+}
+
+.panda-ring{
+    position:absolute;
+    width:270px;
+    height:270px;
+    border-radius:50%;
+    border:2px solid rgba(0,245,255,.25);
     box-shadow:
-        0 15px 45px rgba(0,0,0,.55),
-        inset 0 0 25px rgba(214,167,53,.04);
+        0 0 20px rgba(0,245,255,.18),
+        inset 0 0 30px rgba(255,45,155,.12);
+    animation:ringRotate 12s linear infinite;
 }
 
-/* HEADINGS */
-
-.title{
-    font-size:21px;
-    font-weight:900;
-    color:#ffd75a;
-    margin-bottom:6px;
+.panda-ring:before{
+    content:"777   ♦   ♠   777";
+    position:absolute;
+    inset:-18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ffd21c;
+    font-size:11px;
+    font-weight:1000;
+    letter-spacing:7px;
+    text-shadow:0 0 10px #ffd21c;
 }
 
-.description{
-    color:#969696;
-    font-size:13px;
-    margin-bottom:17px;
+@keyframes ringRotate{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
 }
 
-/* PACKAGES */
+.panda-emoji{
+    position:relative;
+    z-index:5;
+    font-size:145px;
+    filter:
+        drop-shadow(0 0 10px #fff)
+        drop-shadow(0 0 25px #9c3cff)
+        drop-shadow(0 0 45px #ff2d9b);
+    animation:pandaFloat 3s ease-in-out infinite;
+}
+
+@keyframes pandaFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-2deg);
+    }
+    50%{
+        transform:translateY(-12px) rotate(2deg);
+    }
+}
+
+.casino-badge{
+    position:absolute;
+    z-index:7;
+    padding:7px 11px;
+    border-radius:9px;
+    font-weight:1000;
+    font-size:15px;
+    background:rgba(5,5,10,.75);
+    backdrop-filter:blur(8px);
+    animation:badgeFloat 4s ease-in-out infinite;
+}
+
+.casino-badge.one{
+    right:18%;
+    top:18%;
+    color:#ffd21c;
+    border:1px solid #ffd21c;
+    box-shadow:0 0 18px rgba(255,210,28,.35);
+}
+
+.casino-badge.two{
+    left:10%;
+    bottom:20%;
+    color:#00f5ff;
+    border:1px solid #00f5ff;
+    box-shadow:0 0 18px rgba(0,245,255,.30);
+    animation-delay:1s;
+}
+
+.casino-badge.three{
+    right:5%;
+    bottom:22%;
+    color:#ff42b3;
+    border:1px solid #ff42b3;
+    box-shadow:0 0 18px rgba(255,45,155,.30);
+    animation-delay:1.5s;
+}
+
+@keyframes badgeFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-9px)}
+}
+
+/* =========================
+   BENEFITS
+========================= */
+
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border:1px solid rgba(255,255,255,.07);
+    border-top:0;
+    border-radius:0 0 16px 16px;
+    background:#101018;
+    overflow:hidden;
+}
+
+.benefit{
+    padding:16px;
+    display:flex;
+    gap:9px;
+    border-right:1px solid rgba(255,255,255,.06);
+}
+
+.benefit:last-child{
+    border-right:0;
+}
+
+.benefit-icon{
+    font-size:22px;
+}
+
+.benefit strong{
+    display:block;
+    font-size:11px;
+    font-weight:1000;
+    margin-bottom:4px;
+}
+
+.benefit span{
+    color:#858293;
+    font-size:9px;
+    line-height:1.4;
+}
+
+/* =========================
+   PACKAGES
+========================= */
+
+.packages-section{
+    margin-top:20px;
+    padding:20px;
+    border:1px solid rgba(141,53,255,.25);
+    border-radius:16px;
+    background:rgba(12,11,20,.85);
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:15px;
+}
+
+.section-title h2{
+    font-size:19px;
+    font-weight:1000;
+}
+
+.section-title p{
+    color:#858293;
+    font-size:10px;
+}
 
 .packages{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:10px;
 }
 
 .package{
     position:relative;
     overflow:hidden;
-    cursor:pointer;
-    padding:16px 12px;
-    border-radius:17px;
-    background:
-        linear-gradient(145deg,#191814,#0c0c0a);
-    border:1px solid #3d3625;
+    padding:15px 10px;
+    text-align:center;
+    border-radius:13px;
+    background:linear-gradient(150deg,#171124,#0d0c15);
+    border:1px solid rgba(141,53,255,.5);
     transition:.25s;
 }
 
-.package::before{
-    content:"";
-    position:absolute;
-    top:-40px;
-    right:-40px;
-    width:80px;
-    height:80px;
-    background:#ffd75a;
-    filter:blur(35px);
-    opacity:.12;
-}
-
 .package:hover{
-    transform:translateY(-3px);
-    border-color:#d6a735;
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
 }
 
-.package.selected{
-    border:2px solid #ffd75a;
-    box-shadow:
-        0 0 12px rgba(255,215,90,.3),
-        inset 0 0 20px rgba(255,215,90,.06);
+.package:nth-child(2){
+    border-color:#ffd21c;
 }
 
-.badge{
-    position:absolute;
-    top:8px;
-    right:8px;
-    font-size:9px;
-    padding:4px 6px;
-    border-radius:20px;
-    background:#d6a735;
-    color:#090909;
-    font-weight:bold;
+.package:nth-child(3){
+    border-color:#37ff78;
 }
 
-.amount{
-    font-size:24px;
+.package:nth-child(4){
+    border-color:#ff2d9b;
+}
+
+.package-icon{
+    font-size:32px;
+    margin-bottom:5px;
+    filter:drop-shadow(0 0 8px rgba(255,255,255,.2));
+}
+
+.package h3{
+    font-size:20px;
     font-weight:1000;
+}
+
+.package p{
+    color:#8d899b;
+    font-size:9px;
+    margin:5px 0 11px;
+}
+
+.select-package{
+    width:100%;
+    border-radius:8px;
+    padding:9px;
+    border:1px solid #a34cff;
+    background:#211238;
     color:#fff;
+    font-size:10px;
+    font-weight:1000;
 }
 
-.azn{
-    font-size:13px;
-    color:#ffd75a;
+.all-packages{
+    margin-top:10px;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:7px;
 }
 
-.package-name{
-    margin-top:7px;
-    font-size:12px;
-    color:#858585;
+.small-package{
+    text-align:center;
+    padding:10px 7px;
+    background:#101018;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:9px;
 }
 
-/* BUTTON */
+.small-package strong{
+    display:block;
+    color:#ffd21c;
+    font-size:14px;
+    font-weight:1000;
+}
 
-.btn{
+.small-package span{
+    display:block;
+    color:#777485;
+    font-size:8px;
+    margin-top:3px;
+}
+
+.small-package button{
     width:100%;
     border:0;
-    border-radius:16px;
-    padding:16px;
-    margin-top:15px;
-    cursor:pointer;
-    color:#080808;
-    font-size:16px;
-    font-weight:1000;
-    background:
-      linear-gradient(
-        100deg,
-        #b88620,
-        #ffe27a,
-        #c99728
-      );
-    box-shadow:
-      0 8px 25px rgba(214,167,53,.22);
-    transition:.2s;
+    background:#21172f;
+    color:#fff;
+    border-radius:6px;
+    padding:6px;
+    margin-top:7px;
+    font-size:9px;
 }
 
-.btn:hover{
-    transform:translateY(-2px);
-    filter:brightness(1.08);
-}
+/* =========================
+   ACCOUNT
+========================= */
 
-/* ORDER */
-
-.order{
+.account-section{
     display:none;
+    margin-top:20px;
+    padding:17px;
+    border-radius:15px;
+    border:1px solid rgba(141,53,255,.3);
+    background:#101018;
 }
 
-.order.show{
-    display:block;
-}
-
-.order-info{
-    background:#090908;
-    border:1px solid #373020;
-    border-radius:16px;
-    padding:15px;
-    margin-bottom:12px;
-}
-
-.order-row{
+.account-head{
     display:flex;
     justify-content:space-between;
+    align-items:center;
+}
+
+.account-user{
+    display:flex;
+    align-items:center;
     gap:10px;
-    padding:9px 0;
-    border-bottom:1px solid #25231d;
 }
 
-.order-row:last-child{
-    border-bottom:0;
-}
-
-.label{
-    color:#777;
-    font-size:12px;
-}
-
-.value{
-    color:#ffd75a;
-    font-weight:bold;
-    text-align:right;
-}
-
-/* PAYMENT */
-
-.payment{
-    display:none;
-}
-
-.payment.show{
-    display:block;
-}
-
-.card-number{
-    background:#080807;
-    border:1px solid #3c3322;
-    border-radius:17px;
-    padding:18px;
-    margin-top:12px;
-}
-
-.card-label{
-    color:#777;
-    font-size:11px;
-    margin-bottom:8px;
-}
-
-.number{
-    font-size:19px;
-    font-weight:900;
-    letter-spacing:2px;
-    color:#fff;
-    word-break:break-all;
-}
-
-.copy{
-    width:100%;
-    margin-top:12px;
-    border:1px solid #51452a;
-    background:#17150f;
-    color:#ffd75a;
-    border-radius:12px;
-    padding:12px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-/* RECEIPT */
-
-.receipt{
-    display:none;
-}
-
-.receipt.show{
-    display:block;
-}
-
-.upload{
-    border:1px dashed #5b4b29;
-    border-radius:18px;
-    padding:23px 15px;
-    text-align:center;
-    background:#0a0a08;
-}
-
-.upload-icon{
-    font-size:35px;
-    margin-bottom:8px;
-}
-
-.upload-text{
-    color:#999;
-    font-size:13px;
-    margin-bottom:14px;
-}
-
-input[type=file]{
-    width:100%;
-    color:#aaa;
-}
-
-/* SUCCESS */
-
-.success{
-    display:none;
-    text-align:center;
-}
-
-.success.show{
-    display:block;
-}
-
-.success-icon{
-    width:80px;
-    height:80px;
-    margin:auto;
+.avatar{
+    width:52px;
+    height:52px;
+    border-radius:50%;
     display:flex;
     align-items:center;
     justify-content:center;
-    border-radius:50%;
-    background:#102b19;
-    border:2px solid #32d46a;
-    color:#32d46a;
-    font-size:45px;
-    box-shadow:0 0 30px rgba(50,212,106,.25);
+    font-size:25px;
+    background:#211437;
+    border:1px solid #9c3cff;
+    box-shadow:0 0 18px rgba(156,60,255,.25);
 }
 
-.success h2{
-    margin-top:15px;
+.account-user h2{
+    font-size:14px;
+    font-weight:1000;
+}
+
+.account-user p{
+    color:#777485;
+    font-size:9px;
+    margin-top:4px;
+}
+
+.logout{
+    border:0;
+    border-radius:8px;
+    padding:9px 13px;
+    background:#21182e;
+    color:#fff;
+    font-size:10px;
+}
+
+.orders{
+    margin-top:13px;
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.orders-head{
+    padding:12px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    display:flex;
+    justify-content:space-between;
+}
+
+.orders-head h3{
+    font-size:11px;
+}
+
+.orders-list{
+    padding:8px;
+}
+
+.order{
+    display:grid;
+    grid-template-columns:50px 1.4fr 1fr 1fr;
+    gap:10px;
+    align-items:center;
+    padding:10px;
+    background:#14131e;
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:9px;
+    margin-bottom:6px;
+}
+
+.order-icon{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:9px;
+    background:#28133e;
+    font-size:23px;
+}
+
+.order-title{
+    font-size:10px;
+    font-weight:1000;
+}
+
+.order-price{
+    color:#ffd21c;
+    font-size:15px;
+    font-weight:1000;
+    margin:3px 0;
+}
+
+.order-info{
+    color:#777485;
+    font-size:8px;
+    line-height:1.5;
+}
+
+.status{
+    color:#37ff78;
+    font-size:8px;
+    font-weight:1000;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    margin-top:18px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:12px;
+    overflow:hidden;
+    background:#101018;
+}
+
+.stat{
+    text-align:center;
+    padding:15px;
+    border-right:1px solid rgba(255,255,255,.06);
+}
+
+.stat:last-child{
+    border:0;
+}
+
+.stat-icon{
     font-size:22px;
+}
+
+.stat strong{
+    display:block;
+    font-size:10px;
+    margin-top:4px;
+}
+
+.stat span{
+    color:#777485;
+    font-size:8px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:5000;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(12px);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(480px,100%);
+    max-height:92vh;
+    overflow:auto;
+    padding:20px;
+    border-radius:18px;
+    border:1px solid rgba(156,60,255,.45);
+    background:
+        radial-gradient(circle at 50% 0%,rgba(156,60,255,.13),transparent 40%),
+        #111018;
+    box-shadow:0 30px 90px #000;
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:16px;
+}
+
+.modal-head h2{
+    font-size:18px;
+    font-weight:1000;
+}
+
+.close{
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:8px;
+    background:#231d31;
+    color:#fff;
+    font-size:19px;
+}
+
+/* AUTH */
+
+.tabs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5px;
+    background:#09090f;
+    padding:4px;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.tabs button{
+    padding:9px;
+    border:0;
+    background:transparent;
+    color:#777485;
+    border-radius:6px;
+    font-size:10px;
+}
+
+.tabs button.active{
+    background:#281a3b;
     color:#fff;
 }
 
-.success p{
-    margin-top:8px;
-    color:#999;
-    line-height:1.5;
-    font-size:13px;
+.form-group{
+    margin-bottom:11px;
 }
 
-/* FOOTER */
+.form-group label{
+    display:block;
+    color:#92909e;
+    font-size:9px;
+    margin-bottom:5px;
+}
 
-.footer{
-    text-align:center;
-    color:#555;
+.input{
+    width:100%;
+    padding:11px;
+    border-radius:8px;
+    outline:0;
+    border:1px solid rgba(255,255,255,.09);
+    background:#0b0b11;
+    color:#fff;
     font-size:11px;
-    padding:10px 0 25px;
 }
 
-@media(max-width:380px){
-    .packages{
-        grid-template-columns:1fr;
-    }
-
-    .logo{
-        font-size:30px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-    <!-- LOGO -->
-
-    <div class="logo-box">
-
-        <div class="panda">🐼</div>
-
-        <div class="logo">
-            PANDA KOD
-        </div>
-
-        <div class="subtitle">
-            Premium Kod Mərkəzi
-        </div>
-
-    </div>
-
-    <div class="gold-line"></div>
-
-
-    <!-- PACKAGES -->
-
-    <div class="card">
-
-        <div class="title">
-            🎟️ Kod seçin
-        </div>
-
-        <div class="description">
-            İstədiyiniz məbləği seçərək sifariş məlumatını yaradın.
-        </div>
-
-        <div class="packages">
-
-            <div class="package" onclick="selectPackage(this,'10 AZN')">
-                <div class="amount">10 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'15 AZN')">
-                <div class="amount">15 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'20 AZN')">
-                <div class="amount">20 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'25 AZN')">
-                <div class="amount">25 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'30 AZN')">
-                <div class="amount">30 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'40 AZN')">
-                <div class="amount">40 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'50 AZN')">
-                <div class="amount">50 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'75 AZN')">
-                <div class="amount">75 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'100 AZN')">
-                <div class="amount">100 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'150 AZN')">
-                <div class="amount">150 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'200 AZN')">
-                <div class="amount">200 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'250 AZN')">
-                <div class="amount">250 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'300 AZN')">
-                <div class="amount">300 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'400 AZN')">
-                <div class="amount">400 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'500 AZN')">
-                <div class="amount">500 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'600 AZN')">
-                <div class="amount">600 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-            <div class="package" onclick="selectPackage(this,'700 AZN')">
-                <div class="amount">700 <span class="azn">AZN</span></div>
-                <div class="package-name">Kod paketi</div>
-            </div>
-
-        </div>
-
-        <button class="btn" onclick="createOrder()">
-            ✨ Kodu seç
-        </button>
-
-    </div>
-
-
-    <!-- ORDER -->
-
-    <div class="card order" id="order">
-
-        <div class="title">
-            🧾 Sifariş məlumatı
-        </div>
-
-        <div class="description">
-            Seçdiyiniz kodun məlumatları.
-        </div>
-
-        <div class="order-info">
-
-            <div class="order-row">
-                <span class="label">Məhsul</span>
-                <span class="value">Panda Kod</span>
-            </div>
-
-            <div class="order-row">
-                <span class="label">Seçilmiş məbləğ</span>
-                <span class="value" id="chosenPrice">—</span>
-            </div>
-
-        </div>
-
-        <button class="btn" onclick="showPayment()">
-            Davam et →
-        </button>
-
-    </div>
-
-
-    <!-- PAYMENT -->
-
-    <div class="card payment" id="payment">
-
-        <div class="title">
-            💳 Ödəniş məlumatı
-        </div>
-
-        <div class="description">
-            Aşağıdakı demo kart məlumatını kopyalamaq üçün düymədən istifadə edin.
-        </div>
-
-        <div class="card-number">
-
-            <div class="card-label">
-                KART NÖMRƏSİ
-            </div>
-
-            <div class="number" id="cardNumber">
-                0000 0000 0000 0000
-            </div>
-
-            <button class="copy" onclick="copyCard()">
-                📋 Kartı kopyala
-            </button>
-
-        </div>
-
-        <button class="btn" onclick="showReceipt()">
-            Qəbz göndər →
-        </button>
-
-    </div>
-
-
-    <!-- RECEIPT -->
-
-    <div class="card receipt" id="receipt">
-
-        <div class="title">
-            📸 Qəbz
-        </div>
-
-        <div class="description">
-            Qəbz faylını seçin.
-        </div>
-
-        <div class="upload">
-
-            <div class="upload-icon">
-                🧾
-            </div>
-
-            <div class="upload-text">
-                Qəbz şəkli və ya PDF faylı
-            </div>
-
-            <input
-                type="file"
-                id="receiptFile"
-                accept="image/*,.pdf"
-            >
-
-        </div>
-
-        <button class="btn" onclick="sendReceipt()">
-            ✓ Qəbzi göndər
-        </button>
-
-    </div>
-
-
-    <!-- SUCCESS -->
-
-    <div class="card success" id="success">
-
-        <div class="success-icon">
-            ✓
-        </div>
-
-        <h2>
-            Müraciət qəbul edildi
-        </h2>
-
-        <p>
-            Qəbz məlumatı demo olaraq qəbul edildi.
-            Sifariş məlumatlarını yoxlama bölməsindən idarə edə bilərsiniz.
-        </p>
-
-        <button class="btn" onclick="location.reload()">
-            Yeni sifariş
-        </button>
-
-    </div>
-
-
-    <div class="footer">
-        © 2026 PANDA KOD • Demo interfeys
-    </div>
-
-</div>
-
-
-<script>
-
-let selectedPrice = "";
-
-
-/* PAKET SEÇ */
-
-function selectPackage(element,price){
-
-    document.querySelectorAll(".package").forEach(function(item){
-        item.classList.remove("selected");
-    });
-
-    element.classList.add("selected");
-
-    selectedPrice = price;
-
+.input:focus{
+    border-color:#a64cff;
+    box-shadow:0 0 0 3px rgba(166,76,255,.07);
 }
 
-
-/* SİFARİŞ YARAT */
-
-function createOrder(){
-
-    if(selectedPrice === ""){
-
-        alert("Zəhmət olmasa kod məbləğini seçin.");
-
-        return;
-    }
-
-    document.getElementById("chosenPrice").textContent =
-        selectedPrice;
-
-    document.getElementById("order").classList.add("show");
-
-    document.getElementById("order").scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-
+.form-btn{
+    width:100%;
+    padding:12px;
+    border:0;
+    border-radius:9px;
+    background:linear-gradient(135deg,#ffe45a,#ffad00);
+    color:#111;
+    font-size:11px;
+    font-weight:1000;
 }
 
-
-/* ÖDƏNİŞ BÖLMƏSİ */
-
-function showPayment(){
-
-    document.getElementById("payment").classList.add("show");
-
-    document.getElementById("payment").scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-
+.error{
+    display:none;
+    color:#ff5c87;
+    font-size:9px;
+    margin-bottom:10px;
 }
 
+/* =========================
+   PAYMENT
+========================= */
 
-/* QƏBZ */
-
-function showReceipt(){
-
-    document.getElementById("receipt").classList.add("show");
-
-    document.getElementById("receipt").scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-
+.payment-summary{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:13px;
+    border-radius:11px;
+    background:#19152a;
+    border:1px solid rgba(156,60,255,.28);
+    margin-bottom:12px;
 }
 
-
-/* KART KOPYALA */
-
-function copyCard(){
-
-    const number =
-        document.getElementById("cardNumber")
-        .textContent
-        .trim();
-
-    navigator.clipboard.writeText(number)
-    .then(function(){
-
-        const button =
-            document.querySelector(".copy");
-
-        button.textContent = "✓ Kopyalandı";
-
-        setTimeout(function(){
-
-            button.textContent =
-                "📋 Kartı kopyala";
-
-        },1800);
-
-    });
-
+.payment-summary small{
+    display:block;
+    color:#777485;
+    font-size:8px;
 }
 
-
-/* QƏBZ GÖNDƏR */
-
-function sendReceipt(){
-
-    const file =
-        document.getElementById("receiptFile");
-
-    if(!file.files.length){
-
-        alert("Zəhmət olmasa qəbz faylını seçin.");
-
-        return;
-    }
-
-    document.getElementById("order")
-        .classList.remove("show");
-
-    document.getElementById("payment")
-        .classList.remove("show");
-
-    document.getElementById("receipt")
-        .classList.remove("show");
-
-    document.getElementById("success")
-        .classList.add("show");
-
-    document.getElementById("success")
-        .scrollIntoView({
-            behavior:"smooth",
-            block:"center"
-        });
-
+.payment-summary strong{
+    display:block;
+    font-size:11px;
+    margin-top:4px;
 }
 
-</script>
+.amount{
+    color:#ffd21c;
+    font-size:21px;
+    font-weight:1000;
+    text-shadow:0 0 15px rgba(255,210,28,.25);
+}
 
-</body>
-</html>
+/* MODERN CARD */
+
+.bank-card{
+    position:relative;
+    min-height:185px;
+    overflow:hidden;
+    padding:19px;
+    border-radius:18px;
+    background:
+        radial-gradient(circle at 90% 20%,rgba(0,245,255,.20),transparent 23%),
+        radial-gradient(circle at 10% 90%,rgba(255,45,155,.20),transparent 25%),
+        linear-gradient(135deg,#241035,#7024c5 48%,#140b25);
+    border:1px solid rgba(255,255,255,.20);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,.4),
+        0 0 35px rgba(141,53,255,.18);
+}
+
+.bank-card:before{
+    content:"777   ♦   777";
+    position:absolute;
+    right:13px;
+    bottom:13px;
+    color:rgba(255,255,255,.13);
+    font-size:18px;
+    font-weight:1000;
+    letter-spacing:4px;
+}
+
+.bank-top{
+    display:flex;
+    justify-content:space-between;
+}
+
+.bank-brand{
+    font-size:13px;
+    font-weight:1000;
+}
+
+.bank-brand span{
+    color:#ffd21c;
+}
+
+.chip{
+    width:39px;
+    height:28px;
+    border-radius:6px;
+    background:linear-gradient(135deg,#eee,#999);
+}
+
+.card-number{
+    margin:33px 0 20px;
+    font-size:19px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-shadow:0 2px 5px #000;
+}
+
+.card-bottom{
+    display:flex;
+    justify-content:space-between;
+    color:#d7d2df;
+    font-size:8px;
+}
+
+.copy-card{
+    width:100%;
+    margin-top:9px;
+    padding:11px;
+    border-radius:9px;
+    background:#1b142a;
+    color:#fff;
+    border:1px solid rgba(156,60,255,.35);
+    font-size:10px;
+    font-weight:1000;
+}
+
+.copy-card.copied{
+    color:#37ff78;
+    border-color:#37ff78;
+    background:#102518;
+}
+
+.payment-security{
+    margin:10px 0;
+    padding:9px;
+    border-radius:8px;
+    color:#72dc94;
+    background:rgba(55,255,120,.05);
+    border:1px solid rgba(55,255,120,.12);
+    font-size:8px;
+}
+
+.upload{
+    display:block;
+    text-align:center;
+    padding:17px;
+    border-radius:10px;
+    border:1px dashed #9143ff;
+    color:#bbb7c7;
+    background:#0d0c15;
+    cursor:pointer;
+    font-size:10px;
+}
+
+.upload input{
+    display:none;
+}
+
+.preview{
+    display:none;
+    width:100%;
+    max-height:210px;
+    object-fit:contain;
+    margin-top:8px;
+    border-radius:8px;
+}
+
+.confirm-payment{
+    width:100%;
+    margin-top:10px;
+    padding:13px;
+    border:0;
+    border-radius:9px;
+    background:linear-gradient(135deg,#ffe45a,#ffad00);
+    co
